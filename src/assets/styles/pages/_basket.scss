@@ -1,0 +1,164 @@
+.basket {
+  @media screen and (min-width: $screen-md-min) {
+    margin-top: 50px;
+  }
+  &-info {
+    // @include listBlock;
+    @media screen and (min-width: $screen-lg-min) {
+      .container {
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+    }
+    .cabinet-price {
+      text-align: left;
+    }
+    .table {
+      tr {
+        td {
+          @media screen and (min-width: $screen-md-min) {
+          vertical-align: middle;
+            &:nth-child(3) {
+              border-left: 1px solid $gray;
+              border-right: 1px solid $gray;
+              width: 170px;
+            }
+            &:nth-child(4) {
+              padding-left: 70px;
+            }
+            &:last-child {
+              padding-right: 0;
+            }
+          }
+        }
+        th {
+          @media screen and (min-width: $screen-md-min) {
+            padding-top: 60px;
+            border-bottom: 1px solid $gray;
+            &:nth-child(3) {
+              border-left: 1px solid $gray;
+              border-right: 1px solid $gray;
+            }
+            &:nth-child(4) {
+              padding-left: 70px;
+            }
+          }
+        }
+        td, th {
+          &:first-child {
+            padding-left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &-price {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+    @media screen and (min-width: $screen-md-min) {
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 40px 60px 60px;
+    }
+    &__desc {
+      margin-right: 30px;
+      font-size: 14px;
+      line-height: 1.5555;
+      width: 100%;
+      @media screen and (min-width: $screen-lg-min) {
+        width: auto;
+        margin-right: 70px;
+        font-size: 18px;
+      }
+    }
+    &__value {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 140%;
+      color: black;
+      width: 100%;
+      @media screen and (min-width: $screen-lg-min) {
+        width: auto;
+        font-size: 30px;
+      }
+    }
+  }
+
+  .btn {
+    height: 80px;
+    @media screen and (min-width: $screen-md-min) {
+      height: 100px;
+    }
+  }
+
+  &-order {
+    color: $gray-darken-1;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid $gray;
+    @media screen and (min-width: $screen-md-min) {
+      height: 130px;
+    }
+  }
+}
+
+.cabinet {
+  &-price {
+    text-align: center;
+  }
+  &-delete {
+    color: $gray-darken-1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50px;
+    border: 1px solid $gray;
+    cursor: pointer;
+
+    @media screen and (max-width: $screen-sm-max) {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    &:hover {
+      color: white;
+      background-color: $gray;
+    }
+  }
+}
+
+.input__quantity {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  input {
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    text-align: center;
+    width: 40px;
+  }
+  .inc,
+  .dec {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  img {
+    width: 14px;
+  }
+}

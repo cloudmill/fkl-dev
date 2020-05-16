@@ -1,0 +1,12 @@
+mixin nextBlock(title)
+  a.nextBlock.franciscoItem(href='#', data-aos="fade-up")
+    span.text__lg Следующий раздел
+    span.nextBlock__inner
+      h2= title
+      .franciscoHelper: span
+
+mixin nextBlockShort(title)
+  a.nextBlock.nextBlock--short.franciscoItem(href='#', data-aos="fade-up")
+    span.nextBlock__inner
+      h2= title
+      .franciscoHelper: span

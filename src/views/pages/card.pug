@@ -1,0 +1,245 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "card"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .section__left(data-aos="")
+      .card-info
+        .container
+          .mainTitle
+            h2(data-aos="fade-right", data-aos-delay="500") Подшипниковый узел (корпусный #[br] подшипник) LSFR308-TBT.H.T.Zn
+            .breadLink(data-aos="fade-left", data-aos-delay="600") Главная
+              span Оформление заказа /
+              span Корпусные / Подшипники /
+          .section__bottom__slider__item__tags(data-aos="fade-up", data-aos-delay="700")
+            .section__bottom__slider__item__tag #Скидка
+            .section__bottom__slider__item__tag #Новинка
+            .section__bottom__slider__item__tag #Спецпрограмма
+        .card-main
+          .row.row-null
+            .col.col__lg-7.col__xs-12(data-aos="fade-right", data-aos-delay="800")
+              .card-main__item
+                .row.middle__xs.between__xs
+                  .col.col__md-6.col__xs-12
+                    +img('card.png')
+                  .col.col__md-5.col__xs-12
+                    .section__bottom__slider__item__state.state_have Есть в наличии
+                    .section__bottom__slider__item__bot-inf Артикул: 6206-2Z
+                    .section__bottom__slider__item__bot-inf Диаметр отверстия (d): 22.25
+                    .section__bottom__slider__item__bot-inf Наружный диаметр (D): 52
+                    .section__bottom__slider__item__bot-inf Ширина подшипника (B): 2.54
+            .col.col__lg-5.col__xs-12(data-aos="fade-left", data-aos-delay="800")
+              .card-main__item.card-main__item--btn
+                .card-prices
+                  .section__bottom__slider__item__price.section__bottom__slider__item__price__old
+                    b 529,86 ₽
+                    span с НДС
+                  .section__bottom__slider__item__price
+                    | 529,86 ₽
+                    span с НДС
+                .input__quantity.input__quantity-js
+                  .inc: +img('icons/minus.svg')
+                  input.input__number-js(type='text', value='1')
+                  .dec: +img('icons/plus.svg')
+                a.btn.btn--info.btn--full.btn--icon.franciscoItem(href='#')
+                  .franciscoHelper
+                    span Перейти к оплате заказа
+                    +img('whiteRightAr.svg')
+          .row.row-null.card-bottom(data-aos="fade-right", data-aos-delay="800")
+            .col.col__md-7.col__xs-12.card-icons
+              ul.list--inline.text__sm
+                li.tooltip
+                  +img('card/wallet.svg')
+                  span Условия оплаты
+                  span.tooltiptext Принимаем онлайн платежи. Банковские карты. Безналичный расчет.
+                li.tooltip
+                  +img('card/garantee.svg')
+                  span Гарантия
+                  span.tooltiptext Гарантия на всю продукцию 12 месяцев
+                li.tooltip
+                  +img('card/truck.svg')
+                  span Условия доставки
+                  span.tooltiptext Доставка осуществляется транспортной компанией CDEK
+            .col.col__md-5.col__xs-12(data-aos="fade-left", data-aos-delay="800")
+              a.btn.btn--default.btn--full.franciscoItem(href='#')
+                .franciscoHelper Запросить обратный звонок
+          .tabs(data-aos="fade-up", data-aos-delay="900")
+            .tabs-list
+              a.tab.active(href='#stage1') Технические характеристики
+              a.tab(href='#stage2') Описание
+              a.tab(href='#stage3') Таблица аналогов
+              a.tab(href='#stage4') Тех. документация
+            #stage1.tabs-content.show(data-aos="fade-up")
+              .techContent
+                .row
+                  .col.col__md-6.col__xs-12
+                    ul.list--counter
+                      li
+                        .key a
+                        .value 17,65
+                      li
+                        .key D
+                        .value 47
+                      li
+                        .key B
+                        .value 20,96
+                      li
+                        .key C
+                        .value 9,8
+                      li
+                        .key C0
+                        .value 6,55
+                      li
+                        .key kg
+                        .value 0,13
+                  .col.col__md-6.col__xs-12
+                    h6 Схема работы
+                    .tech__slider
+                      .slidersTechCard
+                        - for (let x = 1; x < 5; x++)
+                          .slidersTechCard__item
+                            img(src='assets/images/card/slide.jpg', alt='')
+                      .arrowInfo
+                        .arrowInfo-item.prevTech: img(src='assets/images/slickPrev.svg', alt='')
+                        .arrowInfo-item.nextTech: img(src='assets/images/slickNext.svg', alt='')
+            #stage2.tabs-content(data-aos="fade-up")
+              .tabs-content__inner
+                .row.between__xs
+                  .col.col__md-7.col__xs-12
+                    h5 Предлагаем Вам, как производителям сельскохозяйственных агрегатов, очередной новейший узел завода FKL: ступица режущего узла PL-185-M30-L+M30X1.5-LH, устанавливающаяся на дисковые бороны LEMKEN Rubin.
+                    p.text__lg По результатам испытаний ступицы выявлено превосходство на несколько порядков в эксплуатации над применяемыми на сегодняшний день. В ступице внедрена уникальная система уплотнений, что играет важнейшую роль в эксплуатации в экстремальной среде России и СНГ.
+                    p.text__lg Данная ступица является полным аналогом оригинальной ступицы LEMKEN и обладает высочайшим качеством, присущим всей подшипниковой продукции завода FKL.
+                    p.text__lg Как и в оригинальном исполнении, в основе конструкции использован двухрядный шариковый подшипник 35/72, хорошо знакомый всем по обозначению 357234А FKL. Подшипник защищён специальным кассетным уплотнением, надёжно защищающим его от внешней агрессивной среды и мелкодисперсной пыли.
+                  .col.col__md-4.col__xs-12
+                    p.text__lg.margbot40: b Применение:
+                    ul.list--bullet
+                      li Культиваторы
+                      li Отвальные плуги
+                      li Рыхлители
+                      li Бороны дисковые
+                      li Косилки
+                      li Посевные комплексы (сеялки) и др.
+            #stage3.tabs-content(data-aos="fade-up")
+              .tabs-content__inner
+                h5 Обозначения аналогов:
+                ul.list--dots.col__lg-10
+                  li 9902892781
+                  li 237708.0
+                  li F04010131R
+                  li li6004-2RSH
+                  li 6004LLU
+                  li 6004DDU
+                  li CA001
+                  li 9902892781
+                  li CA079
+                  li CA002
+                  li KG01355200
+                  li 80300313
+                  li EMS000634R
+                  li 10161045
+                  li 10161036
+                  li 80537045
+                  li 86629499
+                  li 81002044
+                  li 1093001693
+            #stage4.tabs-content(data-aos="fade-up")
+              .tabs-content__inner
+                .card-etc.row
+                  .col.col__lg-4.col__md-6.col__xs-12
+                    .card-etc__item
+                      .card-etc__item-inner
+                        +img('card/pdf.svg')
+                        p ГОСТ 520-2011 Подшипники качения. Общие технические условия
+                      a.about__card__bottom.franciscoItem(href='#')
+                        .franciscoHelper
+                          img(src='assets/images/download.svg', alt='')
+                          p Скачать (3 мб)
+                  .col.col__lg-4.col__md-6.col__xs-12
+                    .card-etc__item
+                      .card-etc__item-inner
+                        +img('card/doc.svg')
+                        p ГОСТ 520-2011 Подшипники качения. Общие технические условия
+                      a.about__card__bottom.franciscoItem(href='#')
+                        .franciscoHelper
+                          img(src='assets/images/download.svg', alt='')
+                          p Скачать (3 мб)
+                  .col.col__lg-4.col__md-6.col__xs-12
+                    .card-etc__item
+                      .card-etc__item-inner
+                        +img('card/xls.svg')
+                        p ГОСТ 520-2011 Подшипники качения. Общие технические условия
+                      a.about__card__bottom.franciscoItem(href='#')
+                        .franciscoHelper
+                          img(src='assets/images/download.svg', alt='')
+                          p Скачать (3 мб)
+                  .col.col__lg-4.col__md-6.col__xs-12
+                    .card-etc__item
+                      .card-etc__item-inner
+                        +img('card/pdf.svg')
+                        p ГОСТ 520-2011 Подшипники качения. Общие технические условия
+                      a.about__card__bottom.franciscoItem(href='#')
+                        .franciscoHelper
+                          img(src='assets/images/download.svg', alt='')
+                          p Скачать (3 мб)
+                  .col.col__lg-4.col__md-6.col__xs-12
+                    .card-etc__item
+                      .card-etc__item-inner
+                        +img('card/doc.svg')
+                        p ГОСТ 520-2011 Подшипники качения. Общие технические условия
+                      a.about__card__bottom.franciscoItem(href='#')
+                        .franciscoHelper
+                          img(src='assets/images/download.svg', alt='')
+                          p Скачать (3 мб)
+          .card-bottom-title
+            h2(data-aos="fade-up") Вам могут подойти
+          .section__bottom__sliders(data-aos="fade-up")
+            +slickPrev()
+            .section__card__slider.active
+              - for (let x = 1; x < 4; x++)
+                .card__item
+                  .card__item__inner
+                    .card__item__inner-img
+                      img.section__bottom__slider__item__img(src='assets/images/prod_1.png', alt='')
+                    .section__bottom__slider__item__tags
+                      .section__bottom__slider__item__tag #Скидка
+                      .section__bottom__slider__item__tag #Новинка
+                    a.section__bottom__slider__item__name(href='#')
+                      | Подшипник шариковый самоустанавливающийся 6205-2S.EES
+                    .section__bottom__slider__item__price
+                      | 529,86 ₽
+                      span с НДС
+                    .section__bottom__slider__item__state.state_have
+                      | Есть в наличии
+                    .section__bottom__slider__item__bot-inf
+                      | Артикул: 6206-2Z
+                  a.btn.btn--full.btn--default.franciscoItem(href='#'): .franciscoHelper Добавить в заказ
+                  a.btn.btn--full.btn--default.franciscoItem(href='#'): .franciscoHelper Где купить?
+                .card__item
+                  .card__item__inner
+                    .card__item__inner-img
+                      img.section__bottom__slider__item__img(src='assets/images/prod_2.png', alt='')
+                    .section__bottom__slider__item__tags
+                      .section__bottom__slider__item__tag #Скидка
+                    a.section__bottom__slider__item__name(href='#')
+                      | Подшипник шариковый самоустанавливающийся 6205-2S.EES
+                    .section__bottom__slider__item__price
+                      | 529,86 ₽
+                      span с НДС
+                    .section__bottom__slider__item__state.state_delivery
+                      | Под заказ
+                    .section__bottom__slider__item__bot-inf
+                      | Артикул: 6206-2Z
+                  a.btn.btn--full.btn--default.franciscoItem(href='#'): .franciscoHelper Добавить в заказ
+                  a.btn.btn--full.btn--default.franciscoItem(href='#'): .franciscoHelper Где купить?
+            +slickNext()
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+

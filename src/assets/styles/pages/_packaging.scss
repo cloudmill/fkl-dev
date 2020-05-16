@@ -1,0 +1,150 @@
+.packaging {
+  &-info {
+    padding: 20px 0 0 20px;
+    // @include listBlock;
+    line-height: 180%;
+    @media screen and (min-width: $screen-md-min) {
+      //border-left: 1px solid $gray;
+      padding: 50px 0 0 50px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 110px 0 0 50px;
+    }
+    @media screen and (min-width: $screen-xl-min) {
+      padding: 110px 0 120px 50px;
+    }
+    .about__slider {
+      margin-bottom: 0;
+      @media screen and (max-width: $screen-sm-max) {
+        margin-bottom: 0;
+      }
+    }
+    h2 {
+      @media screen and (max-width: $screen-sm-max) {
+        padding: 0;
+      }
+    }
+
+    .arrowInfo {
+      //left: calc(48vw - 200px);
+      @media screen and (min-width: $screen-md-min) and (max-width: $screen-xmd-max) {
+        width: calc(100% - 12vw);
+      }
+      @media screen and (min-width: $screen-lg-min) {
+        left: calc(48vw - 200px);
+      }
+    }
+
+    .slick-dots {
+      left: 55vw;
+      @media screen and (max-width: $screen-sm-max) {
+        left: 0;
+      }
+    }
+    .pagingInfo {
+      right: 80px;
+      left: auto;
+    }
+    .slick-slide {
+      width: 48vw;
+      @media screen and (min-width: $screen-md-min) {
+        margin-right: 14vw;
+      }
+    }
+  }
+
+  @media screen and (min-width: $screen-lg-min) {
+    .slick-slide.slick-active:not(.slick-current) .sliderAbout__item-img {
+      width: 65%;
+      max-width: inherit;
+    }
+  }
+
+  &-inner {
+    padding-bottom: 30px;
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 0 200px 100px 90px;
+    }
+  }
+  &-old {
+    padding: 20px 0 0;
+    @include listBlock;
+    border-left: none;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 50px 50px 50px 0;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 100px 110px 120px 0;
+    }
+    .arrowInfo {
+      @media screen and (max-width: $screen-md-max) {
+        position: relative;
+        left: 0;
+        width: 100%;
+        > * {
+          width: 50%;
+        }
+      }
+      @media screen and (min-width: $screen-md-min) and (max-width: $screen-xmd-max) {
+        width: calc(100% - 12vw);
+      }
+    }
+    h2 {
+      margin-bottom: 20px;
+      margin-left: 20px;
+      @media screen and (min-width: $screen-md-min) {
+        margin-bottom: 40px;
+        margin-left: 40px;
+      }
+      @media screen and (min-width: $screen-lg-min) {
+        margin-left: 50px;
+        margin-bottom: 90px;
+      }
+    }
+    .slick-list {
+      overflow: visible;
+    }
+    .about__slider {
+      margin-bottom: 0;
+    }
+    .arrowInfo {
+      left: 0;
+      @media screen and (min-width: $screen-md-min) {
+        left: auto;
+        right: calc(48vw - 200px);
+        margin-left: 12vw;
+      }
+    }
+    .pagingInfo-rtl {
+      top: 0;
+      bottom: auto;
+      left: 50px;
+    }
+    .slick-slide {
+      width: 48vw;
+      margin-right: 0;
+      @media screen and (min-width: $screen-md-min) {
+        margin-left: 14vw;
+      }
+    }
+    .slick-dots {
+      display: none;
+      left: auto;
+      bottom: auto;
+      top: 0;
+      left: 0;
+      justify-content: center;
+      display: flex !important;
+      @media screen and (max-width: $screen-sm-max) {
+        top: auto;
+        bottom: -125px;
+        position: absolute;
+      }
+      @media screen and (min-width: $screen-md-min) {
+        right: 55vw;
+        left: auto;
+        display: block;
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "question"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .section__left(data-aos="")
+      .question-info
+        .cabinet
+          +asideNav(menuAside, pageName)
+          .cabinet-content
+            .cabinet-content-inner
+              +mainTitleH2('Задать вопрос', 'Личный кабинет')
+              .row.between__xs(data-aos="fade-up", data-aos-delay="700")
+                .col.col__lg-6.col__xs-12
+                  form.basicControl.margbot50(method='POST')
+                    .form__group: +fieldInput('text', 'name', '', 'Ваше имя', true)
+                    .form__group: +fieldInput('email', 'email', '', 'Электронная почта', true)
+                    .form__group: +fieldTextarea('message', '', 'Ваш вопрос', '5', false)
+                    .form__group
+                      button.btn.btn--info.btn--full.franciscoItem(type='submit')
+                        .franciscoHelper
+                          span Задать вопрос
+                    .checkbox
+                      input(type="checkbox", id='faqId')
+                      label.label(for='faqId')
+                        span Нажимая на кнопку «Задать вопрос», вы соглашаетесь на обработку персональных данных в соответствии с #[a(href='#') политикой конфиденциальности].
+                .col.col__xl-4.col__lg-5.col__xs-12.first__xs.last__lg
+                  p.text__lg.margbot60 Вы можете задать вопрос на тему доставки, возвратов, оплаты через форму обратной связи. Мы ответим вам на почту.
+                  p.text__sm.text--grey или задайте вопрос по телефону:
+                  .inlineIco.margbot30
+                    +img('contacts/phone.svg')
+                    a.text__lg(href='tel:84732110550') 8 473 211-05-50
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

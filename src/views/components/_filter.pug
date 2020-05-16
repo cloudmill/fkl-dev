@@ -1,0 +1,42 @@
+aside.aside(data-aos="fade-right", data-aos-delay="500")
+  .filter
+    .filter-title.filter-clicker.active.franciscoItem
+      .franciscoHelper
+        +img('icons/filter.svg')
+        span Скрыть фильтры
+        +img('icons/minus.svg')
+    .filter-list.active
+      .filter-list-header.filter-clicker.active Тип корпуса S (USP)
+      .filter-list-body.active
+        .filter-list__item
+          label Определите цену
+          #range
+          .input-group
+            input.control.control--border#skip-value-lower(type='text')
+            span —
+            input.control.control--border#skip-value-upper(type='text')
+            span р.
+        .filter-list__item
+          label Выберите диапазон (мм)
+          .input-group
+            input.control.control--border(type='number')
+            span ≤d≤
+            input.control.control--border(type='number')
+        .filter-list__item
+          label Расстояние между отверстиями (мм)
+          .input-group
+            input.control.control--border(type='number')
+            span ≤S≤
+            input.control.control--border(type='number')
+        .filter-list__item
+          label Наружный диаметр (мм)
+          .input-group
+            input.control.control--border(type='number')
+            span ≤D≤
+            input.control.control--border(type='number')
+      a.btn.btn--info.btn--full.btn--icon.franciscoItem(href='#')
+        .franciscoHelper
+          span Подобрать
+          +img('whiteRightAr.svg')
+      a.btn.btn--default.btn--full.franciscoItem(href='#')
+        .franciscoHelper Сбросить

@@ -1,0 +1,142 @@
+.page404 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  //background: url("../images/mainBack.jpg") no-repeat center / cover;
+  background: radial-gradient(50% 50% at 50% 50%, #002A97 0%, #001241 100%);
+  padding-left: 0;
+  position: relative;
+  overflow: hidden;
+
+  &-img {
+    mix-blend-mode: hard-light;
+    transition: transform .5s;
+  }
+
+  &-img1 {
+    position: absolute;
+    top: -3%;
+    left: 0;
+    @media screen and (min-width: $screen-lg-min) {
+      left: 15%;
+      top: 3%;
+    }
+    @media screen and (max-width: $screen-sm-max) {
+      img {
+        width: 30vw;
+      }
+    }
+  }
+  &-img2 {
+    position: absolute;
+    right: -5%;
+    bottom: -5%;
+    @media screen and (min-width: $screen-lg-min) {
+      right: 5%;
+      bottom: 5%;
+    }
+    @media screen and (max-width: $screen-sm-max) {
+      display: none;
+    }
+  }
+  &-img3 {
+    position: absolute;
+    left: -10%;
+    bottom: -5%;
+    @media screen and (min-width: $screen-lg-min) {
+      bottom: 5%;
+    }
+    @media screen and (max-width: $screen-sm-max) {
+      display: none;
+    }
+  }
+  &-img4 {
+    position: absolute;
+    top: -5%;
+    right: -5%;
+    @media screen and (max-width: $screen-xmd-max) {
+      img {
+        width: 40vw;
+      }
+    }
+  }
+  .btn {
+    .franciscoHelper {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &-content {
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+    @media screen and (min-width: $screen-md-min) {
+      width: 450px;
+      padding: 0;
+    }
+    a {
+      color: white;
+      &:not(.btn) {
+        img {
+          border-radius: 50px;
+          transition: background-color .5s;
+        }
+        &:hover {
+          img {
+            background-color: $base-color-dark;
+          }
+        }
+      }
+    }
+
+    .text__sm {
+      margin: 30px 0 40px;
+      display: block;
+      @media screen and (min-width: $screen-md-min) {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      img {
+        margin: 0 15px;
+        vertical-align: middle;
+      }
+    }
+    .btn {
+      img {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  &-title {
+    font-family: 'massMedium';
+    font-weight: 800;
+    font-size: 120px;
+    line-height: 120%;
+  }
+}
+
+.bodypage404 {
+  .searchBar {
+    height: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .container {
+      width: 100%;
+    }
+    &__close {
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      @media screen and (min-width: $screen-md-min) {
+        right: 70px;
+      }
+    }
+  }
+}

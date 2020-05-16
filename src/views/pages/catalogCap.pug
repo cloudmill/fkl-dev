@@ -1,0 +1,81 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "catalog"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .section__left(data-aos="")
+      .catalog-info
+        .cabinet
+          include ../components/_filter
+          .cabinet-content
+            .cabinet-content-inner
+              +mainTitleH2('Специальная программа #[br] для сельхозтехники', 'Каталог')
+              ul.catalog-nav(data-aos="fade-up", data-aos-delay="700")
+                li: a(href='#') Шариковые подшипники для сельльскохозяйственной техники #[span 20]
+                li: a(href='#') Подшипники для отечественных производителей #[span 50]
+                li: a(href='#') Подшипники для зарубежных производителей #[span 70]
+                li: a(href='#') Сальники #[span 10]
+              ul.catalog-btn-nav(data-aos="fade-up", data-aos-delay="800")
+                li: a.btn.btn__sm.franciscoItem(href='#'): .franciscoHelper Подшипники для почвообрабатывающей техники
+                li: a.btn.btn__sm.franciscoItem.active(href='#'): .franciscoHelper Подшипники для сеялки
+                li: a.btn.btn__sm.franciscoItem(href='#'): .franciscoHelper Подшипники для прикатывающих устройств
+                li: a.btn.btn__sm.franciscoItem(href='#'): .franciscoHelper Подшипники для комбайнов
+                li: a.btn.btn__sm.franciscoItem(href='#'): .franciscoHelper Подшипники для универсального применения
+            .tabs(data-aos="fade-up", data-aos-delay="900")
+              .tabs-list
+                a.tab.active(href='#stage1') Ассортимент
+                a.tab(href='#stage2') Описание
+              #stage1.tabs-content.show
+                .cap__inner
+                  h5 Товар доступен только под заказ от 2000 позиций
+                  p Чтобы узнать стоимость и сроки изготовлении, оставьте заявку, позвоните или напишите на почту.
+                  .row.between__xs
+                    .contacts-list.col.col__md-6.col__xs-12(data-aos="fade-up", data-aos-delay="900")
+                      .contacts-list__ico
+                        +img('contacts/phone.svg')
+                      .contacts-list__desc
+                        h5: a(href='tel:84732110550') 8 473 211-05-50
+                        p.text--grey.text__sm (многоканальный)
+                    .contacts-list.col.col__md-6.col__xs-12(data-aos="fade-up", data-aos-delay="1000")
+                      .contacts-list__ico
+                        +img('contacts/envelope.svg')
+                      .contacts-list__desc
+                        h5: a(href='mailto:mail@rusfkl.ru') mail@rusfkl.ru
+                  form(data-aos="fade-up")
+                    .row
+                      .col.col__md-6.col__xs-12.form__group: +fieldInput('text', 'name', '', 'Ваше имя', true)
+                      .col.col__md-6.col__xs-12.form__group: +fieldInput('text', 'phone', '', 'Телефон', true)
+                      .col.col__xs-12.form__group
+                        a.btn.btn--info.btn--full.btn--icon.franciscoItem(href='#')
+                          .franciscoHelper
+                            span Отправить
+                            +img('whiteRightAr.svg')
+                      .col.col__xs-12.form__group.checkbox
+                        input#agreement(type='checkbox', name='agreement')
+                        label.label(for='agreement')
+                          span Согласен на обработку персональных данных в соответствии с #[a(href='#') политикой конфиденциальности.]
+              #stage2.tabs-content
+                .cap__inner
+                  h5 Товар доступен только под заказ от 2000 позиций
+            .cap__desc
+              h5 Подборки
+              ul.catalog-nav(data-aos="fade-up")
+                li: a(href='#') Подшипники Lemken
+                li: a(href='#') Подшипники case
+                li: a(href='#') Подшипники Claas
+                li: a(href='#') Подшипники Shtern
+                li: a(href='#') Подшипники John Deere
+                li: a(href='#') Подшипники Lemken
+                li: a(href='#') Подшипники US
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

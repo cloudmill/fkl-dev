@@ -1,0 +1,230 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "dealers clientsBlock"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .container
+      +mainTitle('Дилерам', 'Дилерам', true)
+      +menuSub(menuClients, 'dealers')
+    .section__left(data-aos="")
+      .dealers-info
+        h2.vertical-reveal-outer
+          .vertical-reveal-inner(data-aos="") Любая компания, занимающаяся торговлей, #[br] снабжением промышленных предприятий #[br] подшипниками, карданами, может стать торговым #[br] партнером или региональным Дилером.
+        .blueLine(data-aos="fade-up", data-aos-delay="700")
+          h5.vertical-reveal-outer
+            .vertical-reveal-inner(data-aos="") ООО «ФКЛ РУС» различает несколько стадий взаимоотношений #[br] с торговыми компаниями в отношении развития выше #[br] упомянутой торговой марки:
+        .dealers-counter(data-aos="fade-up")
+          .dealers-counter-item
+            .dealers-counter__num 01
+            .dealers-counter__text Дилер
+          .dealers-counter-item
+            .dealers-counter__num 02
+            .dealers-counter__text Торговый партнер
+          .dealers-counter-item
+            .dealers-counter__num 03
+            .dealers-counter__text Покупатель
+      .dealers-accordion.accordion(data-aos="fade-up")
+        .accordion-item(data-aos="fade-up")
+          .accordion-header: .title Получение статуса «Дилер» происходит на основании
+          .accordion-content
+            ul.list--bullet
+              li Письменно оформленного желания Партнера стать Дилером
+              li
+                p Фактического достижения согласованных показателей объемов продаж продукции за период #[small (как правило, 6 месяцев)].
+                p Согласование объемов продаж происходит с менеджерами ООО «ФКЛ РУС»;
+              li Сформированного на базе Партнера склада по продукции Компании #[small (согласно общим условиям)].
+        .accordion-item(data-aos="fade-up")
+          .accordion-header: .title Обязательства Дилера
+          .accordion-content
+            ul.list--bullet
+              li Письменно оформленного желания Партнера стать Дилером
+              li
+                p Фактического достижения согласованных показателей объемов продаж продукции за период #[small (как правило, 6 месяцев)].
+                p Согласование объемов продаж происходит с менеджерами ООО «ФКЛ РУС»;
+              li Сформированного на базе Партнера склада по продукции Компании #[small (согласно общим условиям)].
+      .dealers-rating(data-aos="fade-up")
+        h2.vertical-reveal-outer
+          .vertical-reveal-inner(data-aos="") Оценка
+        p(data-aos="fade-up") Cтатуса партнера происходит ежегодно и действует в течение всего следующего года.
+        h2.vertical-reveal-outer
+          .vertical-reveal-inner(data-aos="") Условия получения статуса дилера
+        .dealers-rating-item(data-aos="fade-up")
+          h5.vertical-reveal-outer
+            .vertical-reveal-inner(data-aos="") Минимальные суммы складского заказа
+          .ratingSystem
+            .ratingSystem__item
+              span Москва и ЮФО
+              span 2 000 000 ₽
+            .ratingSystem__item
+              span Города с населением свыше 1 млн.
+              span 1 000 000 ₽
+            .ratingSystem__item
+              span Города с населением менее 1 млн.
+              span 800 000 ₽
+        .dealers-rating-item(data-aos="fade-up")
+          h5.vertical-reveal-outer
+            .vertical-reveal-inner(data-aos="") Минимальный годовой объем продаж
+          .ratingSystem
+            .ratingSystem__item
+              span Москва и ЮФО
+              span 30 000 000 ₽
+            .ratingSystem__item
+              span Города с населением свыше 1 млн.
+              span 14 000 000 ₽
+            .ratingSystem__item
+              span Города с населением менее 1 млн.
+              span 9 000 000 ₽
+      .dealers-advantages(data-aos="fade-up")
+        h2.vertical-reveal-outer
+          .vertical-reveal-inner(data-aos="") Преимущества для дилера
+        .dealers-advantages-content
+          .dealers-advantages-content-item
+            .dealers-advantages-content__num 01
+            .dealers-advantages-content__text Поддерживать ценовую политику, обеспечивающую Дилеру высокий уровень дохода
+          .dealers-advantages-content-item
+            .dealers-advantages-content__num 02
+            .dealers-advantages-content__text Своевременно уведомлять Дилера об изменении цен, ассортимента, производственных мощностей, участников дилерской сети FKL
+          .dealers-advantages-content-item
+            .dealers-advantages-content__num 03
+            .dealers-advantages-content__text Поставлять продукцию высокого качества и соблюдать установленные сроки поставки
+        .dealers-advantages-content
+          .dealers-advantages-content-item
+            .dealers-advantages-content__num 04
+            .dealers-advantages-content__text Предоставлять Дилеру рекламные материалы и техническую информацию о продукции FKL
+          .dealers-advantages-content-item
+            .dealers-advantages-content__num 05
+            .dealers-advantages-content__text Предоставлять сотрудникам Дилера возможности для повышения уровня их профессиональной квалификации
+          .dealers-advantages-content-item
+            .dealers-advantages-content__num 06
+            .dealers-advantages-content__text Предоставлять выгодные условия оплаты для Дилера при условии успешного долгосрочного сотрудничества
+        .dealers-advantages-img
+      .dealers-table(data-aos="fade-up")
+        .table--responsive(data-aos="fade-up")
+          table.table
+            thead
+              tr
+                th Условия ФКЛ РУС
+                th Дилер
+                th Покупатель
+            tbody
+              tr
+                td Цены
+                td VIP #[br] (минимальный уровень цен)
+                td MAX #[br] (цена конечного потребителя)
+              tr
+                td Совместное проведение выставок, презентаций, рекламных акций
+                td: +img('icons/plus.svg')
+                td: +img('icons/minus.svg')
+              tr
+                td Обучение / практика
+                td: +img('icons/plus.svg')
+                td: +img('icons/minus.svg')
+              tr
+                td Проведение совместных визитов
+                td: +img('icons/plus.svg')
+                td: +img('icons/plus.svg')
+              tr
+                td Специальные цены
+                td: +img('icons/plus.svg')
+                td: +img('icons/plus.svg')
+              tr
+                td Посещение завода FKL*
+                td: +img('icons/plus.svg')
+                td: +img('icons/plus.svg')
+              tr
+                td On-line доступ к складу ООО «ФКЛ РУС»
+                td: +img('icons/plus.svg')
+                td: +img('icons/plus.svg')
+              tr
+                td Закрепление Конечных покупателей
+                td: +img('icons/plus.svg')
+                td: +img('icons/plus.svg')
+              tr
+                td Рекламные материалы
+                td: +img('icons/plus.svg')
+                td: +img('icons/minus.svg')
+              tr
+                td Информационная поддержка на всех Интернет ресурсах ООО «ФКЛ РУС»
+                td: +img('icons/plus.svg')
+                td: +img('icons/minus.svg')
+              tr
+                td Возврат запросов от Клиентов региона, в котором расположен Партнер
+                td: +img('icons/plus.svg')
+                td: +img('icons/minus.svg')
+              tr
+                td Сертификат Дилера
+                td: +img('icons/plus.svg')
+                td: +img('icons/minus.svg')
+        p.text__sm * Условия посещения завода FKL рассматриваются индивидуально с каждым Партнером и утверждаются отдельным письменным соглашением.
+        h2.vertical-reveal-outer
+          .vertical-reveal-inner(data-aos="") Условия отсрочки
+        .table--adaptive(data-aos="fade-up")
+          table.table.table--left
+            thead
+              tr
+                th Тип заказа
+                th Дилер
+                th Покупатель
+            tbody
+              tr
+                td(data-label='Тип заказа') Текущие заказы
+                td(data-label='Дилер') 15 календарных дней
+                td.w30(data-label='Покупатель') 100% предоплата, при условии наличия на складе. 50% предоплата остальные 50% по прибытию товара на склад ООО «ФКЛ РУС»
+              tr
+                td(data-label='Тип заказа') Складские заказы
+                td(data-label='Дилер') 7 календарных дней
+                td.w30(data-label='Покупатель'): +img('icons/minus.svg')
+      .dealers-accordion.accordion
+        .accordion-item(data-aos="fade-up")
+          .accordion-header: .title Обязательные документы для заключения договора поставки на условиях отсрочки платежа
+          .accordion-content
+            ul.list--bullet
+              li Письменно оформленного желания Партнера стать Дилером
+              li
+                | Фактического достижения согласованных показателей объемов продаж продукции за период #[small (как правило, 6 месяцев)].
+                br
+                | Согласование объемов продаж происходит с менеджерами ООО «ФКЛ РУС»;
+              li Сформированного на базе Партнера склада по продукции Компании #[small (согласно общим условиям)].
+      div(data-aos="fade-up")
+        a.about__card__bottom.franciscoItem(href='#')
+          .franciscoHelper
+            img(src='assets/images/download.svg', alt='')
+            p Скачать презентацию в .PDF #[span (245 кб)]
+      .faq-form
+        .faq-form__left(data-aos="fade-right")
+          h2 Хочу стать #[br] дилером
+          p.text__lg Вы можете оставить заявку #[br] на получание статуса дилера через #[br] форму обратной связи
+          br
+          br
+          p.text__sm.text--grey или задайте вопрос по телефону:
+          .inlineIco
+            +img('contacts/phone.svg')
+            a(href='tel:84732110550'): span 8 473 211-05-50
+        form.faq-form__right(data-aos="fade-left")
+          .inner.text--center
+            h3 Спасибо, мы с Вами #[br] свяжемся
+            .form__group
+              a.btn.btn--primary.btn--full.return--js(href='#'): span Задать ещё вопрос
+          .outer
+            .form__group: +fieldInput('text', 'name', '', 'Ваше имя', true)
+            .form__group: +fieldInput('email', 'email', '', 'Электронная почта', true)
+            .form__group: +fieldTextarea('message', '', 'Ваш вопрос', '5', false)
+            .form__group
+              a.btn.btn--primary.btn--full(href='#'): span Отправить заявку на получение статуса дилера
+            .form__group
+              .checkbox
+                input(type="checkbox", id='faqId')
+                label.label(for='faqId') Нажимая на кнопку «Задать вопрос», вы соглашаетесь на обработку персональных данных в соответствии с #[a(href='#') политикой конфиденциальности].
+      +nextBlock('Дилерам')
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

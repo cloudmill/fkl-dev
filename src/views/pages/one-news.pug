@@ -1,0 +1,67 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "news"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .container
+      +mainTitle('Новости', 'О компании', true)
+      +menuSub(menuAbout, pageName)
+    .section__left(data-aos="")
+      .news-one-info
+        h2.vertical-reveal-outer
+          .vertical-reveal-inner(data-aos="") РУС ФКЛ отгрузила более 150 тысяч изделий для ТЕХНИКА-СЕРВИС
+        .text--grey.text__sm(data-aos="fade-up", data-aos-delay="700") 24 октября 2019
+        .news-one-content(data-aos="fade-up", data-aos-delay="800")
+          +img('one-news.jpg')
+          .blueLine
+            h5(data-aos="fade-up") Дорогие друзья и партнеры!
+          p(data-aos="fade-up") Коллектив компании FKL RUS поздравляет Вас с наступающим Новым годом и Рождеством! Желаем Вам успешного развития Вашего бизнеса и увеличения достигнутых показателей нашей совместной работы. Новых побед Вам и достижений, крепкого здоровья, радости и счастья, мира и благополучия!
+          blockquote(data-aos="fade-up") Пусть этот праздник, волшебный и яркий, #[br] Много прекрасных минут принесет, #[br] И восхищают сюрпризы, подарки, #[br] Все, что загадано, произойдет! #[br] Жизни чудесной, улыбок веселых, #[br] Верить в удачу свою и мечту! #[br] Верных друзей, замечательных, добрых, #[br] Счастья и радости в новом году!
+      .news-one-helper(data-aos="fade-up")
+        a.link-helper.franciscoItem(href='#')
+          span.franciscoHelper
+            +img('arrow-left--long-gr.svg')
+            span Вернуться к новостям
+        .social-helper
+          .footer__social
+            span Поделиться:
+            a.footer__social__item(href='')
+              i.icon.icon_fb
+            a.footer__social__item(href='')
+              i.icon.icon_vk
+            a.footer__social__item(href='')
+              i.icon.icon_yt
+            a.footer__social__item(href='')
+              i.icon.icon_inst
+      .news-one-subTitle
+        h2(data-aos="fade-up") Другие новости
+      .section__bottom__sliders(data-aos="fade-up")
+        +slickPrev()
+        .section__bottom__slider.active
+          .section__bottom__slider__item
+            div
+              .section__bottom__new__date 24 октября 2019
+              a.section__bottom__new__title(href='#') РУС ФКЛ отгрузила более 150 тысяч изделий для ТЕХНИКА-СЕРВИС
+              .section__bottom__new__text Компоненты для производства - шарики, трубы, отливки, уплотнения, пластик, смазка, антикоррозийная защита, премиального качества от европейских поставщиков...
+          .section__bottom__slider__item
+            div
+              .section__bottom__new__date 24 октября 2019
+              a.section__bottom__new__title(href='#') РУС ФКЛ отгрузила более 150 тысяч изделий для ТЕХНИКА-СЕРВИС
+              .section__bottom__new__text Компоненты для производства - шарики, трубы, отливки, уплотнения, пластик, смазка, антикоррозийная защита, премиального качества от европейских поставщиков...
+          .section__bottom__slider__item
+            div
+              .section__bottom__new__date 24 октября 2019
+              a.section__bottom__new__title(href='#') РУС ФКЛ отгрузила более 150 тысяч изделий для ТЕХНИКА-СЕРВИС
+              .section__bottom__new__text Компоненты для производства - шарики, трубы, отливки, уплотнения, пластик, смазка, антикоррозийная защита, премиального качества от европейских поставщиков...
+        +slickNext()
+      +nextBlock('Благодарности')
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer

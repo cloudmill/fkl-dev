@@ -1,0 +1,56 @@
+.accordion-content
+  .main-content.main-content--list
+    ul.list--bullet.vacancyList
+      li Требуемый опыт работы: #[br] 1–3 года
+      li Полная занятость, #[br] полный день
+    .vacancyBlock
+      p.text__lg Должностные обязанности:
+      ul.list--dots
+        li Конструирование нестандартного оборудования.
+        li Конструирование перемешивающих устройств.
+        li Конструирование емкостного оборудования для пищевой, нефтехимической и фармацевтической промышленности.
+        li Конструирование металлоконструкций.
+        li Проведение расчетов на прочность емкостного оборудования, механических узлов (подшипники, валы и пр.)
+        li Разработка сборочных чертежей и чертежей деталей (оформление по ЕСКД) нестандартного, емкостного, технологического оборудования для передачи их на производство.
+    .vacancyBlock
+      p.text__lg Требования:
+      ul.list--dots
+        li Высшее техническое образование, специализация машиностроение
+        li Опыт работы конструктором в области машиностроения не менее 2 лет
+        li Профессиональные навыки работы с программами AutoCAD, Компас, пакет Microsoft Office.
+        li Внимательность, ответственность к работе
+    .vacancyBlock
+      p.text__lg Условия:
+      ul.list--dots
+        li Работа в Красногвардейском р-не, М. Ладожская.
+        li Оформление в соответствии с ТК РФ.
+        li График работы 5/2; с 08.00 до 16.30 час.
+        li Зарплата выплачивается два раза в месяц без задержек
+        li Работа с нестандартными , интересными проектами в составе команды профессионалов
+  .main-content--form(style='display:none')
+    h5 Откликнуться на вакансию
+    .row.row-null
+      .col.col__xs-12: +fieldInput('text', 'name2', '', 'Ваше имя', true)
+      .col.col__md-6.col__xs-12: +fieldInput('text', 'phone', '', 'Номер телефона', true)
+      .col.col__md-6.col__xs-12: +fieldInput('text', 'email2', '', 'Электронная почта', true)
+      .col.col__xs-12: +fieldTextarea('message2', '', 'Комментарий', '5', false)
+      .col.col__xs-12
+        .input__file
+          button.btn.btn--default.btn--full.input__name-js
+            +img('icons/add.svg')
+            span Прикрепить файл
+          input.input__file-js(type="file")
+      .col.col__xs-12
+        button.btn.btn--info.btn--full.btn--icon.franciscoItem(type='submit')
+          .franciscoHelper
+            | Отправить
+            +img('whiteRightAr.svg')
+      .col.col__xs-12
+        .checkbox
+          input(type="checkbox", id='faqId')
+          label.label(for='faqId')
+            span Нажимая на кнопку «Задать вопрос», вы соглашаетесь на обработку персональных данных в соответствии с #[a(href='#') политикой конфиденциальности].
+  a.btn.btn--info.btn--full.btn--icon.franciscoItem.showForm--js.showBtn(href='#')
+    .franciscoHelper
+      span Откликнуться на вакансию
+      +img('whiteRightAr.svg')

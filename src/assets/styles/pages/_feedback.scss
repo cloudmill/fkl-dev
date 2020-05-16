@@ -1,0 +1,13 @@
+.feedback {
+  &-info {
+    // @include listBlock;
+    //border-left: none !important;
+  }
+  .faq-form {
+    border-top: 1px solid $gray;
+    border-left: none;
+    @media screen and (min-width: $screen-md-min) {
+      border-top: none;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "deliveryTime"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .section__left(data-aos="")
+      .deliveryTime-info
+        .cabinet
+          +asideNav(menuAside, pageName)
+          .cabinet-content
+            .cabinet-content-inner
+              +mainTitleH2('Какие сроки доставки?', 'Личный кабинет')
+              p.text__lg.vertical-reveal-outer
+                .vertical-reveal-inner(data-aos="") Сроки доставки зависят от выбранной службы и способа доставки.
+              h5.vertical-reveal-outer
+                .vertical-reveal-inner(data-aos="") По умолчанию мы работаем через компанию #[span «CDEK»], #[br] если Вам требуется доставка другой ТК, свяжитесь с менеджером #[br] по телефону 8 473 211-05-50
+              ul.manufacturing-attr--list
+                li(data-aos="fade-up", data-aos-delay="800")
+                  div: +img('shipping/truck.svg')
+                  .desc
+                    p.text__lg Доставка до терминала по Воронежу
+                    p.text__xl Бесплатно
+                li(data-aos="fade-up", data-aos-delay="900")
+                  div: +img('shipping/truck-2.svg')
+                  .desc
+                    p.text__lg Курьерская доставка по городу
+                    p.text__xl ~ 400 рублей
+            include ../components/_shippingList
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

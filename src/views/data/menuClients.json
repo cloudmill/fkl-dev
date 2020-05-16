@@ -1,0 +1,46 @@
+[
+  {
+    "title": "Гарантии FKL",
+    "href": "clients"
+  },
+  {
+    "title": "Дилерам",
+    "href": "dealers"
+  },
+  {
+    "title": "Поставщикам",
+    "href": ""
+  },
+  {
+    "title": "Доставка",
+    "href": "shipping"
+  },
+  {
+    "title": "Возврат продукции",
+    "href": "return"
+  },
+  {
+    "title": "Производителям",
+    "href": "suppliers"
+  },
+  {
+    "title": "Вопрос-ответ",
+    "href": "faq"
+  },
+  {
+    "title": "Упаковка",
+    "href": "packaging"
+  },
+  {
+    "title": "Акции",
+    "href": "sale"
+  },
+  {
+    "title": "Оплата",
+    "href": "payment"
+  },
+  {
+    "title": "Обучающие материалы",
+    "href": "learning"
+  }
+]

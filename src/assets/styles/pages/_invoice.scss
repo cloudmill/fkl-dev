@@ -1,0 +1,54 @@
+.invoice {
+  @media screen and (min-width: $screen-md-min) {
+    margin-top: 50px;
+  }
+  &-info {
+    // @include listBlock;
+    @media screen and (min-width: $screen-md-min) {
+      .container {
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+    }
+  }
+  &-inner {
+    padding: 20px;
+    border-top: 1px solid $gray;
+    border-bottom: 1px solid $gray;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 60px 50px;
+    }
+
+    &--img {
+      border-bottom: 1px solid $gray;
+      position: relative;
+      &:after {
+        content: "";
+        background-color: $gray;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+      }
+      .col__md-7 {
+        padding: 20px;
+        position: relative;
+        @media screen and (min-width: $screen-md-min) {
+          padding: 50px;
+        }
+
+        &:after {
+          content: "";
+          background-color: $gray;
+          position: absolute;
+          width: 1px;
+          top: 0;
+          right: -1px;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

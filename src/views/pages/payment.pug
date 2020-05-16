@@ -1,0 +1,54 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "payment clientsBlock"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .container
+      +mainTitle('Оплата', 'Клиентам', true)
+      +menuSub(menuClients, 'payment')
+    .section__left(data-aos="")
+      .payment-info
+        h2.vertical-reveal-outer
+          .vertical-reveal-inner(data-aos="") Мы принимаем следующие способы оплаты
+      .payment-catalog(data-aos="fade-up", data-aos-delay="800")
+        .payment-catalog__item
+          h5 Банковская карта
+          p.text__sm Вы можете оплатить счет или пополнить кошелек банковскими картами международных платежных систем Visa и MasterCard в режиме онлайн или оплатить картой в офисе FKL.
+          +img('payment/pay-1.png')
+        .payment-catalog__item
+          h5 Почта России
+          p.text__sm Вы можете оплатить счет или пополнить кошелек RBK Money в отделениях почтовой связи на всей территории Российской Федерации: быстро и без комиссии.
+          +img('payment/pay-2.png')
+        .payment-catalog__item(data-aos="fade-up")
+          h5 Через системы денежных переводов
+          p.text__sm Оплата счета или пополнение кошелька RBK Money через крупнейшие системы денежных переводов доступно во многих городах Российской Федерации. В большинстве случаев средства поступают на счёт пользователя моментально. Комиссия за перевод составляет 0%.
+          +img('payment/pay-3.png')
+        .payment-catalog__item(data-aos="fade-up")
+          h5 В салонах связи
+          p.text__sm Вы можете оплатить счет или пополнить кошелек RBK Money в любом салоне связи Евросеть, Связной, МобилЭлемент, Альт Телеком моментально и без комиссии.
+          +img('payment/pay-4.png')
+        .payment-catalog__item(data-aos="fade-up")
+          h5 Банковский перевод
+          p.text__sm Оплатить счет или пополнить свой кошелек можно в отделении любого банка России. За осуществление перевода взимается комиссия в соответствии с тарифами банка.
+          +img('payment/pay-5.png')
+        .payment-catalog__item(data-aos="fade-up")
+          h5 Оплата через интернет-банкинг
+          p.text__sm Оплатить счет или пополнить кошелек RBK Money через систему интернет-банкинга крупнейших банков легко и удобно. Не отходя от компьютера вы можете в любой момент перевести средства с вашего банковского счета на кошелек. Пополнение через интернет-банкинг отличается комиссией 0% и высокой скоростью зачисления средств
+          +img('payment/pay-6.png')
+        .payment-catalog__item(data-aos="fade-up")
+          h5 Через платежные терминалы
+          p.text__sm Вы можете оплатить счет или пополнить кошелек RBK Money в платежных терминалах, присутствующих во всех городах Российской Федерации: быстро и без комиссии.
+          +img('payment/pay-7.png')
+      +nextBlock('Возврат продукции')
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

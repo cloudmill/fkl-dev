@@ -1,0 +1,25 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "page404"
+
+block content
+  .section
+    .page404-content
+      #page404-img.page404-img.page404-img1: v(data-aos="fade-right", data-aos-delay="500", href='#'): +img('404/item.png')
+      .page404-img.page404-img2: div(data-aos="fade-left", data-aos-delay="500", href='#'): +img('404/item1.png')
+      .page404-img.page404-img3: div(data-aos="fade-right", data-aos-delay="500", href='#'): +img('404/item2.png')
+      .page404-img.page404-img4: div(data-aos="fade-left", data-aos-delay="500", href='#'): +img('404/item3.png')
+      .page404-title(data-aos="fade-up", data-aos-delay="500", href='#') 404
+      p.text__lg.vertical-reveal-outer
+        .vertical-reveal-inner(data-aos="") К сожалению, такой страницы на сайте нет.
+      .text__sm(data-aos="fade-up", data-aos-delay="500")
+        | Но вы можете перейти в
+        br
+        a(href='#')
+          +img('menu.svg')
+          | Каталог
+      a.btn.btn--info.sitebar_search.franciscoItem(data-aos="fade-up", data-aos-delay="600", href='#')
+        .franciscoHelper
+          +img('search.svg')
+          | или воспользоваться поиском

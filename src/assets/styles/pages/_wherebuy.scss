@@ -1,0 +1,164 @@
+.wherebuy {
+  &-info {
+    padding: 20px;
+    // @include listBlock;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 50px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 110px 110px 110px 50px;
+    }
+  }
+  h2 {
+    margin-top: 0;
+  }
+  &-inner {
+    padding: 20px;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 50px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 90px 50px;
+    }
+    .select {
+      width: 100%;
+      @media screen and (min-width: $screen-md-min) {
+        width: 440px;
+      }
+    }
+  }
+  &-list {
+    border-left: 1px solid $gray;
+    .tabs {
+      .tabs {
+        padding: 20px 0 20px 20px;
+        overflow: auto;
+        @media screen and (min-width: $screen-lg-min) {
+          padding: 60px 50px 0;
+        }
+        &-list {
+          position: relative;
+          &:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 1px;
+            background-color: $gray;
+            z-index: -1;
+            @media screen and (min-width: $screen-md-min) {
+              width: 100%;
+            }
+          }
+        }
+
+        .tab {
+          height: auto;
+          width: auto;
+          border: none;
+          span {
+            padding: 10px 0;
+            margin-right: 20px;
+            @media screen and (min-width: $screen-lg-min) {
+              padding: 30px 0;
+              margin-right: 60px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.googleMap {
+  height: 600px;
+  width: 100%;
+}
+#googleMap {
+  height: 460px;
+}
+#googleMapsBlue {
+  height: 660px;
+}
+
+.cityList--block {
+  display: flex;
+  border-bottom: 1px solid $gray;
+  > * {
+    width: 100%;
+    @media screen and (min-width: $screen-md-min) {
+      width: 50%;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      width: 25%;
+    }
+  }
+}
+.cityList {
+  @include list--unstyled;
+  padding: 20px 20px 20px 0;
+  @media screen and (min-width: $screen-md-min) {
+    padding: 30px 30px 30px 0;
+  }
+  @media screen and (min-width: $screen-lg-min) {
+    padding: 50px 50px 50px 0;
+  }
+  li {
+    font-size: 14px;
+    line-height: 2.5;
+  }
+  a {
+    //border-bottom: 2px solid transparent;
+    padding-bottom: 5px;
+    position: relative;
+    &:after {
+      content: '';
+      left: 0;
+      bottom: 0;
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: $base-color-main;
+      transition: width .5s;
+    }
+    &:hover,
+    &.active {
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+  & + & {
+    border-left: 1px solid $gray;
+    padding: 20px;
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 50px;
+    }
+  }
+  &__block {
+    line-height: 1.5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    font-weight: 500;
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 50px 50px 90px;
+    }
+    &-left {
+      width: 100%;
+      @media screen and (min-width: $screen-md-min) {
+        width: 46%;
+      }
+    }
+    &-right {
+      width: calc(100% + 40px);
+      margin: 0 -20px -20px;
+      @media screen and (min-width: $screen-md-min) {
+        width: 50%;
+        margin: 0;
+      }
+    }
+  }
+}

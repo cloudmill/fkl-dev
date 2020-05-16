@@ -1,0 +1,26 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "invoice"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .section__left(data-aos="")
+      .invoice-info
+        .container
+          +mainTitleH2('Ваш счет', 'Ваш счет')
+        .invoice-inner(data-aos="fade-up", data-aos-delay="300")
+          a.about__card__bottom.franciscoItem(href='#')
+            .franciscoHelper
+              img(src='assets/images/download.svg', alt='')
+              p Скачать счет в .PDF
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

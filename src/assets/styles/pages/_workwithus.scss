@@ -1,0 +1,135 @@
+.workwithus {
+  &-info {
+    // @include listBlock;
+    padding: 20px;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 50px 0 0 50px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 90px 0 0 50px;
+    }
+    h2 {
+      margin-bottom: 20px;
+      @media screen and (min-width: $screen-lg-min) {
+        margin-bottom: 70px;
+      }
+    }
+    h5 {
+      font-family: "massMedium";
+      font-weight: 800;
+      margin-bottom: 20px;
+      @media screen and (min-width: $screen-lg-min) {
+        margin-bottom: 60px;
+      }
+    }
+    .blueLine {
+      margin-bottom: 20px;
+      @media screen and (min-width: $screen-lg-min) {
+        margin-bottom: 60px;
+      }
+      &:before {
+        bottom: 5px;
+      }
+      h5 {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .showMore--js {
+    @media screen and (min-width: $screen-md-min) {
+      margin-right: 50px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      margin-right: 80px;
+    }
+    .about__card__bottom {
+      border-top: none;
+    }
+  }
+  .about__slider {
+    @media screen and (max-width: $screen-sm-max) {
+      margin: 0 -10px;
+    }
+    .slick-slide {
+      width: 70vw;
+      margin-right: 0;
+    }
+    @media screen and (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+      .pagingInfo {
+        left: 43%;
+      }
+      .slick-dots {
+        left: 25%;
+      }
+      .arrowInfo {
+        left: 38.7%;
+      }
+    }
+  }
+  &-partners {
+    @media screen and (min-width: $screen-md-min) {
+      padding-bottom: 50px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding-bottom: 80px;
+    }
+    h2 {
+      margin-top: 30px;
+      margin-bottom: 20px;
+      @media screen and (min-width: $screen-md-min) {
+        margin-top: 80px;
+        margin-bottom: 60px;
+      }
+    }
+    h5 {
+      @media screen and (min-width: $screen-md-min) {
+        max-width: 72%;
+      }
+    }
+    .logoList {
+      &__item {
+        width: calc(100% / 2);
+        @media screen and (min-width: $screen-md-min) {
+          width: calc(100% / 3);
+        }
+        @media screen and (min-width: $screen-lg-min) {
+          width: calc(100% / 4);
+        }
+      }
+    }
+  }
+}
+
+.logoList {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid $gray;
+  border-left: 1px solid $gray;
+  @media screen and (min-width: $screen-xmd-min) {
+    margin-right: 50px;
+  }
+  @media screen and (min-width: $screen-lg-min) {
+    margin-right: 80px;
+  }
+  &__item {
+    width: calc(100% / 2);
+    cursor: pointer;
+    padding: 16px;
+    border-right: 1px solid $gray;
+    border-bottom: 1px solid $gray;
+    @media screen and (min-width: $screen-md-min) {
+      width: calc(100% / 3);
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      width: calc(100% / 6);
+    }
+    &:hover {
+      box-shadow: inset 0px 0px 0px 1px $base-color-main;
+    }
+  }
+  .ratio-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

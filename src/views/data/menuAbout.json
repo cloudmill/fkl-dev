@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Наша команда",
+    "href": "team"
+  },
+  {
+    "title": "Стандарты качества",
+    "href": "quality"
+  },
+  {
+    "title": "Достижения",
+    "href": "progress"
+  },
+  {
+    "title": "Новости",
+    "href": "news"
+  },
+  {
+    "title": "Философия",
+    "href": ""
+  },
+  {
+    "title": "С нами работают",
+    "href": "workwithus"
+  },
+  {
+    "title": "Благодарности",
+    "href": "acknowledgment"
+  },
+  {
+    "title": "Вакансии",
+    "href": "vacancy"
+  }
+]

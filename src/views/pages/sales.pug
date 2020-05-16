@@ -1,0 +1,43 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "sales contactsBlock"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .container
+      +mainTitle('Отдел продаж', 'Контакты', true)
+      +menuSub(menuWhereBuy, 'sales')
+    .section__left(data-aos="")
+      .sales-info
+        .team-info--item(data-aos="fade-up", data-aos-delay="700")
+          .team-info--img: img(src='assets/images/team/item-1.jpg', alt='')
+          .team-info--inner
+            .team-info--item__name Щербаков Кирилл Владимирович
+            .team-info--item__position Руководитель отдела продаж и специалист по работе с клиентами
+            .team-info--item__phone
+              +img('contacts/phone.svg')
+              a(href='tel:84732110550'): span 8 473 211-05-50
+            .team-info--item__email
+              +img('contacts/envelope.svg')
+              a(href='mailto:ksh@rusfkl.ru'): span ksh@rusfkl.ru
+        .team-info--item(data-aos="fade-up", data-aos-delay="800")
+          .team-info--img: img(src='assets/images/team/item-3.jpg', alt='')
+          .team-info--inner
+            .team-info--item__name Дмитриев Алексей Владимирович
+            .team-info--item__position Директор по продажам и работе с дилерсками сетями
+            .team-info--item__phone
+              +img('contacts/phone.svg')
+              a(href='tel:84732110550'): span 8 473 211-05-50
+            .team-info--item__email
+              +img('contacts/envelope.svg')
+              a(href='mailto:ksh@rusfkl.ru'): span ksh@rusfkl.ru
+      +nextBlock('Обратная связь')
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer

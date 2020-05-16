@@ -1,0 +1,63 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "progress"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .container
+      +mainTitle('Достижения', 'Достижения / #[a(href) О компании]', true)
+      +menuSub(menuAbout, pageName)
+    .section__left(data-aos="")
+      .progress-info
+        h2.vertical-reveal-outer
+          .vertical-reveal-inner(data-aos="") Мы постоянно участвуем в различных международных и российских отраслевых выставках и конференциях.
+        .popup-gallery.progress-list
+          .progress-list-inner(data-aos="fade-up", data-aos-delay="800")
+            .yearBlock 2019
+            .progress-listSlider
+              a.acknowledgment-list__item(href='assets/images/progress/item-1.jpg')
+                .acknowledgment-list__img: img(src='assets/images/progress/item-1.jpg', alt='')
+                p.text__sm.text--grey Эксклюзивный Дистрибьютор 2019
+              a.acknowledgment-list__item(href='assets/images/progress/item-2.jpg')
+                .acknowledgment-list__img: img(src='assets/images/progress/item-2.jpg', alt='')
+                p.text__sm.text--grey ВСЕРОССИЙСКИЙ ДЕНЬ ПОЛЯ 2019
+              a.acknowledgment-list__item(href='assets/images/progress/item-3.jpg')
+                .acknowledgment-list__img: img(src='assets/images/progress/item-3.jpg', alt='')
+                p.text__sm.text--grey Эксклюзивный Дистрибьютор 2019
+              a.acknowledgment-list__item(href='assets/images/progress/item-4.jpg')
+                .acknowledgment-list__img: img(src='assets/images/progress/item-4.jpg', alt='')
+                p.text__sm.text--grey Эксклюзивный Дистрибьютор 2019
+          .progress-list-inner(data-aos="fade-up")
+            .yearBlock 2018
+            .progress-listSlider
+              a.acknowledgment-list__item(href='assets/images/progress/item-5.jpg')
+                .acknowledgment-list__img: img(src='assets/images/progress/item-5.jpg', alt='')
+                p.text__sm.text--grey Эксклюзивный Дистрибьютор 2019
+              a.acknowledgment-list__item(href='assets/images/progress/item-6.jpg')
+                .acknowledgment-list__img: img(src='assets/images/progress/item-6.jpg', alt='')
+                p.text__sm.text--grey ВСЕРОССИЙСКИЙ ДЕНЬ ПОЛЯ 2019
+          .progress-list-inner(data-aos="fade-up")
+            .yearBlock 2017
+            .progress-listSlider
+              a.acknowledgment-list__item(href='assets/images/progress/item-7.jpg')
+                .acknowledgment-list__img: img(src='assets/images/progress/item-7.jpg', alt='')
+                p.text__sm.text--grey Эксклюзивный Дистрибьютор 2019
+          .progress-list-inner(data-aos="fade-up")
+            .yearBlock 2016
+            .progress-listSlider
+              a.acknowledgment-list__item(href='assets/images/progress/item-8.jpg')
+                .acknowledgment-list__img: img(src='assets/images/progress/item-8.jpg', alt='')
+                p.text__sm.text--grey Эксклюзивный Дистрибьютор 2019
+              a.acknowledgment-list__item(href='assets/images/progress/item-9.jpg')
+                .acknowledgment-list__img: img(src='assets/images/progress/item-9.jpg', alt='')
+                p.text__sm.text--grey ВСЕРОССИЙСКИЙ ДЕНЬ ПОЛЯ 2019
+      +nextBlock('Новости')
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer

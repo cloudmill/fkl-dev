@@ -1,0 +1,91 @@
+.registr {
+  .section__left {
+    &:after,
+    &:before {
+      display: none;
+    }
+  }
+  .checkbox {
+    padding-top: 20px;
+    padding-left: 20px;
+    @media screen and (min-width: $screen-md-min) {
+      padding-left: 0;
+    }
+  }
+}
+
+.regForm {
+  @include listBlock;
+  border-left: none !important;
+  margin-top: 20px;
+  @media screen and (min-width: $screen-md-min) {
+    margin-top: 40px;
+  }
+  @media screen and (min-width: $screen-lg-min) {
+    margin-top: 90px;
+  }
+
+  &:after {
+    content: "";
+    background-color: $gray;
+    position: absolute;
+    width: 1px;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+  .btn {
+    height: 80px;
+    @media screen and (min-width: $screen-md-min) {
+      height: 100px;
+    }
+  }
+  .control {
+    height: 100px;
+    border-bottom: 1px solid $gray;
+    border-left: 1px solid $gray;
+  }
+
+  &-chk {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+    border-bottom: 1px solid $gray;
+    .checkbox {
+      max-width: 620px;
+      padding-left: 20px;
+      @media screen and (min-width: $screen-md-min) {
+        padding-left: 0;
+      }
+      .label {
+        align-items: flex-start;
+        &:before {
+          margin-top: 4px;
+        }
+        &:after {
+          top: 8px;
+          margin: 0;
+        }
+      }
+    }
+    .label {
+      color: $gray-darken-1;
+      a {
+        color: $gray-darken-1;
+        border-bottom: 1px solid $gray-darken-1;
+        &:hover {
+          border-color: transparent;
+        }
+      }
+      &:before {
+        width: 20px;
+        height: 20px;
+        min-width: 20px;
+      }
+      &:after {
+        height: 10px;
+        left: -1px;
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+ul.pagination(data-aos="fade-up")
+    li.pagination__item.franciscoItem
+      a.pagination__link.franciscoLink(href='#')
+        .franciscoHelper: +img('arrow-left--long-gr.svg')
+    li.pagination__item.active
+        a.pagination__link(href='#') 1
+    - for (let x = 2; x < 8; x++)
+        li.pagination__item
+            a.pagination__link(href='#')= x
+    li.pagination__item.franciscoItem
+      a.pagination__link.franciscoLink(href='#')
+        .franciscoHelper: +img('arrow-right--long-gr.svg')

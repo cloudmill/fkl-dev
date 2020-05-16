@@ -1,0 +1,50 @@
+.tabs {
+  &-list {
+    display: flex;
+  }
+  .tab {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    border: 1px solid $gray;
+    border-left: none;
+    font-size: 14px;
+    font-family: "massMedium";
+    font-weight: 800;
+    @media screen and (min-width: $screen-md-min) {
+      font-size: 18px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      height: 136px;
+    }
+    span {
+      line-height: 1.5;
+      position: relative;
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 1px;
+        background-color: $base-color-main;
+        transition: width .5s;
+      }
+    }
+    &.active,
+    &:hover {
+      color: $base-color-main;
+      span:after {
+        width: 100%;
+      }
+    }
+  }
+  &-content {
+    display: none;
+    &.show {
+      display: block;
+    }
+  }
+}

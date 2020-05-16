@@ -1,0 +1,80 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "acknowledgment"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .container
+      +mainTitle('Благодарности', 'Благодарности / #[a(href) О компании]', true)
+      +menuSub(menuAbout, pageName)
+    .section__left(data-aos="")
+      .acknowledgment-info
+        h2.vertical-reveal-outer
+          .vertical-reveal-inner(data-aos="") Мы дорожим нашими клиентами и партнерами. Это подтверждают более 100 благодарственных писем, отзывов и рекомендаций.
+        .about__slider(data-aos="fade-up", data-aos-delay="700")
+          .pagingInfo.pagingInfo-ls
+            span.counter
+              span
+              span
+            span.length
+          .sliderAbout
+            .sliderAbout__item
+              .about__video.sliderAbout__item-img.o-block__img.js-visible.e-visible--1
+                figure.relative
+                  .about__video--ico
+                    .about__video--ico-img: img.rotate(src='assets/images/video.svg', alt='')
+                  +img('video.jpg')
+            - for (let x = 1; x < 6; x++)
+              .sliderAbout__item
+                .about__video.sliderAbout__item-img.o-block__img.js-visible.e-visible--1
+                  figure
+                    +img('video.jpg')
+          .arrowInfo
+            .arrowInfo-item.prev: img(src='assets/images/slickPrev.svg', alt='')
+            .arrowInfo-item.next: img(src='assets/images/slickNext.svg', alt='')
+        .acknowledgment-list.popup-gallery
+          a.acknowledgment-list__item(href='assets/images/acknow/item-1.jpg', data-aos="fade-up", data-aos-delay="200")
+            .acknowledgment-list__img: img(src='assets/images/acknow/item-1.jpg', alt='')
+            p.text__sm.text--grey ООО КерамзитВАЗ
+          a.acknowledgment-list__item(href='assets/images/acknow/item-2.jpg', data-aos="fade-up", data-aos-delay="300")
+            .acknowledgment-list__img: img(src='assets/images/acknow/item-2.jpg', alt='')
+            p.text__sm.text--grey ООО СевМаршТорг
+          a.acknowledgment-list__item(href='assets/images/acknow/item-3.jpg', data-aos="fade-up", data-aos-delay="400")
+            .acknowledgment-list__img: img(src='assets/images/acknow/item-3.jpg', alt='')
+            p.text__sm.text--grey ООО АвтоВАЗ
+          a.acknowledgment-list__item(href='assets/images/acknow/item-4.jpg', data-aos="fade-up", data-aos-delay="200")
+            .acknowledgment-list__img: img(src='assets/images/acknow/item-4.jpg', alt='')
+            p.text__sm.text--grey ООО Стратегия Победы
+          a.acknowledgment-list__item(href='assets/images/acknow/item-5.jpg', data-aos="fade-up", data-aos-delay="300")
+            .acknowledgment-list__img: img(src='assets/images/acknow/item-5.jpg', alt='')
+            p.text__sm.text--grey ООО НефтьЮганск
+          a.acknowledgment-list__item(href='assets/images/acknow/item-6.jpg', data-aos="fade-up", data-aos-delay="400")
+            .acknowledgment-list__img: img(src='assets/images/acknow/item-6.jpg', alt='')
+            p.text__sm.text--grey ООО ТехнлогииСельхоз
+          a.acknowledgment-list__item.hidden-content(href='assets/images/acknow/item-4.jpg', data-aos="fade-up", data-aos-delay="200")
+            .acknowledgment-list__img: img(src='assets/images/acknow/item-4.jpg', alt='')
+            p.text__sm.text--grey ООО Стратегия Победы
+          a.acknowledgment-list__item.hidden-content(href='assets/images/acknow/item-5.jpg', data-aos="fade-up", data-aos-delay="200")
+            .acknowledgment-list__img: img(src='assets/images/acknow/item-5.jpg', alt='')
+            p.text__sm.text--grey ООО НефтьЮганск
+          a.acknowledgment-list__item.hidden-content(href='assets/images/acknow/item-6.jpg', data-aos="fade-up", data-aos-delay="200")
+            .acknowledgment-list__img: img(src='assets/images/acknow/item-6.jpg', alt='')
+            p.text__sm.text--grey ООО ТехнлогииСельхоз
+          a.acknowledgment-list__item.hidden-content(href='assets/images/acknow/item-6.jpg', data-aos="fade-up", data-aos-delay="200")
+            .acknowledgment-list__img: img(src='assets/images/acknow/item-6.jpg', alt='')
+            p.text__sm.text--grey ООО ТехнлогииСельхоз
+        .acknowledgment-showMore.showMore--js(data-aos="fade-up")
+          a.about__card__bottom.franciscoItem(href='#')
+            .franciscoHelper
+              img(src='assets/images/icons/showMore.svg', alt='')
+              p Показать еще
+      +nextBlock('Вакансии')
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer

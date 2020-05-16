@@ -1,0 +1,9 @@
+.stock {
+  &-info {
+    // @include listBlock;
+    padding: 20px;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 80px 80px 60px 50px;
+    }
+  }
+}

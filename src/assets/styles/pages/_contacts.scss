@@ -1,0 +1,78 @@
+.contacts {
+  .about__card__bottom {
+    border-left: none;
+    border-bottom: none;
+  }
+  .about__card__bottom:before {
+     left: 0;
+  }
+  .section__left {
+  //  position: relative;
+  //  @media screen and (min-width: $screen-md-min) {
+      &:after {
+  //      content: "";
+  //      width: 1px;
+  //      height: 100%;
+  //      background: $gray;
+  //      position: absolute;
+  //      top: 0;
+  //      left: 50px;
+          z-index: 1;
+  //      @media screen and (min-width: $screen-lg-min) {
+  //        left: 80px;
+  //      }
+      }
+  //  }
+  }
+  &-info {
+    // @include listBlock;
+    padding: 20px;
+    border-left: none !important;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 30px 50px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 80px 80px 60px 50px;
+    }
+    .franciscoLink {
+      font-size: 30px;
+      font-family: 'massMedium';
+      font-weight: 800;
+    }
+  }
+  &-title {
+    margin-bottom: 30px;
+    @media screen and (min-width: $screen-lg-min) {
+      margin-bottom: 70px;
+    }
+    span {
+      margin-right: 40px;
+      @media screen and (min-width: $screen-lg-min) {
+        margin-right: 90px;
+      }
+    }
+  }
+  &-list {
+    display: flex;
+    &__ico {
+      width: 40px;
+      min-width: 40px;
+      margin-top: 5px;
+      @media screen and (min-width: $screen-md-min) {
+        width: 70px;
+        min-width: 70px;
+      }
+    }
+    h5 {
+      margin-top: 0;
+    }
+  }
+
+  &-requisites {
+    padding: 20px;
+    border-top: 1px solid $gray;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 60px 80px 60px 50px;
+    }
+  }
+}

@@ -1,0 +1,100 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "search"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .container
+      +mainTitle('Поиск подшипников #[br] по параметрам', '', false)
+    .section__left(data-aos="")
+      .catalog
+        .catalog__title
+          h2(data-aos="fade-up", data-aos-delay="600") Выберите тип подшипника
+        .params__inner(data-aos="fade-up", data-aos-delay="700")
+          .params__inner-item(data-aos="fade-up", data-aos-delay="700")
+            .ratio.ratio1-1
+              .ratio-inner
+                .params__inner-item-count C
+                .params__inner-item-icon: +img('search/item-1.svg')
+                .params__inner-item-img: +img('search/params.png')
+          .params__inner-item(data-aos="fade-up", data-aos-delay="800")
+            .ratio.ratio1-1
+              .ratio-inner
+                .params__inner-item-count D
+                .params__inner-item-icon: +img('search/item-2.svg')
+                .params__inner-item-img: +img('search/params.png')
+          .params__inner-item(data-aos="fade-up", data-aos-delay="900")
+            .ratio.ratio1-1
+              .ratio-inner
+                .params__inner-item-count F
+                .params__inner-item-icon: +img('search/item-3.svg')
+                .params__inner-item-img: +img('search/params.png')
+          .params__inner-item(data-aos="fade-up", data-aos-delay="1000")
+            .ratio.ratio1-1
+              .ratio-inner
+                .params__inner-item-count G
+                .params__inner-item-icon: +img('search/item-4.svg')
+                .params__inner-item-img: +img('search/params.png')
+          .params__inner-item(data-aos="fade-up", data-aos-delay="1100")
+            .ratio.ratio1-1
+              .ratio-inner
+                .params__inner-item-count H
+                .params__inner-item-icon: +img('search/item-5.svg')
+                .params__inner-item-img: +img('search/params.png')
+          .params__inner-item(data-aos="fade-up", data-aos-delay="200")
+            .ratio.ratio1-1
+              .ratio-inner
+                .params__inner-item-count P
+                .params__inner-item-icon: +img('search/item-6.svg')
+                .params__inner-item-img: +img('search/params.png')
+          .params__inner-item(data-aos="fade-up", data-aos-delay="300")
+            .ratio.ratio1-1
+              .ratio-inner
+                .params__inner-item-count S
+                .params__inner-item-icon: +img('search/item-7.svg')
+                .params__inner-item-img: +img('search/params.png')
+          .params__inner-item(data-aos="fade-up", data-aos-delay="400")
+            .ratio.ratio1-1
+              .ratio-inner
+                .params__inner-item-count T
+                .params__inner-item-icon: +img('search/item-8.svg')
+                .params__inner-item-img: +img('search/params.png')
+          .params__inner-item(data-aos="fade-up", data-aos-delay="500")
+            .ratio.ratio1-1
+              .ratio-inner
+                .params__inner-item-count U
+                .params__inner-item-icon: +img('search/item-8.svg')
+                .params__inner-item-img: +img('search/params.png')
+          .params__inner-item(data-aos="fade-up", data-aos-delay="600")
+            .ratio.ratio1-1
+              .ratio-inner
+                .params__inner-item-count V
+                .params__inner-item-icon: +img('search/item-8.svg')
+                .params__inner-item-img: +img('search/params.png')
+        .params__input
+          h5(data-aos="fade-up") Введите нужные размеры
+          .params__input-content
+            +paramItem('Диапазон (мм)', '≤d≤', 100)
+            +paramItem('Ширина подшипника (мм)', '≤B≤', 100)
+            +paramItem('Расстояние между отверстиями (мм)', '≤S≤', 100)
+            +paramItem('Наружный диаметр (мм)', '≤D≤', 100)
+            +paramItem('Ширина выступающий части', '≤B1≤', 100)
+            +paramItem('Длина корпуса', '≤L≤', 100)
+          button.btn.btn--info.btn--full.btn--icon.franciscoItem(type='submit', data-aos="fade-up")
+            .franciscoHelper
+              span Подобрать подшипник
+              +img('whiteRightAr.svg')
+        .params__result
+          h2 Результаты поиска: 6
+          include ../components/_catalogInner
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

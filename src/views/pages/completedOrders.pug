@@ -1,0 +1,63 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "co"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .section__left(data-aos="")
+      .completedOrders-info
+        .cabinet
+          +asideNav(menuAside, pageName)
+          .cabinet-content
+            .cabinet-content-inner
+              +mainTitleH2('Выполненные заказы', 'Личный кабинет')
+              .table--responsive(data-aos="fade-up", data-aos-delay="700")
+                table.table.table--striped.table--hover
+                  thead
+                    tr
+                      th Номер заказа
+                      th Дата
+                      th Дата отправки
+                      th Адрес доставки
+                      th Сумма, руб.
+                  tbody
+                    tr
+                      td
+                        | 5523456
+                        a.text--grey(href='#')
+                          +img('cabinet/bill.svg')
+                          | Выставленный счет
+                      td 29.05.19
+                      td 25.04.19
+                      td 192252 Санкт-Петербург. #[br] пр. Луначарского д. 19
+                      td.cabinet-price 78 540,49 р.
+                    tr
+                      td 1223456
+                      td 29.05.19
+                      td 25.04.19
+                      td 192252 Санкт-Петербург. #[br] пр. Луначарского д. 19
+                      td.cabinet-price 3900 р.
+                    - for (let x = 1; x < 3; x++)
+                      tr
+                        td 5523456
+                        td 29.05.19
+                        td 25.04.19
+                        td 192252 Санкт-Петербург. #[br] пр. Луначарского д. 19
+                        td.cabinet-price 78 540,49 р.
+                      tr
+                        td 1223456
+                        td 29.05.19
+                        td 25.04.19
+                        td 192252 Санкт-Петербург. #[br] пр. Луначарского д. 19
+                        td.cabinet-price 3900 р.
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

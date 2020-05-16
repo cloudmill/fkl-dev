@@ -1,0 +1,61 @@
+.icon {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  &_close {
+    width: 26px;
+    height: 27px;
+    background-image: url(../images/close-wh1.svg);
+  }
+  &_cart {
+    width: 26px;
+    height: 27px;
+    background-image: url(../images/cart.svg);
+  }
+  &_user {
+    width: 24px;
+    height: 30px;
+    background-image: url(../images/user.svg);
+  }
+  &_menu {
+    width: 37px;
+    height: 37px;
+    background-image: url(../images/menu.svg);
+  }
+  &_selection {
+    width: 18px;
+    height: 21px;
+    background-image: url(../images/selection.svg);
+  }
+  &_search {
+    width: 19.76px;
+    height: 21px;
+    background-image: url(../images/search.svg);
+  }
+  &_str-white {
+    width: 28px;
+    height: 21px;
+    background-image: url(../images/str-white.svg);
+  }
+  &_fb {
+    height: 20px;
+    width: 10px;
+    background-image: url(../images/fb.svg);
+  }
+  &_vk {
+    height: 14px;
+    width: 24px;
+    background-image: url(../images/vk.svg);
+  }
+  &_yt {
+    height: 16px;
+    width: 24px;
+    background-image: url(../images/yt.svg);
+  }
+  &_inst {
+    height: 18px;
+    width: 18px;
+    background-image: url(../images/inst.svg);
+  }
+}

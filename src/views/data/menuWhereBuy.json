@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Центральный офис",
+    "href": "contacts"
+  },
+  {
+    "title": "Адреса и контакты дилерской сети",
+    "href": "wherebuy"
+  },
+  {
+    "title": "Обратная связь",
+    "href": "feedback"
+  },
+  {
+    "title": "Склад",
+    "href": "stock"
+  },
+  {
+    "title": "Отдел продаж",
+    "href": "sales"
+  }
+]

@@ -1,0 +1,228 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "index"
+
+block header
+  include ../partials/_headerFX
+
+block content
+  #fullpage
+    .section.section__main
+      #particle_photo.particle_photo
+      .section__main__content
+        .section__main__title
+          span.vertical-reveal-outer
+            span.vertical-reveal-inner(data-aos="") Генеральный #[br] дистрибьютор #[br] FKL в России
+        .section__main__text
+          span.vertical-reveal-outer
+            span.vertical-reveal-inner(data-aos="") FKL производит подшипники #[br] для рынка Европы более 50 лет
+        .section__main__bottom.animated(data-animation="slideInUp", data-animation-delay="900")
+          .section__main__bottom__mouse
+          .section__main__bottom__text
+            span Порядок хранит мир #[br] FKL – хранит качество
+          a.section__main__bottom__link(href='') Дилерам
+      span.longLine(data-aos="")
+    .section.section__slider
+      #model.model
+        video#video.active(muted='muted')
+          source(src='assets/images/video/video.mp4', type='video/mp4')
+      #fullpage_model.section__slider__list
+        .section__slide.slide
+          .section__slide__title
+            .vertical-reveal-outer
+              .vertical-reveal-inner Уникальность
+          .section__slide__text
+            .vertical-reveal-outer
+              .vertical-reveal-inner FKL – единственный и, в своем роде, уникальный завод в&nbsp;Европе, специализирующийся&nbsp;
+                span только на производстве подшипниковой продукции
+                | &nbsp;для широчайшего спектра сельскохозяйственной техники.
+          .section__slide__title
+            .vertical-reveal-outer
+              .vertical-reveal-inner Компоненты
+          .section__slide__text
+            .vertical-reveal-outer
+              .vertical-reveal-inner Компоненты для производства - шарики, трубы, отливки, уплотнения, пластик, смазка, антикоррозийная защита, премиального качества от европейских поставщиков.
+                br
+                span Европейское происхождение нашей продукции
+                  br
+                  | подтверждено сертификатами EURO-1 и СТ-2.
+          .section__slide__mouse
+            a.moveTo.franciscoItem(href='#'): .franciscoHelper Пропустить
+        .section__slide.slide
+          .section__slide__title
+            .vertical-reveal-outer
+              .vertical-reveal-inner 100% контроль
+          .section__slide__text
+            .vertical-reveal-outer
+              .vertical-reveal-inner Каждая операция в производственном процессе проходит 100% контроль. Контрольные операции включены в технологический процесс и исполнитель получает оплату за их выполнение. Каждый&nbsp;
+                span подшипник проверяется на вибростенде и замеряется радиальный или осевой зазор.
+          .section__slide__title
+            .vertical-reveal-outer
+              .vertical-reveal-inner Защита от загрязнений
+          .section__slide__text
+            .vertical-reveal-outer
+              .vertical-reveal-inner Для защиты от загрязнения в конструкции подшипника применяются 3х, 5ти, 6ти и 8ми кромочные системы уплотнений.&nbsp;
+                span Уплотнение из 8 кромок
+                | &nbsp;установлено в подшипниках,
+                span работающих в самых агрессивных условиях
+                |, где одна из кромок прижимается пружиной. В такой конструкции уплотнения&nbsp;
+                span исключено проникновение, пыли, влаги и других элементов
+                | &nbsp;внешней среды.
+          .section__slide__mouse
+            a.moveTo.franciscoItem(href='#'): .franciscoHelper Пропустить
+        .section__slide.slide
+          .section__slide__row
+            .section__slide__col
+              .section__slide__title
+                .vertical-reveal-outer
+                  .vertical-reveal-inner 3-5 лет
+              .section__slide__text
+                .vertical-reveal-outer
+                  .vertical-reveal-inner Средний срок службы подшипника
+            .section__slide__col
+              .section__slide__title
+                .vertical-reveal-outer
+                  .vertical-reveal-inner До 2-х лет
+              .section__slide__text
+                .vertical-reveal-outer
+                  .vertical-reveal-inner Гарантия от завода производителя
+          .section__slide__text
+            .vertical-reveal-outer
+              .vertical-reveal-inner
+                span Высокая точность комплектующих
+                | &nbsp;обеспечивает #[br] отсутствие люфтов, вибраций, свободного хода.
+          .section__slide__mouse
+            a.moveTo.franciscoItem(href='#'): .franciscoHelper Пропустить
+    .section.section__prod
+      .section__prod__title
+        .animated(data-animation="fadeIn", data-animation-delay="500") Продукция
+        .hidden__sm.hidden__xs.animated(data-animation="fadeIn", data-animation-delay="500")
+          .section__prod__title__link
+            +franciscoLink('Весь каталог продукции', 'str_right.svg', 'catalog.html')
+      .section__prod__row
+        a.section__prod__item.animated(href='#', data-animation="fadeInLeft", data-animation-delay="800")
+          .section__prod__item__title
+            | Специальная программа для&nbsp;сельхозтехники
+          .section__prod__item__img: img.js-tilt(src='assets/images/det1.png', alt='')
+          .section__prod__item__but(href='')
+            i.icon.icon_str-white
+        a.section__prod__item.animated(href='#', data-animation="fadeInLeft", data-animation-delay="1000")
+          .section__prod__item__title
+            | Ступицы #[br] Agro Point
+          .section__prod__item__img: img.js-tilt(src='assets/images/det2.png', alt='')
+          .section__prod__item__but(href='')
+            i.icon.icon_str-white
+        a.section__prod__item.animated(href='#', data-animation="fadeInLeft", data-animation-delay="1200")
+          .section__prod__item__title
+            | Подшипники
+          .section__prod__item__img: img.js-tilt(src='assets/images/det3.png', alt='')
+          .section__prod__item__but(href='')
+            i.icon.icon_str-white
+        a.section__prod__item.animated(href='#', data-animation="fadeInLeft", data-animation-delay="1400")
+          .section__prod__item__title
+            | Подшипниковые #[br] узлы
+          .section__prod__item__img: img.js-tilt(src='assets/images/det4.png', alt='')
+          .section__prod__item__but(href='')
+            i.icon.icon_str-white
+    .section__bottom__wrapper.section.section__wrapper
+      .section__bottom
+        .section__bottom__title.animated(href='#', data-animation="slideInUp", data-animation-delay="500")
+          a.active(href='#stocks') Скидки
+          a(href='#new') Новинки
+          a(href='#spec') Спецпрограмма
+        .section__bottom__sliders.animated(href='#', data-animation="slideInUp", data-animation-delay="600")
+          +slickPrev()
+          .section__bottom__slider.active
+            a.section__bottom__slider__item(href='#')
+              .section__bottom__slider__item__img: img(src='assets/images/prod_1.png', alt='')
+              .section__bottom__slider__item__inf
+                .section__bottom__slider__item__tags
+                  .section__bottom__slider__item__tag #Скидка
+                  .section__bottom__slider__item__tag #Новинка
+                .section__bottom__slider__item__name
+                  | Подшипник шариковый самоустанавливающийся 6205-2S.EES
+                .section__bottom__slider__item__price
+                  | 529,86 ₽
+                  span с НДС
+                .section__bottom__slider__item__state.state_have
+                  | Есть в наличии
+                .section__bottom__slider__item__bot-inf
+                  | Артикул: 6206-2Z
+            a.section__bottom__slider__item(href='#')
+              .section__bottom__slider__item__img: img(src='assets/images/prod_2.png', alt='')
+              .section__bottom__slider__item__inf
+                .section__bottom__slider__item__tags
+                  .section__bottom__slider__item__tag #Скидка
+                .section__bottom__slider__item__name
+                  | Подшипник шариковый самоустанавливающийся 6205-2S.EES
+                .section__bottom__slider__item__price
+                  | 529,86 ₽
+                  span с НДС
+                .section__bottom__slider__item__state.state_delivery
+                  | Под заказ
+                .section__bottom__slider__item__bot-inf
+                  | Артикул: 6206-2Z
+            a.section__bottom__slider__item(href='#')
+              .section__bottom__slider__item__img: img(src='assets/images/prod_1.png', alt='')
+              .section__bottom__slider__item__inf
+                .section__bottom__slider__item__tags
+                  .section__bottom__slider__item__tag #Скидка
+                  .section__bottom__slider__item__tag #Новинка
+                .section__bottom__slider__item__name
+                  | Подшипник шариковый самоустанавливающийся 6205-2S.EES
+                .section__bottom__slider__item__price
+                  | 529,86 ₽
+                  span с НДС
+                .section__bottom__slider__item__state.state_have
+                  | Есть в наличии
+                .section__bottom__slider__item__bot-inf
+                  | Артикул: 6206-2Z
+            a.section__bottom__slider__item(href='#')
+              .section__bottom__slider__item__img: img(src='assets/images/prod_2.png', alt='')
+              .section__bottom__slider__item__inf
+                .section__bottom__slider__item__tags
+                  .section__bottom__slider__item__tag #Скидка
+                .section__bottom__slider__item__name
+                  | Подшипник шариковый самоустанавливающийся 6205-2S.EES
+                .section__bottom__slider__item__price
+                  | 529,86 ₽
+                  span с НДС
+                .section__bottom__slider__item__state.state_delivery
+                  | Под заказ
+                .section__bottom__slider__item__bot-inf
+                  | Артикул: 6206-2Z
+          +slickNext()
+        .section__bottom__row.animated(href='#', data-animation="slideInUp", data-animation-delay="700")
+          .section__bottom__title Пресс-центр
+          .section__bottom__link
+            .hidden__sm.hidden__xs: +franciscoLink('Все новости', 'str_right.svg')
+        .section__bottom__body.animated(data-animation="slideInUp", data-animation-delay="800")
+          a.section__bottom__new(href='#')
+            .section__bottom__new__date 24 октября 2019
+            .section__bottom__new__title РУС ФКЛ отгрузила более 150 тысяч изделий для ТЕХНИКА-СЕРВИС
+            .section__bottom__new__text Компоненты для производства - шарики, трубы, отливки, уплотнения, пластик, смазка, антикоррозийная защита, премиального качества от европейских поставщиков...
+          a.section__bottom__new(href='#')
+            .section__bottom__new__date 24 октября 2019
+            .section__bottom__new__title РУС ФКЛ отгрузила более 150 тысяч изделий для ТЕХНИКА-СЕРВИС
+            .section__bottom__new__text Компоненты для производства - шарики, трубы, отливки, уплотнения, пластик, смазка, антикоррозийная защита, премиального качества от европейских поставщиков...
+          a.section__bottom__new(href='#')
+            .section__bottom__new__date 24 октября 2019
+            .section__bottom__new__title РУС ФКЛ отгрузила более 150 тысяч изделий для ТЕХНИКА-СЕРВИС
+            .section__bottom__new__text Компоненты для производства - шарики, трубы, отливки, уплотнения, пластик, смазка, антикоррозийная защита, премиального качества от европейских поставщиков...
+          a.section__bottom__new(href='#')
+            .section__bottom__new__date 24 октября 2019
+            .section__bottom__new__title РУС ФКЛ отгрузила более 150 тысяч изделий для ТЕХНИКА-СЕРВИС
+            .section__bottom__new__text Компоненты для производства - шарики, трубы, отливки, уплотнения, пластик, смазка, антикоррозийная защита, премиального качества от европейских поставщиков..
+          a.section__bottom__new.hidden-content(href='#')
+            .section__bottom__new__date 24 октября 2019
+            .section__bottom__new__title РУС ФКЛ отгрузила более 150 тысяч изделий для ТЕХНИКА-СЕРВИС
+            .section__bottom__new__text Компоненты для производства - шарики, трубы, отливки, уплотнения, пластик, смазка, антикоррозийная защита, премиального качества от европейских поставщиков...
+          a.section__bottom__new.hidden-content(href='#')
+            .section__bottom__new__date 24 октября 2019
+            .section__bottom__new__title РУС ФКЛ отгрузила более 150 тысяч изделий для ТЕХНИКА-СЕРВИС
+            .section__bottom__new__text Компоненты для производства - шарики, трубы, отливки, уплотнения, пластик, смазка, антикоррозийная защита, премиального качества от европейских поставщиков...
+        .visible__xs.visible__sm: .section__bottom__link
+          +franciscoLink('Все новости', 'str_right.svg')
+        include ../components/_signForm
+        include ../partials/_footer

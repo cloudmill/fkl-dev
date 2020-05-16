@@ -1,0 +1,95 @@
+.filter {
+  &-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 90px;
+    padding: 15px 15px 15px 30px;
+    border-bottom: 1px solid $gray;
+    position: relative;
+    cursor: pointer;
+    transition: background-color .5s;
+    .franciscoHelper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    &:active {
+      background-color: $gray;
+    }
+    img:last-child {
+      //margin: 0 25px;
+      width: 17px;
+    }
+
+    //&:before {
+    //  content: "";
+    //  background: url("../images/icons/plus.svg") no-repeat center;
+    //  width: 14px;
+    //  height: 14px;
+    //  position: absolute;
+    //  right: 20px;
+    //  top: 0;
+    //  bottom: 0;
+    //  margin: auto;
+    //  transition: transform 0.5s;
+    //}
+    &:hover {
+      &:before {
+        transform: rotate(45deg);
+      }
+    }
+    //&.active {
+    //  &:before {
+    //    transform: rotate(0);
+    //    background: url("../images/icons/minus.svg") no-repeat center;
+    //  }
+    //}
+  }
+  &-list {
+    display: none;
+    border-bottom: 1px solid $gray;
+    &.active {
+      display: block;
+    }
+    &-header {
+      height: 60px;
+      padding: 20px;
+      border-bottom: 1px solid $gray;
+      cursor: pointer;
+      transition: background-color .5s;
+      background: url("../images/icons/arrow-down.svg") no-repeat center right 15px;
+      &.active {
+        background: url("../images/icons/arrow-up.svg") no-repeat center right 15px;
+      }
+      &:active {
+        background-color: $gray;
+      }
+    }
+    &-body {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+    &__item {
+      padding: 20px;
+      border-bottom: 1px solid $gray;
+      label {
+        color: $gray-darken-1;
+        margin-bottom: 17px;
+      }
+      .control {
+        font-size: 14px;
+        padding: 10px;
+        height: 40px;
+      }
+      .input-group {
+        span:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

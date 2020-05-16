@@ -1,0 +1,194 @@
+.acknowledgment {
+  @media screen and (min-width: $screen-xmd-min) {
+    .about__slider .slick-slide {
+      margin-right: 120px;
+    }
+  }
+  @media screen and (min-width: $screen-lg-min) {
+    .about__slider .slick-slide:not(.slick-active) .sliderAbout__item-img {
+      width: 60%;
+      background: #0029ff;
+    }
+  }
+  &-info {
+    padding: 20px 0;
+    // @include listBlock;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 50px 0 50px 50px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 110px 0 110px 50px;
+    }
+    .about__slider {
+      @media screen and (max-width: $screen-sm-max) {
+        margin-left: -20px;
+      }
+    }
+    h2 {
+      margin-top: 0;
+      padding: 0 20px;
+      @media screen and (min-width: $screen-md-min) {
+        margin-bottom: 30px;
+      }
+      @media screen and (min-width: $screen-xmd-min) {
+        margin-bottom: 80px;
+        max-width: 75%;
+        padding: 0;
+      }
+    }
+    .about__video {
+      margin: 0;
+    }
+    .arrowInfo {
+      left: calc(61vw - 200px);
+      @media screen and (max-width: $screen-md-max) {
+        position: relative;
+        left: 0;
+        width: 100%;
+        > * {
+          width: 50%;
+        }
+      }
+    }
+
+    .pagingInfo,
+    .slick-dots {
+      display: block;
+      right: auto;
+      bottom: auto;
+      top: 0;
+      left: 63.5vw;
+    }
+    .pagingInfo {
+      left: 74vw;
+      @media screen and (max-width: $screen-md-max) {
+        display: none !important;
+      }
+    }
+    .slick-dots {
+      @media screen and (max-width: $screen-md-max) {
+        display: flex !important;
+        justify-content: center;
+        position: absolute;
+        top: auto;
+        top: auto;
+        bottom: -125px;
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    @media screen and (min-width: $screen-md-min) {
+      padding-left: 0;
+      padding-right: 50px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding-left: 90px;
+      padding-right: 90px;
+    }
+    @media screen and (min-width: $screen-xl-min) {
+      padding-right: 200px;
+    }
+    &__item {
+      margin-bottom: 20px;
+      position: relative;
+      @media screen and (max-width: $screen-md-max) {
+        width: 43%;
+      }
+      @media screen and (max-width: $screen-sm-max) {
+        width: 100%;
+      }
+      @media screen and (min-width: $screen-md-min) {
+        margin-bottom: 30px;
+      }
+      @media screen and (min-width: $screen-lg-min) {
+        margin-bottom: 50px;
+        margin-bottom: 100px;
+        width: 30%;
+      }
+      img {
+        display: block;
+      }
+      &:hover {
+        .acknowledgment-list__img {
+          border-color: $base-color-main;
+          top: 30px;
+          &:after {
+            background-color: $base-color-main;
+          }
+          &:before {
+            background: url("../images/icons/showBig.svg") no-repeat;
+          }
+        }
+        p {
+          color: $base-color-main;
+          position: relative;
+          bottom: 90%;
+        }
+      }
+    }
+    &__img {
+      border: 1px solid transparent;
+      position: relative;
+      margin-bottom: 30px;
+      display: inline-block;
+      top: 0;
+      transition: border-color 0.5s, top 0.5s;
+      cursor: pointer;
+      img {
+        position: relative;
+        z-index: 8;
+      }
+      &:before {
+        content: "";
+        height: 48px;
+        width: 48px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: 9;
+      }
+      &:after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        transition: background-color 0.5s;
+      }
+    }
+  }
+  &-showMore {
+    padding-left: 90px;
+    padding-right: 200px;
+    @media screen and (max-width: $screen-sm-max) {
+      padding: 20px;
+    }
+  }
+  &-slider {
+    position: relative;
+  }
+  //.pagingInfo .counter {
+  //  > span {
+  //    top: -25px;
+  //  }
+  //  &.active {
+  //    top: 0;
+  //  }
+  //}
+}
+
+.hidden-content {
+  display: none;
+}

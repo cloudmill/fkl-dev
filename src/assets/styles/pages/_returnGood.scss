@@ -1,0 +1,71 @@
+.returnGood {
+  @media screen and (min-width: $screen-lg-min) {
+    margin-top: 50px;
+  }
+  .return-inner {
+    padding: 20px 20px 20px 80px;
+  }
+  &-info {
+    // @include listBlock;
+    .cabinet-content-inner {
+      border-bottom: 1px solid $gray;
+    }
+    h5 {
+      font-family: 'massMedium';
+      font-weight: 800;
+      line-height: 1.5555;
+      margin-bottom: 20px;
+      @media screen and (min-width: $screen-lg-min) {
+        max-width: 90%;
+        margin-bottom: 50px;
+      }
+    }
+    .row .text__lg {
+      margin-bottom: 20px;
+      @media screen and (min-width: $screen-lg-min) {
+        margin-bottom: 50px;
+      }
+    }
+
+    .list--number {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 50px 0 0;
+      li {
+        width: 100%;
+        margin-bottom: 0;
+        @media screen and (min-width: $screen-xmd-min) {
+          width: 31%;
+        }
+      }
+    }
+  }
+  .faq-form {
+    border-left: none;
+    &__left {
+      line-height: 1.5555;
+      padding: 20px;
+      width: 100%;
+      @media screen and (min-width: $screen-xmd-min) {
+        width: 40%;
+        padding: 50px;
+      }
+      @media screen and (min-width: $screen-xl-min) {
+        width: 30%;
+        padding: 70px 30px 50px 70px;
+      }
+    }
+    &__right {
+      padding: 20px;
+      width: 100%;
+      @media screen and (min-width: $screen-xmd-min) {
+        width: 60%;
+      }
+      @media screen and (min-width: $screen-xl-min) {
+        width: 70%;
+        padding: 70px;
+      }
+    }
+  }
+}

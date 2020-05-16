@@ -1,0 +1,63 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "registr"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .container
+      +mainTitle('Регистрация', '', false)
+    .section__left(data-aos="")
+      .registr-info(data-aos="fade-up", data-aos-delay="700")
+        .checkbox
+          input#legal(type='checkbox', name='legal')
+          label.label(for='legal') Я юридическое лицо или ИП
+        form.regForm(method='POST', action='')
+          .row.row-null#resident
+            .col.col__xs-12: +fieldInput('text', 'name', '', 'Ваше имя', true)
+            .col.col__md-6.col__xs-12: +fieldInput('text', 'phone', '', 'Номер телефона', true)
+            .col.col__md-6.col__xs-12: +fieldInput('email', 'email', '', 'Электронная почта', true)
+            .col.col__md-6.col__xs-12: +fieldInput('password', 'password', '', 'Пароль', true)
+            .col.col__md-6.col__xs-12: +fieldInput('password', 'repassword', '', 'Повторите пароль', true)
+          .row.row-null#professional(style='display:none')
+            .col.col__md-6.col__xs-12: +fieldInput('text', 'name1', '', 'Ваше имя', true)
+            .col.col__md-6.col__xs-12: +fieldInput('text', 'company', '', 'Название компании', true)
+            .col.col__md-6.col__xs-12: +fieldInput('text', 'phone1', '', 'Номер телефона', true)
+            .col.col__md-6.col__xs-12: +fieldInput('text', 'inn', '', 'ИНН', true)
+            .col.col__md-6.col__xs-12: +fieldInput('email', 'email1', '', 'Электронная почта', true)
+            .col.col__md-6.col__xs-12: +fieldInput('text', 'kpp', '', 'КПП', true)
+            .col.col__md-6.col__xs-12: +fieldInput('password', 'password1', '', 'Пароль', true)
+            .col.col__md-6.col__xs-12: +fieldInput('text', 'bic', '', 'БИК', true)
+            .col.col__md-6.col__xs-12: +fieldInput('password', 'repassword1', '', 'Повторите пароль', true)
+            .col.col__md-6.col__xs-12: +fieldInput('text', 'korrBill', '', 'Корреспондентский счет', true)
+            .col.col__md-6.col__xs-12
+            .col.col__md-6.col__xs-12: +fieldInput('text', 'bill', '', 'Расчетный счет', true)
+            .col.col__md-6.col__xs-12
+            .col.col__md-6.col__xs-12: +fieldInput('text', 'legalBill', '', 'Юридический адрес', true)
+            .col.col__md-6.col__xs-12
+            .col.col__md-6.col__xs-12: +fieldInput('text', 'postAdr', '', 'Почтовый адрес', true)
+            .col.col__md-6.col__xs-12
+            .col.col__md-6.col__xs-12: +fieldInput('text', 'director', '', 'Руководитель', true)
+            .col.col__md-6.col__xs-12
+            .col.col__md-6.col__xs-12: +fieldInput('text', 'act', '', 'Действует на основании', true)
+            .col.col__md-6.col__xs-12
+            .col.col__md-6.col__xs-12: +fieldInput('text', 'state', '', 'Должность руководителя', true)
+          button.btn.btn--info.btn--full.btn--icon.franciscoItem(type='submit')
+            .franciscoHelper
+              span Зарегистрироваться
+              +img('whiteRightAr.svg')
+          .regForm-chk(data-aos="fade-up")
+            .checkbox
+              input#agreement(type='checkbox', name='agreement')
+              label.label(for='agreement')
+                span Нажимая на кнопку «Зарегистрироваться», вы соглашаетесь на обработку персональных данных в соответствии с #[a(href='#') политикой конфиденциальности.]
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

@@ -1,0 +1,45 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "clients clientsBlock"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .container
+      +mainTitle('Гарантии FKL', 'Клиентам / #[a(href) Гарантии FKL]', true)
+      +menuSub(menuClients, 'clients')
+    .section__left(data-aos="")
+      .clients-info
+        h2.vertical-reveal-outer
+          .vertical-reveal-inner(data-aos="") Мы уверены в нашей продукции. Эта уверенность подкреплена отлаженными процессам, которые сертифицированны международной системой ISO.
+        div(data-aos="fade-right", data-aos-delay="700")
+          +franciscoLink('Подробнее о нашей системе качества', 'str_right.svg')
+      .clients-conditions(data-aos="")
+        img.rotate(data-aos="fade-up", data-aos-delay="800", src='assets/images/iso.svg', alt='')
+        h2(data-aos="fade-up") Гарантийные условия
+        ul.list--bullet(data-aos="fade-up")
+          li Срок гарантии 1 год
+          li На подшипники FKL RUS распространяется глобальная гарантия.
+          li Срок службы подшипников FKL RUS составляет – 10 лет c даты производства.
+          li Гарантийный срок указан на специальной наклейке на обратной стороне корпуса: 12M — означает 12 месяцев гарантии; 24M - означает 24 месяца гарантии с даты покупки. Гарантийный срок, в любом случае, не может превышать: для моделей со сроком гарантии 12 месяцев - не может превышать 18 месяцев с даты производства.
+          li Гарантийный срок на аккумулятор составляет 12 месяцев с даты покупки, но, в любом случае, не может превышать 18 месяцев с даты производства устройства.
+      .clients-links(data-aos="fade-up")
+        a.about__card__bottom.franciscoItem(href='#')
+          .franciscoHelper
+            img(src='assets/images/download.svg', alt='')
+            p Скачать презентацию в PDF
+        a.about__card__bottom.franciscoItem(href='#')
+          .franciscoHelper
+            img(src='assets/images/download.svg', alt='')
+            p Скачать презентацию в DOC
+      +nextBlock('Дилерам')
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

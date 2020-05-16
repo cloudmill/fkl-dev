@@ -1,0 +1,24 @@
+form.section__bottom__form.sticky-stopper(data-aos="fade-up")
+  .section__bottom__form__row
+    .section__bottom__title
+      | Подпишись,
+      br
+      | чтобы быть вкурсе дел
+    .section__bottom__form__col
+      .checkbox
+        input#news(type='checkbox', name='news')
+        label.label(for='news') Новости
+      .checkbox
+        input#article(type='checkbox', name='article')
+        label.label(for='article') Статьи
+      .checkbox
+        input#products(type='checkbox', name='products')
+        label.label(for='products')
+          | Новинки продукции
+  .section__bottom__form__row
+    .section__bottom__form__input
+      label.control-body(for='signForm'): input.control(type='email', id='signForm' placeholder='Введите ваш E-mail', required)
+    button.section__bottom__form__button.franciscoItem(type='submit')
+      .franciscoHelper
+        span Подписаться на рассылку
+        +img('str_white.svg')

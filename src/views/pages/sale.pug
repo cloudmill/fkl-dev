@@ -1,0 +1,60 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "sale clientsBlock"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .container
+      +mainTitle('Акции', 'Клиентам', true)
+      +menuSub(menuClients, 'sale')
+    .section__left(data-aos="")
+      .sale-info
+        .sale-catalog
+          - for (let x = 1; x < 3; x++)
+            a.sale-catalog__item(data-aos="fade-up", data-aos-delay="600", href='#')
+              h5 Распродажа продукции "FKL RUS" в магазинах подшипник.ру!
+              p.text__sm.margbot30 В магазинах подшипник.ру снижены цены! Успейте купить карданнные валы "FKL RUS" с выгодой!
+              p.text__sm.text--grey Срок проведения:
+              p.text__sm.text--primary 24 октября 2019 - 18 ноября 2019
+            a.sale-catalog__item(data-aos="fade-up", data-aos-delay="600", href='#')
+              h5 Скидка на остатки продукции 50%
+              p.text__sm.margbot30 В магазинах подшипник.ру снижены цены! Успейте купить карданнные валы "FKL RUS" с выгодой!
+              p.text__sm.text--grey Срок проведения:
+              p.text__sm.text--primary 18 ноября 2018 — 31 декабря 2019
+          a.sale-catalog__item(data-aos="fade-up", href='#')
+            h5 Распродажа продукции "FKL RUS" в магазинах подшипник.ру!
+            p.text__sm.margbot30 В магазинах подшипник.ру снижены цены! Успейте купить карданнные валы "FKL RUS" с выгодой!
+            p.text__sm.text--grey Срок проведения:
+            p.text__sm.text--primary 24 октября 2019 - 18 ноября 2019
+          a.sale-catalog__item(data-aos="fade-up", href='#')
+            h5 Скидка на остатки продукции 50%
+            p.text__sm.margbot30 В магазинах подшипник.ру снижены цены! Успейте купить карданнные валы "FKL RUS" с выгодой!
+            p.text__sm.text--grey Срок проведения:
+            p.text__sm.text--primary 18 ноября 2018 — 31 декабря 2019
+          a.sale-catalog__item.hidden-content(href='#', data-aos="fade-up")
+            h5 Распродажа продукции "FKL RUS" в магазинах подшипник.ру!
+            p.text__sm.margbot30 В магазинах подшипник.ру снижены цены! Успейте купить карданнные валы "FKL RUS" с выгодой!
+            p.text__sm.text--grey Срок проведения:
+            p.text__sm.text--primary 24 октября 2019 - 18 ноября 2019
+          a.sale-catalog__item.hidden-content(href='#', data-aos="fade-up")
+            h5 Скидка на остатки продукции 50%
+            p.text__sm.margbot30 В магазинах подшипник.ру снижены цены! Успейте купить карданнные валы "FKL RUS" с выгодой!
+            p.text__sm.text--grey Срок проведения:
+            p.text__sm.text--primary 18 ноября 2018 — 31 декабря 2019
+        .showMore--js(data-aos="fade-up")
+          a.about__card__bottom.franciscoItem(href='#')
+            .franciscoHelper
+              img(src='assets/images/icons/showMore.svg', alt='')
+              p Показать еще
+      +nextBlock('Доставка')
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

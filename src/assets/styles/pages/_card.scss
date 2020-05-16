@@ -1,0 +1,388 @@
+.card {
+
+  @media screen and (min-width: $screen-md-min) {
+    .section__bottom__sliders .slick-prev {
+      left: -79px;
+    }
+  }
+  &-info {
+    // @include listBlock;
+    @media screen and (min-width: $screen-md-min) {
+      .container {
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+    }
+  }
+
+  &__item {
+    border-top: 1px solid $gray;
+    border-right: 1px solid $gray;
+    border-bottom: 1px solid $gray;
+    transition: box-shadow .5s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    .btn {
+      margin-top: auto;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      left: -1px;
+      right: -1px;
+      top: -1px;
+      bottom: -1px;
+      transition: box-shadow .5s;
+    }
+    &:hover {
+      background-color: white;
+      box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+      &:before {
+        box-shadow: inset 0px 0px 0px 1px white;
+      }
+    }
+    &__inner {
+      padding: 20px;
+      display: block;
+      position: relative;
+      @media screen and (min-width: $screen-xmd-min) {
+        padding: 30px;
+      }
+      @media screen and (min-width: $screen-lg-min) {
+        padding: 30px 50px;
+      }
+      &-img {
+        img {
+          height: 150px;
+        }
+      }
+      .section__bottom__slider__item__img {
+        margin-bottom: 25px;
+        width: auto;
+        max-height: inherit;
+      }
+    }
+    .btn {
+      border: none;
+      border-top: 1px solid $gray;
+    }
+  }
+
+  .tabs {
+    .tabs-list {
+      padding: 20px 20px 0;
+      flex-wrap: wrap;
+      justify-content: center;
+      @media screen and (min-width: $screen-lg-min) {
+        flex-wrap: nowrap;
+        padding: 70px 20px;
+      }
+    }
+    .tab {
+      width: auto;
+      display: block;
+      height: auto;
+      border: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: 20px;
+      width: 100%;
+      text-align: left;
+      &.active {
+        border-color: $base-color-main;
+      }
+      @media screen and (min-width: $screen-md-min) {
+        width: auto;
+        + .tab {
+          margin-left: 20px;
+        }
+      }
+      @media screen and (min-width: $screen-lg-min) {
+        margin-bottom: 0;
+        + .tab {
+          margin-left: 80px;
+        }
+      }
+    }
+    .table {
+      th {
+        text-align: center;
+        vertical-align: bottom;
+        border-bottom: 1px solid $gray;
+      }
+      td {
+        padding: 15px;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+      }
+    }
+  }
+  &-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid $gray;
+    @media screen and (min-width: $screen-md-min) {
+      height: 90px;
+    }
+    .list--inline {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      @media screen and (min-width: $screen-md-min) {
+        flex-wrap: nowrap;
+      }
+      li {
+        display: inline-flex;
+        align-items: center;
+        transition: color .5s;
+        cursor: pointer;
+        width: 100%;
+        margin: 10px 0;
+        @media screen and (min-width: $screen-md-min) {
+          width: auto;
+          margin: 0;
+        }
+        img {
+          margin-right: 20px;
+          + span {
+            border-bottom: 1px dashed $base-color-main;
+          }
+        }
+        @media screen and (min-width: $screen-lg-min) {
+          + li {
+            margin-left: 50px;
+          }
+        }
+        &:hover {
+          color: $base-color-main;
+        }
+      }
+    }
+  }
+
+  &-bottom {
+    .btn {
+      height: 90px;
+      border-left: 1px solid $gray;
+      border-bottom: 1px solid $gray;
+    }
+    &-title {
+      padding-left: 50px;
+    }
+  }
+
+  &-main {
+    .section__bottom__sliders {
+      margin-top: 30px;
+    }
+    .section__bottom__sliders .slick-arrow {
+      border-left: none;
+    }
+    &__item {
+      height: 100%;
+      border-top: 1px solid $gray;
+      border-right: 1px solid $gray;
+      border-bottom: 1px solid $gray;
+      &--btn {
+        > * {
+          height: calc(100%/3);
+          min-height: 60px;
+        }
+      }
+      .row {
+        padding: 20px;
+        @media screen and (min-width: $screen-md-min) {
+          padding: 40px 50px;
+        }
+      }
+    }
+    .section__bottom__slider__item__tags {
+
+    }
+    .tabs-content {
+      padding: 20px;
+      @media screen and (min-width: $screen-xmd-min) {
+        padding: 50px;
+      }
+      @media screen and (min-width: $screen-lg-min) {
+        padding: 0 80px 50px 50px;
+      }
+      &__inner {
+        padding-top: 80px;
+        padding-bottom: 80px;
+        border-bottom: 1px solid $gray;
+        border-top: 1px solid $gray;
+      }
+
+      h5 {
+        font-family: 'Roboto Mono';
+        font-weight: 500;
+        margin-top: 0;
+        margin-bottom: 50px;
+      }
+      p {
+        margin-bottom: 30px;
+      }
+      .list--bullet li {
+        margin-bottom: 30px;
+      }
+      .list--dots {
+        column-count: 2;
+        column-fill: balance;
+        @media screen and (min-width: $screen-md-min) {
+          column-count: 4;
+        }
+        li {
+          margin-bottom: 20px;
+        }
+      }
+    }
+    .list--dots {
+
+    }
+    @media screen and (min-width: $screen-md-min) {
+      .section__card__slider {
+        margin-right: 80px;
+      }
+    }
+  }
+
+  &-etc {
+    display: flex;
+    flex-wrap: wrap;
+    //justify-content: space-between;
+    @media screen and (min-width: $screen-md-min) {
+      padding-right: 20px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding-left: 60px;
+    }
+    &__item {
+      //width: 26%;
+      margin-bottom: 20px;
+      @media screen and (min-width: $screen-md-min) {
+        width: 295px;
+        margin-bottom: 40px;
+      }
+      @media screen and (min-width: $screen-lg-min) {
+        margin-bottom: 100px;
+      }
+      &-inner {
+        padding: 30px 25px 1px;
+        border: 1px solid $gray;
+        border-bottom: none;
+        font-size: 14px;
+        color: $gray-darken-1;
+        img {
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+
+  &-prices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid $gray;
+    padding: 0 20px;
+    .section__bottom__slider__item__price__old {
+      color: $gray-darken-1;
+      @media screen and (min-width: $screen-md-min) {
+        margin-right: 35px;
+      }
+      b {
+        position: relative;
+        &:before {
+          content: '';
+          height: 1px;
+          width: 110%;
+          background-color: $gray-darken-1;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          left: -5%;
+          transform: rotate(5deg);
+        }
+      }
+    }
+  }
+}
+
+.techContent {
+  border-top: 1px solid $gray;
+  border-bottom: 1px solid $gray;
+  padding-bottom: 20px;
+  position: relative;
+  h6 {
+    font-weight: 500;
+    line-height: 28px;
+    font-family: "massMedium";
+    margin-top: 15px;
+    @media screen and (min-width: $screen-md-min) {
+      padding-left: 15px;
+    }
+  }
+  @media screen and (min-width: $screen-md-min) {
+    .list--counter {
+      padding-right: 15px;
+    }
+  }
+  .tech__slider {
+    position: relative;
+    border: 1px solid $gray;
+    @media screen and (min-width: $screen-md-min) {
+      margin-left: 15px;
+    }
+    img {
+      margin: auto;
+    }
+    .slick-dots {
+      position: absolute;
+      bottom: -50px;
+      left: 0;
+      width: 50%;
+    }
+    .arrowInfo {
+      float: right;
+      position: relative;
+      left: auto;
+      top: auto;
+      bottom: auto;
+      right: auto;
+      &:before {
+        height: 33px;
+      }
+      img {
+        width: 20px;
+      }
+      &-item {
+        height: 64px;
+        width: 64px;
+      }
+    }
+  }
+  .slidersTechCard {
+    &__item {
+      padding: 15px;
+    }
+  }
+  @media screen and (min-width: $screen-md-min) {
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 1px;
+      height: 100%;
+      background-color: $gray;
+    }
+  }
+}

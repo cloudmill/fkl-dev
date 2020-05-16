@@ -1,0 +1,682 @@
+.about {
+  .subNav {
+    @media screen and (min-width: $screen-md-min) {
+      margin-bottom: 20px;
+    }
+    @media screen and (min-width: $screen-xl-min) {
+      margin-top: 50px;
+    }
+  }
+  &__body {
+    padding-top: 20px;
+    // @include listBlock;
+
+    @media screen and (min-width: $screen-md-min) {
+      padding-left: 50px;
+    }
+    @media screen and (min-width: $screen-xmd-min) {
+      padding-top: 50px;
+    }
+    @media screen and (min-width: $screen-xl-min) {
+      padding-top: 100px;
+    }
+    .about__slider {
+
+      @media screen and (max-width: $screen-sm-max) {
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__section {
+    padding: 20px;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 0;
+    }
+    h2 {
+      line-height: 1.6;
+      margin-top: 0;
+      @media screen and (min-width: $screen-md-min) {
+        margin-top: 20px;
+        max-width: 95%;
+      }
+      @media screen and (min-width: $screen-xmd-min) {
+        max-width: 80%;
+      }
+    }
+    &-img {
+      display: flex;
+      margin: 20px 0;
+      max-width: inherit;
+      position: relative;
+      right: -400px;
+      transition: right .5s;
+      @media screen and (min-width: $screen-md-min) {
+        right: -1450px;
+        margin: 40px 0;
+      }
+      @media screen and (min-width: $screen-xmd-min) {
+        margin: 100px 0;
+      }
+      * {
+        margin-right: 10px;
+        width: 23%;
+        @media screen and (min-width: $screen-md-min) {
+          margin-right: 30px;
+          width: auto;
+        }
+      }
+    }
+  }
+
+  &__info {
+    color: white;
+    background-color: $base-color-main;
+    padding: 20px 20px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 40px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 100px 90px;
+    }
+    > * {
+      width: 100%;
+      @media screen and (min-width: $screen-xmd-min) {
+        width: 45%;
+      }
+      @media screen and (min-width: $screen-xl-min) {
+        width: 50%;
+        &:last-child {
+          padding-right: 13%;
+        }
+      }
+    }
+    h4 {
+      @media screen and (min-width: $screen-md-min) {
+        margin-bottom: 40px;
+      }
+    }
+    @media screen and (max-width: $screen-sm-max) {
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+
+  &__items {
+    padding: 20px 0;
+    font-size: 18px;
+    line-height: 1.5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 50px 20px 0 0;
+    }
+    @media screen and (min-width: $screen-xmd-min) {
+      padding: 80px 60px 30px;
+    }
+    @media screen and (min-width: $screen-xl-min) {
+      padding: 100px 90px;
+    }
+    > * {
+      width: 100%;
+      padding: 10px 20px;
+      @media screen and (min-width: $screen-md-min) {
+        width: 45%;
+        margin-bottom: 0;
+      }
+      @media screen and (min-width: $screen-lg-min) {
+        width: 40%;
+      }
+      &:last-child {
+        @media screen and (min-width: $screen-lg-min) {
+          margin-right: 9%;
+        }
+        @media screen and (min-width: $screen-xl-min) {
+          padding-right: 13%;
+        }
+      }
+    }
+    &--el {
+      span {
+        color: white;
+        background-color: $base-color-main;
+      }
+    }
+  }
+
+  &__video {
+    position: relative;
+    margin: 20px 0;
+    display: inline-block;
+    @media screen and (min-width: $screen-md-min) {
+      margin: 40px 0;
+    }
+    @media screen and (min-width: $screen-xmd-min) {
+      margin: 80px 0;
+    }
+    &--ico {
+      &-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40vw;
+        transform: scale(1);
+        transition: transform .5s;
+        &:hover {
+          transform: scale(1.1);
+        }
+        @media screen and (min-width: $screen-md-min) {
+          width: auto;
+        }
+        img {
+        }
+      }
+    }
+  }
+
+  &__list {
+    font-size: 18px;
+    line-height: 1.5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    @media screen and (min-width: $screen-md-min) {
+      margin-top: 30px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 0 80px 0 0;
+    }
+    h3 {
+      font-family: 'massMedium';
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+    &--el {
+      width: 100%;
+      .margbot20 {
+        padding-top: 20px;
+        @media screen and (min-width: $screen-md-min) {
+          padding-top: 60px;
+        }
+      }
+      @media screen and (min-width: $screen-md-min) {
+        width: 45%;
+      }
+      &:last-child {
+        padding-right: 20px;
+        @media screen and (min-width: $screen-xmd-min) {
+          padding-right: 8%;
+        }
+        @media screen and (min-width: $screen-xl-min) {
+          padding-right: 16%;
+        }
+      }
+    }
+  }
+
+  &__slider {
+    position: relative;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    padding-bottom: 60px;
+    @media screen and (min-width: $screen-md-min) {
+      padding-bottom: 0;
+      margin-top: 50px;
+      margin-bottom: 100px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      margin-top: 0;
+    }
+
+    .slick-dots {
+      margin: 0 20px;
+      @media screen and (min-width: $screen-md-min) {
+        margin: 0;
+      }
+    }
+    h5 {
+      font-family: 'massMedium';
+      font-weight: 800;
+    }
+    .slick-track {
+      display: flex;
+      align-items: flex-end;
+    }
+    .slick-slide {
+      @media screen and (min-width: $screen-lg-min) {
+        width: 61vw;
+        .sliderAbout__item-img {
+          max-width: 100%;
+          transition: max-width 0.8s;
+        }
+        .sliderAbout__item-desc {
+          transition: opacity 0.2s;
+        }
+      }
+      @media screen and (min-width: $screen-xl-min) {
+        margin-right: 70px;
+      }
+      @media screen and (min-width: $screen-lg-min) {
+        &.slick-active:not(.slick-current) {
+          .sliderAbout__item {
+            &-img {
+              max-width: 38%;
+              display: inline-block;
+              //background: $base-color-main;
+              figure {
+                background: $base-color-main;
+              }
+            }
+
+            &-desc {
+              opacity: 0;
+            }
+          }
+          img {
+            mix-blend-mode: luminosity;
+          }
+        }
+      }
+    }
+  }
+
+  &__advantages {
+    padding: 20px;
+    border-bottom: 1px solid $gray;
+    position: relative;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 0 80px 50px 0;
+    }
+    @media screen and (min-width: $screen-xl-min) {
+      padding-bottom: 80px;
+    }
+    &:after {
+      content: '';
+      background: $gray;
+      height: 1px;
+      width: 50px;
+      position: absolute;
+      bottom: -1px;
+      right: 100%;
+    }
+    h2 {
+      margin-bottom: 40px;
+      @media screen and (min-width: $screen-xl-min) {
+        margin-bottom: 70px;
+      }
+    }
+    &--inner {
+      ul {
+        column-count: 1;
+        column-fill: balance;
+        @media screen and (min-width: $screen-md-min) {
+          column-count: 2;
+        }
+        @media screen and (min-width: $screen-lg-min) {
+          column-count: 3;
+          column-gap: 100px;
+        }
+      }
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 0 80px 0 0;
+      margin: 70px 0;
+    }
+    @media screen and (min-width: $screen-xl-min) {
+      margin: 110px 0;
+    }
+    &--inner {
+      width: 100%;
+      @media screen and (min-width: $screen-lg-min) {
+        width: 50%;
+      }
+      h2 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        @media screen and (min-width: $screen-lg-min) {
+          margin-bottom: 50px;
+        }
+        @media screen and (min-width: $screen-xl-min) {
+          margin-bottom: 70px;
+        }
+      }
+      h5 {
+        font-family: "massMedium";
+        margin-bottom: 20px;
+        @media screen and (min-width: $screen-md-min) {
+          margin-bottom: 50px;
+        }
+      }
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        font-size: 14px;
+        line-height: 1.57;
+        @media screen and (min-width: $screen-md-min) {
+          flex-wrap: nowrap;
+        }
+        li {
+          padding-top: 30px;
+          padding-left: 40px;
+          position: relative;
+          margin-bottom: 20px;
+          img {
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
+      }
+    }
+  }
+  &__card {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    @media screen and (min-width: $screen-lg-min) {
+      width: 50%;
+      margin-top: 0;
+    }
+    @media screen and (min-width: $screen-xl-min) {
+      width: 38%;
+    }
+    &__left {
+      width: 100%;
+      padding: 30px 40px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      color: white;
+      background: $base-color-main;
+      @media screen and (min-width: $screen-md-min) {
+        padding: 100px 40px;
+        width: 50%;
+      }
+    }
+    &--item {
+      @media screen and (min-width: $screen-md-min) {
+        position: relative;
+      }
+      img {
+        position: absolute;
+        left: -62px;
+        top: 3px;
+        @media screen and (max-width: $screen-sm-max) {
+          top: -20px;
+          transform: rotate(90deg);
+        }
+      }
+      @media screen and (max-width: $screen-sm-max) {
+        &:first-child img {
+          left: 10%;
+        }
+        &:nth-child(2) img {
+          left: 34.3%;
+        }
+        &:nth-child(3) img {
+          left: 58.6%;
+        }
+        &:last-child img {
+          left: 83%;
+        }
+      }
+    }
+    &__right {
+      width: 100%;
+      padding: 30px 40px;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      position: relative;
+      border: 1px solid $gray;
+      border-bottom: none;
+      @media screen and (min-width: $screen-md-min) {
+        width: 50%;
+      }
+    }
+    &__bottom {
+      width: 100%;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border: 1px solid $gray;
+      position: relative;
+      .franciscoHelper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        left: -1px;
+        right: -1px;
+        top: -1px;
+        bottom: -1px;
+        transition: box-shadow .5s;
+        z-index: 99;
+        //box-shadow: inset 0px 0px 0px 1px $gray;
+      }
+      @media screen and (min-width: $screen-md-min) {
+        padding: 30px 35px;
+      }
+      p {
+        margin-left: 20px;
+        margin-bottom: 0 !important;
+      }
+      &:hover {
+        &:before {
+          box-shadow: inset 0px 0px 0px 1px $base-color-main;
+        }
+      }
+    }
+  }
+
+  &__history {
+    margin-bottom: 20px;
+    padding: 20px;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 0 80px 50px 0;
+    }
+    @media screen and (min-width: $screen-xl-min) {
+      margin-bottom: 110px;
+    }
+    h2 {
+      margin-bottom: 20px;
+      margin-top: 0;
+      @media screen and (min-width: $screen-lg-min) {
+        margin-bottom: 80px;
+      }
+    }
+    &__slider {
+      position: relative;
+      .slider-for {
+        height: auto;
+        padding-top: 40px;
+        @media screen and (min-width: $screen-lg-min) {
+          padding-left: 100px;
+          padding-top: 0;
+        }
+        @media screen and (min-width: $screen-xl-min) {
+          padding-left: 200px;
+          height: 400px;
+        }
+        .slick-active {
+          .vertical-reveal-inner {
+            animation: verticalReveal 1s cubic-bezier(0.19, 1, 0.22, 1);
+            animation-fill-mode: both;
+          }
+        }
+      }
+      //.slider-nav {
+      //  .slick-slide div {
+      //    text-align: center;
+      //  }
+      //}
+      .slider-for--item {
+        @media screen and (min-width: $screen-lg-min) {
+          display: flex !important;
+        }
+        h2 {
+          margin: 0;
+          font-weight: 800;
+          font-size: 30px;
+          line-height: 1.3333;
+          @media screen and (min-width: $screen-md-min) {
+            font-size: 40px;
+          }
+          @media screen and (min-width: $screen-lg-min) {
+            font-size: 66px;
+            width: 30%;
+          }
+        }
+        .text__sm {
+          max-width: 400px;
+          margin-top: 10px;
+        }
+      }
+      .arrowInfoSec {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 94px;
+        display: flex;
+        z-index: 80;
+        cursor: pointer;
+        justify-content: space-between;
+        @media screen and (min-width: $screen-lg-min) {
+          top: 10px;
+        }
+      }
+      .appendDots {
+        position: relative;
+        width: 100%;
+        z-index: 10;
+        @media screen and (min-width: $screen-lg-min) {
+          left: 0;
+          right: 0;
+          bottom: 0;
+          position: absolute;
+        }
+        @media screen and (min-width: $screen-lg-min) {
+          span {
+            border-radius: 50px;
+            cursor: pointer;
+            white-space: nowrap;
+            border: 1px solid $base-color-main;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            transition: left .2s, width .2s;
+            height: 60px;
+            width: 60px;
+            @media screen and (min-width: $screen-xl-min) {
+              height: 95px;
+              width: 95px;
+            }
+          }
+        }
+      }
+
+      .slick-dots {
+        position: static;
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        overflow-x: auto;
+        @media screen and (min-width: $screen-lg-min) {
+          justify-content: space-between;
+        }
+        li {
+          &:after {
+            display: none;
+          }
+          list-style: none;
+          border-radius: 95px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          border: 1px solid transparent;
+          width: auto;
+          white-space: nowrap;
+          height: 95px;
+          min-width: 95px;
+          margin: 5px;
+          @media screen and (min-width: $screen-md-min) {
+            height: 60px;
+            min-width: 60px;
+            margin: 0;
+          }
+          @media screen and (min-width: $screen-xl-min) {
+            height: 95px;
+            min-width: 95px;
+          }
+          &.slick-active {
+            border-color: $base-color-main;
+            @media screen and (min-width: $screen-lg-min) {
+              border-color: transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  &__people {
+    margin-bottom: 0;
+    padding: 20px;
+    position: relative;
+    @media screen and (min-width: $screen-md-min) {
+      margin-right: 50px;
+      padding: 0 0 50px 0;
+    }
+    .sliderAboutPeople {
+      img {
+        width: 100%;
+      }
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      margin-right: 80px;
+      padding-bottom: 100px;
+    }
+    .arrowInfo {
+      left: auto;
+      right: 0;
+      @media screen and (max-width: $screen-sm-max) {
+        position: relative;
+      }
+      @media screen and (min-width: $screen-lg-min) {
+        bottom: 100px;
+      }
+    }
+  }
+}

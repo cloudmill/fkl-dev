@@ -1,0 +1,85 @@
+.shipping {
+  .logoList {
+    margin-right: 0;
+    &__item {
+      &:last-child,
+      &:nth-last-child(2) {
+        @media screen and (min-width: $screen-lg-min) {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+  &-info {
+    // @include listBlock;
+    padding: 20px;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 50px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 70px 200px 100px 50px;
+    }
+    .text__xl {
+      font-family: "mass";
+    }
+    h2 {
+      line-height: 1.555;
+      @media screen and (min-width: $screen-md-min) {
+        margin-top: 60px;
+      }
+    }
+    span {
+      color: white;
+      background-color: $base-color-main;
+    }
+
+    .manufacturing-attr--list {
+      margin-top: 30px;
+      @media screen and (min-width: $screen-md-min) {
+        margin-top: 90px;
+      }
+      li {
+        width: 100%;
+        @media screen and (min-width: $screen-md-min) {
+          padding-left: 80px;
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+.logoList--border {
+  margin-right: 0;
+  .logoList__item {
+    padding: 20px;
+    width: 100%;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 30px;
+      width: calc(100% / 2);
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 40px 60px;
+      width: calc(100% / 3);
+    }
+    &--img {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+  }
+  .text--grey {
+    margin: 20px 0;
+    @media screen and (min-width: $screen-md-min) {
+      margin: 30px 0;
+    }
+  }
+  .text__sm {
+    display: flex;
+    align-items: center;
+    img {
+      margin-right: 25px;
+    }
+  }
+}

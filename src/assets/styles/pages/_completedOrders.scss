@@ -1,0 +1,11 @@
+.completedOrders {
+  @media screen and (min-width: $screen-lg-min) {
+    margin-top: 50px;
+  }
+  .cabinet-price {
+    text-align: left;
+  }
+  &-info {
+    // @include listBlock;
+  }
+}

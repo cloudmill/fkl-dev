@@ -1,0 +1,104 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "manufacturing"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .container
+      .mainTitle.mainTitle--subNav
+        +mainTitle('Производственные процессы', 'Стандарты качества / #[a(href) О компании]', true)
+      +menuSub(menuAbout, pageName)
+      .subSections(data-aos="fade-up", data-aos-delay="700")
+        li.subsections__item: span Подразделы
+        li.subsections__item: a.active(href='manufacturing.html') Производственные процессы
+        li.subsections__item: a(href='certificates.html') Сертификаты качества
+    .section__left(data-aos="")
+      .manufacturing-info
+        h2.vertical-reveal-outer
+          .vertical-reveal-inner(data-aos="") Производственная программа FKL это:
+        .manufacturing-list
+          .manufacturing-list__item(data-aos="fade-up", data-aos-delay="200")
+            .manufacturing-list__item-num 50%
+            .manufacturing-list__item-txt Самоустанавливающиеся шариковые подшипники (Y&nbsp;программа)
+          .manufacturing-list__item(data-aos="fade-up", data-aos-delay="300")
+            .manufacturing-list__item-num 36%
+            .manufacturing-list__item-txt Подшипники для сельского хозяйства
+          .manufacturing-list__item(data-aos="fade-up", data-aos-delay="400")
+            .manufacturing-list__item-num 4%
+            .manufacturing-list__item-txt Радиальные шариковые подшипники
+          .manufacturing-list__item(data-aos="fade-up", data-aos-delay="200")
+            .manufacturing-list__item-num 3%
+            .manufacturing-list__item-txt Карданные валы и части кардана
+          .manufacturing-list__item(data-aos="fade-up", data-aos-delay="300")
+            .manufacturing-list__item-num 3%
+            .manufacturing-list__item-txt Новая продукция
+          .manufacturing-list__item(data-aos="fade-up", data-aos-delay="400")
+            .manufacturing-list__item-num 2%
+            .manufacturing-list__item-txt Программа для автомобильной промышленности
+      .manufacturing-tab
+        .manufacturing-tab-title
+          h2(data-aos="fade-up") Основные этапы изготовления продукции
+        .tabs(data-aos="fade-up")
+          .tabs-list
+            a.tab.active(href='#stage1') Входной контроль
+            a.tab(href='#stage2') Склад сырья
+            a.tab(href='#stage3') Термическая обработка
+            a.tab(href='#stage4') Токарная обработка
+            a.tab(href='#stage5') Шлифовка
+            a.tab(href='#stage6') Сборка подшипников
+            a.tab(href='#stage7') Упаковка
+          #stage1.tabs-content.show
+            .manufacturing-content
+              h5.vertical-reveal-outer
+                .vertical-reveal-inner.animated(data-aos="revealIn", data-aos-delay="300") Контроль сырья перед началом производственного процесса:
+              .vertical-reveal-outer
+                ul.list--bullet.vertical-reveal-inner.animated(data-aos="revealIn", data-aos-delay="350")
+                  li Твердость (по Роквеллу, Бринелло, Виккерсу)
+                  li Микроструктура/Макроструктура (карбидная сетка, следы карбида, мартенситная структура, обезуглероженные слои)
+                  li Спектральный анализ (химический состав материала)
+            .about__slider
+              .pagingInfo
+              .sliderAbout
+                - for (let x = 1; x < 7; x++)
+                  .sliderAbout__item
+                    .sliderAbout__item-img.o-block__img.js-visible.e-visible--1
+                      figure
+                        img(src='assets/images/manufacturing/manufacturing-slide-1.jpg', alt='')
+              .arrowInfo
+                .arrowInfo-item.prev: img(src='assets/images/slickPrev.svg', alt='')
+                .arrowInfo-item.next: img(src='assets/images/slickNext.svg', alt='')
+          - for (let y = 2; y < 8; y++)
+            .tabs-content(id='stage' + y)
+              .manufacturing-content
+                h5.vertical-reveal-outer
+                  .vertical-reveal-inner.animated(data-aos="revealIn", data-aos-delay="300") Контроль сырья перед началом производственного процесса:
+                .vertical-reveal-outer
+                  ul.list--bullet.vertical-reveal-inner.animated(data-aos="revealIn", data-aos-delay="350")
+                    li Твердость (по Роквеллу, Бринелло, Виккерсу)
+                    li Микроструктура/Макроструктура (карбидная сетка, следы карбида, мартенситная структура, обезуглероженные слои)
+                    li Спектральный анализ (химический состав материала)
+      .manufacturing-attr
+        h2(data-aos="fade-up") Качество и испытательные лаборатории
+        .manufacturing-attr--inner
+          .blueLine
+            h5(data-aos="fade-up") Все рабочие процессы и качество продукции оценено #[br] международными системами сертификации
+          ul.manufacturing-attr--list
+            li(data-aos="fade-up", data-aos-delay="200")
+              div: img(src='assets/images/manufacturing/item-1.svg', alt='')
+              .desc.text__sm Система управления согласно стандартам ISO 9001, ISO 14001, ISO 18001.
+            li(data-aos="fade-up", data-aos-delay="300")
+              div: img(src='assets/images/manufacturing/item-2.svg', alt='')
+              .desc.text__sm Вся продукция прохоит лабораторыне исследования. Мы имеем собственную аккредитованную лабораторию для тестирования продукции.
+            li(data-aos="fade-up", data-aos-delay="400")
+              div: img(src='assets/images/manufacturing/item-3.svg', alt='')
+              .desc.text__sm В штате работает более 200 сотрудников, с профессиональной квалификацией
+      +nextBlock('Достижения')
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer

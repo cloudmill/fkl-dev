@@ -1,0 +1,192 @@
+.menuBar {
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  left: -100%;
+  position: fixed;
+  z-index: 999;
+  transition: left 0.5s;
+  color: white;
+  overflow: auto;
+  background: radial-gradient(162.8% 47.45% at 50% 50%, #002A97 0%, #001241 100%);
+  @media screen and (min-width: $screen-md-min) {
+    overflow: visible;
+    background: url("../images/menuBack.svg") no-repeat bottom left, radial-gradient(50% 50% at 50% 50%, #002A97 0%, #001241 100%);
+  }
+  .container {
+    overflow: visible;
+  }
+  .header__logo {
+    &:after {
+      opacity: 1;
+    }
+    &:before {
+      opacity: 0;
+    }
+  }
+  .sitebar__link {
+    height: 80px;
+    justify-content: flex-start;
+    padding: 0 15px;
+    background-color: $base-color-dark;
+  }
+  &.active {
+    left: 0;
+  }
+  &__search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    height: 80px;
+    background-color: $base-color-main;
+    padding: 8px 15px;
+    .searchBar__input {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      border: none;
+      .icon {
+        margin-right: 10px;
+      }
+      input {
+        height: 60px;
+      }
+    }
+  }
+  &__close {
+    width: 100vh;
+    height: 100px;
+    padding: 30px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    background-color: $base-color-dark;
+    transform-origin: left;
+    align-items: center;
+    position: absolute;
+    transform: rotate(-90deg);
+    left: 50px;
+    bottom: -50px;
+    cursor: pointer;
+    @media screen and (max-width: $screen-sm-max) {
+      display: none;
+    }
+    .icon {
+      margin-right: 15px;
+      transition: background-color .5s;
+      border-radius: 50px;
+    }
+    &:hover {
+      .icon {
+        background-color: $base-color-main;
+      }
+    }
+  }
+  &__closeMob {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    padding: 15px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $base-color-darken;
+    > img {
+      width: 100px;
+      height: 24px;
+    }
+    span {
+      display: flex;
+      align-items: center;
+    }
+    .icon {
+      margin-right: 15px;
+    }
+  }
+  &__title {
+    font-family: "massMedium";
+  }
+  &__phone {
+    font-size: 22px;
+    font-family: "massMedium";
+  }
+  &__content {
+    @media screen and (min-width: $screen-md-min) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding-left: 100px;
+    }
+    .container {
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+      overflow: hidden;
+      @media screen and (min-width: $screen-md-min) {
+        padding-left: 20px;
+        padding-right: 20px;
+        max-width: 1080px;
+      }
+      @media screen and (min-width: $screen-lg-min) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+  &__logo {
+    margin-bottom: 90px;
+  }
+  &__list {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    &__item {
+      color: white;
+      font-family: "massMedium";
+    }
+  }
+  @media screen and (max-width: $screen-sm-max) {
+    .menuBar__list__item {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      padding: 15px 20px;
+      width: 100%;
+      border-bottom: 1px solid rgba(white, 0.18);
+    }
+    .footer__download {
+      margin-bottom: 20px;
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+    .footer__mail {
+      padding-bottom: 30px;
+      margin-bottom: 0;
+      border-bottom: 1px solid rgba(white, 0.18);
+    }
+    .footer__row {
+      padding-top: 30px;
+      border-top: 1px solid rgba(white, 0.18);
+    }
+    .footer__text {
+      margin-bottom: 20px;
+    }
+    .footer__title {
+      padding-top: 25px;
+    }
+    .menuBar__title {
+      margin-bottom: 15px;
+    }
+    .footer__row,
+    .footer__mail,
+    .footer__phone,
+    .footer__text,
+    .footer__title {
+      padding-left: 15px;
+    }
+  }
+}

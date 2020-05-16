@@ -1,0 +1,53 @@
+[
+  {
+    "title": "История заказов",
+    "menu": [
+      {
+        "title": "Активные заказы (1)",
+        "href": "actionOrders"
+      },
+      {
+        "title": "Выполненные заказы (9)",
+        "href": "completedOrders"
+      }
+    ]
+  },
+  {
+    "title": "Мой профиль",
+    "menu": [
+      {
+        "title": "Профиль",
+        "href": "address"
+      },
+      {
+        "title": "Реквизиты",
+        "href": "requisites"
+      },
+      {
+        "title": "Изменить пароль",
+        "href": "editPassword"
+      }
+    ]
+  },
+  {
+    "title": "Помощь",
+    "menu": [
+      {
+        "title": "Где мой заказ?",
+        "href": ""
+      },
+      {
+        "title": "Какие сроки доставки?",
+        "href": "deliveryTime"
+      },
+      {
+        "title": "Как вернуть товар",
+        "href": "returnGood"
+      },
+      {
+        "title": "Задать вопрос",
+        "href": "question"
+      }
+    ]
+  }
+]

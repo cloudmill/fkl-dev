@@ -1,0 +1,75 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "basket"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .section__left(data-aos="")
+      .basket-info
+        .container
+          +mainTitleH2('Корзина', 'Корзина')
+          .table--responsive(data-aos="fade-up", data-aos-delay="700")
+            table.table.table--adaptive
+              thead
+                tr
+                  th Товар
+                  th Цена
+                  th.text--center Кол-во
+                  th Сумма
+                  th
+              tbody
+                tr
+                  td(data-label="Товар")
+                    .visible__sm.visible__xs: .cabinet-delete.cabinet-delete--js: i.icon-delete
+                    .cart-item
+                      .cart-item--img: +img('cabinet/item-1.png')
+                      .cart-item--desc
+                        .text__sm Подшипник шариковый самоустанавливающийся 6205-2S.EES
+                        .text__xs Артикул: 6206-2Z
+                  td.cabinet-price(data-label="Цена") 529,86 р.&nbsp;
+                    span с НДС
+                  td(data-label="Кол-во")
+                    .input__quantity.input__quantity-js
+                      .inc: +img('icons/minus.svg')
+                      input.input__number-js(type='text', value='1')
+                      .dec: +img('icons/plus.svg')
+                  td.cabinet-price.counter--js(data-price='529.86', data-label="Сумма")
+                    .value 529,86 р.
+                  td: .hidden__sm.hidden__xs: .cabinet-delete.cabinet-delete--js: i.icon-delete
+                tr
+                  td(data-label="Товар")
+                    .visible__sm.visible__xs: .cabinet-delete.cabinet-delete--js: i.icon-delete
+                    .cart-item
+                      .cart-item--img: +img('cabinet/item-2.png')
+                      .cart-item--desc
+                        .text__sm Подшипник шариковый самоустанавливающийся 6205-2S.EES
+                        .text__xs Артикул: 6206-2Z
+                  td.cabinet-price(data-label="Цена") 529,86 р.&nbsp;
+                    span с НДС
+                  td(data-label="Кол-во")
+                    .input__quantity.input__quantity-js
+                      .inc: +img('icons/minus.svg')
+                      input.input__number-js(type='text', value='7')
+                      .dec: +img('icons/plus.svg')
+                  td.cabinet-price.counter--js(data-price='529.86', data-label="Сумма")
+                    .value 3 709.02 р.
+                  td: .hidden__sm.hidden__xs: .cabinet-delete.cabinet-delete--js: i.icon-delete
+          .basket-price.animated(data-animation="slideInUp", data-animation-delay="800")
+            .basket-price__desc Итого, без учета скидки:
+            .basket-price__value 24 098,67 р.
+        a.btn.btn--info.btn--full.btn--icon.franciscoItem(href='#', data-aos="fade-up", data-aos-delay="200")
+          .franciscoHelper
+            span Перейти к оплате заказа
+            +img('whiteRightAr.svg')
+        .basket-order(data-aos="fade-up", data-aos-delay="200") Чтобы рассчитать скидку, перейдите к оплате заказа
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

@@ -1,0 +1,198 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "about"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .container
+      +mainTitle('О компании', 'О компании', true)
+      +menuSub(menuAbout, '')
+    .section__left(data-aos="")
+      .about__body
+        .about__section
+          h2.vertical-reveal-outer
+            .vertical-reveal-inner(data-aos="") ООО ФКЛ РУС – генеральный дистрибьютор завода FKL на территории России и СНГ с 2007 года. Центральный офис и склад находятся в Воронеже.
+          .about__section-img
+            img(src='assets/images/about/about-line-1.svg', alt='')
+            img(src='assets/images/about/about-line-2.svg', alt='')
+            img(src='assets/images/about/about-line-3.svg', alt='')
+            img(src='assets/images/about/about-line-4.svg', alt='')
+        .about__info(data-aos="fade-up")
+          .about__info-img
+            img(src='assets/images/about/about-list.svg', alt='')
+          .about__info-desc
+            h4 За весь период деятельности специалистами компании ФКЛ РУС было разработано и внедрено более 100 уникальных образцов подшипниковых изделий.
+            a.btn.btn--primary(href='#')
+              span Каталог продукции
+        .about__items(data-aos="fade-up")
+          .about__items--el #[span Развитая дилерская сеть FKL], представленная десятками компаний, позволяет обеспечить наличие продукции в каждом регионе, минимизировать сроки поставки и предложить своим клипентам оптимиальные цены.
+          .about__items--el Приемлемый уровен цен и высокое европейское качество получили заслуженное #[span одобрение от клиентов] нашей компании
+        .about__video(data-aos="fade-up")
+          .about__video--ico
+            .about__video--ico-img: img.rotate(src='assets/images/video.svg', alt='')
+          img(src='assets/images/video.jpg', alt='')
+        .about__list
+          .about__list--el
+            h3(data-aos="fade-up") Наш склад
+            p(data-aos="fade-up") Весной 2017 года в элитном индустриальном парке "Перспектива" введено в эксплуатацию новое складское помещение площадью 1 500 м²
+          .about__list--el(data-aos="fade-up")
+            p.margbot20 Возможности склада отвечают самым современным европейским стандартам:
+            ol.list--number
+              li Оборудование для поддержания необходимой температуры и влажности
+              li Техника для оптимизации внутреннних и внешних логистических процессов
+              li Учет товара осуществляется по штрих-коду
+              li Склад расположен в непосредственной близости от федеральных трасс
+        .about__slider(data-aos="fade-up")
+          .pagingInfo.pagingInfo-ls
+            span.counter
+              span
+              span
+            span.length
+          .arrowInfo
+            .arrowInfo-item.prev: img(src='assets/images/slickPrev.svg', alt='')
+            .arrowInfo-item.next: img(src='assets/images/slickNext.svg', alt='')
+          .sliderAbout
+            - for (let x = 1; x < 5; x++)
+              .sliderAbout__item
+                .sliderAbout__item-img.o-block__img.js-visible.e-visible--1
+                  figure
+                    img(src='assets/images/about/about-slide-1.jpg', alt='')
+                .sliderAbout__item-desc
+                  h5 Складские помещения для хранения
+                  p.text__md Здесь мы храним нашу продукцию. Контроль качества осуществялется при помощи нашей лабаратории.
+        .about__advantages
+          h2(data-aos="fade-up") Приемущества #[br] в сотрудничестве с FKL
+          .about__advantages--inner(data-aos="fade-up")
+            ul.list--bullet
+              li Использование 100% европейского качественного продукта
+              li Индивидуальные решения по запросу клиента
+              li EUR.1 Сертификат о происхождении товара
+              li Экономия денежных средств без потери качества
+              li Гибкость в работе
+              li Возможность увеличесния прибыли дистрибьютера за счет продаж бренда FKL
+              li Техническая и логистическая поддержка
+              li Беспошленный ввоз продукции FKL
+              li Дополнительная поддержка для OEM-покупателей
+        .about__group
+          .about__group--inner
+            h2(data-aos="fade-up") Завод FKL входит в холдинг Техника-Сервис из России
+            h5(data-aos="fade-up") Группа включает:
+            ul.list--unstyled(data-aos="fade-up")
+              li
+                img(src='assets/images/about/el-1.svg', alt='')
+                span 5 заводов
+              li
+                img(src='assets/images/about/el-2.svg', alt='')
+                span 1200 сотрудников
+              li
+                img(src='assets/images/about/el-3.svg', alt='')
+                span Общий годовой объем продаж #[br] свыше 51 млн. евро
+          .about__card(data-aos="fade-up")
+            .about__card__left
+              p: b ЗАО Техника-Сервис
+              p.text__sm Ведущий производитель пневматических сеялок
+              p.text__xs Воронеж, Россия
+            .about__card__right
+              .about__card--item
+                img(src='assets/images/arrow-left--long.svg', alt='')
+                b FKL
+                p.text__sm Темерин, Сербия
+              .about__card--item
+                img(src='assets/images/arrow-left--long.svg', alt='')
+                b ООО ТС-Лит
+                p.text__sm Воронеж
+              .about__card--item
+                img(src='assets/images/arrow-left--long.svg', alt='')
+                p: b ЭОМЗ
+              .about__card--item
+                img(src='assets/images/arrow-left--long.svg', alt='')
+                b ТС Профиль-Групп
+                p.text__sm Воронеж
+            a.about__card__bottom.franciscoItem(href='#')
+              .franciscoHelper
+                img(src='assets/images/download.svg', alt='')
+                p Скачать презентацию о RUS FKL
+        .about__history
+          h2(data-aos="fade-up") История компании
+          .about__history__slider
+            .arrowInfoSec
+              .arrowInfoSec-item.prevSec
+              .arrowInfoSec-item.nextSec
+            .slider-for
+              .slider-for--item
+                h2.vertical-reveal-outer
+                  .vertical-reveal-inner 2018
+                .text__sm.vertical-reveal-outer
+                  .vertical-reveal-inner FKL меняет организационно-правовую форму на общество с ограниченной ответственностью.
+              .slider-for--item
+                h2.vertical-reveal-outer
+                  .vertical-reveal-inner 2017
+                .text__sm.vertical-reveal-outer
+                  .vertical-reveal-inner FKL является основным поставщиком подшипников для завода по производству комбайнов ООО «Комбайновый завод «Ростсельмаш», Россия
+              .slider-for--item
+                h2.vertical-reveal-outer
+                  .vertical-reveal-inner 2015
+                .text__sm.vertical-reveal-outer
+                  .vertical-reveal-inner Процесс приватизации успешно завершен. На сегодняшний день завод FKL на 100% находится в частной собственности.
+              .slider-for--item
+                h2.vertical-reveal-outer
+                  .vertical-reveal-inner 2009
+                .text__sm.vertical-reveal-outer
+                  .vertical-reveal-inner Начат процесс приватизации.
+              .slider-for--item
+                h2.vertical-reveal-outer
+                  .vertical-reveal-inner 1990
+                .text__sm.vertical-reveal-outer
+                  .vertical-reveal-inner FKL становится Акционерным обществом.
+              .slider-for--item
+                h2.vertical-reveal-outer
+                  .vertical-reveal-inner 1987-1988
+                .text__sm.vertical-reveal-outer
+                  .vertical-reveal-inner Приобретена и запущена специализированная проточная линия для термической обработки колец, AICHELIN.
+              .slider-for--item
+                h2.vertical-reveal-outer
+                  .vertical-reveal-inner 1986
+                p.text__sm Завод переезжает на новую производственную площадку в промышленной зоне Темерина, где построены 2 современных цеха общей площадью 25000 кв. м.
+              .slider-for--item
+                h2.vertical-reveal-outer
+                  .vertical-reveal-inner 1980-1990
+                .text__sm.vertical-reveal-outer
+                  .vertical-reveal-inner Завод активно развивается, приобретая по тем временам новое и современное оборудование. В эти годы завод закупает шести-шпиндельные автоматы, токарные и шлифовальные станки с ЧПУ.
+              .slider-for--item
+                h2.vertical-reveal-outer
+                  .vertical-reveal-inner 1975
+                .text__sm.vertical-reveal-outer
+                  .vertical-reveal-inner Завод полностью перешел на программу по производству подшипников и карданных валов.
+              .slider-for--item
+                h2.vertical-reveal-outer
+                  .vertical-reveal-inner 1965
+                .text__sm.vertical-reveal-outer
+                  .vertical-reveal-inner 3 февраля 1965 г. предприятие переименовано и получило название «Фабрика подшипников качения» или сокращенно “FKL“. С этого момента главным направлением производственной деятельности предприятие становится производство подшипников. Начинается активное развитие основной деятельности: вводятся процессы токарной, термической обработки, шлифовки и сборки подшипников. Также предприятие занимается ремонтом, техническим обслуживанием и испытаниями подшипников.
+              .slider-for--item
+                h2.vertical-reveal-outer
+                  .vertical-reveal-inner 1961
+                .text__sm.vertical-reveal-outer
+                  .vertical-reveal-inner 18 ноября 1961 г. создано предприятие под названием «Товарищество по производству и оказанию услуг металлообработки «METALUM» Основной деятельностью предприятия выбраны следующие направления: производство деталей для автомобилей и тракторов, а также оказание услуг по обработке металла.
+            .appendDots
+              span
+        .about__people(data-aos="fade-up")
+          .sliderAboutPeople
+            - for (let x = 1; x < 5; x++)
+              .o-block__img.js-visible.e-visible--1
+                figure
+                  +img('people.jpg')
+          .arrowInfo
+            .arrowInfo-item.prevPeople: img(src='assets/images/slickPrev.svg', alt='')
+            .arrowInfo-item.nextPeople: img(src='assets/images/slickNext.svg', alt='')
+      +nextBlock('Наша команда')
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

@@ -1,0 +1,46 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "address"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .section__left(data-aos="")
+      .address-info
+        .cabinet
+          +asideNav(menuAside, pageName)
+          .cabinet-content
+            .cabinet-content-inner
+              +mainTitleH2('Профиль', 'Личный кабинет')
+              .address-desc
+                .address-desc__item(data-aos="fade-up", data-aos-delay="700")
+                  .address-desc__item-left Ваше имя
+                  .address-desc__item-right Щербаков Кирилл
+                .address-desc__item(data-aos="fade-up", data-aos-delay="800")
+                  .address-desc__item-left Сотовый телефон
+                  .address-desc__item-right +79112862563
+                .address-desc__item(data-aos="fade-up", data-aos-delay="900")
+                  .address-desc__item-left Адрес e-mail
+                  .address-desc__item-right ksh@cloudmill.ru
+                .address-desc__item(data-aos="fade-up", data-aos-delay="1000")
+                  .address-desc__item-left Страна
+                  .address-desc__item-right Россия
+                .address-desc__item(data-aos="fade-up", data-aos-delay="1100")
+                  .address-desc__item-left Индекс
+                  .address-desc__item-right 192254
+                .address-desc__item(data-aos="fade-up", data-aos-delay="1200")
+                  .address-desc__item-left Адрес
+                  .address-desc__item-right пр. Луначарского дом 19
+              .row.animated.margbot20(data-aos="fade-up")
+                .col.col__xl-3.col__lg-4.col__md-6.col__xs-7: a.longLink(href='#') Изменить профиль
+                .col.col__xl-3.col__lg-4.col__md-6.col__xs-5.text--right.text__md--left: a.longLink(href='#') Сохранить
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

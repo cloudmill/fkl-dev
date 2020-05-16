@@ -1,0 +1,15 @@
+include ../partials/_sidebar
+include ../partials/_menu
+
+header.header.black.fixed-header.animated(data-animation="slideInDown", data-animation-delay="600")
+  .header-inner
+    a.header__logo(href='')
+    include ../components/_navbar
+    .header__right
+      a.header__right__phone.franciscoItem(href='tel:84732110550')
+        span.franciscoHelper 8 473 211-05-50
+      .header__right__buts
+        a.header__right__but(href='')
+          i.icon.icon_cart
+        a.header__right__but(href='')
+          i.icon.icon_user

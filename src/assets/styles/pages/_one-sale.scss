@@ -1,0 +1,51 @@
+.oneSale {
+  .news-one-helper .link-helper img {
+    margin-bottom: 0;
+  }
+  &-info {
+    padding: 20px;
+    // @include listBlock;
+    @media screen and (min-width: $screen-xmd-min) {
+      padding: 50px 0 50px 50px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 110px 0 110px 50px;
+    }
+    h2 {
+      margin-bottom: 20px;
+      @media screen and (min-width: $screen-lg-min) {
+        margin-bottom: 50px;
+        max-width: 80%;
+      }
+    }
+    .text--primary {
+      margin-bottom: 20px;
+      @media screen and (min-width: $screen-lg-min) {
+        margin-bottom: 90px;
+      }
+    }
+  }
+  .sale-catalog__item {
+    width: 100%;
+  }
+  .section__bottom__sliders {
+    margin-top: 0;
+    @media screen and (min-width: $screen-md-min) {
+      padding-right: 80px;
+    }
+    .slick-arrow {
+      @media screen and (min-width: $screen-lg-min) {
+        left: -79px;
+      }
+      &:before {
+        bottom: -1px;
+      }
+      &.slick-next {
+        left: auto;
+      }
+    }
+  }
+  .section__bottom__slider {
+    border-bottom: none;
+  }
+}

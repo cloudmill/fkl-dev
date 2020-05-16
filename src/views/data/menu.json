@@ -1,0 +1,102 @@
+[
+  {
+    "title": "Каталог",
+    "href": "catalog.html",
+    "subitems": [
+      {
+        "title": "Ступицы",
+        "href": "#"
+      },
+      {
+        "title": "Шариковые подшипники",
+        "href": "#"
+      },
+      {
+        "title": "Подшипниковые узлы",
+        "href": "#"
+      },
+      {
+        "title": "Корпуса для подшипников",
+        "href": "#"
+      },
+      {
+        "title": "Карданные валы",
+        "href": "#"
+      },
+      {
+        "title": "Крестовины",
+        "href": "#"
+      },
+      {
+        "title": "Закрепительные втулки",
+        "href": "#"
+      },
+      {
+        "title": "Акссесуары",
+        "href": "#"
+      },
+      {
+        "title": "Полезная литература",
+        "href": "#"
+      }
+    ]
+  },
+  {
+    "title": "О компании",
+    "href": "about.html",
+    "subitems": [
+      {
+        "title": "Спецпрограмма",
+        "href": "#"
+      },
+      {
+        "title": "Гарантии",
+        "href": "clients.html"
+      },
+      {
+        "title": "Производство",
+        "href": "#"
+      },
+      {
+        "title": "История",
+        "href": "#"
+      },
+      {
+        "title": "Вакансии",
+        "href": "vacancy.html"
+      },
+      {
+        "title": "Философия и ценности компании",
+        "href": "#"
+      },
+      {
+        "title": "С нами работают",
+        "href": "workwithus.html"
+      },
+      {
+        "title": "Сертификаты/дипломы",
+        "href": "certificates.html"
+      }
+    ]
+  },
+  {
+    "title": "Контакты",
+    "href": "contacts.html",
+    "subitems": [
+      {
+        "title": "Контакты",
+        "href": "#"
+      }
+    ]
+  },
+  {
+    "title": "Дилерам",
+    "href": "contacts.html",
+    "subitems": false
+  },
+  {
+    "title": "Где купить",
+    "href": "wherebuy.html",
+    "subitems": false
+  }
+]

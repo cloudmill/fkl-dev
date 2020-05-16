@@ -1,0 +1,97 @@
+.login {
+  margin-top: 50px;
+  &-info {
+    // @include listBlock;
+    border-left: none !important;
+
+    &:after {
+      content: "";
+      background-color: $gray;
+      position: absolute;
+      width: 1px;
+      top: 0;
+      left: 0;
+      height: 100%;
+    }
+
+    @media screen and (min-width: $screen-md-min) {
+      .mainTitle {
+        margin-left: -50px;
+      }
+      .container {
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+    }
+
+    .login-chk {
+      padding: 50px 20px;
+      display: flex;
+      //justify-content: center;
+      border-top: 1px solid $gray;
+    }
+
+    .tabs {
+      //@media screen and (min-width: $screen-md-min) {
+        //border-top: 1px solid $gray;
+      //}
+      .tabs-list {
+        padding: 20px;
+        justify-content: space-between;
+        @media screen and (min-width: $screen-md-min) {
+          justify-content: center;
+          padding: 50px 20px;
+        }
+      }
+      .tab {
+        width: auto;
+        display: block;
+        height: auto;
+        border: none;
+        border-bottom: 2px solid transparent;
+        &.active {
+          border-color: $base-color-main;
+        }
+        @media screen and (min-width: $screen-md-min) {
+          + .tab {
+            margin-left: 80px;
+          }
+        }
+      }
+    }
+  }
+
+  .regForm {
+    margin-top: 0;
+    border-top: 1px solid $gray;
+    &:after,
+    &:before {
+      display: none;
+    }
+    &-error {
+      color: $color-type-2a;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+  }
+
+  .forgot-pass {
+    padding: 40px;
+    text-align: center;
+    a {
+      border-bottom: 1px solid $base-color-main;
+      &:hover {
+        border-color: transparent;
+      }
+    }
+  }
+
+  @media screen and (min-width: $screen-md-min) {
+    .section__left:before {
+      display: none;
+    }
+    .section__left:after {
+      top: 30%;
+    }
+  }
+}

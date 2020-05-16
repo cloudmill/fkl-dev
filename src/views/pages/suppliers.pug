@@ -1,0 +1,50 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "suppliers clientsBlock"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .container
+      +mainTitle('Производителям', 'Клиентам', true)
+      +menuSub(menuClients, 'suppliers')
+    .section__left(data-aos="")
+      .suppliers-info
+        .return-inner
+          .blueLine(data-aos="fade-up", data-aos-delay="700")
+            h5.vertical-reveal-outer
+              .vertical-reveal-inner(data-aos="") Компания FKL RUS всегда готова рассматривать новые предложения о сотрудничестве. Нашей целью является развитие взаимовыгодных партнерских отношений с производителями для того, чтобы вместе предлагать нашим покупателям лучшее товарное предложение по низким ценам при стабильном качестве и гарантированном наличии.
+          .return-txt.text__lg.vertical-reveal-outer
+            .vertical-reveal-inner(data-aos="") Особое внимание мы уделяем локальным поставщикам и, в особенности, производителям в каждом регионе и стремимся обеспечить максимальное расширение такого сотрудничества. Эта поддержка дает региональным производителям отличную возможность для развития их бизнеса и многократного увеличения продаж.
+      .faq-form
+        .faq-form__left(data-aos="fade-right")
+          h2 Добро пожаловать, #[br] уважаемые будущие #[br] Партнеры!
+          p.text__lg Мы будем всегда рады увидеть Ваши сообщения с вопросами или предложениями, присланные на специальный почтовый ящик, указанный в разделе #[a(href='#') «Контакты»].
+        form.faq-form__right(data-aos="fade-left")
+          .inner.text--center
+            h3 Спасибо, мы с Вами #[br] свяжемся
+            .form__group
+              a.btn.btn--primary.btn--full.return--js(href='#'): span Задать ещё вопрос
+          .outer
+            .form__group: +fieldInput('text', 'name', '', 'Ваше имя', true)
+            .form__group: +fieldInput('email', 'email', '', 'Электронная почта', true)
+            .form__group: +fieldInput('text', 'phone', '', 'Номер телефона', true)
+            .form__group: +fieldTextarea('message', '', 'Ваш вопрос', '5', false)
+            .row
+              .col.col__lg-6.col__xs-12.form__group
+                a.btn.btn--primary.btn--full(href='#'): span Задать вопрос
+              .col.col__lg-6.col__xs-12.first__xs.last__lg.form__group
+                .checkbox
+                  input(type="checkbox", id='faqId')
+                  label.label(for='faqId') Нажимая на кнопку «Задать вопрос», вы соглашаетесь на обработку персональных данных в соответствии с #[a(href='#') политикой конфиденциальности].
+      +nextBlock('Вопрос-ответ')
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

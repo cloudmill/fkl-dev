@@ -1,0 +1,90 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "catalog"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .section__left(data-aos="")
+      .catalog-info
+        .cabinet
+          include ../components/_filter
+          .cabinet-content
+            .cabinet-content-inner
+              +mainTitleH2('Специальная программа #[br] для сельхозтехники', 'Каталог')
+              ul.catalog-nav(data-aos="fade-up", data-aos-delay="700")
+                li: a(href='#') Шариковые подшипники для сельльскохозяйственной техники #[span 20]
+                li: a(href='#') Подшипники для отечественных производителей #[span 50]
+                li: a(href='#') Подшипники для зарубежных производителей #[span 70]
+                li: a(href='#') Сальники #[span 10]
+              ul.catalog-btn-nav(data-aos="fade-up", data-aos-delay="800")
+                li: a.btn.btn__sm.franciscoItem(href='#'): .franciscoHelper Подшипники для почвообрабатывающей техники
+                li: a.btn.btn__sm.franciscoItem.active(href='#'): .franciscoHelper Подшипники для сеялки
+                li: a.btn.btn__sm.franciscoItem(href='#'): .franciscoHelper Подшипники для прикатывающих устройств
+                li: a.btn.btn__sm.franciscoItem(href='#'): .franciscoHelper Подшипники для комбайнов
+                li: a.btn.btn__sm.franciscoItem(href='#'): .franciscoHelper Подшипники для универсального применения
+            .tabs(data-aos="fade-up", data-aos-delay="900")
+              .tabs-list
+                a.tab.active(href='#stage1') Ассортимент
+                a.tab(href='#stage2') Описание
+              #stage1.tabs-content.show
+                .catalog__inner
+                  - for (let x = 1; x < 10; x++)
+                    .catalog__item(data-aos="fade-up")
+                      .card__item__inner
+                        .card__item__inner-img
+                          img.section__bottom__slider__item__img(src='assets/images/prod_1.png', alt='')
+                        .section__bottom__slider__item__tags
+                          .section__bottom__slider__item__tag #Скидка
+                          .section__bottom__slider__item__tag #Новинка
+                        a.section__bottom__slider__item__name(href='#')
+                          | Подшипник шариковый самоустанавливающийся 6205-2S.EES
+                        .section__bottom__slider__item__price
+                          | 529,86 ₽
+                          span с НДС
+                        .section__bottom__slider__item__state.state_have
+                          | Есть в наличии
+                        .section__bottom__slider__item__bot-inf
+                          | Артикул: 6206-2Z
+                      a.btn.btn--full.btn--default.franciscoItem(href='#'): .franciscoHelper Добавить в корзину
+              #stage2.tabs-content
+                .catalog__inner
+                  - for (let x = 1; x < 4; x++)
+                    .catalog__item
+                      .card__item__inner
+                        .card__item__inner-img
+                          img.section__bottom__slider__item__img(src='assets/images/prod_2.png', alt='')
+                        .section__bottom__slider__item__tags
+                          .section__bottom__slider__item__tag #Скидка
+                          .section__bottom__slider__item__tag #Новинка
+                        a.section__bottom__slider__item__name(href='#')
+                          | Подшипник шариковый самоустанавливающийся 6205-2S.EES
+                        .section__bottom__slider__item__price
+                          | 529,86 ₽
+                          span с НДС
+                        .section__bottom__slider__item__state.state_have
+                          | Есть в наличии
+                        .section__bottom__slider__item__bot-inf
+                          | Артикул: 6206-2Z
+                      a.btn.btn--full.btn--default.franciscoItem(href='#'): .franciscoHelper Добавить в корзину
+            include ../components/_paginator
+            .cap__desc
+              h5 Подборки
+              ul.catalog-nav(data-aos="fade-up")
+                li: a(href='#') Подшипники Lemken
+                li: a(href='#') Подшипники case
+                li: a(href='#') Подшипники Claas
+                li: a(href='#') Подшипники Shtern
+                li: a(href='#') Подшипники John Deere
+                li: a(href='#') Подшипники Lemken
+                li: a(href='#') Подшипники US
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

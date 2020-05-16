@@ -1,0 +1,42 @@
+.sale {
+  &-info {
+    // @include listBlock;
+    &:before {
+      z-index: -1;
+    }
+  }
+  .about__card__bottom {
+    border: none;
+  }
+  &-catalog {
+    display: flex;
+    flex-wrap: wrap;
+    //border-top: 1px solid $gray;
+    //border-left: 1px solid $gray;
+    &__item {
+      width: 100%;
+      padding: 20px;
+      border-right: 1px solid $gray;
+      border-bottom: 1px solid $gray;
+      @media screen and (min-width: $screen-md-min) {
+        width: 50%;
+      }
+      @media screen and (min-width: $screen-xmd-min) {
+        padding: 40px;
+      }
+      @media screen and (min-width: $screen-lg-min) {
+        padding: 50px 80px 40px 50px;
+      }
+      h5 {
+        margin-top: 0;
+        @media screen and (min-width: $screen-xmd-min) {
+          height: 60px;
+        }
+      }
+      &:hover {
+        box-shadow: inset 0px 0px 0px 1px $base-color-main;
+      }
+    }
+  }
+}
+

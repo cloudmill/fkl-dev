@@ -1,0 +1,45 @@
+extends ../layouts/master.pug
+
+block header
+  include ../partials/_header
+
+block pageName
+  - var pageName = "search"
+
+block content
+  .section
+    .container
+      +mainTitle('Найдено результатов: 5', '', false)
+      p(data-aos="fade-up", data-aos-delay="600") По запросу
+        b «Подшипник крупноузловой»
+    .section__left(data-aos="")
+      form.searchBlock(data-aos="fade-up", data-aos-delay="600")
+        label.searchBlock__icon(for='search')
+          +img('search_blue.svg')
+        .section__bottom__form__row
+          .section__bottom__form__input
+            input.control(type='text', id='search', placeholder='Поиск', value='Подшипник крупноузловой', required)
+          +franciscoBtn('Найти', 'str_white.svg')
+      .catalog
+        .catalog__title
+          h2(data-aos="fade-up", data-aos-delay="600") Товары
+        include ../components/_catalogInner
+        .catalog__title.news__title
+          h2(data-aos="fade-up") Другие материалы
+        .news__inner
+          - for (let x = 1; x < 5; x++)
+            .news__item(data-aos="fade-up")
+              .news__item-left
+                .news__item__date 24 октября 2019
+                .news__item__title РУС ФКЛ отгрузила более 150 тысяч изделий для ТЕХНИКА-СЕРВИС
+                +franciscoLink('Подробнее', 'str_right.svg')
+              .news__item-right
+                .catalog__item-inf Категория: &nbsp;
+                  a(href='#') Подшипники
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

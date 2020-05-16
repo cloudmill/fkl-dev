@@ -1,0 +1,55 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "actionOrders"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .section__left(data-aos="")
+      .actionOrders-info
+        .cabinet
+          +asideNav(menuAside, pageName)
+          .cabinet-content
+            .cabinet-content-inner
+              +mainTitleH2('Активные заказы', 'Личный кабинет')
+              .table--responsive.animated(data-aos="fade-up", data-aos-delay="700")
+                table.table.table--striped
+                  thead
+                    tr
+                      th Номер заказа
+                      th Дата
+                      th Статус
+                      th Адрес доставки
+                      th Сумма, руб.
+                  tbody
+                    - for (let x = 1; x < 4; x++)
+                      tr
+                        td
+                          | 5523456
+                          a.text--grey(href='#')
+                            +img('cabinet/bill.svg')
+                            | Выставленный счет
+                        td 29.05.19
+                        td Собирается #[br] интернет-магазином
+                        td 192252 Санкт-Петербург. #[br] пр. Луначарского д. 19
+                        td.cabinet-price 2540 р.
+                      tr
+                        td
+                          | 5523456
+                          a.text--grey(href='#')
+                            +img('cabinet/bill.svg')
+                            | Выставленный счет
+                        td 29.05.19
+                        td Собирается#[br] интернет-магазином
+                        td 192252 Санкт-Петербург. #[br] пр. Луначарского д. 19
+                        td.cabinet-price 2540 р.
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

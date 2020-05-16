@@ -1,0 +1,60 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "packaging clientsBlock"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .container
+      +mainTitle('Упаковка', 'Клиентам', true)
+      +menuSub(menuClients, 'packaging')
+    .section__left(data-aos="")
+      .packaging-info.acknowledgment-info
+        .packaging-inner
+          .text__lg.vertical-reveal-outer
+            .vertical-reveal-inner(data-aos="") Сохранение качества подшипника во время  поставки и складирования обеспечивается необходимой упаковкой и защитой. В соответствии с требованиями покупателя разработана тара для индивидуальной упаковки  продукции, а также упаковки для срочной установки в ходе серийного монтажа. Использованные защитные средства обеспечивают стабильность качества продукции не менее чем в течении трех лет в условиях правильного хранения.
+        h2.vertical-reveal-outer
+          .vertical-reveal-inner(data-aos="") Примеры оригинальной упаковки FKL
+        .about__slider(data-aos="fade-up")
+          .pagingInfo
+            span.counter
+              span
+              span
+            span.length
+          .sliderAbout
+            - for (let x = 1; x < 7; x++)
+              .sliderAbout__item
+                .sliderAbout__item-img.o-block__img.js-visible.e-visible--1
+                  figure
+                    +img('shipping/kor-1.jpg')
+          .arrowInfo
+            .arrowInfo-item.prev: img(src='assets/images/slickPrev.svg', alt='')
+            .arrowInfo-item.next: img(src='assets/images/slickNext.svg', alt='')
+      .packaging-old
+        h2(data-aos="fade-up") Примеры упакованной продукции
+        .about__slider(data-aos="fade-up")
+          .pagingInfo-rtl
+            span.counter
+              span
+              span
+            span.length
+          .sliderAbout-rtl(dir="rtl")
+            - for (let x = 1; x < 7; x++)
+              .sliderAbout__item
+                .sliderAbout__item-img.o-block__img.js-visible.e-visible--1
+                  figure
+                    +img('shipping/kor-2.jpg')
+          .arrowInfo
+            .arrowInfo-item.prev-rtl: img(src='assets/images/slickPrev.svg', alt='')
+            .arrowInfo-item.next-rtl: img(src='assets/images/slickNext.svg', alt='')
+      +nextBlock('Поставщикам')
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

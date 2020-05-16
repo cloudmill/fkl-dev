@@ -1,0 +1,560 @@
+//
+// Vendors -> Plugins
+// ------------------------------------
+
+//svg-icons
+$items: facebook, twitter, percent_icon;
+
+.sprite-bg {
+  @include sprite("facebook");
+}
+
+.sprite {
+  display: inline-block;
+  &:before {
+    content: "";
+    display: block;
+  }
+  @each $item in $items {
+    &--#{$item} {
+      &:before {
+        width: map-get(map-get($sizes, $item), "width");
+        height: map-get(map-get($sizes, $item), "height");
+        background: url(map-get($sprites, $item)) center no-repeat;
+      }
+    }
+  }
+}
+
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-delete:before {
+  content: "\e904";
+}
+.icon-minus:before {
+  content: "\e900";
+  color: #0029ff;
+}
+.icon-plus:before {
+  content: "\e901";
+  color: #0029ff;
+}
+.icon-add:before {
+  content: "\e902";
+}
+.icon-remove:before {
+  content: "\e903";
+}
+
+//svg-icons
+.mCSB_scrollTools .mCSB_draggerRail {
+  width: 4px !important;
+  background-color: $gray !important;
+}
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  background-color: $base-color-main !important;
+  border-radius: 0 !important;
+}
+.mCSB_inside > .mCSB_container {
+  margin-right: 30px !important;
+  @media screen and (min-width: $screen-md-min) {
+    border-right: 1px solid #dcdcdc;
+    margin-right: 58px !important;
+  }
+}
+.mCSB_scrollTools {
+  opacity: 1 !important;
+  right: 10px !important;
+  @media screen and (min-width: $screen-md-min) {
+    right: 22px !important;
+    top: 10px !important;
+    bottom: 10px !important;
+  }
+}
+
+
+.mfp-content {
+  max-width: 1340px;
+  margin: auto;
+}
+.popup-block {
+  background-color: white;
+  h4 {
+    font-size: 18px;
+    font-family: 'mass';
+    margin-bottom: 20px;
+    @media screen and (min-width: $screen-md-min) {
+      font-size: 22px;
+      margin-bottom: 40px;
+    }
+  }
+  &-header {
+    padding: 20px 60px 20px 20px;
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 40px 50px;
+    }
+  }
+  .col__md-7 {
+    display: flex;
+    flex-direction: column;
+  }
+  .mfp-close {
+    display: none;
+  }
+  .popup-modal-dismiss {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: $gray-darken-2;
+    background-color: $white;
+    width: 59px;
+    height: 59px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .5s, color .5s;
+    &:hover {
+      color: $white;
+      background-color: $gray-darken-2;
+    }
+  }
+}
+.mfp-with-zoom .mfp-container,
+.mfp-with-zoom.mfp-bg {
+  opacity: 0;
+  -webkit-backface-visibility: hidden;
+  transition: all 0.3s ease-out;
+}
+.mfp-with-zoom.mfp-ready .mfp-container {
+  opacity: 1;
+}
+.mfp-with-zoom.mfp-ready.mfp-bg {
+  opacity: 0.8;
+}
+.mfp-container {
+  overflow: auto;
+  padding: 0 !important;
+}
+.mfp-with-zoom.mfp-removing .mfp-container,
+.mfp-with-zoom.mfp-removing.mfp-bg {
+  opacity: 0;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+//select
+.select2-container--default {
+  .select2-selection--single {
+    @extend .control;
+    height: 72px !important;
+    border: 1px solid $gray !important;
+    border-radius: 0 !important;
+    display: inline-flex !important;
+    align-items: center;
+
+    .select2-selection__arrow {
+      height: 100%;
+    }
+
+    .select2-selection__rendered {
+      padding: 0;
+    }
+
+    .select2-selection__arrow {
+      width: 20px !important;
+      height: 5px !important;
+      top: 0px !important;
+      right: 15px !important;
+      bottom: 0;
+      margin: auto;
+      background: url("../images/icons/arrow-down.svg") no-repeat center;
+
+      b {
+        display: none;
+      }
+    }
+  }
+
+  &.select2-container--open {
+    .select2-selection__arrow {
+      background: url("../images/icons/arrow-up.svg") no-repeat center;
+    }
+  }
+
+  .select2-results > .select2-results__options {
+    max-height: 340px !important;
+  }
+}
+
+.fp-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.select2-dropdown {
+  border-color: $gray !important;
+  border-radius: 0 !important;
+}
+.select2-container {
+  display: block;
+}
+.select2-container--default .select2-results__option {
+  padding: 10px 30px;
+  &[aria-selected="true"] {
+    color: $base-color-main !important;
+    background-color: white !important;
+  }
+  &--highlighted {
+    &[aria-selected] {
+      background-color: white !important;
+      color: $base-color-main !important;
+      box-shadow: inset 0px 0px 0px 1px $base-color-main;
+    }
+  }
+}
+//select
+
+//slider
+.sliderAbout__item {
+  display: flex !important;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1.57;
+  flex-wrap: wrap;
+  @media screen and (min-width: $screen-lg-min) {
+    flex-wrap: nowrap;
+  }
+  &-desc {
+    flex-grow: 1;
+    width: 100%;
+    padding: 20px;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 40px 20px 20px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 0 0 0 20px;
+      width: 35%;
+    }
+    @media screen and (min-width: $screen-xl-min) {
+      padding-left: 80px;
+    }
+  }
+}
+
+.arrowInfo {
+  position: relative;
+  z-index: 9;
+  display: flex;
+  @media screen and (min-width: $screen-md-min) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: auto;
+  }
+  @media screen and (min-width: $screen-lg-min) {
+    bottom: 0;
+    top: auto;
+    left: 35.1%;
+  }
+  @media screen and (min-width: $screen-xl-min) {
+    left: 400px;
+  }
+  &:before {
+    content: '';
+    width: 1px;
+    height: 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: $base-color-dark;
+    @media screen and (min-width: $screen-md-min) {
+      height: 52px;
+    }
+  }
+  &-item {
+    width: 50%;
+    height: 80px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $base-color-main;
+    transition: background-color 0.5s;
+    @media screen and (min-width: $screen-md-min) {
+      width: 100px;
+      height: 100px;
+    }
+    &.slick-disabled {
+      filter: grayscale(20);
+    }
+    &:hover {
+      background-color: $base-color-dark;
+    }
+  }
+}
+
+.pagingInfo-ls,
+.pagingInfo-rtl,
+.pagingInfo {
+  position: absolute;
+  left: 33%;
+  right: 0;
+  bottom: 0;
+  z-index: 70;
+  font-size: 14px;
+  text-align: center;
+  display: none;
+  @media screen and (min-width: $screen-lg-min) {
+    display: flex;
+  }
+  @media screen and (min-width: $screen-xl-min) {
+    left: 57vw;
+    right: auto;
+  }
+  .counter {
+    font-size: 20px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    position: relative;
+    bottom: 5px;
+    overflow: hidden;
+    height: 25px;
+    > span {
+      width: 100%;
+      transition: top .5s;
+      position: relative;
+      top: -28px;
+    }
+    &.active {
+      > span {
+        top: 0;
+        transition: top 0s;
+      }
+    }
+  }
+}
+
+.pagingInfo-ls,
+.pagingInfo-rtl {
+  .counter {
+    > span {
+      top: -22px;
+    }
+  }
+}
+
+.slick-dots {
+  left: 0;
+  right: 0;
+  bottom: 5px;
+  z-index: 80;
+  display: flex;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+  @media screen and (min-width: $screen-md-min) {
+    position: absolute;
+    bottom: -30px;
+  }
+  @media screen and (min-width: $screen-lg-min) {
+    left: 16%;
+    bottom: 0;
+    justify-content: center;
+  }
+  @media screen and (min-width: $screen-xl-min) {
+    left: 670px;
+    right: auto;
+  }
+  li {
+    //display: flex;
+    //justify-content: center;
+    //align-items: center;
+    //width: 26px;
+    //height: 26px;
+    //margin: 0 5px;
+    //padding: 0;
+    //cursor: pointer;
+    //border: 1px solid transparent;
+    //border-radius: 30px;
+    position: relative;
+    &.slick-active {
+      border-color: $base-color-main;
+      &:after {
+        background: $base-color-main;
+      }
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 10px;
+      cursor: pointer;
+      color: transparent;
+      background: $gray-darken-2;
+    }
+  }
+}
+.slider-nav {
+  .slick-slide {
+    .slider-nav--item {
+      border-radius: 50px;
+      padding: 35px 27px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      width: auto !important;
+      white-space: nowrap;
+      transition: border-color .5s;
+    }
+    &.slick-current .slider-nav--item {
+      border-color: $base-color-main;
+    }
+  }
+}
+.slider-for {
+}
+.nextSec {
+  width: 24px;
+  height: 17px;
+  background: url("../images/slickNextSec.svg") no-repeat center;
+  &:hover {
+    background: url("../images/slickNextSecBl.svg") no-repeat center;
+  }
+}
+.prevSec {
+  width: 24px;
+  height: 17px;
+  background: url("../images/slickPrevSec.svg") no-repeat center;
+  &:hover {
+    background: url("../images/slickPrevSecBl.svg") no-repeat center;
+  }
+}
+//slider
+
+//ratio
+.ratio {
+  width: 100%;
+  position: relative;
+  &1-1 {
+    padding-top: 100%;
+  }
+  &-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.slick-slide {
+  height: auto !important;
+}
+
+
+/**
+ * Fade-zoom animation for first dialog
+ */
+
+/* start state */
+.my-mfp-zoom-in .zoom-anim-dialog {
+  opacity: 0;
+
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+
+
+
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+/* animate in */
+.my-mfp-zoom-in.mfp-ready .zoom-anim-dialog {
+  opacity: 1;
+
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+
+/* animate out */
+.my-mfp-zoom-in.mfp-removing .zoom-anim-dialog {
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
+
+  opacity: 0;
+}
+
+/* Dark overlay, start state */
+.my-mfp-zoom-in.mfp-bg {
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-out;
+  -moz-transition: opacity 0.3s ease-out;
+  -o-transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
+}
+/* animate in */
+.my-mfp-zoom-in.mfp-ready.mfp-bg {
+  opacity: 0.8;
+}
+/* animate out */
+.my-mfp-zoom-in.mfp-removing.mfp-bg {
+  opacity: 0;
+}
+
+

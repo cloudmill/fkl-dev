@@ -1,0 +1,81 @@
+.actionOrders {
+  @media screen and (min-width: $screen-lg-min) {
+    margin-top: 50px;
+  }
+  .cabinet-price {
+    text-align: left;
+  }
+  &-info {
+    // @include listBlock;
+  }
+}
+
+.cabinet {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid $gray;
+
+  .mainTitle {
+    @media screen and (min-width: $screen-lg-min) {
+      padding-bottom: 45px;
+    }
+  }
+
+  aside {
+    width: 100%;
+    @media screen and (min-width: $screen-md-min) {
+      width: 200px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      width: 270px;
+    }
+  }
+  &-price {
+    font-size: 18px;
+    font-weight: 500;
+    span {
+      color: $gray-darken-1;
+      font-size: 12px;
+    }
+  }
+  &-content {
+    width: 100%;
+    @media screen and (min-width: $screen-md-min) {
+      width: calc(100% - 200px);
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      width: calc(100% - 270px);
+    }
+    &-inner {
+      padding: 0 20px 20px;
+      @media screen and (min-width: $screen-lg-min) {
+        padding: 0 80px 100px;
+      }
+    }
+    .catalog__inner {
+      border-top: 1px solid $gray;
+    }
+    .catalog__item {
+      .btn {
+        position: relative;
+      }
+    }
+
+    .table {
+      th {
+        white-space: nowrap;
+      }
+      th:first-child {
+        width: 140px;
+      }
+      .text--grey {
+        margin-top: 25px;
+        display: block;
+        white-space: nowrap;
+        img {
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+}

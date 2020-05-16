@@ -1,0 +1,91 @@
+.clients {
+
+  .about__card__bottom {
+    border-bottom: none;
+    border-right: none;
+    &:before {
+      right: -2px;
+    }
+  }
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    @media screen and (min-width: $screen-md-min) {
+      margin-bottom: 70px;
+    }
+  }
+  &-info {
+    padding: 20px;
+    // @include listBlock;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 50px 50px 50px 50px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 110px 110px 110px 50px;
+    }
+  }
+  &-conditions {
+    padding: 20px;
+    //border-top: 1px solid $gray;
+    //border-left: 1px solid $gray;
+    position: relative;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 50px 50px 50px 50px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 110px 110px 110px 50px;
+    }
+
+    position: relative;
+    &:before {
+      content: "";
+      background-color: $gray;
+      position: absolute;
+      left: 0;
+      width: 0;
+      top: 0;
+      height: 1px;
+      z-index: -1;
+      transition: width 1.5s;
+    }
+    &.aos-animate {
+      &:before {
+        transition-delay: 1.1s;
+      }
+    }
+    &.aos-animate {
+      &:before {
+        width: 110%;
+      }
+    }
+    ul {
+      @media screen and (min-width: $screen-xmd-min) {
+        column-count: 2;
+        column-fill: balance;
+        column-gap: 130px;
+        li {
+          margin-bottom: 65px;
+        }
+      }
+    }
+    img {
+      position: absolute;
+      right: -200px;
+      top: -123px;
+      @media screen and (min-width: $screen-md-min) {
+        right: -100px;
+      }
+      @media screen and (min-width: $screen-lg-min) {
+        right: 200px;
+      }
+    }
+  }
+  &-links {
+    display: flex;
+    flex-wrap: wrap;
+    @media screen and (min-width: $screen-md-min) {
+      flex-wrap: nowrap;
+    }
+  }
+}

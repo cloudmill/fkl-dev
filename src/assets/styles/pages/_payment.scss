@@ -1,0 +1,65 @@
+.payment {
+  &-info {
+    padding: 20px;
+    // @include listBlock;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 50px 50px 30px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 60px 200px 30px 50px;
+    }
+  }
+  &-catalog {
+    display: flex;
+    flex-wrap: wrap;
+    counter-reset: items;
+    border-top: 1px solid $gray;
+    border-left: 1px solid $gray;
+    &__item {
+      width: 100%;
+      padding: 40px 20px 20px;
+      border-right: 1px solid $gray;
+      border-bottom: 1px solid $gray;
+      position: relative;
+      @media screen and (min-width: $screen-md-min) {
+        width: 50%;
+        padding: 40px;
+      }
+      @media screen and (min-width: $screen-lg-min) {
+        padding: 80px 80px 40px 80px;
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+      h5 {
+        margin-top: 0;
+        margin-bottom: 30px;
+        font-family: 'Roboto Mono', serif;
+        font-weight: 500;
+      }
+      p {
+        margin-bottom: 30px;
+      }
+
+      &::before {
+        counter-increment: items 1;
+        content: counter(items, decimal-leading-zero);
+        font-size: 18px;
+        font-weight: 800;
+        color: $base-color-main;
+        font-family: 'massMedium', serif;
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        @media screen and (min-width: $screen-md-min) {
+          left: 10px;
+        }
+        @media screen and (min-width: $screen-lg-min) {
+          top: 40px;
+          left: 50px;
+        }
+      }
+    }
+  }
+}
+

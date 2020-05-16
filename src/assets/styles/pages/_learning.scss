@@ -1,0 +1,64 @@
+.learning {
+
+  &-img {
+    position: absolute;
+    display: none;
+    @media screen and (min-width: $screen-md-min) {
+      display: block;
+      right: 0;
+      top: 50px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      //right: -200px;
+      top: 100px;
+    }
+  }
+  &-info {
+    padding: 20px;
+    // @include listBlock;
+    @media screen and (min-width: $screen-md-min) {
+      //background: url("../images/payment/list.svg") no-repeat right -40px top 50px;
+      padding: 50px
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      //background: url("../images/payment/list.svg") no-repeat right top 100px;
+      padding: 90px 200px 100px 50px;
+    }
+    h2 {
+      @media screen and (min-width: $screen-lg-min) {
+        max-width: 80%;
+      }
+    }
+  }
+  &-inner {
+    padding-top: 20px;
+    @media screen and (min-width: $screen-md-min) {
+      padding-top: 60px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 90px 0 0 90px;
+    }
+    .text__lg {
+      line-height: 180%;
+      @media screen and (min-width: $screen-lg-min) {
+        max-width: 80%;
+      }
+    }
+    .acknowledgment-list {
+      @media screen and (min-width: $screen-md-min) {
+        padding: 140px 0 0;
+      }
+      &__item {
+        width: 100%;
+        margin-bottom: 20px;
+        @media screen and (min-width: $screen-md-min) {
+          width: 296px;
+          margin-bottom: 80px;
+        }
+        &:hover .acknowledgment-list__img {
+          top: 50px;
+        }
+      }
+    }
+  }
+}

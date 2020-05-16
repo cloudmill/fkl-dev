@@ -1,0 +1,35 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "news"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .container
+      +mainTitle('Новости', 'О компании', true)
+      +menuSub(menuAbout, pageName)
+    .section__left(data-aos="")
+      .news-info
+        .news-mainNews(data-aos="fade-up", data-aos-delay="700")
+          .news-mainNews-top
+            .text--grey.text__sm 24 октября 2019
+          .news-mainNews-left
+            h2: a(href='#') Приглашаем на выставку «ЮгАгро 2019»
+          .news-mainNews-right
+            p.text__lg Дорогие друзья!
+            p.text__lg Приглашаем Вас посетить стенд Генерального дистрибьютора FKL на выставке ЮГАГРО 2019, в рамках которой Вы сможете познакомиться с новинками 2019 г.
+        include ../components/_news
+        .showMore--js(data-aos="fade-up")
+          a.about__card__bottom.franciscoItem(href='#')
+            .franciscoHelper
+              img(src='assets/images/icons/showMore.svg', alt='')
+              p Показать еще
+      +nextBlock('Философия')
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer

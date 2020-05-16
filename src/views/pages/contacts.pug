@@ -1,0 +1,111 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "contacts contactsBlock"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .container
+      +mainTitle('Контакты', 'Контакты', true)
+      +menuSub(menuWhereBuy, 'contacts')
+    .section__left(data-aos="")
+      .contacts-info
+        .contacts-title.row.between__xs.middle__xs(data-aos="fade-up", data-aos-delay="700")
+          .col
+            h2 Центральный офис
+          .col.hidden__xs.hidden__sm
+            +franciscoLink('Склад', 'arrow-right--long-gr.svg')
+        .row.between__xs
+          .contacts-list.col.col__lg-4.col__md-6.col__xs-12(data-aos="fade-up", data-aos-delay="800")
+            .contacts-list__ico
+              +img('contacts/pin.svg')
+            .contacts-list__desc
+              h5 Воронеж, 394088 ул. Новгородская, 121, офис 1
+              p.text--grey.text__sm Пн-Чт 8:30 - 17:30, Пятница до 16:30
+          .contacts-list.col.col__lg-4.col__md-6.col__xs-12(data-aos="fade-up", data-aos-delay="900")
+            .contacts-list__ico
+              +img('contacts/phone.svg')
+            .contacts-list__desc
+              h5: a(href='tel:84732110550') 8 473 211-05-50
+              p.text--grey.text__sm (многоканальный)
+              h5: a(href='tel:84732747150') 8 473 274-71-50
+          .contacts-list.col.col__lg-3.col__md-6.col__xs-12(data-aos="fade-up", data-aos-delay="1000")
+            .contacts-list__ico
+              +img('contacts/envelope.svg')
+            .contacts-list__desc
+              h5: a(href='mailto:mail@rusfkl.ru') mail@rusfkl.ru
+      #googleMap.googleMap(data-aos="fade-up", data-aos-delay="200")
+      .clients-links(data-aos="fade-up")
+        a.about__card__bottom.franciscoItem(href='#')
+          .franciscoHelper
+            img(src='assets/images/download.svg', alt='')
+            p Скачать презентацию в PDF
+        a.about__card__bottom.franciscoItem(href='#')
+          .franciscoHelper
+            img(src='assets/images/download.svg', alt='')
+            p Скачать презентацию в DOC
+      .contacts-requisites
+        .row.between__xs
+          .col.col__md-6.col__xs-12(data-aos="fade-up", data-aos-delay="200")
+            p.text--grey.text__sm Реквизиты:
+            .text__md.margbot50
+              p: b Общество с ограниченной ответственностью «ФКЛ РУС»
+              p ИНН 3662213366
+              p КПП 366201001
+              p ОГРН 1153668044749
+              p ОКАТО 20401000000, ОКПО 10609423
+            p.text--grey.text__sm Юридический адрес:
+            .text__md.margbot50
+              p 394088, г. Воронеж, ул.Новгородская, д.121, помещение нежилое, оф.1
+            p.text--grey.text__sm Фактический адрес:
+            .text__md.margbot50
+              p 394088, г. Воронеж, ул.Новгородская, д.121, помещение нежилое, оф.1
+            p.text--grey.text__sm Банк:
+            .text__md.margbot50
+              p Воронежский филиал АО ЮниКредит Банка г. Воронеж
+              p р/с 40702810600304824274
+              p к/с 30101810100000000709
+              p БИК 042007709
+          .col.col__lg-4.col__md-6.col__xs-12(data-aos="fade-up", data-aos-delay="300")
+            p.text--grey.text__sm Директор:
+            .text__md.margbot50
+              b Пешков Сергей Александрович
+            p.text--grey.text__sm Главный бухгалтер:
+            .text__md.margbot50
+              b Кустовинова Елена Леонидовна
+      .clients-links(data-aos="fade-up")
+        .col__lg-6.col__md-7.col__xs-12
+          a.about__card__bottom.franciscoItem(href='#')
+            .franciscoHelper
+              img(src='assets/images/download.svg', alt='')
+              p Скачать Реквизиты
+      .faq-form
+        .faq-form__left(data-aos="fade-right")
+          h2 Вы также #[br] можете задать #[br] любой вопрос
+          p.text__lg Воспользуйтесь формой обратной #[br] связи и мы свяжемся с Вами в #[br] ближайшее время
+        form.faq-form__right(data-aos="fade-left")
+          .inner.text--center
+            h3 Спасибо, мы с Вами #[br] свяжемся
+            .form__group
+              a.btn.btn--primary.btn--full.return--js(href='#'): span Задать ещё вопрос
+          .outer
+            .form__group: +fieldInput('text', 'name', '', 'Ваше имя', true)
+            .form__group: +fieldInput('email', 'email', '', 'Электронная почта', true)
+            .form__group: +fieldTextarea('message', '', 'Ваш вопрос', '5', false)
+            .row
+              .col.col__lg-6.col__xs-12.form__group
+                a.btn.btn--primary.btn--full(href='#'): span Задать вопрос
+              .col.col__lg-6.col__xs-12.first__xs.last__lg.form__group
+                .checkbox
+                  input(type="checkbox", id='faqId')
+                  label.label(for='faqId') Нажимая на кнопку «Задать вопрос», вы соглашаетесь на обработку персональных данных в соответствии с #[a(href='#') политикой конфиденциальности].
+      +nextBlock('Склад')
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+

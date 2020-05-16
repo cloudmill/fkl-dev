@@ -1,0 +1,35 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "certificates"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .container
+      +mainTitle('Сертификаты качества', 'Стандарты качества / #[a(href) О компании]', true)
+      +menuSub(menuAbout, pageName)
+      .subSections(data-aos="fade-up", data-aos-delay="700")
+        li.subsections__item: span Подразделы
+        li.subsections__item: a(href='manufacturing.html') Производственные процессы
+        li.subsections__item: a.active(href='certificates.html') Сертификаты качества
+    .section__left(data-aos="")
+      .certificates-info
+        .acknowledgment-list.popup-gallery
+          a.acknowledgment-list__item(data-aos="fade-up", data-aos-delay="800", href='assets/images/acknow/sert.jpg')
+            .acknowledgment-list__img: img(src='assets/images/manufacturing/sert.jpg', alt='')
+            p.text__sm.text--grey ISO 9001
+          a.acknowledgment-list__item(data-aos="fade-up", data-aos-delay="800", href='assets/images/manufacturing/sert.jpg')
+            .acknowledgment-list__img: img(src='assets/images/manufacturing/sert.jpg', alt='')
+            p.text__sm.text--grey ISO 14001
+          a.acknowledgment-list__item(data-aos="fade-up", data-aos-delay="800", href='assets/images/manufacturing/sert.jpg')
+            .acknowledgment-list__img: img(src='assets/images/manufacturing/sert.jpg', alt='')
+            p.text__sm.text--grey ISO 10001
+      +nextBlock('Достижения')
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer

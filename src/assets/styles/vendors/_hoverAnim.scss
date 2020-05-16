@@ -1,0 +1,71 @@
+.franciscoLink {
+  position: relative;
+  overflow: hidden;
+  height: 3em;
+  padding: 1em 0;
+  transition: color 0.3s;
+  font-size: 18px;
+  color: $gray-darken-2;
+  display: inline-flex;
+  align-items: center;
+  img {
+    margin-left: 10px;
+  }
+}
+
+.franciscoLink::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  opacity: 0;
+  background: $base-color-main;
+  -webkit-transform: translate3d(0, -3em, 0);
+  transform: translate3d(0, -3em, 0);
+  -webkit-transition: -webkit-transform 0s 0.3s, opacity 0.2s;
+  transition: transform 0s 0.3s, opacity 0.2s;
+}
+
+.franciscoItem .franciscoLink.active::before,
+.franciscoItem:hover .franciscoLinkNo::before,
+.franciscoItem:hover .franciscoLink::before {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.1s;
+  transition: transform 0.3s, opacity 0.1s;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.franciscoHelper {
+  display: block;
+  //pointer-events: none;
+}
+
+.franciscoItem:hover .franciscoHelper {
+  -webkit-animation: anim-francisco 0.3s forwards;
+  animation: anim-francisco 0.3s forwards;
+}
+
+@keyframes anim-francisco {
+  50% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  51% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}

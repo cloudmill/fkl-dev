@@ -1,0 +1,61 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "team"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .container
+      +mainTitle('Наша команда', 'О компании', true)
+      +menuSub(menuAbout, pageName)
+    .section__left(data-aos="")
+      .team-info
+        .team-info--item(data-aos="fade-up", data-aos-delay="600")
+          .team-info--inner
+            .team-info--img: img(src='assets/images/team/item-1.jpg', alt='')
+            .team-info--desc
+              .team-info--item__position Директор
+              .team-info--item__name Пешков Сергей
+              .team-info--item__phone +7 (911) 911-11-11
+              .team-info--item__email ps@rusfkl.ru
+        .team-info--item(data-aos="fade-up", data-aos-delay="700")
+          .team-info--inner
+            .team-info--img: img(src='assets/images/team/item-2.jpg', alt='')
+            .team-info--desc
+              .team-info--item__position Руководитель дилерской сети
+              .team-info--item__name Гуськов Илья
+              .team-info--item__phone +7 (911) 911-11-11
+              .team-info--item__email gi@rusfkl.ru
+        .team-info--item(data-aos="fade-up", data-aos-delay="800")
+          .team-info--inner
+            .team-info--img: img(src='assets/images/team/item-3.jpg', alt='')
+            .team-info--desc
+              .team-info--item__position Менеджер по продажам
+              .team-info--item__name Соловьев Константин
+              .team-info--item__phone +7 (911) 911-11-11
+              .team-info--item__email sk@rusfkl.ru
+        .team-info--item(data-aos="fade-up")
+          .team-info--inner
+            .team-info--img: img(src='assets/images/team/item-4.jpg', alt='')
+            .team-info--desc
+              .team-info--item__position Менеджер по продажам
+              .team-info--item__name Каверин Максим
+              .team-info--item__phone +7 (911) 911-11-11
+              .team-info--item__email km@rusfkl.ru
+        .team-info--item(data-aos="fade-up")
+          .team-info--inner
+            .team-info--img: img(src='assets/images/team/item-5.jpg', alt='')
+            .team-info--desc
+              .team-info--item__position Менеджер по продажам
+              .team-info--item__name Цветков Александр
+              .team-info--item__phone +7 (911) 911-11-11
+              .team-info--item__email ca@rusfkl.ru
+      +nextBlock('Стандарты качества')
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer

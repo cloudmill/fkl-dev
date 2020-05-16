@@ -1,0 +1,105 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "actionOrder"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .section__left(data-aos="")
+      .actionOrders-info
+        .cabinet
+          +asideNav(menuAside, 'actionOrders')
+          .cabinet-content
+            .cabinet-content-inner
+              +mainTitleH2('Заказ № 5523456', 'Личный кабинет')
+              .actionOrder-status(data-aos="fade-left", data-aos-delay="700")
+                span Статус
+                span Собирается интернет-магазином
+              .table--responsive.table-delivery(data-aos="fade-up", data-aos-delay="800")
+                table.table
+                  thead
+                    tr
+                      th Дата заказа
+                      th Дата отправки
+                      th Сумма без скидки
+                      th Сумма со скидкой
+                  tbody
+                    tr
+                      td 16.04.19
+                      td 29.05.19
+                      td.cabinet-price 2540,89 р.
+                      td.cabinet-price 2040,90 р.
+              .table--responsive(data-aos="fade-up", data-aos-delay="900")
+                table.table.table--bordered.table--adaptive
+                  thead
+                    tr
+                      th Товар
+                      th.text--center Кол-во
+                      th Цена
+                  tbody
+                    tr
+                      td(data-label="Товар")
+                        .cart-item
+                          .cart-item--img: +img('cabinet/item-1.png')
+                          .cart-item--desc
+                            .text__sm Подшипник шариковый самоустанавливающийся 6205-2S.EES
+                            .text__xs Артикул: 6206-2Z
+                      td.text--center(data-label="Кол-во") 1
+                      td.cabinet-price(data-label="Цена")
+                        | 529,86 р.
+                        span с НДС
+                    tr
+                      td(data-label="Товар")
+                        .cart-item
+                          .cart-item--img: +img('cabinet/item-2.png')
+                          .cart-item--desc
+                            .text__sm Подшипник шариковый самоустанавливающийся 6205-2S.EES
+                            .text__xs Артикул: 6206-2Z
+                      td.text--center(data-label="Кол-во") 7
+                      td.cabinet-price(data-label="Цена")
+                        | 529,86 р.
+                        span с НДС
+              .actionOrder-bill(data-aos="fade-up")
+                a(href='#')
+                  +img('cabinet/bill.svg')
+                  span Выставленный счет
+              hr.line(data-aos="fade-up")
+              h5(data-aos="fade-up") Информация о доставке
+              .row.between__xs.actionOrder-item(data-aos="fade-up", data-aos-delay="200")
+                .col.col__lg-3.col__md-6.col__xs-12
+                  p.text__sm.text--grey Индекс
+                  p.text__md 192252
+                .col.col__lg-4.col__md-6.col__xs-12
+                  p.text__sm.text--grey Кому
+                  p.text__md Щербаков Кирилл
+                .col.col__lg-3.col__md-6.col__xs-12
+                  p.text__sm.text--grey Страна
+                  p.text__md Россия
+              .row.between__xs.actionOrder-item(data-aos="fade-up", data-aos-delay="300")
+                .col.col__lg-3.col__md-6.col__xs-12
+                  p.text__sm.text--grey Адрес доставки
+                  p.text__md Санкт-Петербург. Пр. Луначарского д. 19
+                .col.col__lg-4.col__md-6.col__xs-12
+                  p.text__sm.text--grey Телефон
+                  p.text__md +79112862563
+                .col.col__lg-3.col__md-6.col__xs-12
+                  p.text__sm.text--grey Электронная почта
+                  p.text__md ksh@cloudmill.ru
+              .row.between__xs.actionOrder-item(data-aos="fade-up", data-aos-delay="400")
+                .col.col__lg-3.col__md-6.col__xs-12
+                  p.text__sm.text--grey Способ оплаты
+                  p.text__md Сбербанк Онлайн
+                .col.col__lg-4.col__md-6.col__xs-12
+                  p.text__sm.text--grey Способ доставки
+                  p.text__md Курьером CDEK (по предоплате)
+                .col.col__lg-3.col__md-6.col__xs-12
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

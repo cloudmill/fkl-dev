@@ -1,0 +1,363 @@
+//
+// Modules -> Forms
+// --------------------------------------------------
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  min-width: 0;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: $line-height-computed;
+  font-size: ($base-font-size * 1.5);
+  line-height: inherit;
+  color: $legend-color;
+  border: 0;
+}
+
+label {
+  display: block;
+}
+
+input[type="search"] {
+  @include box-sizing(border-box);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 4px 0 0;
+  margin-top: 1px \9; // IE8-9
+  line-height: normal;
+}
+
+input[type="file"] {
+  display: block;
+}
+
+input[type="range"] {
+  display: block;
+  width: 100%;
+}
+
+select[multiple],
+select[size] {
+  height: auto;
+}
+
+// Focus for file, radio, and checkbox
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  @include tab-focus;
+}
+
+// Common form controls
+.control {
+  display: block;
+  width: 100%;
+  height: 64px;
+  padding: $padding-base-vertical $padding-base-horizontal;
+  font-size: $font-size-large;
+  line-height: $base-line-height;
+  color: $input-color;
+  background-color: $input-bg;
+  background-image: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+
+  @include transition(
+    border-color ease-in-out 0.15s,
+    box-shadow ease-in-out 0.15s
+  );
+
+  &:hover {
+    border-color: $base-color-main;
+  }
+
+  @include form-control-focus;
+
+  @include placeholder;
+
+  &--border {
+    border: 1px solid $gray;
+  }
+
+  &-body {
+    position: relative;
+    &:after {
+      content: '';
+      left: 0;
+      right: -1px;
+      bottom: 0;
+      top: -1px;
+      position: absolute;
+      transition: box-shadow .5s;
+      z-index: 9;
+    }
+    &.success {
+      input {
+        background-image: url(../images/check.svg);
+        background-position: center right 20px;
+        background-repeat: no-repeat;
+        @media screen and (min-width: $screen-xmd-min) {
+          background-position: center right 40px;
+        }
+      }
+    }
+
+    &.error {
+      &:after {
+        box-shadow: inset 0px 0px 0px 1px $color-type-2a;
+      }
+      input {
+        color: $color-type-2a;
+        background-image: url(../images/close.svg);
+        background-position: center right 20px;
+        background-repeat: no-repeat;
+        @media screen and (min-width: $screen-xmd-min) {
+          background-position: center right 40px;
+        }
+      }
+    }
+
+    &:hover {
+      &:after {
+        z-index: 19;
+        box-shadow: inset 0px 0px 0px 1px $base-color-main;
+      }
+    }
+  }
+}
+
+.basicControl {
+  .control {
+    border: 1px solid $gray;
+  }
+}
+
+// Reset height for `textarea`s
+textarea.control {
+  height: auto;
+  resize: none;
+  &::placeholder {
+    font-family: 'Roboto Mono';
+  }
+}
+
+select.control {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+// Search inputs in iOS
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
+.form__group {
+  margin-bottom: $form-group-margin-bottom;
+}
+
+// Checkboxes and radios
+.radio,
+.checkbox {
+  cursor: pointer;
+  margin-right: 30px;
+  @media screen and (min-width: $screen-md-min) {
+    margin-right: 10px;
+  }
+  @media screen and (min-width: $screen-lg-min) {
+    margin-right: 0;
+  }
+  input {
+    display: none;
+    &:hover + .label:before {
+      border: 2px solid $base-color-main;
+    }
+    &:checked {
+      & + .label {
+        &:after {
+          opacity: 1;
+        }
+        &:before {
+          border: 2px solid $base-color-main;
+        }
+      }
+    }
+    &:hover:before {
+      border: 2px solid $base-color-main;
+    }
+  }
+  .label {
+    font-size: 14px;
+    line-height: 140%;
+    color: $gray-darken-2;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    &:before {
+      content: "";
+      border: 1px solid $gray;
+      box-sizing: border-box;
+      display: block;
+      width: 45px;
+      height: 45px;
+      min-width: 45px;
+      transition: all 0.3s;
+      margin-right: 15px;
+      @media screen and (min-width: $screen-lg-min) {
+        margin-right: 30px;
+      }
+    }
+    &:after {
+      width: 22px;
+      height: 18px;
+      content: "";
+      display: block;
+      position: absolute;
+      opacity: 0;
+      left: 12px;
+      transition: all 0.3s;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      background-image: url(../images/check.svg);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+  + .radio,
+  + .checkbox {
+    @media screen and (min-width: $screen-lg-min) {
+      margin-left: 30px;
+    }
+  }
+}
+
+.checkbox {
+  input[type="checkbox"] {
+    display: none;
+  }
+}
+.radio {
+  input[type="radio"] {
+    display: none;
+  }
+  &-inner {
+    margin-left: 60px;
+    @media screen and (min-width: $screen-lg-min) {
+      margin-left: 75px;
+    }
+  }
+}
+.radio label {
+  &:before {
+    @include border-radius(50%);
+  }
+}
+
+.radio--inline,
+.checkbox--inline {
+  position: relative;
+  display: inline-block;
+  padding-left: 20px;
+  margin-bottom: 0;
+  vertical-align: middle;
+  font-weight: normal;
+  cursor: pointer;
+}
+.radio--inline + .radio--inline,
+.checkbox--inline + .checkbox--inline {
+  margin-top: 0;
+  margin-left: 10px;
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  span {
+    margin: 0 15px;
+    display: block;
+  }
+}
+
+.input__file {
+  position: relative;
+  .btn {
+    border-color: white;
+    transition: background-color .5s;
+  }
+  img {
+    margin-right: 25px;
+  }
+  &:hover .btn {
+    background-color: $base-color-dark;
+  }
+  input {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    opacity: 0;
+    z-index: 5;
+  }
+}
+
+#range {
+  margin-bottom: 40px;
+  .noUi-handle {
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+  &.noUi-horizontal {
+    height: 2px;
+  }
+  .noUi-handle {
+    width: 16px;
+    height: 16px;
+    right: -25px;
+    top: 10px;
+    position: relative;
+    border: none;
+    border-radius: 0;
+    background: black;
+    cursor: default;
+    box-shadow: none;
+    background: url("../images/icons/polygon.svg") no-repeat center;
+    @media screen and (min-width: $screen-md-min) {
+      right: -14px;
+    }
+  }
+  .noUi-touch-area {
+    position: absolute;
+    left: 7px;
+    top: -16px;
+    width: 2px;
+    height: 12px;
+    border-radius: 5px;
+    background-color: $gray;
+  }
+  .noUi-connects {
+    position: static;
+  }
+  .noUi-connect {
+    top: -1px;
+    height: 2px;
+    background: $base-color-main;
+  }
+}

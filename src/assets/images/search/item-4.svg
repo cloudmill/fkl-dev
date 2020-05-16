@@ -1,0 +1,16 @@
+<svg width="85" height="85" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<path d="M42.21 84.42C65.5219 84.42 84.42 65.5219 84.42 42.21C84.42 18.8981 65.5219 0 42.21 0C18.8981 0 0 18.8981 0 42.21C0 65.5219 18.8981 84.42 42.21 84.42Z" fill="#0019A5"/>
+<path d="M42.2098 66.16C55.437 66.16 66.1598 55.4372 66.1598 42.21C66.1598 28.9828 55.437 18.26 42.2098 18.26C28.9825 18.26 18.2598 28.9828 18.2598 42.21C18.2598 55.4372 28.9825 66.16 42.2098 66.16Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M42.2095 59.15C51.5652 59.15 59.1495 51.5657 59.1495 42.21C59.1495 32.8543 51.5652 25.27 42.2095 25.27C32.8538 25.27 25.2695 32.8543 25.2695 42.21C25.2695 51.5657 32.8538 59.15 42.2095 59.15Z" stroke="#003CFF" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M65.92 22.67C68.223 22.67 70.09 20.803 70.09 18.5C70.09 16.197 68.223 14.33 65.92 14.33C63.617 14.33 61.75 16.197 61.75 18.5C61.75 20.803 63.617 22.67 65.92 22.67Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M18.5001 22.67C20.8031 22.67 22.6701 20.803 22.6701 18.5C22.6701 16.197 20.8031 14.33 18.5001 14.33C16.1971 14.33 14.3301 16.197 14.3301 18.5C14.3301 20.803 16.1971 22.67 18.5001 22.67Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M18.5001 70.09C20.8031 70.09 22.6701 68.223 22.6701 65.92C22.6701 63.617 20.8031 61.75 18.5001 61.75C16.1971 61.75 14.3301 63.617 14.3301 65.92C14.3301 68.223 16.1971 70.09 18.5001 70.09Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M65.92 70.09C68.223 70.09 70.09 68.223 70.09 65.92C70.09 63.617 68.223 61.75 65.92 61.75C63.617 61.75 61.75 63.617 61.75 65.92C61.75 68.223 63.617 70.09 65.92 70.09Z" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="84.42" height="84.42" fill="white"/>
+</clipPath>
+</defs>
+</svg>

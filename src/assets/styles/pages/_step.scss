@@ -1,0 +1,158 @@
+.step {
+  &-info {
+    // @include listBlock;
+    @media screen and (min-width: $screen-md-min) {
+      .container {
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+    }
+  }
+
+  &-inner {
+    border-bottom: 1px solid $gray;
+    .animated {
+      animation-fill-mode: none;
+    }
+    &-content {
+      border-top: 1px solid $gray;
+    }
+    &__item {
+      padding: 20px;
+      border-right: 1px solid $gray;
+      @media screen and (min-width: $screen-lg-min) {
+        padding: 50px;
+      }
+      &:not(:last-child) {
+        border-bottom: 1px solid $gray;
+      }
+      .checkbox {
+        .label {
+          color: $gray-darken-1;
+          &:before {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            margin-right: 20px;
+          }
+          &:after {
+            left: 3px;
+            width: 14px;
+          }
+        }
+      }
+      .radio {
+        margin-bottom: 20px;
+        margin-left: 0 !important;
+        .label {
+          &:after {
+            top: 12px;
+            margin: 0;
+          }
+        }
+        &-inner {
+          margin-bottom: 15px;
+          a {
+            border-bottom: 1px solid $base-color-main;
+            &:hover {
+              border-color: white;
+            }
+          }
+        }
+      }
+
+      h4 {
+        font-size: 22px;
+        font-family: 'mass';
+        margin-top: 0;
+        margin-bottom: 20px;
+        @media screen and (min-width: $screen-lg-min) {
+          margin-bottom: 50px;
+        }
+      }
+      .control {
+        border: 1px solid $gray;
+      }
+
+      .select2-container--default {
+        width: 100% !important;
+        .select2-selection--single {
+          height: 64px !important;
+        }
+      }
+    }
+    .tabs {
+      .tabs-list {
+        padding: 10px 0 0;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        @media screen and (min-width: $screen-md-min) {
+          padding: 10px 0 20px;
+          flex-wrap: nowrap;
+        }
+        @media screen and (min-width: $screen-lg-min) {
+          padding: 10px 0 60px;
+          justify-content: center;
+        }
+      }
+      .tab {
+        width: 100%;
+        display: block;
+        height: auto;
+        border: none;
+        margin-bottom: 30px;
+        span {
+          &:after {
+            height: 2px;
+          }
+        }
+        @media screen and (min-width: $screen-md-min) {
+          margin-bottom: 0;
+          width: auto;
+          font-size: 12px;
+        }
+        @media screen and (min-width: $screen-lg-min) {
+          font-size: 18px;
+        }
+        + .tab {
+          @media screen and (min-width: $screen-lg-min) {
+            margin-left: 80px;
+          }
+        }
+      }
+    }
+  }
+
+  &-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a {
+      margin-bottom: 20px;
+      border-bottom: 1px solid $base-color-main;
+      @media screen and (min-width: $screen-lg-min) {
+        margin-bottom: 50px;
+      }
+      &:hover {
+        border-color: transparent;
+      }
+    }
+  }
+
+  &-goodSumm {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    border-bottom: 1px solid $gray;
+    margin-bottom: 25px;
+    //border-bottom: 1px solid $base-color-main;
+  }
+
+  &-deliverySumm {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    border-bottom: 1px solid $gray;
+    margin-bottom: 25px;
+  }
+}

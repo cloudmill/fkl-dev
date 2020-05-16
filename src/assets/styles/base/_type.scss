@@ -1,0 +1,445 @@
+//
+// Base -> Typography
+// --------------------------------------------------
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.alpha,
+.beta,
+.gamma,
+.delta,
+.epsilon,
+.zeta {
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+
+  small {
+    font-weight: normal;
+    line-height: 1;
+  }
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+
+  small {
+    font-size: 65%;
+  }
+}
+h4,
+h5,
+h6 {
+  margin-top: $line-height-computed;
+  margin-bottom: $line-height-computed-half;
+
+  small {
+    font-size: 75%;
+  }
+}
+
+h1,
+.alpha {
+  font-size: 24px;
+  font-weight: 800;
+  font-family: "massMedium";
+  @media screen and (min-width: $screen-md-min) {
+    font-size: 30px;
+  }
+  @media screen and (min-width: $screen-xmd-min) {
+    font-size: 40px;
+  }
+  @media screen and (min-width: $screen-lg) {
+    font-size: $font-size-h1;
+  }
+}
+h2,
+.beta {
+  font-size: 20px;
+  font-weight: 800;
+  font-family: "massMedium";
+  @media screen and (min-width: $screen-md-min) {
+    font-size: 25px;
+  }
+  @media screen and (min-width: $screen-xmd-min) {
+    font-size: $font-size-h2;
+  }
+}
+h3,
+.gamma {
+  font-size: 20px;
+  font-family: "mass";
+  @media screen and (min-width: $screen-md-min) {
+    font-size: 25px;
+  }
+  @media screen and (min-width: $screen-xmd-min) {
+    font-size: $font-size-h3;
+  }
+}
+h4,
+.delta {
+  font-size: 18px;
+  font-family: "Roboto Mono";
+  font-weight: 400;
+  @media screen and (min-width: $screen-md-min) {
+    font-size: $font-size-h4;
+  }
+}
+h5,
+.epsilon {
+  font-size: 14px;
+  font-family: "mass";
+  @media screen and (min-width: $screen-md-min) {
+    font-size: $font-size-h5;
+  }
+}
+h6,
+.zeta {
+  font-size: $font-size-h6;
+}
+
+// Body text
+p {
+  margin: 0 0 $line-height-computed-half;
+}
+
+b {
+  font-weight: 600;
+}
+
+// Alignment
+.text--left {
+  text-align: left;
+}
+.text--right {
+  text-align: right;
+}
+.text--center {
+  text-align: center;
+}
+.text--justify {
+  text-align: justify;
+}
+.text--nowrap {
+  white-space: nowrap;
+}
+
+// Responsive alignment
+@if $use-adaptive == true {
+  @media screen and (min-width: $screen-sm-min) {
+    .text__sm--left {
+      text-align: left;
+    }
+    .text__sm--right {
+      text-align: right;
+    }
+    .text__sm--center {
+      text-align: center;
+    }
+  }
+  @media screen and (min-width: $screen-md-min) {
+    .text__md--left {
+      text-align: left;
+    }
+    .text__md--right {
+      text-align: right;
+    }
+    .text__md--center {
+      text-align: center;
+    }
+  }
+
+  @media screen and (min-width: $screen-lg-min) {
+    .text__lg--left {
+      text-align: left;
+    }
+    .text__lg--right {
+      text-align: right;
+    }
+    .text__lg--center {
+      text-align: center;
+    }
+  }
+
+  @media screen and (min-width: $screen-xl-min) {
+    .text__xl--left {
+      text-align: left;
+    }
+    .text__xl--right {
+      text-align: right;
+    }
+    .text__xl--center {
+      text-align: center;
+    }
+  }
+}
+
+// Transformation
+.text--lowercase {
+  text-transform: lowercase;
+}
+.text--uppercase {
+  text-transform: uppercase;
+}
+.text--capitalize {
+  text-transform: capitalize;
+}
+
+// Text size
+.text__xs {
+  font-size: $font-size-tiny;
+}
+.text__sm {
+  font-size: $font-size-small;
+}
+.text__md {
+  font-size: $font-size-medium;
+}
+.text__lg {
+  font-size: $font-size-large;
+}
+.text__xl {
+  font-size: 22px;
+}
+
+@if $use-color-text == true {
+  // Color text
+  @include text-emphasis-variant(".text--primary", $base-color-main);
+  @include text-emphasis-variant(".text--success", $color-type-4a);
+  @include text-emphasis-variant(".text--info", $color-type-1a);
+  @include text-emphasis-variant(".text--warning", $color-type-3a);
+  @include text-emphasis-variant(".text--danger", $color-type-2a);
+  @include text-emphasis-variant(".text--grey", $gray-darken-1);
+}
+
+// Lists
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: $line-height-computed-half;
+  ul,
+  ol {
+    margin-bottom: 0;
+  }
+}
+
+.list {
+  &--unstyled {
+    @include list--unstyled;
+  }
+
+  &--inline {
+    @include list--unstyled;
+    margin-left: -5px;
+    > li {
+      display: inline-block;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+
+  &--counter {
+    //max-width: 610px;
+    @include list--unstyled;
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid $gray;
+      padding: 20px 0;
+      color: $black;
+      .key {
+        font-size: 14px;
+        line-height: 140%;
+      }
+      .value {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 112.6%;
+      }
+    }
+  }
+
+  &--bullet {
+    @include list--unstyled;
+    font-size: 14px;
+    line-height: 1.55;
+    @media screen and (min-width: $screen-md-min) {
+      font-size: 18px;
+    }
+    > li {
+      margin-bottom: 20px;
+      padding-left: 33px;
+      position: relative;
+      @media screen and (min-width: $screen-md-min) {
+        margin-bottom: 50px;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &::before {
+        content: "";
+        background: url("../images/list.svg") no-repeat;
+        width: 13px;
+        height: 13px;
+        position: absolute;
+        top: 5px;
+        left: 0;
+      }
+    }
+  }
+
+  &--dots {
+    @include list--unstyled;
+    font-size: 14px;
+    line-height: 1.55;
+    color: black;
+    > li {
+      margin-bottom: 20px;
+      padding-left: 33px;
+      position: relative;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &::before {
+        content: "";
+        width: 4px;
+        height: 4px;
+        display: block;
+        background-color: $base-color-main;
+        border-radius: 10px;
+        position: absolute;
+        top: 10px;
+        left: 0;
+      }
+    }
+  }
+
+  &--number {
+    counter-reset: items;
+    margin: 0;
+    padding: 0;
+    > li {
+      position: relative;
+      padding-left: 35px;
+      padding-top: 25px;
+      font-size: 14px;
+      line-height: 1.57;
+      margin-bottom: 30px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &::before {
+        counter-increment: items 1;
+        content: counter(items, decimal-leading-zero);
+        font-family: "massMedium";
+        font-size: 18px;
+        line-height: 2.6;
+        color: $base-color-main;
+        position: absolute;
+        top: -10px;
+        left: 0;
+      }
+    }
+  }
+
+  &--counterList {
+    counter-reset: items;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    //@media screen and (min-width: $screen-md-min) {
+    //  column-fill: balance;
+    //  column-count: 2;
+    //}
+
+    &::before {
+      content: "";
+      background-color: $gray;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 100%;
+    }
+
+    > li {
+      position: relative;
+      padding-left: 40px;
+      padding-bottom: 30px;
+      font-size: 18px;
+      line-height: 1.57;
+      border-left: 1px solid $gray;
+      &:last-child {
+        margin-bottom: 0;
+        border-left: none;
+      }
+      &::before {
+        counter-increment: items 1;
+        content: counter(items, decimal-leading-zero);
+        font-size: 14px;
+        line-height: 140%;
+        background-color: white;
+        padding: 5px;
+        color: $gray;
+        position: absolute;
+        top: 0;
+        left: -14px;
+      }
+    }
+    &--next {
+      counter-reset: items 4;
+      > li {
+        &::before {
+          counter-increment: items 1;
+          content: counter(items, decimal-leading-zero);
+        }
+      }
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+.main-content {
+  span {
+    color: white;
+    background-color: $base-color-main;
+  }
+}
+
+// Blockquotes
+blockquote {
+  padding-top: 60px;
+  margin-top: $line-height-computed * 2;
+  font-size: $blockquote-font-size;
+  line-height: 2;
+  background: url("../images/dotsStar.svg") no-repeat top left;
+
+  p,
+  ul,
+  ol {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.inlineIco {
+  display: flex;
+  align-items: center;
+  img {
+    margin-right: 30px;
+  }
+}

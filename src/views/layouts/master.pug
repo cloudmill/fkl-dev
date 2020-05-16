@@ -1,0 +1,94 @@
+//- Custom Configuration
+block config
+  - var adaptive = true // choose website type
+
+//- Master layout
+
+include ../mixins/_mixins.pug
+include ../mixins/_nextBlock.pug
+
+doctype
+html
+  head
+    meta(charset="UTF-8")
+
+    block title
+      title FKL
+    <!--[if IE]>
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    <![endif]-->
+    if adaptive === true
+      meta(name="viewport", content="width=device-width, initial-scale=1")
+
+    link(rel="canonical" href="")
+    meta(name="format-detection", content="telephone=no")
+    meta(name="format-detection", content="address=no")
+
+    //- Basic Seo
+    block basicSeo
+      meta(name='description' content='Index page')
+      meta(name='keywords', content='index, page')
+      meta(name='author' content='')
+
+    //- Twitter
+    meta(name='twitter:card', content='summary')
+    meta(name='twitter:site', content='')
+    meta(name='twitter:image', content='')
+    meta(name='twitter:description', content='')
+
+    //- Facebook
+    meta(property='og:url', content='')
+    meta(property='og:title', content='')
+    meta(property='og:description', content='')
+    meta(property='og:image', content='')
+    meta(property='og:type', content='website')
+
+    // iOS
+    meta(name="apple-mobile-web-app-capable", content="yes")
+    meta(name="apple-mobile-web-app-status-bar-style", content="black")
+    meta(name="apple-mobile-web-app-title", content="Case__fy")
+    link(rel="apple-touch-icon", href="assets/images/favicons/apple-touch-icon.png")
+
+    // Android
+    meta(name="mobile-web-app-capable", content="yes")
+    meta(name="theme-color", content="#f8aa27")
+
+    // Windows
+    meta(name="msapplication-TileColor", content="#f8aa27")
+
+    link(type='text/css', rel='assets/styles/loader.css')
+
+    link(rel="shortcut icon", href="favicon.ico")
+
+    //- Title
+    block title
+      title FKL
+
+    block pageName
+      - var pageName = "main"
+
+  body(class='body'+pageName, style='overflow: hidden')
+    <!--[if lt IE 9]>
+    p.browsehappy
+      | Данный сайт построен на передовых, современных технологиях и не поддерживает Ваш браузер. Настоятельно рекомендуем выбрать и установить любой из &nbsp;
+      a(href="http://browsehappy.com/", target="_blank") современных браузеров.
+      |  Это бесплатно и займет всего несколько минут.
+    <![endif]-->
+    .wrapper
+
+      //- Header
+      include ../partials/_loader
+      include ../partials/_searchBar
+      block header
+
+      //- block content
+      main(class='page ' + pageName)
+        block content
+
+        //- Footer
+        block footer
+
+    //- block scripts
+    block scripts
+      script(src='https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js')
+      script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoOHU9S0Ohhctt2VS6Qu3JrmaIjqFQNYk")

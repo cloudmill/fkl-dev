@@ -1,0 +1,118 @@
+.mainCatalog {
+  @media screen and (min-width: $screen-lg-min) {
+    margin-top: 50px;
+  }
+  .mainTitle {
+    padding-right: 20px;
+    @media screen and (min-width: $screen-md-min) {
+      //border-left: 1px solid $gray;
+      padding-left: 20px;
+      padding-right: 40px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding-left: 50px;
+      padding-right: 80px;
+    }
+  }
+  &-info {
+    // @include listBlock;
+    &:before {
+      z-index: -1;
+    }
+    .about__card__bottom,
+    .btn {
+      height: 80px;
+      @media screen and (min-width: $screen-md-min) {
+        height: 100px;
+      }
+    }
+    .about__card__bottom {
+      border-left: none;
+    }
+  }
+  &-desc.col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    line-height: 1.555;
+    border-right: 1px solid $gray;
+    border-bottom: 1px solid $gray;
+    @media screen and (min-width: $screen-lg-min) {
+      padding-left: 140px;
+      padding-right: 80px;
+    }
+  }
+}
+
+.catalogMenu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px 20px 0;
+  @media screen and (min-width: $screen-md-min) {
+    padding: 50px 50px 0;
+  }
+  @media screen and (min-width: $screen-lg-min) {
+    padding: 100px 50px 0;
+  }
+  &__item {
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $gray;
+    margin-bottom: 20px;
+    @media screen and (min-width: $screen-md-min) {
+      padding-right: 20px;
+      padding-bottom: 40px;
+      margin-bottom: 50px;
+      width: 50%;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      width: 26%;
+      margin-bottom: 100px;
+    }
+    &-title {
+      font-family: 'massMedium';
+      font-weight: 800;
+      font-size: 18px;
+      line-height: 1.5555;
+      margin-bottom: 30px;
+      //a {
+      //  &:hover {
+      //    color: $base-color-main;
+      //  }
+      //}
+    }
+    a {
+      position: relative;
+      &:before {
+        content: '';
+        width: 0;
+        left: 0;
+        height: 1px;
+        bottom: -2px;
+        position: absolute;
+        background-color: $base-color-main;
+        transition: width .5s;
+        cursor: pointer;
+      }
+      &:hover {
+        &:before {
+          width: 100%;
+        }
+      }
+    }
+    &-link {
+      font-size: 14px;
+      line-height: 2.12;
+
+    }
+    &:last-child,
+    &:nth-last-child(2),
+    &:nth-last-child(3) {
+      @media screen and (min-width: $screen-lg-min) {
+        border-bottom: none;
+      }
+    }
+  }
+}

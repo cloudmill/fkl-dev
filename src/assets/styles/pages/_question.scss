@@ -1,0 +1,25 @@
+.question {
+  margin-top: 50px;
+  &-info {
+    // @include listBlock;
+    .checkbox {
+      .label {
+        color: $gray-darken-1;
+        align-items: flex-start;
+        &:before {
+          width: 20px;
+          height: 20px;
+          min-width: 20px;
+          margin-right: 20px;
+          margin-top: 4px;
+        }
+        &:after {
+          left: 3px;
+          width: 14px;
+          top: 5px;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

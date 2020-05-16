@@ -1,0 +1,275 @@
+//
+// Partials -> Footer
+// ------------------------------------
+
+//
+// Footer
+//
+
+.footer {
+  background: $gray-darken-2;
+  position: relative;
+  padding: 20px 0;
+  @media screen and (min-width: $screen-md-min) {
+    padding: 60px 0;
+  }
+  @media screen and (min-width: $screen-lg-min) {
+    padding: 100px 0;
+  }
+  &:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/bg_footer.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    position: absolute;
+    z-index: 1;
+    left: -80px;
+    bottom: 0;
+  }
+  &:after {
+    width: 200vw;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    content: "";
+    top: 0;
+    transform: translate(-50%, 0);
+    background: $gray-darken-2;
+  }
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &__col {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    @media screen and (min-width: $screen-md-min) {
+      margin-bottom: 30px;
+    }
+    @media screen and (min-width: $screen-xmd-min) {
+      margin-bottom: 0;
+    }
+    &:first-child {
+      flex-basis: 100%;
+      margin-bottom: 30px;
+      @media screen and (min-width: $screen-lg-min) {
+        flex-basis: 20%;
+        margin-bottom: 0;
+      }
+    }
+    &:nth-child(2) {
+      flex-basis: 100%;
+      @media screen and (min-width: $screen-md-min) {
+        flex-basis: 46%;
+      }
+      @media screen and (min-width: $screen-xmd-min) {
+        flex-basis: 23%;
+        margin-right: 7%;
+      }
+    }
+    &:nth-child(3) {
+      flex-basis: 100%;
+      @media screen and (min-width: $screen-md-min) {
+        flex-basis: 46%;
+      }
+      @media screen and (min-width: $screen-xmd-min) {
+        flex-basis: 30%;
+      }
+    }
+    &:last-child {
+      flex-basis: 100%;
+      @media screen and (min-width: $screen-md-min) {
+        flex-basis: 46%;
+      }
+      @media screen and (min-width: $screen-xmd-min) {
+        flex-basis: 20%;
+      }
+    }
+  }
+  &-inner {
+    display: none;
+    padding: 10px 20px;
+    &.active {
+      display: block;
+    }
+    @media screen and (min-width: $screen-md-min) {
+      padding: 0;
+      display: block;
+    }
+  }
+  &__logo {
+    width: 160px;
+    display: block;
+    height: 35px;
+    background-image: url(../images/logo_gray.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 20px;
+    margin-top: 10px;
+    @media screen and (min-width: $screen-md-min) {
+      margin-left: 0;
+      margin-top: 0;
+    }
+  }
+  &__copy {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 140%;
+    color: $gray-darken;
+    align-items: center;
+    display: flex;
+    padding: 5px 20px;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 0;
+    }
+    & + & {
+      margin-top: 15px;
+    }
+    span {
+      line-height: 23px;
+    }
+    img {
+      margin-left: 10px;
+      line-height: 0;
+    }
+  }
+  &__title {
+    font-family: "massMedium";
+    font-weight: 800;
+    font-size: 16px;
+    color: white;
+    border-top: 1px solid #474747;
+    padding: 20px;
+    @media screen and (min-width: $screen-md-min) {
+      border-top: none;
+      margin-bottom: 20px;
+      padding: 0;
+    }
+    &.open--js {
+      background: url("../images/icons/arrow-downWh.svg") no-repeat right 20px center;
+
+      &.active {
+        background: url("../images/icons/arrow-upWh.svg") no-repeat right 20px center;
+      }
+      @media screen and (min-width: $screen-md-min) {
+        background: none !important;
+      }
+    }
+  }
+  &__text {
+    font-size: 14px;
+    color: $gray-darken;
+    margin-bottom: 50px;
+  }
+  &__phone {
+    font-family: "massMedium";
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 140%;
+    color: white;
+    margin-bottom: 5px;
+  }
+  &__mail {
+    font-family: "massMedium";
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 140%;
+    color: white;
+    margin-bottom: 50px;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    &__item {
+      font-size: 14px;
+      line-height: 255%;
+      color: #898989;
+      &:hover {
+        color: white;
+      }
+    }
+    margin-bottom: 50px;
+    @media screen and (min-width: $screen-md-min) {
+      margin-bottom: 70px;
+    }
+  }
+  &__social {
+    display: flex;
+    padding: 0 20px 20px;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 0;
+    }
+    &__item {
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-sizing: border-box;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 8px;
+      &:hover {
+        border-color: white;
+      }
+    }
+  }
+  &__download {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-sizing: border-box;
+    border-radius: 30px;
+    height: 60px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    font-family: Roboto Mono;
+    font-weight: normal;
+    font-size: 12px;
+    color: white;
+    margin: 20px;
+    @media screen and (min-width: $screen-md-min) {
+      margin: 20px 0 70px;
+    }
+    @media screen and (min-width: $screen-xmd-min) {
+      font-size: 14px;
+    }
+    &:hover {
+      color: white;
+      border-color: white;
+    }
+
+    span {
+      font-family: "ALS";
+      font-weight: bold;
+      font-size: 15px;
+      margin-top: 1px;
+      margin-left: 14px;
+    }
+  }
+}
+
+a.footer__copy:hover {
+  color: white;
+}
+
+.section__footer {
+  overflow: hidden;
+  @media screen and (min-width: $screen-md-min) {
+    padding: 0 40px;
+  }
+  @media screen and (min-width: $screen-lg-min) {
+    padding: 0 80px;
+  }
+}

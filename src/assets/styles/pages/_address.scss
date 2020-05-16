@@ -1,0 +1,60 @@
+.address {
+  margin-top: 50px;
+  &-info {
+    // @include listBlock;
+  }
+  &-desc {
+    margin-bottom: 20px;
+    @media screen and (min-width: $screen-md-min) {
+      margin-bottom: 40px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      margin-bottom: 80px;
+    }
+    &__item {
+      width: 100%;
+      border-bottom: 1px solid $gray;
+      display: flex;
+      align-items: center;
+      padding: 15px 0;
+      flex-wrap: wrap;
+      @media screen and (min-width: $screen-md-min) {
+        padding: 25px 0;
+      }
+      &-left {
+        font-size: 14px;
+        line-height: 140%;
+        color: $gray-darken-1;
+        width: 100%;
+        margin-bottom: 10px;
+        @media screen and (min-width: $screen-md-min) {
+          width: 35%;
+          margin-bottom: 0;
+        }
+        @media screen and (min-width: $screen-xmd-min) {
+          width: 30%;
+        }
+      }
+      &-right {
+        font-size: 18px;
+        line-height: 140%;
+        font-weight: 500;
+        @media screen and (min-width: $screen-md-min) {
+          width: 65%;
+        }
+        @media screen and (min-width: $screen-xmd-min) {
+          width: 70%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $screen-sm-max) {
+  .margbot50 {
+    margin-bottom: 20px;
+  }
+  .margbot60 {
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,131 @@
+.vacancy {
+  &-info {
+    // @include listBlock;
+  }
+  .salary {
+    font-family: "Roboto Mono";
+    font-weight: 400;
+    font-size: 14px;
+    white-space: nowrap;
+    width: 100%;
+    @media screen and (min-width: $screen-md-min) {
+      font-size: 18px;
+      width: auto;
+    }
+  }
+  .vacancyBlock {
+    p {
+      font-weight: 500;
+      margin-top: 50px;
+      margin-bottom: 40px;
+    }
+  }
+  .accordion-content {
+    .showBtn {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      @media screen and (min-width: $screen-md-min) {
+        height: 100px;
+      }
+    }
+  }
+  .main-content {
+    padding-bottom: 70px;
+    @media screen and (min-width: $screen-md-min) {
+      padding-bottom: 200px;
+    }
+
+    &--form {
+      .checkbox {
+        padding: 20px;
+        @media screen and (min-width: $screen-md-min) {
+          width: 50%;
+          margin: 50px auto;
+        }
+        label:before {
+          width: 20px;
+          height: 20px;
+          min-width: 20px;
+        }
+        &:after {
+          left: 3px;
+          width: 14px;
+        }
+      }
+      h5 {
+        font-family: 'massMedium';
+        font-weight: 800;
+        padding-bottom: 50px;
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+      .row {
+        margin: -20px;
+        @media screen and (min-width: $screen-md-min) {
+          margin: 0 -65px -50px -30px;
+        }
+        @media screen and (min-width: $screen-lg-min) {
+          margin: 0 -200px -60px -99px;
+        }
+        @media screen and (min-width: $screen-xl-min) {
+          margin: 0 -320px -60px -129px;
+        }
+        .control {
+          border-top: 1px solid $gray;
+        }
+        .btn {
+          height: 75px;
+          @media screen and (min-width: $screen-md-min) {
+            height: 100px;
+          }
+        }
+        input {
+          height: 75px;
+          @media screen and (min-width: $screen-md-min) {
+            height: 100px;
+          }
+        }
+        .input__file {
+          border-top: 1px solid $gray;
+          .btn {
+            &:after {
+              content: '';
+              top: -1px;
+              left: -2px;
+              bottom: -1px;
+              right: -1px;
+              position: absolute;
+              transition: box-shadow .5s;
+            }
+          }
+          &:hover .btn {
+            background-color: transparent;
+            &:after {
+              box-shadow: inset 0px 0px 0px 1px $base-color-main;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.vacancyList {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $gray;
+  @media screen and (min-width: $screen-md-min) {
+    flex-wrap: nowrap;
+  }
+  li {
+    width: 100%;
+    @media screen and (min-width: $screen-md-min) {
+      width: auto;
+      margin-right: 50px;
+    }
+  }
+}

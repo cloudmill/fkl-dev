@@ -1,0 +1,400 @@
+//
+// Mixins -> Base
+// ------------------------------------
+
+@mixin listBlock() {
+  position: relative;
+  @media screen and (min-width: $screen-md-min) {
+    border-left: 1px solid $gray;
+  }
+  &:before {
+    content: "";
+    background-color: $gray;
+    position: absolute;
+    right: 0;
+    width: 110%;
+    top: 0;
+    height: 1px;
+    z-index: 13;
+  }
+}
+
+@mixin blueLine() {
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 130px;
+    width: 27px;
+    height: 2px;
+    background: $base-color-main;
+  }
+}
+
+//
+// clearfix
+//
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+//
+// center-block
+//
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+//
+// list
+//
+@mixin list--unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+//
+// forms
+//
+@mixin form-control-focus($color: $input-border-focus) {
+  &:focus {
+    border-color: $color;
+    background: #fff;
+    outline: 0;
+  }
+}
+@mixin placeholder($color: $input-color-placeholder) {
+  &::-moz-placeholder {
+    color: $color;
+    opacity: 1;
+    font-family: 'Roboto Mono';
+    font-weight: 400;
+  } // Firefox
+  &:-ms-input-placeholder {
+    color: $color;
+    font-family: 'Roboto Mono';
+    font-weight: 400;
+  } // Internet Explorer 10+
+  &::-webkit-input-placeholder {
+    color: $color;
+    font-family: 'Roboto Mono';
+    font-weight: 400;
+  } // Safari and Chrome
+  &::placeholder {
+    color: $color;
+    font-family: 'Roboto Mono';
+    font-weight: 400;
+  }
+}
+@mixin tab-focus() {
+  outline: thin dotted; // Default
+  outline: 5px auto -webkit-focus-ring-color; // WebKit
+  outline-offset: -2px;
+}
+
+// isFlex
+@mixin flexbox($align: center, $justify: center, $direction: row, $wrap: wrap) {
+  display: flex;
+  flex-wrap: $wrap;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+// bgImage
+@mixin bgImage($url, $repeat: no-repeat, $position: center, $size: initial) {
+  background-image: url($url);
+  background-position: $position;
+  background-repeat: $repeat;
+  background-size: $size;
+}
+
+//
+// text
+//
+@mixin text-emphasis-variant($parent, $color) {
+  #{$parent} {
+    color: $color;
+  }
+  a#{$parent}:hover,
+  a#{$parent}:focus {
+    color: darken($color, 10%);
+  }
+}
+@mixin text-hide() {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+//
+// table
+//
+@mixin table-row-variant($state, $background) {
+  .table tr {
+    > td.#{$state},
+    > th.#{$state},
+    &.#{$state} > td,
+    &.#{$state} > th {
+      background-color: $background;
+    }
+  }
+  .table--hover > tbody > tr {
+    > td.#{$state}:hover,
+    > th.#{$state}:hover,
+    &.#{$state}:hover > td,
+    &:hover > .#{$state},
+    &.#{$state}:hover > th {
+      background-color: darken($background, 5%);
+    }
+  }
+}
+
+//
+// buttons
+//
+@mixin button-variant($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+  &:hover {
+    color: $color;
+    //background-color: darken($background, 17.65%);
+    border-color: darken($border, 17.65%);
+    &:after {
+      background-color: $border;
+    }
+  }
+  &:active {
+    background-color: darken($background, 5%);
+    border-color: darken($border, 5%);
+    &:after {
+      background-color: $border;
+    }
+  }
+
+  &:before {
+    //background-color: darken($background, 8%);
+  }
+  &:after {
+    border-color: $border;
+  }
+}
+@mixin button-variantPr($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+  &:hover {
+    color: $background;
+    background-color: $border;
+    border-color: $border;
+    &:before {
+      //background-color: $border;
+    }
+    &:after {
+      top: 0;
+      left: 0;
+    }
+    span {
+      &:before {
+        height: 100%;
+      }
+    }
+  }
+  &:active {
+    background-color: darken($background, 5%);
+    border-color: darken($border, 5%);
+    &:after {
+      background-color: $border;
+    }
+  }
+
+  &:before {
+    //background-color: darken($background, 8%);
+  }
+  &:after {
+    border-color: $border;
+  }
+}
+@mixin button-variant-tr($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+  &:focus,
+  &.focus {
+    color: #fff;
+    //background-color: $base-color-main;
+    border-color: $base-color-main;
+  }
+  &:hover {
+    color: #fff;
+    //background-color: $base-color-main;
+    border-color: $base-color-main !important;
+  }
+  &:active,
+  &.active {
+    color: #fff;
+    background-color: darken($base-color-main, 5%);
+    //border-color: darken($base-color-main, 5%);
+  }
+}
+@mixin button-size(
+  $padding-vertical,
+  $padding-horizontal,
+  $font-size,
+  $line-height,
+  $border-radius
+) {
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  line-height: $line-height;
+  border-radius: $border-radius;
+}
+
+//
+// custom
+//
+@mixin css3-prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -o-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+
+// box sizing
+@mixin box-sizing($type: border-box) {
+  @include css3-prefix("box-sizing", $type);
+}
+
+// box shadow
+@mixin box-shadow($shadow...) {
+  @include css3-prefix("box-shadow", $shadow);
+}
+
+// opacity
+@mixin opacity($opacity: 0.5) {
+  @include css3-prefix("opacity", $opacity);
+}
+
+// border radius
+@mixin border-radius($radius: 5px) {
+  @include css3-prefix("border-radius", $radius);
+}
+
+// text shadow
+@mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0, 0, 0, 0.4)) {
+  @include css3-prefix("text-shadow", $x $y $blur $color);
+}
+
+// gradient
+@mixin background-gradient($startColor: #3c3c3c, $endColor: #999999) {
+  background-color: $startColor;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from($startColor),
+    to($endColor)
+  );
+  background-image: -webkit-linear-gradient(to top, $startColor, $endColor);
+  background-image: -moz-linear-gradient(to top, $startColor, $endColor);
+  background-image: -ms-linear-gradient(to top, $startColor, $endColor);
+  background-image: -o-linear-gradient(to top, $startColor, $endColor);
+  background-image: linear-gradient(to top, $startColor, $endColor);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}');
+}
+
+// transform
+@mixin transform($params) {
+  @include css3-prefix("transform", $params);
+}
+
+// transform-origin
+@mixin transform-origin($params) {
+  @include css3-prefix("transform-origin", $params);
+}
+
+// transform style
+@mixin transform-style($style: preserve-3d) {
+  @include css3-prefix("transform-style", $style);
+}
+
+// double border
+@mixin double-borders($colorOne: #3c3c3c, $colorTwo: #999999, $radius: 0) {
+  border: 1px solid $colorOne;
+  @include css3-prefix("box-shadow", 0 0 0 1px $colorTwo);
+  @include border-radius($radius);
+}
+
+// triple borders
+@mixin triple-borders(
+  $colorOne: #3c3c3c,
+  $colorTwo: #999999,
+  $colorThree: #000000,
+  $radius: 0
+) {
+  border: 1px solid $colorOne;
+
+  @include border-radius($radius);
+
+  @include css3-prefix(
+    "box-shadow",
+    "0 0 0 1px #{$colorTwo}, 0 0 0 2px #{$colorThree}"
+  );
+}
+
+// transition
+@mixin transition($transition...) {
+  @if length($transition) == 0 {
+    $transition: all 0.3s ease;
+  }
+  @include css3-prefix("transition", $transition);
+}
+@mixin transition-property($property...) {
+  @include css3-prefix("transition-property", $property);
+}
+@mixin transition-duration($duration...) {
+  @include css3-prefix("transition-property", $duration);
+}
+@mixin transition-timing-function($timing...) {
+  @include css3-prefix("transition-timing-function", $timing);
+}
+@mixin transition-delay($delay...) {
+  @include css3-prefix("transition-delay", $delay);
+}
+
+// keyframes
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+// animation
+@mixin animation($str) {
+  @include css3-prefix("animation", $str);
+}

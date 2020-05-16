@@ -1,0 +1,50 @@
+//
+// Partials -> Aside
+// ------------------------------------
+
+//
+// Aside
+//
+.aside {
+  border-right: 1px solid $gray;
+  &__content {
+    padding: 20px;
+    border-bottom: 1px solid $gray;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 10px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 40px 30px 40px 50px;
+    }
+    a {
+      font-size: 14px;
+      color: black;
+      line-height: 140%;
+      display: block;
+      margin-bottom: 15px;
+      &:hover,
+      &.active {
+        color: $base-color-main;
+      }
+    }
+  }
+  .asideNav {
+    @media screen and (max-width: $screen-sm-max) {
+      display: none;
+    }
+  }
+  &__header {
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 30px;
+    @media screen and (max-width: $screen-sm-max) {
+      cursor: pointer;
+      margin-bottom: 0;
+      background: url("../images/icons/arrow-upBl.svg") no-repeat center right;
+      &.active {
+        margin-bottom: 30px;
+        background: url("../images/icons/arrow-downBl.svg") no-repeat center right;
+      }
+    }
+  }
+}

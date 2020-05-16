@@ -1,0 +1,50 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "learning clientsBlock"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .container
+      +mainTitle('Обучающие материалы', 'Клиентам', true)
+      +menuSub(menuClients, 'learning')
+    .section__left(data-aos="")
+      .learning-info
+        .learning-img(data-aos="fade-left", data-aos-delay="800"): +img('payment/list.svg')
+        h2.vertical-reveal-outer
+          .vertical-reveal-inner(data-aos="") Файлы учебных материалов представлены в формате PDF.
+        .learning-inner(data-aos="fade-left", data-aos-delay="800")
+          p.text__lg Для всех специалистов, работающих в сфере поставок запасных частей, и в частности подшипников, на сельскохозяйственную технику, а также для прочих технических специалистов, занятых на производстве и сталкивающихся в своей работе с подшипниковой продукцией, компания «ФКЛ РУС» подготовила краткий обучающий материал, освещающий основные параметры и характеристики подшипников, а также особенности обозначения подшипниковых узлов, произведённых на заводе FKL.
+          .acknowledgment-list
+            a.acknowledgment-list__item(href='#', data-aos="fade-up", data-aos-delay="200")
+              .acknowledgment-list__img: +img('payment/learn-1.jpg')
+              p.text__sm.text--grey Общие сведения о подшипниках.pdf
+            a.acknowledgment-list__item(href='#', data-aos="fade-up", data-aos-delay="300")
+              .acknowledgment-list__img: +img('payment/learn-2.jpg')
+              p.text__sm.text--grey Нагрузки и их виды.pdf
+            a.acknowledgment-list__item(href='#', data-aos="fade-up", data-aos-delay="400")
+              .acknowledgment-list__img: +img('payment/learn-3.jpg')
+              p.text__sm.text--grey Типы уплотнений подшипников.pdf
+            a.acknowledgment-list__item(href='#', data-aos="fade-up", data-aos-delay="200")
+              .acknowledgment-list__img: +img('payment/learn-4.jpg')
+              p.text__sm.text--grey Корпусные самоустанавливающиеся подшипниковые узлы.pdf
+            a.acknowledgment-list__item(href='#', data-aos="fade-up", data-aos-delay="300")
+              .acknowledgment-list__img: +img('payment/learn-5.jpg')
+              p.text__sm.text--grey Разновидность корпусных подшипников.pdf
+            a.acknowledgment-list__item(href='#', data-aos="fade-up", data-aos-delay="400")
+              .acknowledgment-list__img: +img('payment/learn-6.jpg')
+              p.text__sm.text--grey Типы уплотнений подшипников.pdf
+            a.acknowledgment-list__item(href='#', data-aos="fade-up", data-aos-delay="200")
+              .acknowledgment-list__img: +img('payment/learn-7.jpg')
+              p.text__sm.text--grey Разновидности корпусов.pdf
+      +nextBlock('Производителям')
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

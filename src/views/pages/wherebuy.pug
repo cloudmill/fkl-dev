@@ -1,0 +1,81 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "wherebuy contactsBlock"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .container
+      +mainTitle('Где купить?', 'Контакты', true)
+      +menuSub(menuWhereBuy, 'wherebuy')
+    .section__left(data-aos="")
+      .wherebuy-info
+        h2.vertical-reveal-outer
+          .vertical-reveal-inner(data-aos="") Нашу продукцию можно приобрести в магазинах #[br] наших дистрибьютеров.
+      .wherebuy-list
+        .tabs(data-aos="fade-up", data-aos-delay="800")
+          .tabs-list
+            a.tab.active(href='#map'): span На карте
+            a.tab(href='#list'): span Списком
+          #map.tabs-content.show(data-aos="fade-up")
+            .wherebuy-inner
+              select.select#districts
+                option(value='', disabled, selected) Выберите город
+                option(value='central') Центральный федеральный округ
+                option(value='northwest') Северо-Западный федеральный округ
+                option(value='south') Южный федеральный округ
+                option(value='volga') Приволжский федеральный округ
+                option(value='ural') Уральский федеральный округ
+                option(value='siberia') Сибирский федеральный округ
+                option(value='east') Дальневосточный федеральный округ
+            #googleMaps.googleMap
+          #list.tabs-content(data-aos="fade-up")
+            .tabs
+              .tabs-list
+                a.tab.active(href='#rus'): span Россия
+                a.tab(href='#ukr'): span Украина
+                a.tab(href='#bel'): span Белоруссия
+                a.tab(href='#kaz'): span Казахстан
+              #rus.tabs-content.show
+                include ../components/_cityList
+              #ukr.tabs-content
+                include ../components/_cityListUkr
+              #bel.tabs-content
+                include ../components/_cityListBel
+              #kaz.tabs-content
+                include ../components/_cityListKaz
+            .cityList__block
+              .cityList__block-left
+                h2.cityList-title Барнаул
+                p.text__lg.cityList-desc Производство и продажа подшипников и карданных валов в Барнауле.
+                br
+                p.text__sm.text--grey Статус:
+                p.text__lg.cityList-status Торговый партнер FKL в Барнауле ООО "Яромир"
+                br
+                .row.between__xs
+                  .col.col__sm-5.col__xs-12
+                    p.text__sm.text--grey Тел\факс:
+                    p.text__lg.cityList-phone +7 (961) 231-80-36
+                  .col.col__sm-6.col__xs-12
+                    p.text__sm.text--grey E-mail:
+                    p.text__lg.cityList-phone office.brn@yaromir22.ru
+                br
+                .row.between__xs
+                  .col.col__sm-5.col__xs-12
+                    p.text__sm.text--grey Адрес:
+                    p.text__lg.cityList-address г. Барнаул, ул.Павловский тракт, 331А, офис 9
+                  .col.col__sm-6.col__xs-12
+                    p.text__sm.text--grey Время работы:
+                    p.text__lg.cityList-work с 08:00 до 17:00, Сб, Вс — выходной
+              .cityList__block-right
+                #googleMap.googleMap
+      +nextBlock('Отдел продаж')
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+

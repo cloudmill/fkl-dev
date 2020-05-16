@@ -1,0 +1,110 @@
+//
+// Partials -> Main
+// ------------------------------------
+
+//
+// Main container
+//
+a {
+  text-decoration: none;
+}
+
+
+.blueLine {
+  @media screen and (min-width: $screen-md-min) {
+    @include blueLine;
+    padding-left: 90px;
+    &:before {
+      top: auto;
+      bottom: 10px;
+    }
+  }
+}
+
+.longLink {
+  font-size: 14px;
+  color: black;
+  line-height: 112.6%;
+  padding-bottom: 5px;
+  border-bottom: 1px solid $base-color-main;
+  transition: border-color .5s;
+  @media screen and (min-width: $screen-md-min) {
+    font-size: 18px;
+  }
+  &:hover {
+    border-color: transparent;
+  }
+}
+
+.main {
+  min-height: calc(100vh - 128px); // min-height depends on header && footer
+  .container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+.fp-viewing-02,
+.fp-viewing-01-0,
+.fp-viewing-one {
+  .wrapper {
+    background-color: #011141;
+  }
+}
+
+.relative {
+  position: relative;
+}
+
+.page {
+  min-height: 100vh;
+  @media screen and (min-width: $screen-md-min) {
+    padding-top: 120px;
+    padding-left: 99px;
+  }
+  &.index {
+    padding-top: 0;
+  }
+}
+
+.searchAdr {
+  margin-top: auto;
+  .btn {
+    height: 80px;
+    @media screen and (min-width: $screen-md-min) {
+      height: 100px;
+    }
+  }
+  &-field {
+    display: flex;
+    border: 1px solid $gray;
+    input {
+      background: #F5F5F5;
+      border-right: 1px solid $gray;
+      font-size: 16px;
+      &::placeholder {
+        color: $gray-darken-1;
+      }
+    }
+    button {
+      background: #F5F5F5;
+      border: none;
+      outline: none;
+      margin-right: auto;
+      width: 60px;
+    }
+  }
+  &-list {
+    .radio {
+      padding: 10px;
+      border-bottom: 1px solid $gray;
+      margin: 0;
+      @media screen and (min-width: $screen-md-min) {
+        padding: 10px 50px;
+      }
+    }
+  }
+  .scrollContent {
+    height: 260px;
+  }
+}

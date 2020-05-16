@@ -1,0 +1,50 @@
+.deliveryTime {
+  margin-top: 50px;
+  &-info {
+    // @include listBlock;
+    .text__xl {
+      font-family: "mass";
+    }
+    .manufacturing-attr--list li {
+      width: 100%;
+      margin: 20px 0;
+      @media screen and (min-width: $screen-xmd-min) {
+        width: 50%;
+        margin: 50px 0;
+      }
+    }
+
+    h5 {
+      font-family: 'massMedium';
+      font-weight: 800;
+      line-height: 1.5555;
+      margin-top: 20px;
+      @media screen and (min-width: $screen-md-min) {
+        margin-top: 50px;
+      }
+      span {
+        color: white;
+        background-color: #0029ff;
+      }
+    }
+  }
+  .logoList {
+    margin-right: 0;
+    border-left: none;
+    &__item {
+      padding: 30px 20px !important;
+      &:last-child,
+      &:nth-last-child(2) {
+        @media screen and (min-width: $screen-lg-min) {
+          border-bottom: none;
+        }
+      }
+      .text--grey {
+        margin: 15px 0;
+      }
+      &--img {
+        margin-bottom: 5px !important;
+      }
+    }
+  }
+}

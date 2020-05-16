@@ -1,0 +1,39 @@
+extends ../layouts/master.pug
+
+block header
+  include ../partials/_header
+
+block pageName
+  - var pageName = "search"
+
+block content
+  .section
+    .container
+      +mainTitle('Найдено результатов: 0', '', false)
+      p(data-aos="fade-up", data-aos-delay="600") По запросу
+        b «Подшипник крупноузловой»
+    .section__left(data-aos="")
+      form.searchBlock(data-aos="fade-up", data-aos-delay="600")
+        label.searchBlock__icon(for='search')
+          img(src='assets/images/search_blue.svg', alt='')
+        .section__bottom__form__row
+          .section__bottom__form__input
+            input.control(type='text', id='search', placeholder='Поиск', value='Подшипник крупноузловой', required)
+          +franciscoBtn('Найти', 'str_white.svg')
+      .catalog(data-aos="fade-up", data-aos-delay="700")
+        .catalog__title
+          h2 Увы, результатов по введененному запросу нет,
+            br
+            | попробуйте еще раз
+          br
+          p.text--md.text--grey или
+          br
+          .catalog__item-inf.franciscoItem
+            a.franciscoHelper(href='#') Перейдите в каталог
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer
+
+

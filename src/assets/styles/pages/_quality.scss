@@ -1,0 +1,104 @@
+.quality {
+  .container {
+    overflow: hidden;
+  }
+  &-info {
+    padding: 20px;
+    // @include listBlock;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 20px 50px 50px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 70px 0 0 80px;
+    }
+    h5 {
+      line-height: 1.55;
+      font-family: "massMedium";
+      font-weight: 800;
+    }
+    .news__item__link {
+      margin-bottom: 10px;
+    }
+  }
+
+  &-desc {
+    padding: 0;
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 0 200px 120px 90px;
+    }
+    .blueLine {
+      @media screen and (min-width: $screen-lg-min) {
+        margin-left: -90px;
+      }
+    }
+    h5 {
+      margin-bottom: 20px;
+      @media screen and (min-width: $screen-lg-min) {
+        margin-bottom: 60px;
+      }
+    }
+    .row {
+      @media screen and (min-width: $screen-lg-min) {
+        margin-bottom: 40px;
+      }
+    }
+    p {
+      margin-bottom: 50px;
+      max-width: 840px;
+    }
+  }
+  &-content {
+    padding: 0;
+    border-top: 1px solid $gray;
+    position: relative;
+    @media screen and (min-width: $screen-md-min) {
+      padding: 20px 0 0 0;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      padding: 130px 80px 0 0;
+    }
+
+    &--list {
+      ul {
+        max-width: 500px;
+      }
+    }
+
+    h2 {
+      margin-bottom: 30px;
+      @media screen and (min-width: $screen-lg-min) {
+        margin-bottom: 80px;
+      }
+    }
+    h5 {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      @media screen and (min-width: $screen-lg-min) {
+        margin-top: 90px;
+        margin-bottom: 50px;
+      }
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      img {
+        position: absolute;
+        right: 80px;
+        top: -125px;
+      }
+    }
+    &-inner {
+      @media screen and (min-width: $screen-lg-min) {
+        padding-left: 90px;
+      }
+    }
+    .list--counterList {
+      @media screen and (min-width: $screen-lg-min) {
+        padding-bottom: 90px;
+      }
+      li {
+        @media screen and (min-width: $screen-lg-min) {
+          //padding-right: 120px;
+        }
+      }
+    }
+  }
+}
