@@ -22,7 +22,6 @@ block content
           .section__main__bottom__text
             span Порядок хранит мир #[br] FKL – хранит качество
           a.section__main__bottom__link(href='') Дилерам
-      span.longLine(data-aos="")
     .section.section__slider
       #model.model
         video#video.active(muted='muted')
@@ -127,11 +126,11 @@ block content
             i.icon.icon_str-white
     .section__bottom__wrapper.section.section__wrapper
       .section__bottom
-        .section__bottom__title.animated(href='#', data-animation="slideInUp", data-animation-delay="500")
+        .section__bottom__title(href='#', data-aos="fade-up")
           a.active(href='#stocks') Скидки
           a(href='#new') Новинки
           a(href='#spec') Спецпрограмма
-        .section__bottom__sliders.animated(href='#', data-animation="slideInUp", data-animation-delay="600")
+        .section__bottom__sliders(href='#', data-aos="fade-up", data-aos-delay="600")
           +slickPrev()
           .section__bottom__slider.active
             a.section__bottom__slider__item(href='#')
@@ -193,11 +192,11 @@ block content
                 .section__bottom__slider__item__bot-inf
                   | Артикул: 6206-2Z
           +slickNext()
-        .section__bottom__row.animated(href='#', data-animation="slideInUp", data-animation-delay="700")
+        .section__bottom__row(href='#', data-aos="fade-up")
           .section__bottom__title Пресс-центр
           .section__bottom__link
             .hidden__sm.hidden__xs: +franciscoLink('Все новости', 'str_right.svg')
-        .section__bottom__body.animated(data-animation="slideInUp", data-animation-delay="800")
+        .section__bottom__body(data-aos="fade-up")
           a.section__bottom__new(href='#')
             .section__bottom__new__date 24 октября 2019
             .section__bottom__new__title РУС ФКЛ отгрузила более 150 тысяч изделий для ТЕХНИКА-СЕРВИС

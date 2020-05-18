@@ -28,10 +28,13 @@ th {
     }
     th,
     td {
-      padding: $table-cell-padding;
+      padding: 10px;
       color: $gray-darken-2;
       vertical-align: top;
       border-bottom: 1px solid $table-border-color;
+      @media screen and (min-width: $screen-xl-min) {
+        padding: $table-cell-padding;
+      }
     }
     > thead th {
       padding: 30px 20px 20px;

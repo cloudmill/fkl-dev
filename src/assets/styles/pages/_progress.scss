@@ -21,6 +21,12 @@
   &-listSlider {
     display: flex;
     position: relative;
+    @media screen and (min-width: $screen-lg-min) {
+      flex-wrap: wrap;
+    }
+    @media screen and (min-width: $screen-xl-min) {
+      flex-wrap: nowrap;
+    }
   }
   &-list {
     p {
@@ -33,6 +39,9 @@
           margin-right: 0;
         }
         @media screen and (min-width: $screen-lg-min) {
+          width: 33%;
+        }
+        @media screen and (min-width: $screen-xl-min) {
           width: 25%;
         }
       }

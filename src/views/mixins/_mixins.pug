@@ -93,7 +93,14 @@ mixin img(path)
 mixin fieldInput(type, id, label, placeholder, required)
   - if(label)
     label(for=id)= label
-  label.control-body(for=id): input.control(type=type, name=id, id=id, placeholder=placeholder, required=required)
+  label.control-body(for=id)
+    input.control(type=type, name=id, id=id, placeholder=placeholder, required=required)
+//- form-input
+mixin fieldInputPhone(type, id, name, label, placeholder, required)
+  - if(label)
+    label(for=id)= label
+  label.control-body(for=id)
+    input.control(type=type, name=name, id=id, placeholder=placeholder, required=required)
 
 //- form-textarea
 mixin fieldTextarea(id, label, placeholder, rows, required)

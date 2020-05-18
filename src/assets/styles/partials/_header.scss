@@ -208,7 +208,7 @@
       font-weight: 400;
       line-height: 24.77px;
       display: none;
-      @media screen and (min-width: $screen-lg-min) {
+      @media screen and (min-width: 1320px) {
         display: block;
       }
       &:hover {
@@ -226,12 +226,28 @@
       align-items: center;
       justify-content: center;
       border-radius: 50%;
+      position: relative;
       background-color: $base-color-dark;
       @media screen and (min-width: $screen-md-min) {
         background-color: $base-color-main;
       }
       .icon_user {
         margin-left: -2px;
+      }
+      span {
+        color: white;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 19px;
+        height: 19px;
+        display: flex;
+        font-size: 10px;
+        line-height: 12px;
+        justify-content: center;
+        align-items: center;
+        background: $base-color-dark;
+        border-radius: 50%;
       }
       &:hover {
         background-color: $base-color-dark;

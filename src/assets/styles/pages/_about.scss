@@ -558,6 +558,9 @@
         .text__sm {
           max-width: 400px;
           margin-top: 10px;
+          @media screen and (min-width: $screen-md-min) {
+            margin-left: 40px;
+          }
         }
       }
       .arrowInfoSec {
@@ -580,8 +583,11 @@
         @media screen and (min-width: $screen-lg-min) {
           left: 0;
           right: 0;
-          bottom: 0;
+          bottom: -50px;
           position: absolute;
+        }
+        @media screen and (min-width: $screen-xl-min) {
+          bottom: 0;
         }
         @media screen and (min-width: $screen-lg-min) {
           span {
@@ -634,10 +640,13 @@
             height: 60px;
             min-width: 60px;
             margin: 0;
+            width: 60px;
+            white-space: pre-wrap;
           }
           @media screen and (min-width: $screen-xl-min) {
             height: 95px;
             min-width: 95px;
+            width: auto;
           }
           &.slick-active {
             border-color: $base-color-main;

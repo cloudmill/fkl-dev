@@ -135,7 +135,10 @@
     }
   }
   &__logo {
-    margin-bottom: 90px;
+    margin-bottom: 20px;
+    @media screen and (min-width: 1400px) {
+      margin-bottom: 90px;
+    }
   }
   &__list {
     height: 100%;
@@ -148,6 +151,12 @@
       color: white;
       font-family: "massMedium";
     }
+  }
+  a.menuBar__phone,
+  a.footer__mail,
+  a.footer__phone {
+    color: white;
+    display: block;
   }
   @media screen and (max-width: $screen-sm-max) {
     .menuBar__list__item {
@@ -187,6 +196,13 @@
     .footer__text,
     .footer__title {
       padding-left: 15px;
+    }
+  }
+
+  @media screen and (max-width: 1399px) {
+    .footer__mail,
+    .footer__text {
+      margin-bottom: 20px;
     }
   }
 }

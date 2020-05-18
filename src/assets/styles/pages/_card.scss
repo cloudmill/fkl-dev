@@ -49,12 +49,14 @@
       @media screen and (min-width: $screen-xmd-min) {
         padding: 30px;
       }
-      @media screen and (min-width: $screen-lg-min) {
+      @media screen and (min-width: $screen-xl-min) {
         padding: 30px 50px;
       }
       &-img {
         img {
-          height: 150px;
+          @media screen and (min-width: $screen-xl-min) {
+            height: 150px;
+          }
         }
       }
       .section__bottom__slider__item__img {

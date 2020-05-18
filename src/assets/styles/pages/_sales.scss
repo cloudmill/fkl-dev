@@ -61,7 +61,10 @@
         margin-bottom: 30px;
 
         img {
-          margin-right: 40px;
+          margin-right: 20px;
+          @media screen and (min-width: $screen-xl-min) {
+            margin-right: 40px;
+          }
         }
       }
     }

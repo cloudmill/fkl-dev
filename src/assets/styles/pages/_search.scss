@@ -349,7 +349,7 @@
           opacity: 0;
           transition: opacity 0.5s;
           max-width: 80%;
-          @media screen and (min-width: $screen-xmd-min) {
+          @media screen and (min-width: $screen-xl-min) {
             max-width: inherit;
           }
         }
@@ -396,10 +396,11 @@
       padding: 20px;
       @media screen and (min-width: $screen-md-min) {
         width: calc(100% / 2);
-        padding: 30px;
       }
       @media screen and (min-width: $screen-lg-min) {
         width: calc(100% / 3);
+      }
+      @media screen and (min-width: $screen-xl-min) {
         padding: 45px;
       }
       label {

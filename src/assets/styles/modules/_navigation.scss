@@ -415,6 +415,10 @@ clientsBlock,
     &__item {
       @media screen and (min-width: $screen-lg-min) {
         width: auto;
+        margin-right: 30px;
+      }
+      @media screen and (min-width: 1400px) {
+        width: auto;
         margin-right: 80px;
         &:nth-last-child(2) {
           margin-right: 101px;

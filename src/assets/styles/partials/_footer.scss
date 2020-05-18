@@ -44,6 +44,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    @media screen and (min-width: $screen-xmd) and (max-width: 1500px) {
+      flex-wrap: nowrap;
+    }
   }
   &__col {
     display: flex;

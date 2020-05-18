@@ -40,7 +40,9 @@ if (screen_width <= 767) {
   $(".mainTitle--subNav h1").click(function() {
     $(this).toggleClass('active');
     $('.subNav').slideToggle();
-    setTimeout(() => AOS.init(), 500);
+    setTimeout(() => AOS.init({
+      offset: 50,
+    }), 500);
   });
 }
 

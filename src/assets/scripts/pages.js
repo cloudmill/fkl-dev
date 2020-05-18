@@ -65,12 +65,45 @@ if(stepsSlider) {
 //range slider
 
 
+export function validateEmail(email) {
+  const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+
+export function validatePhone(phone) {
+  const re = /^(\+7)[\s\-]\(?[0-9]{3}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
+  return re.test(phone);
+}
+
+
+
 $('.control').blur(function (event) {
   const isRequired = $(this).attr('required');
   const value = event.target.value;
   if(value) {
-    $(this).parent().addClass('success');
-    $(this).parent().removeClass('error');
+    if($(this).prop('type') === 'email') {
+      if (validateEmail(value)) {
+        $(this).parent().addClass('success');
+        $(this).parent().removeClass('error');
+        $(this).parent().find('.error-text').text('');
+      } else {
+        $(this).parent().addClass('error');
+        $(this).parent().find('.error-text').text('Неверно заполненное поле');
+      }
+    } else if($(this).prop('name') === 'phone') {
+      if (validatePhone(value)) {
+        $(this).parent().addClass('success');
+        $(this).parent().removeClass('error');
+        $(this).parent().find('.error-text').text('');
+      } else {
+        $(this).parent().addClass('error');
+        $(this).parent().find('.error-text').text('Неверно введен номер телефона');
+      }
+    } else {
+      $(this).parent().addClass('success');
+      $(this).parent().removeClass('error');
+      $(this).parent().find('.error-text').text('');
+    }
   }
   if(!value && isRequired) {
     $(this).parent().addClass('error');
@@ -147,7 +180,9 @@ $(".filter-clicker").click(function() {
   } else {
     $(this).find('img:last-child').attr('src', 'assets/images/icons/plus.svg');
   }
-  AOS.init();
+  AOS.init({
+    offset: 50,
+  });
 });
 
 // basket
@@ -157,7 +192,9 @@ $(".cabinet-delete--js").click(function() {
   if($('tr').length === 1) {
     $('table').remove();
   }
-  AOS.init();
+  AOS.init({
+    offset: 50,
+  });
 });
 
 // header__menu-el--parent
@@ -180,7 +217,9 @@ $("#legal").click(function(event) {
     $('#resident').hide();
     $('#professional').show();
   }
-  AOS.init();
+  AOS.init({
+    offset: 50,
+  });
 });
 
 // passwordPart
@@ -209,7 +248,9 @@ $(".testAction").click(function() {
   $('.longLink').hide();
   $('.infoNotice').show();
   $('.mainTitle h2').text('Спасибо!');
-  AOS.init();
+  AOS.init({
+    offset: 50,
+  });
   return false;
 });
 $("#restoreForms").click(function() {
@@ -217,7 +258,9 @@ $("#restoreForms").click(function() {
   $('.longLink').show();
   $('.infoNotice').hide();
   $('.mainTitle h2').text('Изменить пароль');
-  AOS.init();
+  AOS.init({
+    offset: 50,
+  });
   return false;
 });
 $("#restoreForms2").click(function() {
@@ -225,7 +268,9 @@ $("#restoreForms2").click(function() {
   $('.longLink').show();
   $('.infoNotice').hide();
   $('.mainTitle h2').text('Восстановить пароль');
-  AOS.init();
+  AOS.init({
+    offset: 50,
+  });
   return false;
 });
 // testing actions

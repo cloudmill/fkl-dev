@@ -59,11 +59,16 @@
         width: 110%;
       }
     }
+    @media screen and (min-width: $screen-xl-min) {
+      .col__xl-5 {
+        width: 46%;
+      }
+    }
     ul {
       @media screen and (min-width: $screen-xmd-min) {
-        column-count: 2;
-        column-fill: balance;
-        column-gap: 130px;
+        //column-count: 2;
+        //column-fill: balance;
+        //column-gap: 130px;
         li {
           margin-bottom: 65px;
         }

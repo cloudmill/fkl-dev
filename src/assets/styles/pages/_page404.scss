@@ -12,13 +12,19 @@
   &-img {
     mix-blend-mode: hard-light;
     transition: transform .5s;
+
+    @media screen and (min-width: $screen-xmd-min) and (max-height: 600px) {
+      img {
+        width: 23vw;
+      }
+    }
   }
 
   &-img1 {
     position: absolute;
     top: -3%;
     left: 0;
-    @media screen and (min-width: $screen-lg-min) {
+    @media screen and (min-width: $screen-xl-min) {
       left: 15%;
       top: 3%;
     }
@@ -32,7 +38,7 @@
     position: absolute;
     right: -5%;
     bottom: -5%;
-    @media screen and (min-width: $screen-lg-min) {
+    @media screen and (min-width: $screen-xl-min) {
       right: 5%;
       bottom: 5%;
     }
@@ -44,7 +50,7 @@
     position: absolute;
     left: -10%;
     bottom: -5%;
-    @media screen and (min-width: $screen-lg-min) {
+    @media screen and (min-width: $screen-xl-min) {
       bottom: 5%;
     }
     @media screen and (max-width: $screen-sm-max) {

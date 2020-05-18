@@ -14,10 +14,13 @@
     font-family: "massMedium";
     font-weight: 800;
     @media screen and (min-width: $screen-md-min) {
-      font-size: 18px;
+      font-size: 15px;
     }
     @media screen and (min-width: $screen-lg-min) {
       height: 136px;
+    }
+    @media screen and (min-width: 1400px) {
+      font-size: 18px;
     }
     span {
       line-height: 1.5;

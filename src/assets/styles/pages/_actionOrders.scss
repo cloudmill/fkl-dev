@@ -33,9 +33,17 @@
   &-price {
     font-size: 18px;
     font-weight: 500;
+    white-space: nowrap;
+    @media screen and (min-width: $screen-xl-min) {
+      white-space: normal;
+    }
     span {
       color: $gray-darken-1;
       font-size: 12px;
+      display: block;
+      @media screen and (min-width: $screen-xl-min) {
+        display: inline-block;
+      }
     }
   }
   &-content {
@@ -72,6 +80,12 @@
         margin-top: 25px;
         display: block;
         white-space: nowrap;
+        @media screen and (min-width: $screen-xmd-min) {
+          position: absolute;
+        }
+        @media screen and (min-width: $screen-xl-min) {
+          position: static;
+        }
         img {
           margin-right: 15px;
         }

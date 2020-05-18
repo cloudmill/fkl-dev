@@ -18,14 +18,18 @@ $(document).ready(() => {
 
 
   setTimeout(() => appearBlock(0), 1600);
-  setTimeout(() => AOS.init(), 1600);
+  setTimeout(() => AOS.init({
+    offset: 50,
+  }), 1600);
 });
 
 
 window.addEventListener("resize", function() {
   appearBlock(0);
-  AOS.init();
-  window.scrollTo(0, 0); // TODO: do not forget to UNcomment it
+  AOS.init({
+    offset: 50,
+  });
+  // window.scrollTo(0, 0); // TODO: do not forget to UNcomment it
 }, false);
 
 require("scripts/main");
@@ -83,7 +87,7 @@ $(window).on("load", function() {
 
     }, 500);
 
-    window.scrollTo(0, 0); // goTo the top after reload
+    // window.scrollTo(0, 0); // goTo the top after reload
   }, 1100);
 });
 

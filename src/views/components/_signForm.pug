@@ -17,7 +17,9 @@ form.section__bottom__form.sticky-stopper(data-aos="fade-up")
           | Новинки продукции
   .section__bottom__form__row
     .section__bottom__form__input
-      label.control-body(for='signForm'): input.control(type='email', id='signForm' placeholder='Введите ваш E-mail', required)
+      label.control-body(for='signForm')
+        .error-text
+        input.control(type='email', id='signForm' placeholder='Введите ваш E-mail', required)
     button.section__bottom__form__button.franciscoItem(type='submit')
       .franciscoHelper
         span Подписаться на рассылку

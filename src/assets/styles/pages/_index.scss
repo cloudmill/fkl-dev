@@ -214,6 +214,9 @@
         margin-left: 155px;
         font-size: 26px;
       }
+      @media screen and (min-width: $screen-md-min) and (max-height: 600px) {
+        margin-top: 0;
+      }
     }
     &__bottom {
       display: flex;
@@ -631,6 +634,11 @@
       @media screen and (min-width: $screen-lg-min) {
         font-size: 30px;
       }
+      @media screen and (min-width: $screen-md-min) and (max-height: 600px) {
+        margin-top: 0;
+        font-size: 23px;
+        margin-bottom: 5px;
+      }
     }
     &__text {
       margin-top: 10px;
@@ -648,6 +656,10 @@
         margin-top: 20px;
         font-size: 18px;
         line-height: 180%;
+      }
+      @media screen and (min-width: $screen-md-min) and (max-height: 600px) {
+        font-size: 16px;
+        line-height: 160%;
       }
       span {
         background-color: $base-color-main;
@@ -679,6 +691,9 @@
 
       @media screen and (max-width: $screen-sm-max) {
         display: none;
+      }
+      @media screen and (min-width: $screen-md-min) and (max-height: 600px) {
+        bottom: 20px;
       }
       a {
         text-decoration: none;
@@ -736,6 +751,9 @@
         padding-top: 90px;
         margin-bottom: 80px;
       }
+      @media screen and (min-width: $screen-md-min) and (max-height: 600px) {
+        margin-bottom: 40px;
+      }
       &__link {
         font-size: 18px;
         a {
@@ -774,6 +792,9 @@
         height: 512px;
         width: calc((100% - 28px) / 4);
       }
+      @media screen and (min-width: $screen-md-min) and (max-height: 600px) {
+        height: 330px;
+      }
       > * {
         position: relative;
         z-index: 9;
@@ -802,6 +823,9 @@
         @media screen and (min-width: $screen-xl-min) {
           padding-right: 30px;
           padding-left: 40px;
+        }
+        @media screen and (min-width: $screen-md-min) and (max-height: 600px) {
+          font-size: 16px;
         }
       }
       &__img {
@@ -1138,6 +1162,9 @@
           font-size: 18px;
           line-height: 112.6%;
           color: $gray-darken-2;
+          @media screen and (min-width: $screen-md-min) {
+            word-wrap: break-word;
+          }
         }
         &__price {
           font-weight: 500;
@@ -1338,11 +1365,14 @@
           @media screen and (min-width: $screen-xmd-min) {
             padding-top: 0;
             padding-left: 20px;
-            width: 50%;
+            width: 44%;
             margin-right: 0;
           }
           @media screen and (min-width: $screen-lg-min) {
             padding-left: 50px;
+          }
+          @media screen and (min-width: 1400px) {
+            width: 50%;
           }
         }
         &:first-child {
@@ -1407,6 +1437,11 @@
         .control-body:after {
           top: 0px;
           cursor: text;
+        }
+        .control-body.error {
+          input {
+            color: $input-color;
+          }
         }
         .control {
           height: 80px;

@@ -110,8 +110,10 @@
       }
       @media screen and (min-width: $screen-lg-min) {
         margin-bottom: 50px;
-        margin-bottom: 100px;
         width: 30%;
+      }
+      @media screen and (min-width: $screen-xl-min) {
+        margin-bottom: 100px;
       }
       img {
         display: block;
@@ -120,6 +122,9 @@
         .acknowledgment-list__img {
           border-color: $base-color-main;
           top: 30px;
+          @media screen and (min-width: $screen-md-min) {
+            top: 60px;
+          }
           &:after {
             background-color: $base-color-main;
           }
@@ -171,7 +176,10 @@
   }
   &-showMore {
     padding-left: 90px;
-    padding-right: 200px;
+    padding-right: 100px;
+    @media screen and (min-width: $screen-xl) {
+      padding-right: 200px;
+    }
     @media screen and (max-width: $screen-sm-max) {
       padding: 20px;
     }

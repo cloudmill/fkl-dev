@@ -344,6 +344,7 @@ $items: facebook, twitter, percent_icon;
   display: none;
   @media screen and (min-width: $screen-lg-min) {
     display: flex;
+    left: 64%;
   }
   @media screen and (min-width: $screen-xl-min) {
     left: 57vw;

@@ -70,6 +70,8 @@ input[type="checkbox"]:focus {
   border: none;
   border-radius: 0;
   outline: none;
+  font-family: 'Roboto Mono';
+  font-weight: 400;
 
   @include transition(
     border-color ease-in-out 0.15s,
@@ -90,6 +92,13 @@ input[type="checkbox"]:focus {
 
   &-body {
     position: relative;
+    .error-text {
+      position: absolute;
+      top: -30px;
+      left: 50px;
+      color: $gray-darken-1;
+      font-size: 14px;
+    }
     &:after {
       content: '';
       left: 0;

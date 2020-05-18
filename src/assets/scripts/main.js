@@ -69,7 +69,9 @@ $(document).ready(function() {
       "click"
     );
 
-    AOS.init();
+    AOS.init({
+      offset: 50,
+    });
   });
 
   // select
@@ -383,7 +385,7 @@ const slidersForNav = function() {
     },
     responsive: [
       {
-        breakpoint: 1500,
+        breakpoint: 1200,
         settings: {
           adaptiveHeight: true,
         }
