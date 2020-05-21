@@ -16,14 +16,23 @@
     padding: 20px;
     @media screen and (min-width: $screen-md-min) {
       padding: 50px;
+      display: flex;
     }
     @media screen and (min-width: $screen-lg-min) {
       padding: 90px 50px;
     }
+    &-item {
+      margin-bottom: 10px;
+      max-width: 440px;
+      width: 100%;
+      @media screen and (min-width: $screen-md-min) {
+        margin-right: 40px;
+      }
+    }
     .select {
       width: 100%;
       @media screen and (min-width: $screen-md-min) {
-        width: 440px;
+        //width: 440px;
       }
     }
   }
