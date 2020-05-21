@@ -399,7 +399,7 @@ const mapStyleBlue = [
 const mcOptions = {
   styles: [
     {
-      url: "assets/images/icons/marker.svg",
+      url: "/local/templates/main/assets/images/icons/marker.svg",
       width: 72,
       height: 72,
       fontFamily: "Roboto Mono",
@@ -473,7 +473,7 @@ function initMap() {
   for (let i = 0; i < locations.length; i++) {
     markers[i] = new google.maps.Marker({
       position: new google.maps.LatLng(locations[i][0], locations[i][1]),
-      icon: "assets/images/icons/bubble.svg",
+      icon: "/local/templates/main/assets/images/icons/bubble.svg",
       map: map,
       id: i
     });
@@ -496,7 +496,7 @@ function initMapBlue() {
   for (let i = 0; i < locations.length; i++) {
     markers[i] = new google.maps.Marker({
       position: new google.maps.LatLng(locations[i][0], locations[i][1]),
-      icon: "assets/images/icons/bubble.svg",
+      icon: "/local/templates/main/assets/images/icons/bubble.svg",
       map: map2,
       id: i
     });
@@ -517,7 +517,7 @@ function initMap1() {
   map1 = new google.maps.Map(mapElement, mapOptions);
   new google.maps.Marker({
     position: new google.maps.LatLng(59.943422, 30.425995),
-    icon: "assets/images/icons/bubble.svg",
+    icon: "/local/templates/main/assets/images/icons/bubble.svg",
     map: map1,
     id: 999
   });
@@ -549,7 +549,7 @@ $(document).ready(function() {
     for (let i = 0; i < num_markers; i++) {
       markers[i] = new google.maps.Marker({
         position: new google.maps.LatLng(item[i][0], item[i][1]),
-        icon: "assets/images/icons/bubble.svg",
+        icon: "/local/templates/main/assets/images/icons/bubble.svg",
         map: map,
         id: i
       });
@@ -650,7 +650,7 @@ $(document).ready(function() {
 
     new google.maps.Marker({
       position: new google.maps.LatLng(getMapX, getMapY),
-      icon: "assets/images/icons/bubble.svg",
+      icon: "/local/templates/main/assets/images/icons/bubble.svg",
       map: map1,
       id: 99
     });

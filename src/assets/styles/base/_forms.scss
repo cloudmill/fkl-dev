@@ -309,6 +309,7 @@ input[type="search"] {
   }
   img {
     margin-right: 25px;
+    width: auto;
   }
   &:hover .btn {
     background-color: $base-color-dark;

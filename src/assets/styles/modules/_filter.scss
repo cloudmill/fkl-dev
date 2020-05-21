@@ -92,4 +92,25 @@
       }
     }
   }
+
+  .checkbox {
+    margin-left: 0;
+    .label {
+      &:before {
+        border: 1px solid $base-color-main;
+        width: 16px;
+        height: 16px;
+        min-width: 16px;
+        margin-right: 15px;
+      }
+      &:after {
+        width: 10px;
+        height: 10px;
+        left: 3px;
+      }
+    }
+    input:checked + .label:before {
+      border: 1px solid $base-color-main;
+    }
+  }
 }
