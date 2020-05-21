@@ -23,7 +23,7 @@ block content
           #map.tabs-content.show(data-aos="fade-up")
             .wherebuy-inner
               select.select#districts
-                option(value='', disabled, selected) Выберите город
+                option(value='', disabled, selected) Выберите страну
                 option(value='central') Центральный федеральный округ
                 option(value='northwest') Северо-Западный федеральный округ
                 option(value='south') Южный федеральный округ
@@ -31,6 +31,15 @@ block content
                 option(value='ural') Уральский федеральный округ
                 option(value='siberia') Сибирский федеральный округ
                 option(value='east') Дальневосточный федеральный округ
+              select.select#city
+                option(value='', disabled, selected) Выберите город
+                option(value='central') Центральный федеральный город
+                option(value='northwest') Северо-Западный федеральный город
+                option(value='south') Южный федеральный город
+                option(value='volga') Приволжский федеральный город
+                option(value='ural') Уральский федеральный город
+                option(value='siberia') Сибирский федеральный город
+                option(value='east') Дальневосточный федеральный город
             #googleMaps.googleMap
           #list.tabs-content(data-aos="fade-up")
             .tabs
