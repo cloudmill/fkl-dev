@@ -1,4 +1,4 @@
-import fullpage from "fullpage.js";
+import fullpage from "./fullpage";
 import "tilt.js";
 
 $(document).ready(function() {
