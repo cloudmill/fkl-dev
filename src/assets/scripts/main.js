@@ -56,7 +56,7 @@ $(document).ready(function() {
 
     $(this)
       .closest(".tabs")
-      .find("> .tabs-list .tab")
+      .find(".tabs-list .tab")
       .removeClass("active");
     $(this)
       .closest(".tabs")
@@ -75,13 +75,26 @@ $(document).ready(function() {
   });
 
   // select
+  function formatState (state) {
+    if (!state.id) {
+      return state.text;
+    }
+    const tip = $(state.element).data('tip');
+    const $state = $(
+      '<span>' + state.text + '</span> <span class="desc">' + tip + '</span>'
+    );
+    return $state;
+  };
+
   $(".select").select2({
-    minimumResultsForSearch: Infinity
+    templateResult: formatState
   });
   $('.select').on('select2:open', function () {
+    $('input.select2-search__field').prop('placeholder', 'Начните вводить город');
     $('.select2-dropdown').hide();
     setTimeout(function(){ $('.select2-dropdown').slideDown("slow"); }, 200);
   });
+
 
   $(".showMore--js").click(function() {
     $(this)
