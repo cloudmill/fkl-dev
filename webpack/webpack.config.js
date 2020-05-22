@@ -115,7 +115,7 @@ module.exports = env => {
               loader: 'url-loader',
               options: {
                 limit: 3000,
-                name: 'images/[name].[ext]'
+                name: 'assets/images/[name].[ext]'
               }
             }
           ]
@@ -125,7 +125,7 @@ module.exports = env => {
           loader: 'url-loader',
           options: {
             limit: 5000,
-            name: 'fonts/[name].[ext]'
+            name: 'assets/fonts/[name].[ext]'
           }
         },
         {
@@ -182,7 +182,8 @@ module.exports = env => {
         {from: 'assets/fonts', to: 'assets/fonts'},
       ]),
       new ImageminPlugin({
-        test: /\.(jpe?g|png|gif|svg)$/i,
+        cacheFolder: './.cache',
+        test: /\.(jpe?g|png|gif)$/i,
         pngquant: {
           quality: '70'
         },
@@ -197,8 +198,8 @@ module.exports = env => {
         styles: path.join(__dirname, '../src/assets/styles/_sprites.scss')
       }),
       new MiniCssExtractPlugin({
-        filename: 'assets/[name].css',
-        chunkFilename: 'assets/vendors.css',
+        filename: '[name].css',
+        chunkFilename: 'vendors.css',
       }),
 
       /*

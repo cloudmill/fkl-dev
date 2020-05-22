@@ -1,20 +1,20 @@
 /* src/app.js */
 
 // Styles
-import "styles/_app.scss";
+import "../src/assets/styles/_app.scss";
 
 
 import "jquery-appear-original";
 import ready from 'domready';
 import AOS from 'aos';
-import App from 'scripts/partial/scripts/App';
+import App from '../src/assets/scripts/partial/scripts/App';
 
-require("scripts/fullpageIndex");
-require("scripts/jquery.maskedinput.min.js");
+require("../src/assets/scripts/fullpageIndex");
+require("../src/assets/scripts/jquery.maskedinput.min.js");
 
 $(document).ready(() => {
-  require("scripts/header");
-  require("scripts/pages");
+  require("../src/assets/scripts/header");
+  require("../src/assets/scripts/pages");
 
 
   setTimeout(() => appearBlock(0), 1600);
@@ -32,10 +32,10 @@ window.addEventListener("resize", function() {
   // window.scrollTo(0, 0); // TODO: do not forget to UNcomment it
 }, false);
 
-require("scripts/main");
+require("../src/assets/scripts/main");
 
 if(document.getElementsByClassName("page404").length) {
-  require("scripts/page404");
+  require("../src/assets/scripts/page404");
 }
 
 function appearBlock(loaderTimeOut) {
@@ -91,4 +91,4 @@ $(window).on("load", function() {
   }, 1100);
 });
 
-require("scripts/maps");
+require("../src/assets/scripts/maps");
