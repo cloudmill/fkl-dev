@@ -64,7 +64,7 @@
     "url-loader": "^2.1.0",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.8",
-    "webpack-dev-server": "^3.8.0",
+    "webpack-dev-server": "^3.11.0",
     "webpack-notifier": "^1.8.0"
   },
   "dependencies": {
@@ -75,7 +75,6 @@
     "glsl-noise": "0.0.0",
     "gsap": "^2.0.2",
     "jquery": "^3.4.1",
-    "jquery-appear-original": "^0.6.2",
     "lodash": "^4.17.15",
     "magnific-popup": "^1.1.0",
     "malihu-custom-scrollbar-plugin": "^3.1.5",

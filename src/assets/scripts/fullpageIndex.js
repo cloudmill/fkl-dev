@@ -134,7 +134,7 @@ const fullpage_init = function () {
         $('.header').addClass('black')
       }
 
-      $('.aos-init').removeClass('aos-animate');
+      $('#fullpage .aos-init').removeClass('aos-animate');
     },
     afterSlideLoad: function (section, origin, destination, direction) {
       // смена внутренних слайдов
@@ -298,7 +298,6 @@ const fullpage_init = function () {
   }
 
   $('.section__bottom').scroll(function () {
-    console.log('ss');
     if ($(this).scrollTop() == 0) {
       setTimeout(function () {
         main_fullpage.moveSectionUp();

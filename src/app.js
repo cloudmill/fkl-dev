@@ -4,7 +4,6 @@
 import "../src/assets/styles/_app.scss";
 
 
-import "jquery-appear-original";
 import ready from 'domready';
 import AOS from 'aos';
 import App from '../src/assets/scripts/partial/scripts/App';
@@ -16,8 +15,6 @@ $(document).ready(() => {
   require("../src/assets/scripts/header");
   require("../src/assets/scripts/pages");
 
-
-  setTimeout(() => appearBlock(0), 1600);
   setTimeout(() => AOS.init({
     offset: 50,
   }), 1600);
@@ -25,7 +22,6 @@ $(document).ready(() => {
 
 
 window.addEventListener("resize", function() {
-  appearBlock(0);
   AOS.init({
     offset: 50,
   });
@@ -38,24 +34,6 @@ if(document.getElementsByClassName("page404").length) {
   require("../src/assets/scripts/page404");
 }
 
-function appearBlock(loaderTimeOut) {
-  $('.animated').appear(function() {
-    const elem = $(this);
-    const animation = elem.data('animation');
-
-    if ( !elem.hasClass('visible') ) {
-      const animationDelay = elem.data('animation-delay');
-      if ( animationDelay ) {
-        setTimeout(function(){
-          elem.addClass( animation + " visible" );
-        }, animationDelay + loaderTimeOut);
-
-      } else {
-        elem.addClass( animation + " visible" );
-      }
-    }
-  });
-}
 
 // mobile sctipts
 const screen_width = Math.max(
@@ -65,8 +43,6 @@ const screen_width = Math.max(
 if (screen_width <= 767) {
 }
 // mobile sctipts
-
-
 
 
 $(window).on("load", function() {

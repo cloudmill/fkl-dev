@@ -121,7 +121,7 @@ mixin fieldRadio(name, id, label, checked)
     label.label(for=id)=name
 
 mixin asideNav(items, page)
-  aside.aside.animated(data-animation="slideInLeft", data-animation-delay="700")
+  aside.aside(data-aos="fade-right", data-aos-delay="700")
     each item in items
       .aside__content
         .aside__header= item.title

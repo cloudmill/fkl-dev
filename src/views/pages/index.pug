@@ -17,7 +17,7 @@ block content
         .section__main__text
           span.vertical-reveal-outer
             span.vertical-reveal-inner(data-aos="") FKL производит подшипники #[br] для рынка Европы более 50 лет
-        .section__main__bottom.animated(data-animation="slideInUp", data-animation-delay="900")
+        .section__main__bottom(data-aos="fade-up", data-aos-delay="900")
           .section__main__bottom__mouse
           .section__main__bottom__text
             span Порядок хранит мир #[br] FKL – хранит качество
@@ -95,30 +95,30 @@ block content
             a.moveTo.franciscoItem(href='#'): .franciscoHelper Пропустить
     .section.section__prod
       .section__prod__title
-        .animated(data-animation="fadeIn", data-animation-delay="500") Продукция
-        .hidden__sm.hidden__xs.animated(data-animation="fadeIn", data-animation-delay="500")
+        div(data-aos="fade-up", data-aos-delay="500") Продукция
+        .hidden__sm.hidden__xs(data-aos="fade-up", data-aos-delay="500")
           .section__prod__title__link
             +franciscoLink('Весь каталог продукции', 'str_right.svg', 'catalog.html')
       .section__prod__row
-        a.section__prod__item.animated(href='#', data-animation="fadeInLeft", data-animation-delay="800")
+        a.section__prod__item(href='#', data-aos="fade-left", data-aos-delay="800")
           .section__prod__item__title
             | Специальная программа для&nbsp;сельхозтехники
           .section__prod__item__img: img.js-tilt(src='assets/images/det1.png', alt='')
           .section__prod__item__but(href='')
             i.icon.icon_str-white
-        a.section__prod__item.animated(href='#', data-animation="fadeInLeft", data-animation-delay="1000")
+        a.section__prod__item(href='#', data-aos="fade-left", data-aos-delay="1000")
           .section__prod__item__title
             | Ступицы #[br] Agro Point
           .section__prod__item__img: img.js-tilt(src='assets/images/det2.png', alt='')
           .section__prod__item__but(href='')
             i.icon.icon_str-white
-        a.section__prod__item.animated(href='#', data-animation="fadeInLeft", data-animation-delay="1200")
+        a.section__prod__item(href='#', data-aos="fade-left", data-aos-delay="1200")
           .section__prod__item__title
             | Подшипники
           .section__prod__item__img: img.js-tilt(src='assets/images/det3.png', alt='')
           .section__prod__item__but(href='')
             i.icon.icon_str-white
-        a.section__prod__item.animated(href='#', data-animation="fadeInLeft", data-animation-delay="1400")
+        a.section__prod__item(href='#', data-aos="fade-left", data-aos-delay="1400")
           .section__prod__item__title
             | Подшипниковые #[br] узлы
           .section__prod__item__img: img.js-tilt(src='assets/images/det4.png', alt='')

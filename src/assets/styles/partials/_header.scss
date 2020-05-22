@@ -270,11 +270,13 @@
     right: 0;
     top: 0;
     background-color: white;
-    transition: top .5s;
+    transition-duration: .5s;
+    transition-property: all !important;
   }
 
   .nav-up {
     top: -120px;
+    transition-delay: 0s !important;
   }
 }
 
