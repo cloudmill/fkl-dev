@@ -10,7 +10,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const imageminMozjpeg = require('imagemin-mozjpeg');
-const PurgecssPlugin = require('purgecss-webpack-plugin');
 const HtmlBeautifyPlugin = require('html-beautify-webpack-plugin');
 
 // Files
@@ -234,11 +233,6 @@ module.exports = env => {
         replace: [ ' type="text/javascript"' ]
       }),
 
-
-      new PurgecssPlugin({
-        paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
-        only: ['app']
-      }),
 
       new WebpackNotifierPlugin({
         title: 'Noob__ui'
