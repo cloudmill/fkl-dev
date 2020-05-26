@@ -506,7 +506,7 @@ function initMapBlue() {
 }
 function initMap1() {
   const mapOptions = {
-    center: new google.maps.LatLng(59.943422, 30.425995),
+    center: new google.maps.LatLng(51.707847, 39.455166),
     zoom: 15,
     mapTypeControl: false,
     zoomControl: true,
@@ -516,16 +516,21 @@ function initMap1() {
   const mapElement = document.getElementById("googleMap");
   map1 = new google.maps.Map(mapElement, mapOptions);
   new google.maps.Marker({
-    position: new google.maps.LatLng(59.943422, 30.425995),
+    position: new google.maps.LatLng(51.707847, 39.455166),
     icon: "/local/templates/main/assets/images/icons/bubble.svg",
     map: map1,
     id: 999
   });
 }
 
-$(document).ready($("#googleMaps").length && initMap);
-$(document).ready($("#googleMap").length && initMap1);
-// $(document).ready($("#googleMapsBlue").length && initMapBlue);
+$(document).ready(function() {
+  if ($("#googleMaps").length) {
+    initMap();
+  }
+  if ($("#googleMap").length) {
+    initMap1();
+  }
+});
 
 $(document).ready(function() {
 

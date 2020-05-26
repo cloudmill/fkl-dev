@@ -4,7 +4,7 @@ import "select2";
 import "malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min";
 import AOS from "aos";
 
-$(document).ready(function() {
+$(document).ready(function () {
   slidersMain();
   slidersCard();
   slidersForNav();
@@ -13,6 +13,11 @@ $(document).ready(function() {
   slidersTechCard();
   slidersAboutPeople();
   progressList();
+
+  auth();
+  basket();
+  order();
+  filter();
 
   $(".scrollContent").mCustomScrollbar();
 
@@ -28,7 +33,7 @@ $(document).ready(function() {
     zoom: {
       enabled: true,
       duration: 300, // don't foget to change the duration also in CSS
-      opener: function(element) {
+      opener: function (element) {
         return element.find("img");
       }
     }
@@ -39,7 +44,7 @@ $(document).ready(function() {
   });
 
   // accordion
-  $(".accordion").on("click", ".accordion-header", function() {
+  $(".accordion").on("click", ".accordion-header", function () {
     // $(this).next().fadeOut();
     $(this)
       .toggleClass("active")
@@ -50,7 +55,7 @@ $(document).ready(function() {
   });
 
   // tabs
-  $(".tabs-list").on("click", ".tab", function(e) {
+  $(".tabs-list").on("click", ".tab", function (e) {
     e.preventDefault();
     const href = $(this).attr("href");
 
@@ -75,7 +80,7 @@ $(document).ready(function() {
   });
 
   // select
-  function formatState (state) {
+  function formatState(state) {
     if (!state.id) {
       return state.text;
     }
@@ -92,11 +97,13 @@ $(document).ready(function() {
   $('.select').on('select2:open', function () {
     $('input.select2-search__field').prop('placeholder', 'Начните вводить город');
     $('.select2-dropdown').hide();
-    setTimeout(function(){ $('.select2-dropdown').slideDown("slow"); }, 200);
+    setTimeout(function () {
+      $('.select2-dropdown').slideDown("slow");
+    }, 200);
   });
 
 
-  $(".showMore--js").click(function() {
+  $(".showMore--js").click(function () {
     $(this)
       .hide()
       .parent()
@@ -106,8 +113,8 @@ $(document).ready(function() {
   });
 
   // input[type=file]
-  $(".input__file-js").change(function() {
-    $(".input__file-js").each(function() {
+  $(".input__file-js").change(function () {
+    $(".input__file-js").each(function () {
       const name = this.value;
       const reWin = /.*\\(.*)/;
       let fileTitle = name.replace(reWin, "$1");
@@ -128,7 +135,7 @@ $(document).ready(function() {
 });
 
 // sliders
-const slidersMain = function() {
+const slidersMain = function () {
   $(".section__bottom__slider").slick({
     slidesToScroll: 2,
     slidesToShow: 2,
@@ -137,8 +144,7 @@ const slidersMain = function() {
     arrows: true,
     nextArrow: $(".slick-next"),
     prevArrow: $(".slick-prev"),
-    responsive: [
-      {
+    responsive: [{
         breakpoint: 1100,
         settings: {
           slidesToShow: 1,
@@ -153,7 +159,7 @@ const slidersMain = function() {
     ]
   });
 };
-const slidersCard = function() {
+const slidersCard = function () {
   $(".section__card__slider").slick({
     slidesToScroll: 4,
     slidesToShow: 4,
@@ -162,8 +168,7 @@ const slidersCard = function() {
     arrows: true,
     nextArrow: $(".slick-next"),
     prevArrow: $(".slick-prev"),
-    responsive: [
-      {
+    responsive: [{
         breakpoint: 1500,
         settings: {
           slidesToShow: 3
@@ -185,7 +190,7 @@ const slidersCard = function() {
     ]
   });
 };
-const progressList = function() {
+const progressList = function () {
   $(".progress-listSlider").slick({
     slidesToScroll: 1,
     slidesToShow: 1,
@@ -193,16 +198,14 @@ const progressList = function() {
     dots: false,
     arrows: false,
     mobileFirst: true,
-    responsive: [
-      {
-        breakpoint: 767,
-        settings: 'unslick'
-      }
-    ]
+    responsive: [{
+      breakpoint: 767,
+      settings: 'unslick'
+    }]
   });
 };
 
-const slidersAboutPeople = function() {
+const slidersAboutPeople = function () {
   $(".sliderAboutPeople").slick({
     slidesToScroll: 1,
     slidesToShow: 1,
@@ -214,7 +217,7 @@ const slidersAboutPeople = function() {
   });
 };
 
-const slidersTechCard = function() {
+const slidersTechCard = function () {
   const $slickElement = $(".slidersTechCard");
 
   $slickElement.slick({
@@ -231,11 +234,10 @@ const slidersTechCard = function() {
     prevArrow: $(".prevTech"),
     // autoplay: true,
     autoplaySpeed: 5000,
-    customPaging: function() {
+    customPaging: function () {
       return '<div class="circle-loader-wrap"><div class="left-wrap"><div class="circle"></div></div><div class="right-wrap"><div class="circle"></div> </div></div>';
     },
-    responsive: [
-      {
+    responsive: [{
         breakpoint: 1025,
         settings: {
           variableWidth: false
@@ -253,14 +255,14 @@ const slidersTechCard = function() {
   });
 };
 
-const slidersAbout = function() {
+const slidersAbout = function () {
   const $status = $(".pagingInfo .counter");
   const $statusF = $(".pagingInfo .counter span:first-child");
   const $statusL = $(".pagingInfo .counter span:last-child");
   const $length = $(".pagingInfo .length");
   const $slickElement = $(".sliderAbout");
 
-  $slickElement.on("init reInit afterChange", function(
+  $slickElement.on("init reInit afterChange", function (
     event,
     slick,
     currentSlide
@@ -272,7 +274,7 @@ const slidersAbout = function() {
     $statusL.html(t);
     $length.html(` / ${Math.ceil(slick.slideCount / 2)}`);
   });
-  $slickElement.on("beforeChange", function() {
+  $slickElement.on("beforeChange", function () {
     $status.removeClass('active');
   });
 
@@ -291,11 +293,10 @@ const slidersAbout = function() {
     prevArrow: $(".prev"),
     // autoplay: true,
     autoplaySpeed: 5000,
-    customPaging: function() {
+    customPaging: function () {
       return '<div class="circle-loader-wrap"><div class="left-wrap"><div class="circle"></div></div><div class="right-wrap"><div class="circle"></div> </div></div>';
     },
-    responsive: [
-      {
+    responsive: [{
         breakpoint: 1025,
         settings: {
           variableWidth: false
@@ -313,14 +314,14 @@ const slidersAbout = function() {
   });
 };
 
-const slidersAboutRtl = function() {
+const slidersAboutRtl = function () {
   const $status = $(".pagingInfo-rtl .counter");
   const $statusF = $(".pagingInfo-rtl .counter span:first-child");
   const $statusL = $(".pagingInfo-rtl .counter span:last-child");
   const $length = $(".pagingInfo-rtl .length");
   const $slickElement = $(".sliderAbout-rtl");
 
-  $slickElement.on("init reInit afterChange", function(
+  $slickElement.on("init reInit afterChange", function (
     event,
     slick,
     currentSlide
@@ -332,7 +333,7 @@ const slidersAboutRtl = function() {
     $statusL.html(t);
     $length.html(` / ${Math.ceil(slick.slideCount / 2)}`);
   });
-  $slickElement.on("beforeChange", function() {
+  $slickElement.on("beforeChange", function () {
     $status.removeClass('active');
   });
 
@@ -348,11 +349,10 @@ const slidersAboutRtl = function() {
     rtl: true,
     autoplay: true,
     autoplaySpeed: 5000,
-    customPaging: function() {
+    customPaging: function () {
       return '<div class="circle-loader-wrap"><div class="left-wrap"><div class="circle"></div></div><div class="right-wrap"><div class="circle"></div> </div></div>';
     },
-    responsive: [
-      {
+    responsive: [{
         breakpoint: 1025,
         settings: {
           variableWidth: false
@@ -382,7 +382,7 @@ const nav = [
   '1965',
   '1961',
 ];
-const slidersForNav = function() {
+const slidersForNav = function () {
   $(".slider-for").slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -393,17 +393,15 @@ const slidersForNav = function() {
     appendDots: $('.appendDots'),
     nextArrow: $(".nextSec"),
     prevArrow: $(".prevSec"),
-    customPaging: function(slick,index) {
+    customPaging: function (slick, index) {
       return nav[index];
     },
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          adaptiveHeight: true,
-        }
-      },
-    ]
+    responsive: [{
+      breakpoint: 1200,
+      settings: {
+        adaptiveHeight: true,
+      }
+    }, ]
   });
 };
 
@@ -412,8 +410,8 @@ const screen_width = Math.max(
   window.innerWidth || 0
 );
 
-$('.slider-for').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-  const num = nextSlide+1;
+$('.slider-for').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+  const num = nextSlide + 1;
   const li = $(`.appendDots .slick-dots li:nth-child(${num})`);
   const getPosition = li.position().left;
   const getWidth = li.width();
@@ -433,9 +431,336 @@ $('.slider-for').on('beforeChange', function(event, slick, currentSlide, nextSli
 
 $('.submit--js').click(function (e) {
   e.preventDefault();
-  const inputMail =  $(this).closest('.regForm').find('input[type="email"]');
-  const inputPass =  $(this).closest('.regForm').find('input[type="password"]');
+  const inputMail = $(this).closest('.regForm').find('input[type="email"]');
+  const inputPass = $(this).closest('.regForm').find('input[type="password"]');
   $('.regForm-error').text('Неправильно введена электронная почта или пароль')
   inputMail.parent().addClass('error');
   inputPass.parent().addClass('error');
 });
+
+const auth = function () {
+  console.log('auth');
+
+  $('[data-type=js-auth-submit]').on('click', function (e) {
+    e.preventDefault();
+    let mist = 0,
+      auth = $('[data-type=js-auth]'),
+      email = auth.find('input[name=email]'),
+      password = auth.find('input[name=password]');
+
+    if (!email.val()) {
+      email.parents('label').addClass('error');
+      mist++;
+    } else {
+      email.parents('label').removeClass('error');
+    }
+
+    if (!password.val()) {
+      password.parents('label').addClass('error');
+      mist++;
+    } else {
+      password.parents('label').removeClass('error');
+    }
+
+    if (mist == 0) {
+      $.ajax({
+        type: 'POST',
+        url: '/local/templates/main/include/ajax/main/auth.php',
+        data: ({
+          'email': email.val(),
+          'password': password.val(),
+        }),
+        success: function (a) {
+          console.log(a);
+          if (a) {
+            email.parents('label').addClass('error');
+            password.parents('label').addClass('error');
+          } else {
+            location.reload();
+          }
+        }
+      });
+    }
+  });
+};
+
+const basket = function () {
+  console.log('basket');
+  $('[data-type=js-basket-add]').on('click', function (e) {
+    e.preventDefault();
+    let value = $(this).attr('data-value'),
+      qty = $(this).parents('[data-type=js-item]').find('[data-type=js-item-qty]').val();
+
+    if (value) {
+      $.ajax({
+        type: "POST",
+        url: "/local/templates/main/include/ajax/basket/add.php",
+        data: ({
+          "value": value,
+          "qty": qty,
+        }),
+        success: function (a) {
+          $('[data-type=js-basket-header]').load("/local/templates/main/include/ajax/basket/header.php");
+        }
+      });
+    }
+  });
+
+  $(document).on('change', '[data-type=js-basket-qty]', function (e) {
+    e.preventDefault();
+    console.log('basket change');
+    let value = $(this).parents('[data-type=js-basket-item]').attr('data-value'),
+      qty = $(this).val();
+
+    if (value) {
+      $.ajax({
+        type: "POST",
+        url: "/local/templates/main/include/ajax/basket/change.php",
+        data: ({
+          "value": value,
+          "qty": qty,
+        }),
+        success: function (a) {
+          $('[data-type=js-basket]').load("/local/templates/main/include/ajax/basket/main.php");
+          $('[data-type=js-basket-header]').load("/local/templates/main/include/ajax/basket/header.php");
+        }
+      });
+    }
+  });
+
+  $(document).on('click', '[data-type=js-basket-qty-minus]', function (e) {
+    e.preventDefault();
+    console.log('basket change minus');
+    let input = $(this).parents('[data-type=js-basket-item]').find('[data-type=js-basket-qty]'),
+      qty = parseFloat(input.val());
+
+    qty--;
+
+    if (qty < 1) {
+      qty = 1
+    }
+
+    input.val(qty).trigger('change');
+  });
+
+  $(document).on('click', '[data-type=js-basket-qty-plus]', function (e) {
+    e.preventDefault();
+    console.log('basket change plus');
+    let input = $(this).parents('[data-type=js-basket-item]').find('[data-type=js-basket-qty]'),
+      qty = parseFloat(input.val());
+
+    qty++;
+
+    if (qty < 1) {
+      qty = 1
+    }
+
+    input.val(qty).trigger('change');
+  });
+
+  $(document).on('click', '[data-type=js-basket-delete]', function (e) {
+    e.preventDefault();
+    console.log('basket delete');
+    let input = $(this).parents('[data-type=js-basket-item]').find('[data-type=js-basket-qty]'),
+      qty = parseFloat(input.val());
+
+    qty = 0;
+
+    input.val(qty).trigger('change');
+  });
+};
+
+const order = function () {
+  $(document).on('change', '[data-type=js-checkout] select[name=city]', function () {
+    console.log('city');
+    orderRefresh();
+  });
+
+  $(document).on('change', '[data-type=js-checkout] input[name=delivery]', function () {
+    console.log('delivery');
+    orderRefresh();
+  });
+
+  function orderRefresh() {
+    console.log('refresh');
+    let url = window.location.pathname,
+      checkout = $('[data-type=js-checkout]'),
+      name = checkout.find('input[name=name]'),
+      phone = checkout.find('input[name=phone]'),
+      email = checkout.find('input[name=email]'),
+      city = checkout.find('select[name=city]'),
+      index = checkout.find('input[name=index]'),
+      address = checkout.find('input[name=address]'),
+      message = checkout.find('textarea[name=message]'),
+      delivery = checkout.find('input[name=delivery]'),
+      deliveryValue = 0,
+      payment = checkout.find('input[name=payment]'),
+      paymentValue = 0;
+
+    delivery.each(function () {
+      if ($(this).prop('checked')) {
+        deliveryValue = $(this).val();
+      }
+    });
+
+    payment.each(function () {
+      if ($(this).prop('checked')) {
+        paymentValue = $(this).val();
+      }
+    });
+
+    $.ajax({
+      type: 'POST',
+      url: url,
+      data: ({
+        'ajax_checkout': true,
+        'name': name.val(),
+        'phone': phone.val(),
+        'email': email.val(),
+        'city': city.val(),
+        'index': index.val(),
+        'address': address.val(),
+        'message': message.val(),
+        'delivery': deliveryValue,
+        'payment': paymentValue,
+      }),
+      success: function (a) {
+        $('[data-type=js-checkout]').html(a);
+
+        function formatState(state) {
+          if (!state.id) {
+            return state.text;
+          }
+          const tip = $(state.element).data('tip');
+          const $state = $(
+            '<span>' + state.text + '</span> <span class="desc">' + tip + '</span>'
+          );
+          return $state;
+        };
+
+
+        $('[data-type=js-checkout] .select').select2({
+          templateResult: formatState
+        });
+        $('[data-type=js-checkout] .select').on('select2:open', function () {
+          $('input.select2-search__field').prop('placeholder', 'Начните вводить город');
+          $('.select2-dropdown').hide();
+          setTimeout(function () {
+            $('.select2-dropdown').slideDown("slow");
+          }, 200);
+        });
+
+        $('[data-type=js-checkout] [name=phone]').mask('+7 (999) 999-9999');
+      }
+    });
+  }
+
+  $(document).on('click', '[data-type=js-checkout-submit]', function (e) {
+    e.preventDefault();
+    orderSubmit();
+  });
+
+
+  function orderSubmit() {
+    console.log('submit');
+    let mist = 0,
+      checkout = $('[data-type=js-checkout]'),
+      name = checkout.find('input[name=name]'),
+      phone = checkout.find('input[name=phone]'),
+      email = checkout.find('input[name=email]'),
+      city = checkout.find('select[name=city]'),
+      index = checkout.find('input[name=index]'),
+      address = checkout.find('input[name=address]'),
+      message = checkout.find('textarea[name=message]'),
+      deliveryPrice = checkout.find('input[name=delivery_price]'),
+      delivery = checkout.find('input[name=delivery]'),
+      deliveryValue = 0,
+      payment = checkout.find('input[name=payment]'),
+      paymentValue = 0,
+      agreement = checkout.find('input[name=agreement]');
+
+    delivery.each(function () {
+      if ($(this).prop('checked')) {
+        deliveryValue = $(this).val();
+      }
+    });
+
+    payment.each(function () {
+      if ($(this).prop('checked')) {
+        paymentValue = $(this).val();
+      }
+    });
+
+    if (!name.val()) {
+      name.parents('label').addClass('error');
+      mist++;
+    } else {
+      name.parents('label').removeClass('error');
+    }
+
+    if (!phone.val() || phone.val().length != 17) {
+      phone.parents('label').addClass('error');
+      mist++;
+      console.log(phone.val().length);
+    } else {
+      phone.parents('label').removeClass('error');
+    }
+
+    if (!city.val()) {
+      city.parents('.form__group').addClass('error');
+      mist++;
+    } else {
+      city.parents('.form__group').removeClass('error');
+    }
+
+    if (!deliveryValue) {
+      delivery.parents('.radio').addClass('error');
+      mist++;
+    } else {
+      delivery.parents('.radio').removeClass('error');
+    }
+
+    if (!paymentValue) {
+      payment.parents('.radio').addClass('error');
+      mist++;
+    } else {
+      payment.parents('.radio').removeClass('error');
+    }
+
+    if (!agreement.prop('checked')) {
+      mist++;
+      agreement.parents('.checkbox').addClass('error');
+    } else {
+      agreement.parents('.checkbox').removeClass('error');
+    }
+
+    if (mist == 0) {
+      $.ajax({
+        type: 'POST',
+        url: '/local/templates/main/include/ajax/checkout/add.php',
+        data: ({
+          'name': name.val(),
+          'phone': phone.val(),
+          'email': email.val(),
+          'city': city.val(),
+          'index': index.val(),
+          'address': address.val(),
+          'message': message.val(),
+          'delivery': deliveryValue,
+          'deliveryPrice': deliveryPrice.val(),
+          'payment': paymentValue,
+        }),
+        success: function (a) {
+          $('[data-type=js-checkout]').html(a);
+        }
+      });
+    }
+  }
+};
+
+const filter = function () {
+  $('[data-type=js-filter-submit]').on('click', function (e) {
+    e.preventDefault();
+    $('[data-type=js-filter]').submit();
+  });
+};

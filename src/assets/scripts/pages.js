@@ -9,14 +9,19 @@ const inputUpper = document.getElementById('skip-value-upper');
 const inputs = [inputLower, inputUpper];
 
 if(stepsSlider) {
+  const inputMin = parseFloat(stepsSlider.getAttribute('data-min'));
+  const inputMax = parseFloat(stepsSlider.getAttribute('data-max')); 
+  const inputNowMin = parseFloat(stepsSlider.getAttribute('data-now-min'));
+  const inputNowMax = parseFloat(stepsSlider.getAttribute('data-now-max')); 
+
   noUiSlider.create(stepsSlider, {
-    start: [100, 50000],
+    start: [inputNowMin, inputNowMax],
     step: 1,
     behaviour: 'drag',
     connect: true,
     range: {
-      'min': 100,
-      'max': 100000
+      'min': inputMin,
+      'max': inputMax
     },
     format: wNumb({
       decimals: 0
