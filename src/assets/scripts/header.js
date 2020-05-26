@@ -1,4 +1,5 @@
 import AOS from "aos";
+import {fullpage_init} from './fullpageIndex';
 
 // search
 $(".sitebar_search").click(function() {
@@ -15,15 +16,28 @@ $(document).mouseup(function (e) {
 });
 // search
 
+$(document).keyup(function(e) {
+  if($('.searchBar, .menuBar').hasClass('active')) {
+    if (e.key === "Escape") {
+      $(".searchBar, .menuBar").removeClass("active");
+    }
+  }
+});
+
 // sidemenu
 $(".sitebar__sect_menu, .main-nav__toggle--js").click(function() {
   $("body").css("overflow", 'hidden');
   $(".menuBar").addClass("active");
-  setTimeout(() => $(".menuBar-item").addClass("visible slideInUp"), 500);
+
+  setTimeout(() => {
+    $(".menuBar-item").addClass("visible slideInUp");
+    fullpage_api.destroy('all');
+  }, 500);
 });
 $(".menuBar__close, .menuBar__closeMob").click(function() {
   $("body").css("overflow", 'visible');
   $(".menuBar").removeClass("active");
+  fullpage_init();
   $(".menuBar-item").removeClass("visible slideInUp");
 });
 // sidemenu

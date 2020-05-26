@@ -14,7 +14,7 @@ const way = {
 }
 
 
-const fullpage_init = function () {
+export const fullpage_init = function () {
   const video_model = document.getElementById('video');;
   let go_top = false;
   const delay = 2000;

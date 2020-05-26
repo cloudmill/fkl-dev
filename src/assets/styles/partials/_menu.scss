@@ -24,6 +24,11 @@
       opacity: 0;
     }
   }
+  .footer__mail,
+  .footer__phone {
+    margin-left: 0;
+  }
+
   .sitebar__link {
     height: 80px;
     justify-content: flex-start;
