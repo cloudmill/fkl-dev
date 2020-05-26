@@ -1,5 +1,5 @@
 aside.aside(data-aos="fade-right", data-aos-delay="500")
-  .filter
+  form.filter(name='myForm', action='', method='POST')
     .filter-title.filter-clicker.active.franciscoItem
       .franciscoHelper
         +img('icons/filter.svg')
@@ -36,6 +36,7 @@ aside.aside(data-aos="fade-right", data-aos-delay="500")
           .checkbox
             input(type="checkbox", id='type9')
             label.label(for='type9') V
+      .filter-list-body.active
         .filter-list__item
           label Определите цену
           #range
@@ -66,5 +67,5 @@ aside.aside(data-aos="fade-right", data-aos-delay="500")
         .franciscoHelper
           span Подобрать
           +img('whiteRightAr.svg')
-      a.btn.btn--default.btn--full.franciscoItem(href='#')
+      a.btn.btn--default.btn--full.franciscoItem.reset--js(href='#')
         .franciscoHelper Сбросить

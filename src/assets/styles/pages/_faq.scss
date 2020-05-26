@@ -63,53 +63,54 @@
           margin: 150px 0;
         }
       }
-    }
 
-    .checkbox {
-      margin-right: 0;
-      a {
-        color: white;
-        border-bottom: 1px solid white;
-        &:hover {
-          border-color: rgba(white, 0.2);
+      .checkbox {
+        margin-right: 0;
+        a {
+          color: white;
+          border-bottom: 1px solid white;
+          &:hover {
+            border-color: rgba(white, 0.2);
+          }
         }
-      }
-      .label {
-        font-size: 12px;
-        color: white;
-        position: relative;
-        display: block;
-        padding-left: 26px;
-        &:before {
-          width: 16px;
-          height: 16px;
-          min-width: 16px;
-          margin-right: 10px;
-          border-color: white;
-          position: absolute;
-          left: 0;
-          top: 5px;
-        }
-        &:after {
-          width: 11px;
-          height: 10px;
-          top: 7px;
-          left: 3px;
-          margin: 0;
-          background-image: url(../images/check-white.svg);
-        }
-        &:hover:before {
-          border-color: white;
-        }
-      }
-
-      input:checked {
-        & + .label {
+        .label {
+          font-size: 12px;
+          color: white;
+          position: relative;
+          display: block;
+          padding-left: 26px;
           &:before {
+            width: 16px;
+            height: 16px;
+            min-width: 16px;
+            margin-right: 10px;
             border-color: white;
+            position: absolute;
+            left: 0;
+            top: 5px;
+          }
+          &:after {
+            width: 11px;
+            height: 10px;
+            top: 7px;
+            left: 3px;
+            margin: 0;
+            background-image: url(../images/check-white.svg);
+          }
+          &:hover:before {
+            border-color: white;
+          }
+        }
+
+        input:checked {
+          & + .label {
+            &:before {
+              border-color: white;
+            }
           }
         }
       }
     }
+
   }
 }

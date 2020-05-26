@@ -54,6 +54,8 @@ $(window).on("load", function() {
     setTimeout(function() {
       $('.loader').css('z-index', '-999');
 
+      $('.sitebar-inner').addClass('aos-animate'); // The hack for some browsers that don't show block
+
       if($('#particle_photo').length) {
         ready(() => {
           window.app = new App();

@@ -531,6 +531,7 @@ $(document).ready(function() {
     initMap1();
   }
 });
+// $(document).ready($("#googleMapsBlue").length && initMapBlue);
 
 $(document).ready(function() {
 

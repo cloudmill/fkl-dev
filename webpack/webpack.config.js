@@ -1,5 +1,6 @@
 // Libraries
 const path = require('path');
+const glob = require('glob');
 const webpack = require('webpack');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -9,11 +10,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const imageminMozjpeg = require('imagemin-mozjpeg');
+const PurgecssPlugin = require('purgecss-webpack-plugin');
 const HtmlBeautifyPlugin = require('html-beautify-webpack-plugin');
 
 // Files
 const utils = require('./utils');
 
+const PATHS = {
+  src: path.join(__dirname, '../src')
+};
 // Configuration
 module.exports = env => {
   return {
@@ -180,6 +185,7 @@ module.exports = env => {
         {from: 'assets/images/favicons/favicon.ico', to: ''},
         {from: 'assets/images', to: 'assets/images'},
         {from: 'assets/fonts', to: 'assets/fonts'},
+        {from: 'assets/files', to: 'assets/files'},
       ]),
       new ImageminPlugin({
         cacheFolder: './.cache',
@@ -226,6 +232,12 @@ module.exports = env => {
           }
         },
         replace: [ ' type="text/javascript"' ]
+      }),
+
+
+      new PurgecssPlugin({
+        paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+        only: ['app']
       }),
 
       new WebpackNotifierPlugin({

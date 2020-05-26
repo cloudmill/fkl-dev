@@ -124,7 +124,11 @@
     position: relative;
     z-index: 9;
     //border: none !important;
+
+    display: flex;
+    flex-direction: column;
     .btn {
+      margin-top: auto;
       border-top: 1px solid $gray;
       @media screen and (min-width: $screen-md-min) {
         position: absolute;

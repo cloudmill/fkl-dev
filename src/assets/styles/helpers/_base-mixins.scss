@@ -169,6 +169,7 @@
   color: $color;
   background-color: $background;
   border-color: $border;
+  &:focus,
   &:hover {
     color: $color;
     //background-color: darken($background, 17.65%);
@@ -234,7 +235,7 @@
   border-color: $border;
   &:focus,
   &.focus {
-    color: #fff;
+    color: $color;
     //background-color: $base-color-main;
     border-color: $base-color-main;
   }

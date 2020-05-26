@@ -1,4 +1,10 @@
 .progress {
+  .subNav__item {
+    @media screen and (min-width: $screen-md-min) {
+      width: auto;
+      margin-right: 50px;
+    }
+  }
   &-info {
     padding: 20px 0 20px 20px;
     // @include listBlock;
@@ -24,9 +30,9 @@
     @media screen and (min-width: $screen-lg-min) {
       flex-wrap: wrap;
     }
-    @media screen and (min-width: $screen-xl-min) {
-      flex-wrap: nowrap;
-    }
+    //@media screen and (min-width: $screen-xl-min) {
+    //  flex-wrap: nowrap;
+    //}
   }
   &-list {
     p {
@@ -56,6 +62,7 @@
         padding-left: 0;
         margin-top: 0;
         padding-right: 50px;
+        padding-bottom: 40px;
       }
       @media screen and (min-width: $screen-xmd-min) {
         padding-left: 90px;

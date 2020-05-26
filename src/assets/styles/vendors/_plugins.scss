@@ -1,6 +1,7 @@
 //
 // Vendors -> Plugins
 // ------------------------------------
+/* purgecss start ignore */
 
 //svg-icons
 $items: facebook, twitter, percent_icon;
@@ -24,6 +25,17 @@ $items: facebook, twitter, percent_icon;
       }
     }
   }
+}
+
+.addElement {
+  position: fixed;
+  right: 5%;
+  top: 100px;
+  z-index: 99;
+  color: white;
+  padding: 10px;
+  background: $base-color-main;
+  display: none;
 }
 
 
@@ -90,6 +102,46 @@ $items: facebook, twitter, percent_icon;
 .mfp-content {
   max-width: 1340px;
   margin: auto;
+}
+#call {
+  color: white;
+  background: $base-color-main;
+  max-width: 780px;
+  margin: auto;
+  .popup-modal-dismiss {
+    width: 28px;
+    height: 28px;
+    color: $base-color-main;
+    font-size: 11px;
+    &:hover {
+      color: white;
+      background: $base-color-main;
+    }
+  }
+}
+.popup-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  @media screen and (min-width: $screen-md-min) {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  form {
+    max-width: 480px;
+    padding: 0;
+    width: 100%;
+
+    h4 {
+      margin-bottom: 50px;
+      @media screen and (min-width: $screen-md-min) {
+        margin-bottom: 150px;
+      }
+    }
+  }
 }
 .popup-block {
   background-color: white;
@@ -582,3 +634,4 @@ $items: facebook, twitter, percent_icon;
 }
 
 
+/* purgecss end ignore */

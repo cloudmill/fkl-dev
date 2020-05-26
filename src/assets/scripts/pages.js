@@ -2,6 +2,23 @@ import noUiSlider from "nouislider";
 import wNumb from "wnumb";
 import AOS from "aos";
 
+
+$(document).on('click', '.catalog__inner .btn--default, .card-main__item--btn .btn--info', function () {
+  $(this).find('.franciscoHelper').text('Добавить еще');
+
+  $('.addElement').fadeIn('500');
+  setTimeout(() => {
+    $('.addElement').fadeOut('500');
+  }, 2500);
+
+  return false;
+});
+$(document).on('click', '.reset--js', function () {
+  $('form[name=myForm]').trigger('reset');
+  stepsSlider.noUiSlider.reset();
+  return false;
+});
+
 //range slider
 const stepsSlider = document.getElementById('range');
 const inputLower = document.getElementById('skip-value-lower');
@@ -10,9 +27,9 @@ const inputs = [inputLower, inputUpper];
 
 if(stepsSlider) {
   const inputMin = parseFloat(stepsSlider.getAttribute('data-min'));
-  const inputMax = parseFloat(stepsSlider.getAttribute('data-max')); 
+  const inputMax = parseFloat(stepsSlider.getAttribute('data-max'));
   const inputNowMin = parseFloat(stepsSlider.getAttribute('data-now-min'));
-  const inputNowMax = parseFloat(stepsSlider.getAttribute('data-now-max')); 
+  const inputNowMax = parseFloat(stepsSlider.getAttribute('data-now-max'));
 
   noUiSlider.create(stepsSlider, {
     start: [inputNowMin, inputNowMax],
