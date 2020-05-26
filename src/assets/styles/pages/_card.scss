@@ -248,6 +248,23 @@
     @media screen and (min-width: $screen-md-min) {
       .section__card__slider {
         margin-right: 80px;
+
+        .slick-track {
+          display: flex;
+          justify-content: stretch;
+        }
+        .slick-slide {
+          float: none;
+          > div {
+            height: 100%;
+          }
+          .card__item {
+            height: 100%;
+            display: flex !important;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+        }
       }
     }
   }

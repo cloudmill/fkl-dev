@@ -39,7 +39,7 @@ aside.aside(data-aos="fade-right", data-aos-delay="500")
       .filter-list-body.active
         .filter-list__item
           label Определите цену
-          #range
+          #range(data-min=100, data-max=100000, data-now-min=100, data-now-max=50000)
           .input-group
             input.control.control--border#skip-value-lower(type='text')
             span —
