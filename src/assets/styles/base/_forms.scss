@@ -94,10 +94,19 @@ input[type="checkbox"]:focus {
     position: relative;
     .error-text {
       position: absolute;
-      top: -30px;
-      left: 50px;
+      top: -21px;
+      left: 20px;
       color: $gray-darken-1;
       font-size: 14px;
+    }
+    &[for='signForm'] {
+      .error-text {
+        position: absolute;
+        top: -30px;
+        left: 50px;
+        color: $gray-darken-1;
+        font-size: 14px;
+      }
     }
     &:after {
       content: '';
@@ -250,6 +259,14 @@ input[type="search"] {
       margin-left: 30px;
     }
   }
+
+  &.error {
+    .label {
+      &:before {
+        border-color: $color-type-2a;
+      }
+    }
+  }
 }
 
 .checkbox {
@@ -298,6 +315,12 @@ input[type="search"] {
   span {
     margin: 0 15px;
     display: block;
+    @media screen and (min-width: $screen-md-min) {
+      margin: 0 5px;
+    }
+    @media screen and (min-width: $screen-xmd-min) {
+      margin: 0 15px;
+    }
   }
 }
 

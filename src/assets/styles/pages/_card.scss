@@ -1,6 +1,17 @@
 .card {
 
-  @media screen and (min-width: $screen-md-min) {
+  @media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    .section__bottom__sliders {
+      .slick-prev {
+        left: -39px;
+      }
+      .slick-prev,
+      .slick-next {
+        width: 40px;
+      }
+    }
+  }
+  @media screen and (min-width: $screen-xmd-min) {
     .section__bottom__sliders .slick-prev {
       left: -79px;
     }
@@ -130,10 +141,10 @@
     }
     .list--inline {
       margin: 0;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      @media screen and (min-width: $screen-md-min) {
+      @media screen and (min-width: $screen-xmd-min) {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
         flex-wrap: nowrap;
       }
       li {
@@ -247,7 +258,7 @@
     }
     @media screen and (min-width: $screen-md-min) {
       .section__card__slider {
-        margin-right: 80px;
+        margin-right: 40px;
 
         .slick-track {
           display: flex;
@@ -265,6 +276,11 @@
             justify-content: space-between;
           }
         }
+      }
+    }
+    @media screen and (min-width: $screen-xmd-min) {
+      .section__card__slider {
+        margin-right: 80px;
       }
     }
   }

@@ -90,10 +90,12 @@ mixin img(path)
   img(src='assets/images/' + path, alt='')
 
 //- form-input
-mixin fieldInput(type, id, label, placeholder, required)
+mixin fieldInput(type, id, label, placeholder, required, error)
   - if(label)
     label(for=id)= label
   label.control-body(for=id)
+    - if(error)
+      .error-text
     input.control(type=type, name=id, id=id, placeholder=placeholder, required=required)
 //- form-input
 mixin fieldInputPhone(type, id, name, label, placeholder, required)

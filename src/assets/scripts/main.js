@@ -4,6 +4,13 @@ import "select2";
 import "malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min";
 import AOS from "aos";
 
+$(document).on('click', '.about__video--ico', function() {
+  $(this).hide();
+  const $video = $('#video'),
+    src = $video.attr('src');
+
+  $video.attr('src', src + '&autoplay=1');
+});
 $(document).ready(function () {
   slidersMain();
   slidersCard();
@@ -86,9 +93,9 @@ $(document).ready(function () {
       return state.text;
     }
     const tip = $(state.element).data('tip');
-    const $state = $(
-      '<span>' + state.text + '</span> <span class="desc">' + tip + '</span>'
-    );
+    const $state = tip
+      ? $('<span>' + state.text + '</span> <span class="desc">' + tip + '</span>')
+      : $('<span>' + state.text + '</span>');
     return $state;
   };
 
@@ -133,6 +140,15 @@ $(document).ready(function () {
     });
   });
   // input[type=file]
+
+  $("input[type='radio']").change(function () {
+    const getData = $(this).attr('id');
+    if(getData === 'delivery2') {
+      $('.select--js').slideDown();
+    } else {
+      $('.select--js').slideUp();
+    }
+  });
 });
 
 // sliders
@@ -146,13 +162,12 @@ const slidersMain = function () {
     nextArrow: $(".slick-next"),
     prevArrow: $(".slick-prev"),
     responsive: [{
-        breakpoint: 1100,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: false,
-        }
-      },
+      breakpoint: 1100,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      }
+    },
       {
         breakpoint: 767,
         settings: 'unslick',
@@ -170,11 +185,11 @@ const slidersCard = function () {
     nextArrow: $(".slick-next"),
     prevArrow: $(".slick-prev"),
     responsive: [{
-        breakpoint: 1500,
-        settings: {
-          slidesToShow: 3
-        }
-      },
+      breakpoint: 1500,
+      settings: {
+        slidesToShow: 3
+      }
+    },
       {
         breakpoint: 1100,
         settings: {
@@ -239,11 +254,11 @@ const slidersTechCard = function () {
       return '<div class="circle-loader-wrap"><div class="left-wrap"><div class="circle"></div></div><div class="right-wrap"><div class="circle"></div> </div></div>';
     },
     responsive: [{
-        breakpoint: 1025,
-        settings: {
-          variableWidth: false
-        }
-      },
+      breakpoint: 1025,
+      settings: {
+        variableWidth: false
+      }
+    },
       {
         breakpoint: 767,
         settings: {
@@ -298,13 +313,13 @@ const slidersAbout = function () {
       return '<div class="circle-loader-wrap"><div class="left-wrap"><div class="circle"></div></div><div class="right-wrap"><div class="circle"></div> </div></div>';
     },
     responsive: [{
-        breakpoint: 1025,
-        settings: {
-          variableWidth: false
-        }
-      },
+      breakpoint: 1025,
+      settings: {
+        variableWidth: false
+      }
+    },
       {
-        breakpoint: 767,
+        breakpoint: 900,
         settings: {
           slidesToScroll: 1,
           slidesToShow: 1,
@@ -354,11 +369,11 @@ const slidersAboutRtl = function () {
       return '<div class="circle-loader-wrap"><div class="left-wrap"><div class="circle"></div></div><div class="right-wrap"><div class="circle"></div> </div></div>';
     },
     responsive: [{
-        breakpoint: 1025,
-        settings: {
-          variableWidth: false
-        }
-      },
+      breakpoint: 1025,
+      settings: {
+        variableWidth: false
+      }
+    },
       {
         breakpoint: 767,
         settings: {
@@ -514,232 +529,232 @@ const auth = function () {
       password_f = register.find('input[name=password_f]'),
       repassword_f = register.find('input[name=repassword_f]');
 
-      error.html('');
+    error.html('');
 
-      if (legal.prop('checked')) {
-        console.log('legal');
-        if (!name.val()) {
-          name.parents('label').addClass('error');
-          mist++;
-        } else {
-          name.parents('label').removeClass('error');
-        }
+    if (legal.prop('checked')) {
+      console.log('legal');
+      if (!name.val()) {
+        name.parents('label').addClass('error');
+        mist++;
+      } else {
+        name.parents('label').removeClass('error');
+      }
 
-        if (!company.val()) {
-          company.parents('label').addClass('error');
-          mist++;
-        } else {
-          company.parents('label').removeClass('error');
-        }
+      if (!company.val()) {
+        company.parents('label').addClass('error');
+        mist++;
+      } else {
+        company.parents('label').removeClass('error');
+      }
 
-        if (!phone.val() || phone.val().length != 17) {
-          phone.parents('label').addClass('error');
-          mist++;
-        } else {
-          phone.parents('label').removeClass('error');
-        }
+      if (!phone.val() || phone.val().length != 17) {
+        phone.parents('label').addClass('error');
+        mist++;
+      } else {
+        phone.parents('label').removeClass('error');
+      }
 
-        if (!inn.val()) {
-          inn.parents('label').addClass('error');
-          mist++;
-        } else {
-          inn.parents('label').removeClass('error');
-        }
+      if (!inn.val()) {
+        inn.parents('label').addClass('error');
+        mist++;
+      } else {
+        inn.parents('label').removeClass('error');
+      }
 
-        if (!email.val()) {
-          email.parents('label').addClass('error');
-          mist++;
-        } else {
-          email.parents('label').removeClass('error');
-        }
+      if (!email.val()) {
+        email.parents('label').addClass('error');
+        mist++;
+      } else {
+        email.parents('label').removeClass('error');
+      }
 
-        if (!kpp.val()) {
-          kpp.parents('label').addClass('error');
-          mist++;
-        } else {
-          kpp.parents('label').removeClass('error');
-        }
+      if (!kpp.val()) {
+        kpp.parents('label').addClass('error');
+        mist++;
+      } else {
+        kpp.parents('label').removeClass('error');
+      }
 
-        if (!password.val()) {
+      if (!password.val()) {
+        password.parents('label').addClass('error');
+        mist++;
+      } else {
+        password.parents('label').removeClass('error');
+      }
+
+      if (!repassword.val()) {
+        repassword.parents('label').addClass('error');
+        mist++;
+      } else {
+        repassword.parents('label').removeClass('error');
+      }
+
+      if (password.val() && repassword.val()) {
+        if (repassword.val() != password.val()) {
+          repassword.parents('label').addClass('error');
           password.parents('label').addClass('error');
           mist++;
         } else {
+          repassword.parents('label').removeClass('error');
           password.parents('label').removeClass('error');
         }
+      }
 
-        if (!repassword.val()) {
-          repassword.parents('label').addClass('error');
-          mist++;
-        } else {
-          repassword.parents('label').removeClass('error');
-        }
-    
-        if (password.val() && repassword.val()) {
-          if (repassword.val() != password.val()) {
-            repassword.parents('label').addClass('error');
-            password.parents('label').addClass('error');
-            mist++;
-          } else {
-            repassword.parents('label').removeClass('error');
-            password.parents('label').removeClass('error');
-          }
-        }
-
-        if (!bic.val()) {
-          bic.parents('label').addClass('error');
-          mist++;
-        } else {
-          bic.parents('label').removeClass('error');
-        }
-
-        if (!korrBill.val()) {
-          korrBill.parents('label').addClass('error');
-          mist++;
-        } else {
-          korrBill.parents('label').removeClass('error');
-        }
-
-        if (!bill.val()) {
-          bill.parents('label').addClass('error');
-          mist++;
-        } else {
-          bill.parents('label').removeClass('error');
-        }
-
-        if (!legalAdr.val()) {
-          legalAdr.parents('label').addClass('error');
-          mist++;
-        } else {
-          legalAdr.parents('label').removeClass('error');
-        }
-
-        if (!postAdr.val()) {
-          postAdr.parents('label').addClass('error');
-          mist++;
-        } else {
-          postAdr.parents('label').removeClass('error');
-        }
-
-        if (!director.val()) {
-          director.parents('label').addClass('error');
-          mist++;
-        } else {
-          director.parents('label').removeClass('error');
-        }
-
-        if (!act.val()) {
-          act.parents('label').addClass('error');
-          mist++;
-        } else {
-          act.parents('label').removeClass('error');
-        }
-
-        if (!state.val()) {
-          state.parents('label').addClass('error');
-          mist++;
-        } else {
-          state.parents('label').removeClass('error');
-        }
-    
-        if (mist == 0) {
-          $.ajax({
-            type: 'POST',
-            url: '/local/templates/main/include/ajax/main/register.php',
-            data: ({
-              'name': name.val(),
-              'company': company.val(),
-              'phone': phone.val(),
-              'inn': inn.val(),
-              'email': email.val(),
-              'kpp': kpp.val(),
-              'password': password.val(),
-              'bic': bic.val(),
-              'korrBill': korrBill.val(),
-              'bill': bill.val(),
-              'legalAdr': legalAdr.val(),
-              'postAdr': postAdr.val(),
-              'director': director.val(),
-              'act': act.val(),
-              'state': state.val(),
-              'legal': true,
-            }),
-            success: function (a) {
-              if (a) {
-                error.html(a);
-              } else {
-                location.reload();
-              }
-            }
-          });
-        }
+      if (!bic.val()) {
+        bic.parents('label').addClass('error');
+        mist++;
       } else {
-        if (!name_f.val()) {
-          name_f.parents('label').addClass('error');
-          mist++;
-        } else {
-          name_f.parents('label').removeClass('error');
-        }
+        bic.parents('label').removeClass('error');
+      }
 
-        if (!phone_f.val() || phone_f.val().length != 17) {
-          phone_f.parents('label').addClass('error');
-          mist++;
-        } else {
-          phone_f.parents('label').removeClass('error');
-        }
+      if (!korrBill.val()) {
+        korrBill.parents('label').addClass('error');
+        mist++;
+      } else {
+        korrBill.parents('label').removeClass('error');
+      }
 
-        if (!email_f.val()) {
-          email_f.parents('label').addClass('error');
-          mist++;
-        } else {
-          email_f.parents('label').removeClass('error');
-        }
+      if (!bill.val()) {
+        bill.parents('label').addClass('error');
+        mist++;
+      } else {
+        bill.parents('label').removeClass('error');
+      }
 
-        if (!password_f.val()) {
+      if (!legalAdr.val()) {
+        legalAdr.parents('label').addClass('error');
+        mist++;
+      } else {
+        legalAdr.parents('label').removeClass('error');
+      }
+
+      if (!postAdr.val()) {
+        postAdr.parents('label').addClass('error');
+        mist++;
+      } else {
+        postAdr.parents('label').removeClass('error');
+      }
+
+      if (!director.val()) {
+        director.parents('label').addClass('error');
+        mist++;
+      } else {
+        director.parents('label').removeClass('error');
+      }
+
+      if (!act.val()) {
+        act.parents('label').addClass('error');
+        mist++;
+      } else {
+        act.parents('label').removeClass('error');
+      }
+
+      if (!state.val()) {
+        state.parents('label').addClass('error');
+        mist++;
+      } else {
+        state.parents('label').removeClass('error');
+      }
+
+      if (mist == 0) {
+        $.ajax({
+          type: 'POST',
+          url: '/local/templates/main/include/ajax/main/register.php',
+          data: ({
+            'name': name.val(),
+            'company': company.val(),
+            'phone': phone.val(),
+            'inn': inn.val(),
+            'email': email.val(),
+            'kpp': kpp.val(),
+            'password': password.val(),
+            'bic': bic.val(),
+            'korrBill': korrBill.val(),
+            'bill': bill.val(),
+            'legalAdr': legalAdr.val(),
+            'postAdr': postAdr.val(),
+            'director': director.val(),
+            'act': act.val(),
+            'state': state.val(),
+            'legal': true,
+          }),
+          success: function (a) {
+            if (a) {
+              error.html(a);
+            } else {
+              location.reload();
+            }
+          }
+        });
+      }
+    } else {
+      if (!name_f.val()) {
+        name_f.parents('label').addClass('error');
+        mist++;
+      } else {
+        name_f.parents('label').removeClass('error');
+      }
+
+      if (!phone_f.val() || phone_f.val().length != 17) {
+        phone_f.parents('label').addClass('error');
+        mist++;
+      } else {
+        phone_f.parents('label').removeClass('error');
+      }
+
+      if (!email_f.val()) {
+        email_f.parents('label').addClass('error');
+        mist++;
+      } else {
+        email_f.parents('label').removeClass('error');
+      }
+
+      if (!password_f.val()) {
+        password_f.parents('label').addClass('error');
+        mist++;
+      } else {
+        password_f.parents('label').removeClass('error');
+      }
+
+      if (!repassword_f.val()) {
+        repassword_f.parents('label').addClass('error');
+        mist++;
+      } else {
+        repassword_f.parents('label').removeClass('error');
+      }
+
+      if (password_f.val() && repassword_f.val()) {
+        if (repassword_f.val() != password_f.val()) {
+          repassword_f.parents('label').addClass('error');
           password_f.parents('label').addClass('error');
           mist++;
         } else {
+          repassword_f.parents('label').removeClass('error');
           password_f.parents('label').removeClass('error');
         }
-
-        if (!repassword_f.val()) {
-          repassword_f.parents('label').addClass('error');
-          mist++;
-        } else {
-          repassword_f.parents('label').removeClass('error');
-        }
-    
-        if (password_f.val() && repassword_f.val()) {
-          if (repassword_f.val() != password_f.val()) {
-            repassword_f.parents('label').addClass('error');
-            password_f.parents('label').addClass('error');
-            mist++;
-          } else {
-            repassword_f.parents('label').removeClass('error');
-            password_f.parents('label').removeClass('error');
-          }
-        }
-    
-        if (mist == 0) {
-          $.ajax({
-            type: 'POST',
-            url: '/local/templates/main/include/ajax/main/register.php',
-            data: ({
-              'name': name_f.val(),
-              'phone': phone_f.val(),
-              'email': email_f.val(),
-              'password': password_f.val(),
-              'legal': false,
-            }),
-            success: function (a) {
-              if (a) {
-                error.html(a);
-              } else {
-                location.reload();
-              }
-            }
-          });
-        }
       }
+
+      if (mist == 0) {
+        $.ajax({
+          type: 'POST',
+          url: '/local/templates/main/include/ajax/main/register.php',
+          data: ({
+            'name': name_f.val(),
+            'phone': phone_f.val(),
+            'email': email_f.val(),
+            'password': password_f.val(),
+            'legal': false,
+          }),
+          success: function (a) {
+            if (a) {
+              error.html(a);
+            } else {
+              location.reload();
+            }
+          }
+        });
+      }
+    }
   });
 };
 
@@ -834,232 +849,232 @@ const account = function () {
       password_f = register.find('input[name=password_f]'),
       repassword_f = register.find('input[name=repassword_f]');
 
-      error.html('');
+    error.html('');
 
-      if (legal.prop('checked')) {
-        console.log('legal');
-        if (!name.val()) {
-          name.parents('label').addClass('error');
-          mist++;
-        } else {
-          name.parents('label').removeClass('error');
-        }
+    if (legal.prop('checked')) {
+      console.log('legal');
+      if (!name.val()) {
+        name.parents('label').addClass('error');
+        mist++;
+      } else {
+        name.parents('label').removeClass('error');
+      }
 
-        if (!company.val()) {
-          company.parents('label').addClass('error');
-          mist++;
-        } else {
-          company.parents('label').removeClass('error');
-        }
+      if (!company.val()) {
+        company.parents('label').addClass('error');
+        mist++;
+      } else {
+        company.parents('label').removeClass('error');
+      }
 
-        if (!phone.val() || phone.val().length != 17) {
-          phone.parents('label').addClass('error');
-          mist++;
-        } else {
-          phone.parents('label').removeClass('error');
-        }
+      if (!phone.val() || phone.val().length != 17) {
+        phone.parents('label').addClass('error');
+        mist++;
+      } else {
+        phone.parents('label').removeClass('error');
+      }
 
-        if (!inn.val()) {
-          inn.parents('label').addClass('error');
-          mist++;
-        } else {
-          inn.parents('label').removeClass('error');
-        }
+      if (!inn.val()) {
+        inn.parents('label').addClass('error');
+        mist++;
+      } else {
+        inn.parents('label').removeClass('error');
+      }
 
-        if (!email.val()) {
-          email.parents('label').addClass('error');
-          mist++;
-        } else {
-          email.parents('label').removeClass('error');
-        }
+      if (!email.val()) {
+        email.parents('label').addClass('error');
+        mist++;
+      } else {
+        email.parents('label').removeClass('error');
+      }
 
-        if (!kpp.val()) {
-          kpp.parents('label').addClass('error');
-          mist++;
-        } else {
-          kpp.parents('label').removeClass('error');
-        }
+      if (!kpp.val()) {
+        kpp.parents('label').addClass('error');
+        mist++;
+      } else {
+        kpp.parents('label').removeClass('error');
+      }
 
-        if (!password.val()) {
+      if (!password.val()) {
+        password.parents('label').addClass('error');
+        mist++;
+      } else {
+        password.parents('label').removeClass('error');
+      }
+
+      if (!repassword.val()) {
+        repassword.parents('label').addClass('error');
+        mist++;
+      } else {
+        repassword.parents('label').removeClass('error');
+      }
+
+      if (password.val() && repassword.val()) {
+        if (repassword.val() != password.val()) {
+          repassword.parents('label').addClass('error');
           password.parents('label').addClass('error');
           mist++;
         } else {
+          repassword.parents('label').removeClass('error');
           password.parents('label').removeClass('error');
         }
+      }
 
-        if (!repassword.val()) {
-          repassword.parents('label').addClass('error');
-          mist++;
-        } else {
-          repassword.parents('label').removeClass('error');
-        }
-    
-        if (password.val() && repassword.val()) {
-          if (repassword.val() != password.val()) {
-            repassword.parents('label').addClass('error');
-            password.parents('label').addClass('error');
-            mist++;
-          } else {
-            repassword.parents('label').removeClass('error');
-            password.parents('label').removeClass('error');
-          }
-        }
-
-        if (!bic.val()) {
-          bic.parents('label').addClass('error');
-          mist++;
-        } else {
-          bic.parents('label').removeClass('error');
-        }
-
-        if (!korrBill.val()) {
-          korrBill.parents('label').addClass('error');
-          mist++;
-        } else {
-          korrBill.parents('label').removeClass('error');
-        }
-
-        if (!bill.val()) {
-          bill.parents('label').addClass('error');
-          mist++;
-        } else {
-          bill.parents('label').removeClass('error');
-        }
-
-        if (!legalAdr.val()) {
-          legalAdr.parents('label').addClass('error');
-          mist++;
-        } else {
-          legalAdr.parents('label').removeClass('error');
-        }
-
-        if (!postAdr.val()) {
-          postAdr.parents('label').addClass('error');
-          mist++;
-        } else {
-          postAdr.parents('label').removeClass('error');
-        }
-
-        if (!director.val()) {
-          director.parents('label').addClass('error');
-          mist++;
-        } else {
-          director.parents('label').removeClass('error');
-        }
-
-        if (!act.val()) {
-          act.parents('label').addClass('error');
-          mist++;
-        } else {
-          act.parents('label').removeClass('error');
-        }
-
-        if (!state.val()) {
-          state.parents('label').addClass('error');
-          mist++;
-        } else {
-          state.parents('label').removeClass('error');
-        }
-    
-        if (mist == 0) {
-          $.ajax({
-            type: 'POST',
-            url: '/local/templates/main/include/ajax/main/register.php',
-            data: ({
-              'name': name.val(),
-              'company': company.val(),
-              'phone': phone.val(),
-              'inn': inn.val(),
-              'email': email.val(),
-              'kpp': kpp.val(),
-              'password': password.val(),
-              'bic': bic.val(),
-              'korrBill': korrBill.val(),
-              'bill': bill.val(),
-              'legalAdr': legalAdr.val(),
-              'postAdr': postAdr.val(),
-              'director': director.val(),
-              'act': act.val(),
-              'state': state.val(),
-              'legal': true,
-            }),
-            success: function (a) {
-              if (a) {
-                error.html(a);
-              } else {
-                location.reload();
-              }
-            }
-          });
-        }
+      if (!bic.val()) {
+        bic.parents('label').addClass('error');
+        mist++;
       } else {
-        if (!name_f.val()) {
-          name_f.parents('label').addClass('error');
-          mist++;
-        } else {
-          name_f.parents('label').removeClass('error');
-        }
+        bic.parents('label').removeClass('error');
+      }
 
-        if (!phone_f.val() || phone_f.val().length != 17) {
-          phone_f.parents('label').addClass('error');
-          mist++;
-        } else {
-          phone_f.parents('label').removeClass('error');
-        }
+      if (!korrBill.val()) {
+        korrBill.parents('label').addClass('error');
+        mist++;
+      } else {
+        korrBill.parents('label').removeClass('error');
+      }
 
-        if (!email_f.val()) {
-          email_f.parents('label').addClass('error');
-          mist++;
-        } else {
-          email_f.parents('label').removeClass('error');
-        }
+      if (!bill.val()) {
+        bill.parents('label').addClass('error');
+        mist++;
+      } else {
+        bill.parents('label').removeClass('error');
+      }
 
-        if (!password_f.val()) {
+      if (!legalAdr.val()) {
+        legalAdr.parents('label').addClass('error');
+        mist++;
+      } else {
+        legalAdr.parents('label').removeClass('error');
+      }
+
+      if (!postAdr.val()) {
+        postAdr.parents('label').addClass('error');
+        mist++;
+      } else {
+        postAdr.parents('label').removeClass('error');
+      }
+
+      if (!director.val()) {
+        director.parents('label').addClass('error');
+        mist++;
+      } else {
+        director.parents('label').removeClass('error');
+      }
+
+      if (!act.val()) {
+        act.parents('label').addClass('error');
+        mist++;
+      } else {
+        act.parents('label').removeClass('error');
+      }
+
+      if (!state.val()) {
+        state.parents('label').addClass('error');
+        mist++;
+      } else {
+        state.parents('label').removeClass('error');
+      }
+
+      if (mist == 0) {
+        $.ajax({
+          type: 'POST',
+          url: '/local/templates/main/include/ajax/main/register.php',
+          data: ({
+            'name': name.val(),
+            'company': company.val(),
+            'phone': phone.val(),
+            'inn': inn.val(),
+            'email': email.val(),
+            'kpp': kpp.val(),
+            'password': password.val(),
+            'bic': bic.val(),
+            'korrBill': korrBill.val(),
+            'bill': bill.val(),
+            'legalAdr': legalAdr.val(),
+            'postAdr': postAdr.val(),
+            'director': director.val(),
+            'act': act.val(),
+            'state': state.val(),
+            'legal': true,
+          }),
+          success: function (a) {
+            if (a) {
+              error.html(a);
+            } else {
+              location.reload();
+            }
+          }
+        });
+      }
+    } else {
+      if (!name_f.val()) {
+        name_f.parents('label').addClass('error');
+        mist++;
+      } else {
+        name_f.parents('label').removeClass('error');
+      }
+
+      if (!phone_f.val() || phone_f.val().length != 17) {
+        phone_f.parents('label').addClass('error');
+        mist++;
+      } else {
+        phone_f.parents('label').removeClass('error');
+      }
+
+      if (!email_f.val()) {
+        email_f.parents('label').addClass('error');
+        mist++;
+      } else {
+        email_f.parents('label').removeClass('error');
+      }
+
+      if (!password_f.val()) {
+        password_f.parents('label').addClass('error');
+        mist++;
+      } else {
+        password_f.parents('label').removeClass('error');
+      }
+
+      if (!repassword_f.val()) {
+        repassword_f.parents('label').addClass('error');
+        mist++;
+      } else {
+        repassword_f.parents('label').removeClass('error');
+      }
+
+      if (password_f.val() && repassword_f.val()) {
+        if (repassword_f.val() != password_f.val()) {
+          repassword_f.parents('label').addClass('error');
           password_f.parents('label').addClass('error');
           mist++;
         } else {
+          repassword_f.parents('label').removeClass('error');
           password_f.parents('label').removeClass('error');
         }
-
-        if (!repassword_f.val()) {
-          repassword_f.parents('label').addClass('error');
-          mist++;
-        } else {
-          repassword_f.parents('label').removeClass('error');
-        }
-    
-        if (password_f.val() && repassword_f.val()) {
-          if (repassword_f.val() != password_f.val()) {
-            repassword_f.parents('label').addClass('error');
-            password_f.parents('label').addClass('error');
-            mist++;
-          } else {
-            repassword_f.parents('label').removeClass('error');
-            password_f.parents('label').removeClass('error');
-          }
-        }
-    
-        if (mist == 0) {
-          $.ajax({
-            type: 'POST',
-            url: '/local/templates/main/include/ajax/main/register.php',
-            data: ({
-              'name': name_f.val(),
-              'phone': phone_f.val(),
-              'email': email_f.val(),
-              'password': password_f.val(),
-              'legal': false,
-            }),
-            success: function (a) {
-              if (a) {
-                error.html(a);
-              } else {
-                location.reload();
-              }
-            }
-          });
-        }
       }
+
+      if (mist == 0) {
+        $.ajax({
+          type: 'POST',
+          url: '/local/templates/main/include/ajax/main/register.php',
+          data: ({
+            'name': name_f.val(),
+            'phone': phone_f.val(),
+            'email': email_f.val(),
+            'password': password_f.val(),
+            'legal': false,
+          }),
+          success: function (a) {
+            if (a) {
+              error.html(a);
+            } else {
+              location.reload();
+            }
+          }
+        });
+      }
+    }
   });
 };
 

@@ -19,8 +19,8 @@ block content
                 .step-inner__item
                   h4 Контактные данные
                   .tabs-list
-                    div.active: span Физическое лицо
-                    div: span Юридическое лицо
+                    div: span Физическое лицо
+                    div.active: span Юридическое лицо
                   .row
                     .col.col__xs-12.form__group: +fieldInput('text', 'names', '', 'Ваше имя', true, true)
                     .col.col__lg-6.col__xs-12.form__group: +fieldInput('text', 'phone', '', 'Телефон', true, true)
@@ -35,40 +35,35 @@ block content
                           option(value='central', data-tip='Центральный федеральный округ') Москва
                           option(value='northwest', data-tip='Северо-Западный федеральный округ') Санкт-Петербург
                           option(value='south', data-tip='Южный федеральный округ') Краснодар
-                      .col.col__lg-6.col__xs-12.form__group: +fieldInput('text', 'inde4x', '', 'Индекс', false)
-                      .col.col__xs-12.form__group: +fieldInput('text', 'address4', '', 'Адрес', true)
+                      .col.col__lg-6.col__xs-12.form__group: +fieldInput('text', 'index', '', 'Индекс', true)
+                      .col.col__xs-12.form__group: +fieldInput('text', 'address', '', 'Адрес', true)
                   .step-inner__item(data-aos="fade-up")
                     h4 Способ доставки
                     .radio.error
-                      input(type='radio', id='delivery1', name='delivery', required)
-                      label.label(for='delivery1')
+                      input(type='radio', id='delivery14', name='delivery', required)
+                      label.label(for='delivery14')
                         | Курьером
                       .radio-inner
                         span.text__lg 2 540 р.
                         span.text__sm.text--grey ~ через 6 дней (17.04)
-                    .radio.error
-                      input(type='radio', id='delivery2', name='delivery')
-                      label.label(for='delivery2')
+                    .radio
+                      input(type='radio', id='delivery24', name='delivery')
+                      label.label(for='delivery24')
                         | Самовывоз из пункта выдачи CDEK (по предоплате)
                       .radio-inner
                         span.text__lg 2 540 р.
                         span.text__sm.text--grey ~ через 6 дней (17.04)
-                        .margtop10.select--js
-                          select.select.error(required)
-                            option(value='', disabled, selected) Выберите пункт выдачи
-                            option(value='central') Москва
-                            option(value='northwest') Санкт-Петербург
-                            option(value='south') Краснодар
+                        .margtop10: a.popup-modal.popup-with-zoom-anim(href='#cdek') Изменить пункт выдачи
                     .radio
-                      input(type='radio', id='delivery3', name='delivery')
-                      label.label(for='delivery3')
+                      input(type='radio', id='delivery34', name='delivery')
+                      label.label(for='delivery34')
                         | Курьером CDEK (по предоплате)
                       .radio-inner
                         span.text__lg 2 911 р.
                         span.text__sm.text--grey ~ через 10 - 15 дней (21.04 - 26.04)
                     .radio
-                      input(type='radio', id='delivery4', name='delivery')
-                      label.label(for='delivery4')
+                      input(type='radio', id='delivery44', name='delivery')
+                      label.label(for='delivery44')
                         | Курьером CDEK (по предоплате)
                       .radio-inner
                         span.text__lg 2 695 р.
@@ -76,21 +71,19 @@ block content
                   .step-inner__item(data-aos="fade-up")
                     h4 Способ оплаты
                     .radio
-                      input(type='radio', id='payment1', name='payment')
-                      label.label(for='payment1') Через Сбербанк Онлайн
-                    .radio
-                      input(type='radio', id='payment2', name='payment')
-                      label.label(for='payment2') Банковской картой VISA, MasterCard, Maestro, МИР
-                    .radio
-                      input(type='radio', id='payment3', name='payment')
-                      label.label(for='payment3') QIWI кошелек
-                    .radio
-                      input(type='radio', id='payment4', name='payment')
-                      label.label(for='payment4') Яндекс. Деньги
-                    .radio
-                      input(type='radio', id='payment5', name='payment')
-                      label.label(for='payment5') Банковский счет (для юридических лиц)
-                    br
+                      input(type='radio', id='payment54', name='payment', checked)
+                      label.label(for='payment54') Банковский счет (для юридических лиц)
+                    .form__group: +fieldInput('text', 'company', '', 'Название компании', true)
+                    .form__group: +fieldInput('text', 'inn', '', 'ИНН', true)
+                    .form__group: +fieldInput('text', 'kpp', '', 'КПП', true)
+                    .form__group: +fieldInput('text', 'bic', '', 'БИК', true)
+                    .form__group: +fieldInput('text', 'korrBill', '', 'Корреспондентский счет', true)
+                    .form__group: +fieldInput('text', 'bill', '', 'Расчетный счет', true)
+                    .form__group: +fieldInput('text', 'legalBill', '', 'Юридический адрес', true)
+                    .form__group: +fieldInput('text', 'postAdr', '', 'Почтовый адрес', true)
+                    .form__group: +fieldInput('text', 'director', '', 'Руководитель', true)
+                    .form__group: +fieldInput('text', 'act', '', 'Рук. действ. на основании', true)
+                    .form__group: +fieldInput('text', 'state', '', 'Должность руководителя', true)
                     .form__group: +fieldTextarea('message', '', 'Комментарий к заказу', '5', false)
             .col.col__md-5.col__xs-12.step-inner-content(data-aos="fade-left", data-aos-delay="700")
               .step-inner__item.sticky

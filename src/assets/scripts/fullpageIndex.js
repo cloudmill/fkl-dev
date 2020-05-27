@@ -1,5 +1,6 @@
 import fullpage from "./fullpage";
 import "tilt.js";
+import browser from 'browser-detect';
 
 $(document).ready(function() {
   fullpage_init();
@@ -12,6 +13,8 @@ const way = {
   lenght: 0,
   direction: null,
 }
+
+const browserDetect = browser();
 
 
 export const fullpage_init = function () {
@@ -67,15 +70,6 @@ export const fullpage_init = function () {
         setTimeout(() => wait_after_move.section = false, 800);
       }
 
-      // //////////////////////////////
-      // if (!wait_after_move.section) {
-      //   wait_after_move.section = false;
-      //   wait_after_move.section_timer = setTimeout(function () {
-      //     wait_after_move.section = false;
-      //   }, wait_after_move.time)
-      // }
-      // //////////////////////////////
-      // console.log(origin, destination);
       way.lenght = 0;
 
       if (destination.index == 1 && origin.index == 0) {
@@ -97,17 +91,16 @@ export const fullpage_init = function () {
         $('.section__'+ a_table[i] +'.active .aos-init').addClass('aos-animate');
       }
     },
-    onLeave: function (origin, destination, direction) {
+    onLeave: function (origin, destination) {
       // выход из больших слайдов
 
-      //////////////////////////////
       if (
         (origin.index == 1 && !$('.section__slide:first-child').hasClass('active') && destination.index == 0) ||
         (origin.index == 1 && !$('.section__slide:last-child').hasClass('active') && destination.index == 2))
       {
         return false;
       }
-      // console.log(origin, destination, direction);
+
       if(destination.index == 2) {
         setTimeout(() => {
           $('.js-tilt').tilt({
@@ -116,16 +109,6 @@ export const fullpage_init = function () {
           });
         }, 1000);
       }
-
-      // if (origin.index == 0 && destination.index == 1) {
-      //   wait_after_move.slide = false;
-      // }
-      // if (origin.index == 1 && destination.index == 0 && !go_top) {
-      //   // video_play('parent', 0);
-      //   // return false;
-      // }
-      //////////////////////////////
-      // console.log('section_leave');
 
       if (origin.index == 3) {
         $('.header').removeClass('black')
@@ -148,9 +131,6 @@ export const fullpage_init = function () {
         }, wait_after_move.time)
       }
       // //////////////////////////////
-      //
-      // console.log('slide_load')
-      // video_play(destination.index, origin.index);
 
       if(destination.index === 0 && direction === 'right') {
         video_play(0, 'parent');
@@ -182,17 +162,13 @@ export const fullpage_init = function () {
 
     },
     onSlideLeave: function (section, origin, destination, direction) {
-      // console.log('попытка перехода от', origin.index,' к ',destination.index,"состояние переменных ",wait_after_move)
       //////////////////////////////
       way.lenght = 0;
-      // console.log(direction, destination.index);
       //
       if (wait_after_move.slide || wait_after_move.slide_play_video) {
         return false;
       }
       // //////////////////////////////
-      //
-      // console.log('slide_leave');
     }
   });
   let video_play;
@@ -211,13 +187,9 @@ export const fullpage_init = function () {
     wait_after_move.slide = false;
     video_model.currentTime = start;
 
-    video_model.oncanplay = function () {
-      console.log('can played', text);
-      // video_model.pause();
+    if(browserDetect.name === 'safari' || browserDetect.name === 'edge') {
       video_model.play();
-
       playing = setInterval(() => {
-        // console.log(video_model.currentTime);
         if (parseFloat(video_model.currentTime) > parseFloat(stop)) {
           video_model.pause();
           wait_after_move.slide = false;
@@ -225,11 +197,26 @@ export const fullpage_init = function () {
           clearInterval(playing);
           if (callback)
             callback();
-          video_model.oncanplay = null;
         }
       }, 10);
-    }
+    } else {
+      video_model.oncanplay = function () {
+        console.log('can played', text);
+        video_model.play();
 
+        playing = setInterval(() => {
+          if (parseFloat(video_model.currentTime) > parseFloat(stop)) {
+            video_model.pause();
+            wait_after_move.slide = false;
+            wait_after_move.slide_play_video = false;
+            clearInterval(playing);
+            if (callback)
+              callback();
+            video_model.oncanplay = null;
+          }
+        }, 10);
+      }
+    }
   }
 
   video_play = function (number, leave) {
@@ -318,6 +305,26 @@ export const fullpage_init = function () {
     addHandler(window, 'mousewheel', wheel);
     addHandler(document, 'mousewheel', wheel);
 
+    if(browserDetect.mobile) {
+
+      $(window).on("touchstart", function(e) {
+        const startingY = e.originalEvent.touches[0].pageY;
+
+        $(window).on("touchmove", function(e) {
+          const currentY = e.originalEvent.touches[0].pageY;
+          const delta = currentY - startingY;
+          if (way.begin == null || way.direction != (delta > 0 ? 1 : -1)) {
+            way.begin = delta;
+            way.direction = delta > 0 ? 1 : -1
+            way.lenght = 0;
+          } else {
+            way.lenght += Math.abs(delta);
+          }
+          slide_change(delta);
+        });
+      });
+    }
+
     function wheel(event) {
       let delta; // Направление колёсика мыши
       event = event || window.event;
@@ -328,12 +335,13 @@ export const fullpage_init = function () {
       else if (event.detail) { // Для Gecko
         delta = -event.detail / 3;
       }
+
       if (way.begin == null || way.direction != (delta > 0 ? 1 : -1)) {
-        way.begin = event.wheelDelta;
+        way.begin = event.detail ? event.detail*(-120) : event.wheelDelta;
         way.direction = delta > 0 ? 1 : -1
         way.lenght = 0;
       } else {
-        way.lenght += Math.abs(event.wheelDelta);
+        way.lenght += Math.abs(event.detail ? event.detail*(-120) : event.wheelDelta);
       }
       slide_change(delta)
     }

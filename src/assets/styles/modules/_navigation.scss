@@ -178,7 +178,7 @@
       .icon-bar + .icon-bar {
         margin-top: 4px;
       }
-      @media screen and (min-width: $screen-adaptive-nav) {
+      @media screen and (min-width: 900px) {
         display: none;
       }
       &--ico {
@@ -203,7 +203,7 @@
         overflow-y: auto;
       }
 
-      @media screen and (min-width: $screen-adaptive-nav) {
+      @media screen and (min-width: 900px) {
         display: block !important;
         width: auto;
         border-top: 0;

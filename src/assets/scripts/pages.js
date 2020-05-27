@@ -87,8 +87,6 @@ export function validatePhone(phone) {
   return re.test(phone);
 }
 
-
-
 $('.control').blur(function (event) {
   const isRequired = $(this).attr('required');
   const value = event.target.value;
@@ -119,8 +117,41 @@ $('.control').blur(function (event) {
   }
   if(!value && isRequired) {
     $(this).parent().addClass('error');
+    $(this).parent().find('.error-text').text('Неверно заполненное поле');
     $(this).parent().removeClass('success');
   }
+});
+
+$('.sign--js').click(function(e) {
+  e.preventDefault();
+  const email = $('form').find('input[name=email]');
+  const value = email.val();
+  if(!value) {
+    $(this).parent().find('.control-body').addClass('error');
+    $(this).parent().find('.control-body').removeClass('success');
+    $(this).parent().find('.error-text').text('Неверно заполненное поле');
+  } else {
+    if($(this).prop('type') === 'email') {
+      if (validateEmail(value)) {
+        $(this).parent().find('.control-body').addClass('success');
+        $(this).parent().find('.control-body').removeClass('error');
+        $(this).parent().find('.error-text').text('');
+      } else {
+        $(this).parent().find('.control-body').addClass('error');
+        $(this).parent().find('.error-text').text('Неверно заполненное поле');
+      }
+    } else {
+      $(this).parent().find('.control-body').addClass('success');
+      $(this).parent().find('.control-body').removeClass('error');
+      $(this).parent().find('.error-text').text('');
+    }
+  }
+});
+
+
+$('.order--js').click(function(e) {
+  // const input = $(this).parent('form').find('[required]');
+  // const checked = $("input[type=checkbox][name]:checked").length;
 });
 
 // count input

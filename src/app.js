@@ -5,19 +5,27 @@ import "../src/assets/styles/_app.scss";
 
 
 import ready from 'domready';
+import browser from 'browser-detect';
 import AOS from 'aos';
 import App from '../src/assets/scripts/partial/scripts/App';
 
 require("../src/assets/scripts/fullpageIndex");
 require("../src/assets/scripts/jquery.maskedinput.min.js");
 
+const browserDetect = browser();
+
 $(document).ready(() => {
   require("../src/assets/scripts/header");
   require("../src/assets/scripts/pages");
 
+  // backend
+  require("../src/assets/scripts/backend");
+
   setTimeout(() => AOS.init({
     offset: 50,
   }), 1600);
+
+  $('body').addClass(browserDetect.name);
 });
 
 

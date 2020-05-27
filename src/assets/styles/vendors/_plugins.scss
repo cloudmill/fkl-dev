@@ -224,6 +224,13 @@ $items: facebook, twitter, percent_icon;
 }
 
 //select
+.select {
+  &.error {
+    + .select2-container--default .select2-selection--single {
+      border-color: $color-type-2a !important;
+    }
+  }
+}
 .select2-container--default {
   .select2-selection--single {
     @extend .control;
@@ -307,7 +314,7 @@ $items: facebook, twitter, percent_icon;
 }
 .select2-container--default .select2-results__option {
   padding: 10px 5px 10px 30px;
-  &:first-child {
+  &[aria-disabled="true"] {
     display: none !important;
   }
   &[aria-selected="true"] {
