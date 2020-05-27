@@ -3,16 +3,6 @@ import wNumb from "wnumb";
 import AOS from "aos";
 
 
-$(document).on('click', '.catalog__inner .btn--default, .card-main__item--btn .btn--info', function () {
-  $(this).find('.franciscoHelper').text('Добавить еще');
-
-  $('.addElement').fadeIn('500');
-  setTimeout(() => {
-    $('.addElement').fadeOut('500');
-  }, 2500);
-
-  return false;
-});
 $(document).on('click', '.reset--js', function () {
   $('form[name=myForm]').trigger('reset');
   stepsSlider.noUiSlider.reset();
@@ -310,6 +300,7 @@ $(".faq-form__right .return--js").click(function() {
 
 // mask phone {maskedinput}
 $("[name=phone]").mask("+7 (999) 999-9999");
+$("[name=phone_f]").mask("+7 (999) 999-9999");
 
 
 const $sticky = $('.sticky');
