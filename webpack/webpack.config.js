@@ -31,7 +31,7 @@ module.exports = env => {
       filename: 'assets/[name].js'
     },
     devServer: {
-      contentBase: path.resolve(__dirname, '../src'),
+      contentBase: path.resolve(__dirname, '../dist'),
     },
     devtool: (env.NODE_ENV === 'development') ? 'source-map' : false,
     resolve: {

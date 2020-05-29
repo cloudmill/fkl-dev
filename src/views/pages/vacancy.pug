@@ -37,15 +37,15 @@ block content
         .faq-form__left(data-aos="fade-right")
           h2 Не нашли #[br] подходящую #[br] вакансию? Не беда!
           p.text__lg Мы не всегда обновляем вакансии #[br] на сайте. Можете заглянуть к нам #[br] на страничку в #[a(href='#') hh.ru/fkl] или #[br] отправить резюме через форму, #[br] ниже.
-        form.faq-form__right(data-aos="fade-left")
+        form.faq-form__right(data-aos="fade-left" data-form='vacancy')
           .inner.text--center
             h3 Спасибо, мы с Вами #[br] свяжемся
             .form__group
               a.btn.btn--primary.btn--full.return--js(href='#'): span Задать ещё вопрос
           .outer
-            .form__group: +fieldInput('text', 'name', '', 'Ваше имя', true)
-            .form__group: +fieldInput('email', 'email', '', 'Электронная почта', true)
-            .form__group: +fieldInputPhone('text', 'phone2344', 'phone', '', 'Номер телефона', true)
+            .form__group: +fieldInput('text', 'vacancy-form-name', '', 'Ваше имя', 'required')
+            .form__group: +fieldInput('email', 'email', '', 'Электронная почта', 'required')
+            .form__group: +fieldInputPhone('text', 'phone2344', 'phone', '', 'Номер телефона', 'required')
             .form__group: +fieldTextarea('message', '', 'Ваш вопрос', '5', false)
             .form__group
               .input__file
@@ -55,11 +55,11 @@ block content
                 input.input__file-js(type="file")
             .row
               .col.col__lg-6.col__xs-12.form__group
-                a.btn.btn--primary.btn--full(href='#'): span Отправить резюме
+                a.btn.btn--primary.btn--full.simpleForm-btn(href='#'): span Отправить резюме
               .col.col__lg-6.col__xs-12.first__xs.last__lg.form__group
                 .checkbox
-                  input(type="checkbox", id='faqId1')
-                  label.label(for='faqId1') Нажимая на кнопку «Отправить резюме», вы соглашаетесь на обработку персональных данных в соответствии с #[a(href='#') политикой конфиденциальности].
+                  input(type="checkbox", id='vacancy-faqId1' required)
+                  label.label(for='vacancy-faqId1') Нажимая на кнопку «Отправить резюме», вы соглашаетесь на обработку персональных данных в соответствии с #[a(href='#') политикой конфиденциальности].
       +nextBlock('Дилерам')
       include ../components/_signForm
 

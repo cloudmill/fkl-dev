@@ -1,4 +1,4 @@
-form.section__bottom__form.sticky-stopper(data-aos="fade-up")
+form.section__bottom__form.sticky-stopper(data-aos="fade-up" data-form='subscribe')
   .section__bottom__form__row
     .section__bottom__title
       | Подпишись,
@@ -19,8 +19,8 @@ form.section__bottom__form.sticky-stopper(data-aos="fade-up")
     .section__bottom__form__input
       label.control-body(for='signForm')
         .error-text
-        input.control(type='email', id='signForm' placeholder='Введите ваш E-mail', required)
-    button.section__bottom__form__button.franciscoItem.sign--js(type='submit')
+        input.control(type='email', name="mail" id='signForm' placeholder='Введите ваш E-mail', required)
+    button.section__bottom__form__button.franciscoItem.simpleForm-btn(type='submit')
       .franciscoHelper
         span Подписаться на рассылку
         +img('str_white.svg')

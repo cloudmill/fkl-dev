@@ -318,7 +318,7 @@ $("#restoreForms2").click(function() {
 });
 // testing actions
 
-$(".faq-form__right .btn--primary").click(function() {
+$(".faq-form__right").submit(function() {
   $('.inner').slideDown();
   $('.outer').hide();
   return false;
@@ -326,6 +326,7 @@ $(".faq-form__right .btn--primary").click(function() {
 $(".faq-form__right .return--js").click(function() {
   $('.inner').hide();
   $('.outer').slideDown();
+  $(this).closest('form').find('input,textarea').val('');
   return false;
 });
 
