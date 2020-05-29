@@ -50,27 +50,24 @@ block content
                         .section__bottom__slider__item__bot-inf
                           | Артикул: 6206-2Z
                       a.btn.btn--full.btn--default.franciscoItem(href='#'): .franciscoHelper Добавить в корзину
+                include ../components/_paginator
               #stage2.tabs-content
-                .catalog__inner
-                  - for (let x = 1; x < 4; x++)
-                    .catalog__item
-                      a.card__item__inner(href='#')
-                        .card__item__inner-img
-                          img.section__bottom__slider__item__img(src='assets/images/prod_2.png', alt='')
-                        .section__bottom__slider__item__tags
-                          .section__bottom__slider__item__tag #Скидка
-                          .section__bottom__slider__item__tag #Новинка
-                        .section__bottom__slider__item__name
-                          | Подшипник шариковый самоустанавливающийся 6205-2S.EES
-                        .section__bottom__slider__item__price
-                          | 529,86 ₽
-                          span с НДС
-                        .section__bottom__slider__item__state.state_have
-                          | Есть в наличии
-                        .section__bottom__slider__item__bot-inf
-                          | Артикул: 6206-2Z
-                      a.btn.btn--full.btn--default.franciscoItem(href='#'): .franciscoHelper Добавить в корзину
-            include ../components/_paginator
+                .tabs-content-inner
+                  h2 Заголовок h2
+                  h3 Заголовок h3
+                  h4 Заголовок h4
+                  br
+                  br
+                  p Качество продукции FKL основано на производственных процессах и технологии, которыми обладает FKL, на проверенных поставщиках, персонале, который способен быстро и эффективно осваивать новую продукцию и на самой организации, которая объединяет процессы FKL в единое целое.
+                  p Особое и важное место занимает процесс контроля, который своими действиями гарантирует качество, это отображается в работе входного контроля, контроля процессов производства и выходного контроля.
+                  br
+                  h3 Ненумерованные списки
+                  ul.list--dots
+                    li 9902892781
+                    li 237708.0
+                    li F04010131R
+                    li 6004-2RSH
+                    li 6004LLU
       include ../components/_signForm
 
 block footer

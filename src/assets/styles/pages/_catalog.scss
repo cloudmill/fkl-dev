@@ -27,6 +27,36 @@
           padding: 0 80px 50px;
         }
       }
+      &-content-inner {
+        padding: 20px;
+        border-top: 1px solid $gray;
+        @media screen and (min-width: $screen-md-min) {
+          padding: 40px;
+        }
+        @media screen and (min-width: $screen-lg-min) {
+          padding: 60px 80px;
+        }
+        h2, h3, h4 {
+          @media screen and (min-width: $screen-md-min) {
+            margin-bottom: 40px;
+          }
+        }
+        h3 {
+          font-family: "massMedium";
+        }
+        h3, h4 {
+          font-size: 18px;
+        }
+        p {
+          @media screen and (min-width: $screen-md-min) {
+            margin-bottom: 25px;
+          }
+        }
+        ul {
+          font-size: 14px;
+          margin-bottom: 25px;
+        }
+      }
       .tab {
         width: auto;
         display: block;
