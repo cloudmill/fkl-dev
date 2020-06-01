@@ -1506,7 +1506,7 @@ const formSubmer = function() {
         url: url,
         data: formData,
         success: function(e) {
-          if (a) {
+          if (e) {
             console.error("Ошибка отправки формы ", e);
           } else {
             form.submit();
