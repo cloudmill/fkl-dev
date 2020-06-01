@@ -132,6 +132,19 @@ export const fullpage_init = function () {
       }
       // //////////////////////////////
 
+      $('.fp-slidesNav li').removeClass('active');
+      for (let i = 0; i < $('.fp-slidesNav li').length; i++) {
+        $('.fp-slidesNav li').eq(i).addClass('active')
+        if ($('.fp-slidesNav li').eq(i).find('a').hasClass('active')) {
+          i = $('.fp-slidesNav li').lenght;
+        }
+      }
+
+    },
+    onSlideLeave: function (section, origin, destination, direction) {
+      //////////////////////////////
+
+
       if(destination.index === 0 && direction === 'right') {
         video_play(0, 'parent');
       }
@@ -151,18 +164,6 @@ export const fullpage_init = function () {
         video_play(1, 2);
       }
 
-
-      $('.fp-slidesNav li').removeClass('active');
-      for (let i = 0; i < $('.fp-slidesNav li').length; i++) {
-        $('.fp-slidesNav li').eq(i).addClass('active')
-        if ($('.fp-slidesNav li').eq(i).find('a').hasClass('active')) {
-          i = $('.fp-slidesNav li').lenght;
-        }
-      }
-
-    },
-    onSlideLeave: function (section, origin, destination, direction) {
-      //////////////////////////////
       way.lenght = 0;
       //
       if (wait_after_move.slide || wait_after_move.slide_play_video) {
@@ -202,7 +203,6 @@ export const fullpage_init = function () {
         }, 10);
       } else {
         video_model.oncanplay = function() {
-          // console.log('can played', text);
           video_model.play();
 
           playing = setInterval(() => {

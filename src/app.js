@@ -56,6 +56,7 @@ if (screen_width <= 767) {
 $(window).on("load", function() {
   $('.loader-outer').addClass('active');
   $('body').css('overflow', 'hidden');
+  window.location.hash = '#one';
   setTimeout(function() {
     $('body').css('overflow', 'visible');
     $('.loader').addClass('hidden');
