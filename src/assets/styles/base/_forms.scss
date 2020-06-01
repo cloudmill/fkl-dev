@@ -103,9 +103,12 @@ input[type="checkbox"]:focus {
       .error-text {
         position: absolute;
         top: -30px;
-        left: 50px;
+        left: 30px;
         color: $gray-darken-1;
         font-size: 14px;
+        @media screen and (min-width: $screen-xmd-min) {
+          left: 50px;
+        }
       }
     }
     &:after {
@@ -363,7 +366,7 @@ input[type="search"] {
   .noUi-handle {
     width: 16px;
     height: 16px;
-    right: -25px;
+    right: -27px;
     top: 10px;
     position: relative;
     border: none;

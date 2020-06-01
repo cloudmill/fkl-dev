@@ -13,6 +13,8 @@ $(document).on("click", ".about__video--ico", function() {
 });
 $(document).ready(function() {
   slidersMain();
+  slidersMain2();
+  slidersMain3();
   slidersCard();
   slidersForNav();
   slidersAbout();
@@ -82,6 +84,8 @@ $(document).ready(function() {
     $(href + " .cityList--js .cityList:first-child li:first-child a").trigger(
       "click"
     );
+
+    $('.section__bottom__slider').slick('reinit');
 
     AOS.init({
       offset: 50,
@@ -162,14 +166,62 @@ $(document).ready(function() {
 
 // sliders
 const slidersMain = function() {
-  $(".section__bottom__slider").slick({
+  $(".section__bottom__slider1").slick({
     slidesToScroll: 2,
     slidesToShow: 2,
     speed: 1000,
     dots: false,
     arrows: true,
-    nextArrow: $(".slick-next"),
-    prevArrow: $(".slick-prev"),
+    nextArrow: $(".slick-next1"),
+    prevArrow: $(".slick-prev1"),
+    responsive: [
+      {
+        breakpoint: 1100,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: "unslick",
+      },
+    ],
+  });
+};
+const slidersMain2 = function() {
+  $(".section__bottom__slider2").slick({
+    slidesToScroll: 2,
+    slidesToShow: 2,
+    speed: 1000,
+    dots: false,
+    arrows: true,
+    nextArrow: $(".slick-next2"),
+    prevArrow: $(".slick-prev2"),
+    responsive: [
+      {
+        breakpoint: 1100,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: "unslick",
+      },
+    ],
+  });
+};
+const slidersMain3 = function() {
+  $(".section__bottom__slider3").slick({
+    slidesToScroll: 2,
+    slidesToShow: 2,
+    speed: 1000,
+    dots: false,
+    arrows: true,
+    nextArrow: $(".slick-next3"),
+    prevArrow: $(".slick-prev3"),
     responsive: [
       {
         breakpoint: 1100,
@@ -485,6 +537,10 @@ $(".submit--js").click(function(e) {
   $(".regForm-error").text("Неправильно введена электронная почта или пароль");
   inputMail.parent().addClass("error");
   inputPass.parent().addClass("error");
+});
+
+$(document).on("click", ".section__bottom__close--js", function(e) {
+  $('.section__bottom__form__message').slideUp(500);
 });
 
 const auth = function() {
@@ -1421,7 +1477,6 @@ const filter = function() {
 };
 
 const formSubmer = function() {
-  console.log("forms inited");
   function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
@@ -1510,6 +1565,7 @@ const formSubmer = function() {
             console.error("Ошибка отправки формы ", e);
           } else {
             form.submit();
+            $('.section__bottom__form__message').slideDown(500);
           }
         },
         error: function(e) {

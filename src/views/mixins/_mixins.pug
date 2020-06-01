@@ -16,13 +16,13 @@ mixin franciscoBtn(text, icon)
       - if(icon)
         +img(icon)
 
-mixin slickPrev()
-  .slick-prev.slick-arrow.franciscoItem
+mixin slickPrev(i)
+  .slick-prev.slick-arrow.franciscoItem(class='slick-prev'+i)
     .franciscoHelper
       +img('arrow_left.svg')
 
-mixin slickNext()
-  .slick-next.slick-arrow.franciscoItem
+mixin slickNext(i)
+  .slick-next.slick-arrow.franciscoItem(class='slick-next'+i)
     .franciscoHelper
       +img('arrow_right.svg')
 

@@ -97,12 +97,14 @@
       display: block;
       height: auto;
       border: none;
-      border-bottom: 2px solid transparent;
       margin-bottom: 20px;
       width: 100%;
       text-align: left;
-      &.active {
-        border-color: $base-color-main;
+      span {
+        &:after {
+          height: 2px;
+          bottom: -3px;
+        }
       }
       @media screen and (min-width: $screen-md-min) {
         width: auto;
@@ -320,10 +322,13 @@
 
   &-prices {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid $gray;
     padding: 0 20px;
+    @media screen and (min-width: $screen-md-min) {
+      justify-content: center;
+    }
     .section__bottom__slider__item__price__old {
       color: $gray-darken-1;
       @media screen and (min-width: $screen-md-min) {

@@ -1,5 +1,8 @@
 .searchBlock {
   position: relative;
+  .section__bottom__form__row {
+    padding: 0;
+  }
   &:before {
     content: "";
     background-color: $gray;
@@ -21,8 +24,10 @@
     border-top: 1px solid $gray;
     transform: rotateY(180deg);
     margin: 0;
+    display: none;
     @media screen and (min-width: $screen-md-min) {
       right: 100%;
+      display: block;
     }
     @media screen and (min-width: $screen-lg-min) {
       width: 80px;
@@ -39,9 +44,10 @@
   }
   .section__bottom__form__button {
     flex-basis: 100%;
-    padding-left: 0;
+    padding-left: 30px;
     @media screen and (min-width: $screen-md-min) {
       flex-basis: 20%;
+      padding-left: 0;
     }
   }
   .section__bottom__form__input {

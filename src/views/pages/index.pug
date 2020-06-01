@@ -125,14 +125,14 @@ block content
           .section__prod__item__but(href='')
             i.icon.icon_str-white
     .section__bottom__wrapper.section.section__wrapper
-      .section__bottom
-        .section__bottom__title(href='#', data-aos="fade-up")
-          a.active(href='#stocks') Скидки
-          a(href='#new') Новинки
-          a(href='#spec') Спецпрограмма
-        .section__bottom__sliders(href='#', data-aos="fade-up", data-aos-delay="600")
-          +slickPrev()
-          .section__bottom__slider.active
+      .section__bottom.tabs
+        .section__bottom__title.tabs-list(href='#', data-aos="fade-up")
+          a.tab.active(href='#stocks') Скидки
+          a.tab(href='#new') Новинки
+          a.tab(href='#spec') Спецпрограмма
+        #stocks.section__bottom__sliders.tabs-content.show(href='#', data-aos="fade-up", data-aos-delay="600")
+          +slickPrev(1)
+          .section__bottom__slider.section__bottom__slider1.active
             a.section__bottom__slider__item(href='#')
               .section__bottom__slider__item__img: img(src='assets/images/prod_1.png', alt='')
               .section__bottom__slider__item__inf
@@ -191,7 +191,100 @@ block content
                   | Под заказ
                 .section__bottom__slider__item__bot-inf
                   | Артикул: 6206-2Z
-          +slickNext()
+          +slickNext(1)
+        #new.section__bottom__sliders.tabs-content(href='#', data-aos="fade-up", data-aos-delay="600")
+          +slickPrev(2)
+          .section__bottom__slider.section__bottom__slider2.active
+            a.section__bottom__slider__item(href='#')
+              .section__bottom__slider__item__img: img(src='assets/images/prod_2.png', alt='')
+              .section__bottom__slider__item__inf
+                .section__bottom__slider__item__tags
+                  .section__bottom__slider__item__tag #Скидка1
+                .section__bottom__slider__item__name
+                  | Подшипник шариковый самоустанавливающийся 6205-2S.EES
+                .section__bottom__slider__item__price
+                  | 529,86 ₽
+                  span с НДС
+                .section__bottom__slider__item__state.state_delivery
+                  | Под заказ
+                .section__bottom__slider__item__bot-inf
+                  | Артикул: 6206-2Z
+            a.section__bottom__slider__item(href='#')
+              .section__bottom__slider__item__img: img(src='assets/images/prod_1.png', alt='')
+              .section__bottom__slider__item__inf
+                .section__bottom__slider__item__tags
+                  .section__bottom__slider__item__tag #Скидка
+                .section__bottom__slider__item__name
+                  | Подшипник шариковый самоустанавливающийся 6205-2S.EES
+                .section__bottom__slider__item__price
+                  | 529,86 ₽
+                  span с НДС
+                .section__bottom__slider__item__state.state_have
+                  | Есть в наличии
+                .section__bottom__slider__item__bot-inf
+                  | Артикул: 6206-2Z
+            a.section__bottom__slider__item(href='#')
+              .section__bottom__slider__item__img: img(src='assets/images/prod_2.png', alt='')
+              .section__bottom__slider__item__inf
+                .section__bottom__slider__item__tags
+                  .section__bottom__slider__item__tag #Скидка
+                .section__bottom__slider__item__name
+                  | Подшипник шариковый самоустанавливающийся 6205-2S.EES
+                .section__bottom__slider__item__price
+                  | 529,86 ₽
+                  span с НДС
+                .section__bottom__slider__item__state.state_delivery
+                  | Под заказ
+                .section__bottom__slider__item__bot-inf
+                  | Артикул: 6206-2Z
+          +slickNext(2)
+        #spec.section__bottom__sliders.tabs-content(href='#', data-aos="fade-up", data-aos-delay="600")
+          +slickPrev(3)
+          .section__bottom__slider.section__bottom__slider3.active
+            a.section__bottom__slider__item(href='#')
+              .section__bottom__slider__item__img: img(src='assets/images/prod_1.png', alt='')
+              .section__bottom__slider__item__inf
+                .section__bottom__slider__item__tags
+                  .section__bottom__slider__item__tag #Новинка
+                .section__bottom__slider__item__name
+                  | Подшипник шариковый самоустанавливающийся 6205-2S.EES
+                .section__bottom__slider__item__price
+                  | 529,86 ₽
+                  span с НДС
+                .section__bottom__slider__item__state.state_have
+                  | Есть в наличии
+                .section__bottom__slider__item__bot-inf
+                  | Артикул: 6206-2Z
+            a.section__bottom__slider__item(href='#')
+              .section__bottom__slider__item__img: img(src='assets/images/prod_1.png', alt='')
+              .section__bottom__slider__item__inf
+                .section__bottom__slider__item__tags
+                  .section__bottom__slider__item__tag #Скидка
+                  .section__bottom__slider__item__tag #Новинка
+                .section__bottom__slider__item__name
+                  | Подшипник шариковый самоустанавливающийся 6205-2S.EES
+                .section__bottom__slider__item__price
+                  | 529,86 ₽
+                  span с НДС
+                .section__bottom__slider__item__state.state_have
+                  | Есть в наличии
+                .section__bottom__slider__item__bot-inf
+                  | Артикул: 6206-2Z
+            a.section__bottom__slider__item(href='#')
+              .section__bottom__slider__item__img: img(src='assets/images/prod_2.png', alt='')
+              .section__bottom__slider__item__inf
+                .section__bottom__slider__item__tags
+                  .section__bottom__slider__item__tag #Скидка
+                .section__bottom__slider__item__name
+                  | Подшипник шариковый самоустанавливающийся 6205-2S.EES
+                .section__bottom__slider__item__price
+                  | 529,86 ₽
+                  span с НДС
+                .section__bottom__slider__item__state.state_delivery
+                  | Под заказ
+                .section__bottom__slider__item__bot-inf
+                  | Артикул: 6206-2Z
+          +slickNext(3)
         .section__bottom__row(href='#', data-aos="fade-up")
           .section__bottom__title Пресс-центр
           .section__bottom__link

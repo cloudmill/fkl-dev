@@ -971,8 +971,15 @@ body.edge {
         margin-right: 20px;
         padding-bottom: 10px;
         position: relative;
+        height: auto !important;
+        border: none !important;
+        text-align: left !important;
+        width: auto !important;
         @media screen and (min-width: $screen-md-min) {
           margin-right: 60px;
+        }
+        @media screen and (min-width: $screen-xl-min) {
+          font-size: 30px !important;
         }
         &:after {
           content: '';
@@ -1380,12 +1387,52 @@ body.edge {
       }
     }
     &__form {
+      position: relative;
       @media screen and (min-width: $screen-md-min) {
         border-left: 1px solid $gray;
-        margin-right: -50px;
+        //margin-right: -50px;
       }
       @media screen and (min-width: $screen-lg-min) {
-        margin-right: -80px;
+        //margin-right: -80px;
+      }
+      &__message {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 99;
+        background: white;
+        display: none;
+        font-weight: 900;
+        font-size: 30px;
+        line-height: 140%;
+        font-family: "massMedium";
+        color: $gray-darken-2;
+        text-align: center;
+      }
+      &__title {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      &__close {
+        position: absolute;
+        right: 45px;
+        top: 45px;
+        height: 64px;
+        width: 64px;
+        border: 1px solid #DCDCDC;
+        z-index: 99;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: background .5s;
+        background: url("../images/icons/close.svg") no-repeat center;
+        &:hover {
+          background: url("../images/icons/close (1).svg") no-repeat center;
+        }
       }
       &__row {
         display: flex;
@@ -1410,9 +1457,9 @@ body.edge {
             width: 50%;
           }
         }
-        &:first-child {
+        &:nth-child(2) {
           border-bottom: 1px solid $gray;
-          padding: 0 20px;
+          padding: 0 20px 20px;
           @media screen and (min-width: $screen-md-min) {
             padding: 0 30px;
           }
@@ -1468,6 +1515,7 @@ body.edge {
         width: 100%;
         @media screen and (min-width: $screen-md-min) {
           width: 42%;
+          border-top: 1px solid #DCDCDC;
         }
         @media screen and (min-width: $screen-lg-min) {
           width: 50%;

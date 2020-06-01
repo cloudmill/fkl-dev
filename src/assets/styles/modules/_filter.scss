@@ -45,9 +45,12 @@
       border-bottom: 1px solid $gray;
       cursor: pointer;
       transition: background-color .5s;
+      display: flex;
+      align-items: center;
       background: url("../images/icons/arrow-down.svg") no-repeat center right 15px;
       @media screen and (min-width: $screen-xmd-min) {
         padding: 20px;
+        display: block;
       }
       &.active {
         background: url("../images/icons/arrow-up.svg") no-repeat center right 15px;

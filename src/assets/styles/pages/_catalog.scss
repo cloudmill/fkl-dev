@@ -157,10 +157,21 @@
     li {
       margin-right: 10px;
       margin-bottom: 10px;
+      @media screen and (max-width: $screen-sm-max) {
+        width: 100%;
+      }
       .btn {
         color: $gray-darken-1;
         border-radius: 50px;
         border-color: $gray;
+        @media screen and (max-width: $screen-sm-max) {
+          max-width: 100%;
+          div {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
         &:hover,
         &.active {
           color: white;

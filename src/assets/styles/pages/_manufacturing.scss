@@ -110,6 +110,7 @@
       }
       @media screen and (max-width: $screen-sm-max) {
         width: 100%;
+        position: relative;
       }
     }
     .pagingInfo,
@@ -285,7 +286,12 @@
           }
         }
         div:first-child {
-          width: 4vw;
+          width: 40px;
+          margin-right: 15px;
+          @media screen and (min-width: $screen-md-min) {
+            width: 4vw;
+            margin-right: 0;
+          }
           @media screen and (min-width: $screen-xl-min) {
             width: 5vw;
           }
