@@ -182,7 +182,7 @@
       &:not(:last-child) {
         .header__menu__item {
           margin-right: 15px;
-          @media screen and (min-width: $screen-xmd-min) {
+          @media screen and (min-width: $screen-lg-min) {
             margin-right: 40px;
           }
         }

@@ -84,7 +84,7 @@
   background-color: $base-color-main;
   @media screen and (max-width: $screen-sm-max) {
     padding-top: 20px;
-    z-index: 109;
+    z-index: 1001;
   }
   .container {
     display: flex;

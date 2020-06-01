@@ -373,6 +373,9 @@ body.edge {
       .fp-slidesContainer {
         transition: opacity 1s !important;
       }
+      @media screen and (max-width: $screen-sm-max) {
+        height: 100%;
+      }
     }
     .model {
       position: absolute;
@@ -381,8 +384,11 @@ body.edge {
       width: 100%;
       transition: opacity 0.3s;
       top: 15%;
+      display: none;
+      height: 0;
       @media screen and (min-width: $screen-md-min) {
         top: 0;
+        display: block;
         height: 100vh;
       }
       video {
@@ -411,6 +417,11 @@ body.edge {
       box-sizing: border-box;
       margin-right: 94% !important;
       top: 70%;
+      @media screen and (max-width: $screen-sm-max) {
+        transform: translate(0, 0);
+        top: 20vh;
+        margin-right: 96% !important;
+      }
       @media screen and (min-width: $screen-md-min) {
         top: 50%;
         width: 73px;
@@ -607,6 +618,11 @@ body.edge {
       padding-bottom: 80px;
       height: 100vh !important;
       position: relative;
+      @media screen and (max-width: $screen-sm-max) {
+        display: block;
+        padding-bottom: 0;
+        padding-top: 20vh;
+      }
       @media screen and (min-width: $screen-md-min) {
         vertical-align: top;
       }
@@ -748,7 +764,7 @@ body.edge {
       justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
-      padding-top: 60px;
+      padding-top: 70px;
       @media screen and (min-width: $screen-md-min) {
         font-size: 30px;
         padding-top: 20px;
@@ -778,7 +794,7 @@ body.edge {
       height: 15.3vh;
       position: relative;
       padding-top: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       overflow: hidden;
       width: 100%;
       display: flex;
@@ -787,6 +803,7 @@ body.edge {
       isolation: isolate;
       @media screen and (min-width: $screen-sm-min) {
         height: 140px;
+        margin-bottom: 20px;
       }
       @media screen and (min-width: $screen-md-min) {
         align-items: flex-end;

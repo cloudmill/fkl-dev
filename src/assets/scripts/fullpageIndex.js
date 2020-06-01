@@ -6,8 +6,6 @@ $(document).ready(function() {
   fullpage_init();
 });
 
-
-const current_slide__main = false;
 const way = {
   begin: null,
   lenght: 0,
@@ -15,6 +13,8 @@ const way = {
 }
 
 const browserDetect = browser();
+const MobileDetect = require('mobile-detect');
+const md = new MobileDetect(window.navigator.userAgent);
 
 
 export const fullpage_init = function () {
@@ -166,6 +166,7 @@ export const fullpage_init = function () {
       way.lenght = 0;
       //
       if (wait_after_move.slide || wait_after_move.slide_play_video) {
+        console.log('ass');
         return false;
       }
       // //////////////////////////////
@@ -186,24 +187,9 @@ export const fullpage_init = function () {
     wait_after_move.slide_play_video = false;
     wait_after_move.slide = false;
     video_model.currentTime = start;
-
-    if(browserDetect.name === 'safari' || browserDetect.name === 'edge') {
-      video_model.play();
-      playing = setInterval(() => {
-        if (parseFloat(video_model.currentTime) > parseFloat(stop)) {
-          video_model.pause();
-          wait_after_move.slide = false;
-          wait_after_move.slide_play_video = false;
-          clearInterval(playing);
-          if (callback)
-            callback();
-        }
-      }, 10);
-    } else {
-      video_model.oncanplay = function () {
-        console.log('can played', text);
+    if(!browserDetect.mobile) {
+      if (browserDetect.name === 'safari' || browserDetect.name === 'edge') {
         video_model.play();
-
         playing = setInterval(() => {
           if (parseFloat(video_model.currentTime) > parseFloat(stop)) {
             video_model.pause();
@@ -212,9 +198,25 @@ export const fullpage_init = function () {
             clearInterval(playing);
             if (callback)
               callback();
-            video_model.oncanplay = null;
           }
         }, 10);
+      } else {
+        video_model.oncanplay = function() {
+          // console.log('can played', text);
+          video_model.play();
+
+          playing = setInterval(() => {
+            if (parseFloat(video_model.currentTime) > parseFloat(stop)) {
+              video_model.pause();
+              wait_after_move.slide = false;
+              wait_after_move.slide_play_video = false;
+              clearInterval(playing);
+              if (callback)
+                callback();
+              video_model.oncanplay = null;
+            }
+          }, 10);
+        }
       }
     }
   }
@@ -301,29 +303,30 @@ export const fullpage_init = function () {
       }
       else alert("Обработчик не поддерживается");
     }
+
     addHandler(window, 'DOMMouseScroll', wheel);
     addHandler(window, 'mousewheel', wheel);
     addHandler(document, 'mousewheel', wheel);
 
-    if(browserDetect.mobile) {
+    let clientY;
+    window.addEventListener('touchstart', function(e) {
+      clientY = e.touches[0].clientY;
+    }, false);
+    window.addEventListener('touchend', function(e) {
+      let deltaY;
+      deltaY = e.changedTouches[0].clientY - clientY;
 
-      $(window).on("touchstart", function(e) {
-        const startingY = e.originalEvent.touches[0].pageY;
+      if (way.begin == null || way.direction != (deltaY > 0 ? 1 : -1)) {
+        way.begin = deltaY;
+        way.direction = deltaY > 0 ? 1 : -1
+        way.lenght = 0;
+      } else {
+        way.lenght += Math.abs(deltaY);
+      }
 
-        $(window).on("touchmove", function(e) {
-          const currentY = e.originalEvent.touches[0].pageY;
-          const delta = currentY - startingY;
-          if (way.begin == null || way.direction != (delta > 0 ? 1 : -1)) {
-            way.begin = delta;
-            way.direction = delta > 0 ? 1 : -1
-            way.lenght = 0;
-          } else {
-            way.lenght += Math.abs(delta);
-          }
-          slide_change(delta);
-        });
-      });
-    }
+      slide_change(deltaY);
+    }, false);
+
 
     function wheel(event) {
       let delta; // Направление колёсика мыши
