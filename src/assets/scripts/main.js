@@ -96,12 +96,12 @@ $(document).ready(function() {
     const tip = $(state.element).data("tip");
     const $state = tip
       ? $(
-          "<span>" +
-            state.text +
-            '</span> <span class="desc">' +
-            tip +
-            "</span>"
-        )
+        "<span>" +
+        state.text +
+        '</span> <span class="desc">' +
+        tip +
+        "</span>"
+      )
       : $("<span>" + state.text + "</span>");
     return $state;
   }
@@ -1284,10 +1284,10 @@ const order = function() {
           const tip = $(state.element).data("tip");
           const $state = $(
             "<span>" +
-              state.text +
-              '</span> <span class="desc">' +
-              tip +
-              "</span>"
+            state.text +
+            '</span> <span class="desc">' +
+            tip +
+            "</span>"
           );
           return $state;
         }
