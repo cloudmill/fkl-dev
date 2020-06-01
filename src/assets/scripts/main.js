@@ -1433,6 +1433,7 @@ const formSubmer = function() {
   })
   $(document).on("click", ".simpleForm-btn", function(e) {
     var form = $(this).closest("form");
+    var url = form.attr('action') || "/local/templates/main/include/ajax/unknown.php";
     var formname = form.attr('data-form');
     console.log("submit");
     e.preventDefault();
@@ -1502,7 +1503,7 @@ const formSubmer = function() {
     if (error == 0) {
       $.ajax({
         type: "POST",
-        url: "/local/templates/main/include/ajax/unknown.php",
+        url: url,
         data: formData,
         success: function(e) {
           if (a) {
