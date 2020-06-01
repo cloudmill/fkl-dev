@@ -85,6 +85,9 @@
     li {
       margin-right: 10px;
       margin-bottom: 20px;
+      @media screen and (min-width: $screen-md-min) {
+        margin-right: 28px;
+      }
       @media screen and (min-width: $screen-lg-min) {
         margin-right: 44px;
       }
