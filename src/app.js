@@ -14,6 +14,9 @@ require("../src/assets/scripts/jquery.maskedinput.min.js");
 
 const browserDetect = browser();
 
+const MobileDetect = require('mobile-detect');
+const md = new MobileDetect(window.navigator.userAgent);
+
 $(document).ready(() => {
   require("../src/assets/scripts/header");
   require("../src/assets/scripts/pages");
@@ -26,8 +29,21 @@ $(document).ready(() => {
   }), 1600);
 
   $('body').addClass(browserDetect.name);
+
+
+  // iPad scripts
+  if (md.tablet() === 'iPad') {
+    $('.header__menu-el--parent .header__menu__item').click(function(e) {
+      e.preventDefault();
+    })
+  }
+  // iPad scripts
 });
 
+// const screen_width = Math.max(
+//   document.documentElement.clientWidth,
+//   window.innerWidth || 0
+// );
 
 window.addEventListener("resize", function() {
   AOS.init({
@@ -43,20 +59,19 @@ if(document.getElementsByClassName("page404").length) {
 }
 
 
-// mobile sctipts
-const screen_width = Math.max(
-  document.documentElement.clientWidth,
-  window.innerWidth || 0
-);
-if (screen_width <= 767) {
-}
-// mobile sctipts
-
 
 $(window).on("load", function() {
   $('.loader-outer').addClass('active');
   $('body').css('overflow', 'hidden');
-  window.location.hash = '#one';
+  const url = window.location.origin;
+  const href = window.location.href;
+  const getSecondSlide = url + '/#two';
+  const getThirdSlide = url + '/#three';
+  const getFourthSlide = url + '/#four';
+
+  if(getSecondSlide === href || getThirdSlide === href || getFourthSlide === href) {
+    window.location.hash = '#one';
+  }
   setTimeout(function() {
     $('body').css('overflow', 'visible');
     $('.loader').addClass('hidden');

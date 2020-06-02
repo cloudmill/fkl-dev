@@ -18,9 +18,11 @@
   padding: 0 20px;
   @media screen and (min-width: $screen-md-min) {
     padding: 0 40px 0 140px;
+    justify-content: flex-start;
   }
   @media screen and (min-width: $screen-xl-min) {
     padding: 0 80px 0 180px;
+    justify-content: space-between;
   }
   // header pad
 

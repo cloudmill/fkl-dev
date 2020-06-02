@@ -1,5 +1,5 @@
-import fullpage from "./fullpage";
-import "tilt.js";
+import fullpage from './fullpage';
+import 'tilt.js';
 import browser from 'browser-detect';
 
 $(document).ready(function() {
@@ -10,15 +10,13 @@ const way = {
   begin: null,
   lenght: 0,
   direction: null,
-}
+};
 
 const browserDetect = browser();
-const MobileDetect = require('mobile-detect');
-const md = new MobileDetect(window.navigator.userAgent);
 
 
-export const fullpage_init = function () {
-  const video_model = document.getElementById('video');;
+export const fullpage_init = function() {
+  const video_model = document.getElementById('video');
   let go_top = false;
   const delay = 2000;
   let timeoutId;
@@ -34,7 +32,7 @@ export const fullpage_init = function () {
 
   const a_table = ['main', 'slider', 'prod', 'wrapper'];
   for (let i = 0; i < a_table.length; i++) {
-    $('.section__'+ a_table[i] +'.active .aos-init').addClass('aos-animate');
+    $('.section__' + a_table[i] + '.active .aos-init').addClass('aos-animate');
   }
 
   const main_fullpage = new fullpage('#fullpage', {
@@ -54,7 +52,7 @@ export const fullpage_init = function () {
     fitToSectionDelay: 2000,
     // lazyLoading: false,
     slidesNavPosition: 'left',
-    afterLoad: function (origin, destination) {
+    afterLoad: function(origin, destination) {
       // смена больших слайдов
 
       if (
@@ -77,37 +75,36 @@ export const fullpage_init = function () {
 
       if (destination.index == 1 && origin.index == 0) {
         wait_after_move.slide = false;
-        wait_after_move.slide_timer = setTimeout(function () {
+        wait_after_move.slide_timer = setTimeout(function() {
           wait_after_move.slide = false;
-        }, wait_after_move.time)
+        }, wait_after_move.time);
         video_play(0, 'parent');
       }
       if (destination.index == 1 && origin.index == 2) {
         video_play(1, 2);
       }
       if (destination.index > 0) {
-        $('#model').addClass('active')
+        $('#model').addClass('active');
 
       } else {
-        $('#model').removeClass('active')
+        $('#model').removeClass('active');
       }
 
       const a_table = ['main', 'slider', 'prod', 'wrapper'];
       for (let i = 0; i < a_table.length; i++) {
-        $('.section__'+ a_table[i] +'.active .aos-init').addClass('aos-animate');
+        $('.section__' + a_table[i] + '.active .aos-init').addClass('aos-animate');
       }
     },
-    onLeave: function (origin, destination) {
+    onLeave: function(origin, destination) {
       // выход из больших слайдов
 
       if (
         (origin.index == 1 && !$('.section__slide:first-child').hasClass('active') && destination.index == 0) ||
-        (origin.index == 1 && !$('.section__slide:last-child').hasClass('active') && destination.index == 2))
-      {
+        (origin.index == 1 && !$('.section__slide:last-child').hasClass('active') && destination.index == 2)) {
         return false;
       }
 
-      if(destination.index == 2) {
+      if (destination.index == 2) {
         setTimeout(() => {
           $('.js-tilt').tilt({
             perspective: '1000',
@@ -117,56 +114,56 @@ export const fullpage_init = function () {
       }
 
       if (origin.index == 3) {
-        $('.header').removeClass('black')
+        $('.header').removeClass('black');
       }
       if (destination.index == 3) {
-        $('.header').addClass('black')
+        $('.header').addClass('black');
       }
 
       $('#fullpage .aos-init').removeClass('aos-animate');
     },
-    afterSlideLoad: function (section, origin, destination, direction) {
+    afterSlideLoad: function(section, origin, destination, direction) {
       // смена внутренних слайдов
 
       // //////////////////////////////
       way.lenght = 0;
       if (!wait_after_move.slide) {
         wait_after_move.slide = false;
-        setTimeout(function () {
+        setTimeout(function() {
           wait_after_move.slide = false;
-        }, wait_after_move.time)
+        }, wait_after_move.time);
       }
       // //////////////////////////////
 
       $('.fp-slidesNav li').removeClass('active');
       for (let i = 0; i < $('.fp-slidesNav li').length; i++) {
-        $('.fp-slidesNav li').eq(i).addClass('active')
+        $('.fp-slidesNav li').eq(i).addClass('active');
         if ($('.fp-slidesNav li').eq(i).find('a').hasClass('active')) {
           i = $('.fp-slidesNav li').lenght;
         }
       }
 
     },
-    onSlideLeave: function (section, origin, destination, direction) {
+    onSlideLeave: function(section, origin, destination, direction) {
       //////////////////////////////
 
 
-      if(destination.index === 0 && direction === 'right') {
+      if (destination.index === 0 && direction === 'right') {
         video_play(0, 'parent');
       }
-      if(destination.index === 0 && direction === 'left') {
+      if (destination.index === 0 && direction === 'left') {
         video_play('parent', 0);
       }
-      if(destination.index === 1 && direction === 'right') {
+      if (destination.index === 1 && direction === 'right') {
         video_play(1, 0);
       }
-      if(destination.index === 1 && direction === 'left') {
+      if (destination.index === 1 && direction === 'left') {
         video_play(0, 1);
       }
-      if(destination.index === 2 && direction === 'right') {
+      if (destination.index === 2 && direction === 'right') {
         video_play(2, 1);
       }
-      if(destination.index === 2 && direction === 'left') {
+      if (destination.index === 2 && direction === 'left') {
         video_play(1, 2);
       }
 
@@ -181,20 +178,30 @@ export const fullpage_init = function () {
   });
   let video_play;
   let playing = false;
-  const play_video_path = function (start, stop, text, callback, first_f) {
+  const getSrc = process.env.NODE_ENV === 'development'
+    ? 'assets/images/video/video.mp4'
+    : '/local/templates/main/assets/images/video/video.mp4'
+
+  if(video_model) {
+    onloadVideo(video_model, getSrc);
+  }
+
+  const play_video_path = function(start, stop, text, callback, first_f) {
     // console.log(text)
     try {
       video_model.pause();
       clearInterval(playing);
-    } catch (e) {}
+    } catch (e) {
+    }
 
-    if (first_f)
+    if (first_f) {
       first_f();
+    }
     wait_after_move.slide_timer = false;
     wait_after_move.slide_play_video = false;
     wait_after_move.slide = false;
     video_model.currentTime = start;
-    if(!browserDetect.mobile) {
+    if (!browserDetect.mobile) {
       if (browserDetect.name === 'safari' || browserDetect.name === 'edge') {
         video_model.play();
         playing = setInterval(() => {
@@ -203,8 +210,9 @@ export const fullpage_init = function () {
             wait_after_move.slide = false;
             wait_after_move.slide_play_video = false;
             clearInterval(playing);
-            if (callback)
+            if (callback) {
               callback();
+            }
           }
         }, 10);
       } else {
@@ -217,24 +225,25 @@ export const fullpage_init = function () {
               wait_after_move.slide = false;
               wait_after_move.slide_play_video = false;
               clearInterval(playing);
-              if (callback)
+              if (callback) {
                 callback();
+              }
               video_model.oncanplay = null;
             }
           }, 10);
-        }
+        };
       }
     }
-  }
+  };
 
-  video_play = function (number, leave) {
+  video_play = function(number, leave) {
     /////
     if (number == 0 && leave == 'parent') {
       play_video_path(0, 4.05, 'play 1',
         // function () {
         //   go_top = false;
         // }
-      )
+      );
     }
     //////
     if (number == 'parent' && leave == 0) {
@@ -247,27 +256,27 @@ export const fullpage_init = function () {
         //   wait_after_move.section = false;
         //   go_top = true;
         // }
-      )
+      );
     }
     /////
     if (number == 1 && leave == 0) {
-      play_video_path(4.05, 6.35, 'play 2')
+      play_video_path(4.05, 6.35, 'play 2');
     }
     /////
     if (number == 0 && leave == 1) {
-      play_video_path(12.8, 14.8, 'play 2 reverse')
+      play_video_path(12.8, 14.8, 'play 2 reverse');
     }
     /////
     if (number == 2 && leave == 1) {
-      play_video_path(6.3, 9, 'play 3')
+      play_video_path(6.3, 9, 'play 3');
     }
     /////
     if (number == 1 && leave == 2) {
-      play_video_path(9.8, 12.3, 'play 3 reverse')
+      play_video_path(9.8, 12.3, 'play 3 reverse');
     }
-  }
+  };
 
-  $('.moveTo').click(function(){
+  $('.moveTo').click(function() {
     fullpage_api.moveTo('four');
     fullpage_api.moveTo('three');
 
@@ -292,22 +301,22 @@ export const fullpage_init = function () {
   }
 
   // $('.section__bottom').scroll(function () {
-    // if ($(this).scrollTop() == 0) {
-    //   setTimeout(function () {
-    //     main_fullpage.moveSectionUp();
-    //   }, 100)
-    // }
+  // if ($(this).scrollTop() == 0) {
+  //   setTimeout(function () {
+  //     main_fullpage.moveSectionUp();
+  //   }, 100)
+  // }
   // })
 
   function event_scroll() {
     function addHandler(object, event, handler) {
       if (object.addEventListener) {
         object.addEventListener(event, handler, false);
-      }
-      else if (object.attachEvent) {
+      } else if (object.attachEvent) {
         object.attachEvent('on' + event, handler);
+      } else {
+        alert('Обработчик не поддерживается');
       }
-      else alert("Обработчик не поддерживается");
     }
 
     addHandler(window, 'DOMMouseScroll', wheel);
@@ -324,7 +333,7 @@ export const fullpage_init = function () {
 
       if (way.begin == null || way.direction != (deltaY > 0 ? 1 : -1)) {
         way.begin = deltaY;
-        way.direction = deltaY > 0 ? 1 : -1
+        way.direction = deltaY > 0 ? 1 : -1;
         way.lenght = 0;
       } else {
         way.lenght += Math.abs(deltaY);
@@ -340,17 +349,16 @@ export const fullpage_init = function () {
       if (event.wheelDelta) { // В Opera и IE
         delta = event.wheelDelta / 120;
         if (window.opera) delta = -delta; // Дополнительно для Opera
-      }
-      else if (event.detail) { // Для Gecko
+      } else if (event.detail) { // Для Gecko
         delta = -event.detail / 3;
       }
 
       if (way.begin == null || way.direction != (delta > 0 ? 1 : -1)) {
-        way.begin = event.detail ? event.detail*(-120) : event.wheelDelta;
-        way.direction = delta > 0 ? 1 : -1
+        way.begin = event.detail ? event.detail * (-120) : event.wheelDelta;
+        way.direction = delta > 0 ? 1 : -1;
         way.lenght = 0;
       } else {
-        way.lenght += Math.abs(event.detail ? event.detail*(-120) : event.wheelDelta);
+        way.lenght += Math.abs(event.detail ? event.detail * (-120) : event.wheelDelta);
       }
       slide_change(delta);
 
@@ -366,4 +374,27 @@ export const fullpage_init = function () {
   }
 
   event_scroll();
+};
+
+function onloadVideo(videoTag, src) {
+  const xhrReq = new XMLHttpRequest();
+  xhrReq.open('GET', src, true);
+  xhrReq.responseType = 'blob';
+
+  xhrReq.onload = function() {
+    if (this.status === 200) {
+      const vid = URL.createObjectURL(this.response);
+      videoTag.src = vid;
+    }
+  };
+  xhrReq.onerror = function() {
+    console.log('err', arguments);
+  };
+  xhrReq.onprogress = function(e) {
+    if (e.lengthComputable) {
+      const percentComplete = ((e.loaded / e.total) * 100 | 0) + '%';
+      console.log('progress: ', percentComplete);
+    }
+  }
+  xhrReq.send();
 }
