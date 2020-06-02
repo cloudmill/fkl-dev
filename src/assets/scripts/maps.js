@@ -408,60 +408,11 @@ const mcOptions = {
     }
   ]
 };
-const locations = [
-  [59.91701049, 30.31812429],
-  [59.91916157, 30.3251195],
-  [59.91756978, 30.31812429],
-  [59.92049517, 30.33250093],
-  [59.91701049, 30.3276515]
-];
-const locations1 = [
-  [47.4820582, -52.9677822, 16],
-  [-34.6156625, -58.5033376, 16],
-  [40.1535005, 44.4185278, 16],
-  [-35.2812958, 149.124822, 16],
-  [48.220778, 16.3100208, 16]
-];
-const locations2 = [
-  [40.3947021, 49.7849203, 16],
-  [25.0326342, -77.4421124, 16],
-  [26.2266541, 50.5715166, 16],
-  [23.7807777, 90.3492863, 16],
-  [13.1013529, -59.6140472, 16]
-];
-const locations3 = [
-  [53.8840092, 27.5796488, 16],
-  [50.8387874, 4.2933659, 16],
-  [17.25488, -88.7825991, 16],
-  [6.4959937, 2.6047896, 16],
-  [27.4794738, 89.603376, 16]
-];
-const locations4 = [
-  [-19.0205659, -65.2948115, 16],
-  [43.8937798, 18.3479722, 16],
-  [-24.6091349, 25.8604651, 16],
-  [-15.7215857, -48.0073973, 16],
-  [4.9062259, 114.903071, 16]
-];
-const locations5 = [
-  [42.6389981, 23.2539075, 16],
-  [12.3585737, -1.5718626, 16],
-  [-3.3752144, 29.3203635, 16],
-  [11.579524, 104.8201472, 16],
-  [3.8304736, 11.4404136, 16]
-];
-const locations6 = [
-  [45.2502975, -76.0804292, 16],
-  [4.3783071, 18.5421798, 16],
-  [-33.4533303, -70.6967031, 16],
-  [39.9390628, 116.2573775, 16],
-  [4.6484652, -74.1778466, 16]
-];
 
 function initMap() {
   const mapOptions = {
-    center: new google.maps.LatLng(59.91916157, 30.3251195),
-    zoom: 15,
+    center: new google.maps.LatLng(51.666120, 39.190655),
+    zoom: 6,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     mapTypeControl: false,
     zoomControl: true,
@@ -469,6 +420,18 @@ function initMap() {
     styles: mapStyle
   };
   map = new google.maps.Map(document.getElementById("googleMaps"), mapOptions);
+
+  const locations = [];
+
+  var items = $('.map_list').html();
+  items = items.split(';');
+  for (let i = 0; i < items.length; i++) {
+    var coord = items[i];
+    coord = coord.split(',');
+    coord['0'] = parseFloat(coord['0']);
+    coord['1'] = parseFloat(coord['1']);
+    locations[locations.length] = coord;
+  }
 
   for (let i = 0; i < locations.length; i++) {
     markers[i] = new google.maps.Marker({
@@ -480,6 +443,63 @@ function initMap() {
   }
 
   markerCluster = new MarkerClusterer(map, markers, mcOptions);
+
+  $(document).on('change', 'input[name=map_center]', function(){
+    var value = $(this).val();
+    if (value) {
+      value = value.split(', ');
+      value['0'] = parseFloat(value['0']);
+      value['1'] = parseFloat(value['1']);
+      map.setCenter({lat:value['0'], lng:value['1']});
+      map.setZoom(10);
+    }
+  });
+}
+function initMap1() {
+  const mapOptions = {
+    center: new google.maps.LatLng(51.666120, 39.190655),
+    zoom: 6,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    mapTypeControl: false,
+    zoomControl: true,
+    scrollwheel: false,
+    styles: mapStyle
+  };
+  map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+
+  const locations = [];
+
+  var items = $('.map_list').html();
+  items = items.split(';');
+  for (let i = 0; i < items.length; i++) {
+    var coord = items[i];
+    coord = coord.split(',');
+    coord['0'] = parseFloat(coord['0']);
+    coord['1'] = parseFloat(coord['1']);
+    locations[locations.length] = coord;
+  }
+
+  for (let i = 0; i < locations.length; i++) {
+    markers[i] = new google.maps.Marker({
+      position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+      icon: "/local/templates/main/assets/images/icons/bubble.svg",
+      map: map,
+      id: i
+    });
+  }
+
+  markerCluster = new MarkerClusterer(map, markers, mcOptions);
+
+  $(document).on('change', 'input[name=map_center2]', function(){
+    var value = $(this).val();
+    if (value) {
+      value = value.split(', ');
+      value['0'] = parseFloat(value['0']);
+      value['1'] = parseFloat(value['1']);
+      map.setCenter({lat:value['0'], lng:value['1']});
+      map.setZoom(10);
+    }
+  });
 }
 function initMapBlue() {
   const mapOptions = {
@@ -504,24 +524,6 @@ function initMapBlue() {
 
   markerCluster = new MarkerClusterer(map2, markers, mcOptions);
 }
-function initMap1() {
-  const mapOptions = {
-    center: new google.maps.LatLng(51.707847, 39.455166),
-    zoom: 15,
-    mapTypeControl: false,
-    zoomControl: true,
-    scrollwheel: false,
-    styles: mapStyle
-  };
-  const mapElement = document.getElementById("googleMap");
-  map1 = new google.maps.Map(mapElement, mapOptions);
-  new google.maps.Marker({
-    position: new google.maps.LatLng(51.707847, 39.455166),
-    icon: "/local/templates/main/assets/images/icons/bubble.svg",
-    map: map1,
-    id: 999
-  });
-}
 
 $(document).ready(function() {
   if ($("#googleMaps").length) {
@@ -534,7 +536,6 @@ $(document).ready(function() {
 // $(document).ready($("#googleMapsBlue").length && initMapBlue);
 
 $(document).ready(function() {
-
   $('.popup-modal').magnificPopup({
     type: 'inline',
     removalDelay: 300,
@@ -548,118 +549,5 @@ $(document).ready(function() {
         $('body').css('overflow', 'visible');
       }
     }
-  });
-  function setSettingsToMap(item, map) {
-    markerCluster.clearMarkers();
-    const num_markers = item.length;
-    for (let i = 0; i < num_markers; i++) {
-      markers[i] = new google.maps.Marker({
-        position: new google.maps.LatLng(item[i][0], item[i][1]),
-        icon: "/local/templates/main/assets/images/icons/bubble.svg",
-        map: map,
-        id: i
-      });
-    }
-    map.panTo(new google.maps.LatLng(item[0][0], item[0][1]));
-    markerCluster.addMarkers(markers);
-  }
-  function setMarkers() {
-    if (markers) {
-      markers.forEach(function(marker) {
-        marker.setMap(null);
-      });
-      markers = [];
-    }
-  }
-
-
-  $('#districts').on('change', function (e) {
-    const data = this.value;
-    setMarkers();
-
-    if (data === "central") {
-      setSettingsToMap(locations, map);
-    }
-    if (data === "northwest") {
-      setSettingsToMap(locations1, map);
-    }
-    if (data === "south") {
-      setSettingsToMap(locations2, map);
-    }
-    if (data === "volga") {
-      setSettingsToMap(locations3, map);
-    }
-    if (data === "ural") {
-      setSettingsToMap(locations4, map);
-    }
-    if (data === "siberia") {
-      setSettingsToMap(locations5, map);
-    }
-    if (data === "east") {
-      setSettingsToMap(locations6, map);
-    }
-  });
-
-  $(".city").on("click", function() {
-    const data = this.value;
-    setMarkers();
-
-    if (data === "central") {
-      setSettingsToMap(locations, map2);
-    }
-    if (data === "northwest") {
-      setSettingsToMap(locations1, map2);
-    }
-    if (data === "south") {
-      setSettingsToMap(locations2, map2);
-    }
-    if (data === "volga") {
-      setSettingsToMap(locations3, map2);
-    }
-    if (data === "ural") {
-      setSettingsToMap(locations4, map2);
-    }
-    if (data === "siberia") {
-      setSettingsToMap(locations5, map2);
-    }
-    if (data === "east") {
-      setSettingsToMap(locations6, map2);
-    }
-  });
-
-
-  // cityList
-  $(".cityList--js").on("click", "a", function(e) {
-    e.preventDefault();
-    $(this)
-      .closest(".cityList--js")
-      .find("a")
-      .removeClass("active");
-    const getTitle = $(this).data("title");
-    const getDesc = $(this).data("desc");
-    const getStatus = $(this).data("status");
-    const getPhone = $(this).data("phone");
-    const getMail = $(this).data("mail");
-    const getAddress = $(this).data("address");
-    const getWork = $(this).data("work");
-    const getMapX = $(this).data("mapx");
-    const getMapY = $(this).data("mapy");
-    $(this).addClass("active");
-
-    $(".cityList-title").text(getTitle);
-    $(".cityList-desc").text(getDesc);
-    $(".cityList-status").text(getStatus);
-    $(".cityList-phone").text(getPhone);
-    $(".cityList-mail").text(getMail);
-    $(".cityList-address").text(getAddress);
-    $(".cityList-work").text(getWork);
-
-    new google.maps.Marker({
-      position: new google.maps.LatLng(getMapX, getMapY),
-      icon: "/local/templates/main/assets/images/icons/bubble.svg",
-      map: map1,
-      id: 99
-    });
-    map1.panTo(new google.maps.LatLng(getMapX, getMapY));
   });
 });

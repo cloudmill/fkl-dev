@@ -20,6 +20,7 @@ $(document).keyup(function(e) {
   if($('.searchBar, .menuBar').hasClass('active')) {
     if (e.key === "Escape") {
       $(".searchBar, .menuBar").removeClass("active");
+      fullpage_init();
     }
   }
 });
