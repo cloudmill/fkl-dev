@@ -701,11 +701,13 @@ body.edge {
       margin-top: 150px;
       @media screen and (min-height: 600px) {
         bottom: 90px;
-        left: 50%;
+        left: auto;
+        right: 14%;
       }
       @media screen and (min-height: 750px) {
         left: 0;
         bottom: 30px;
+        right: auto;
       }
       @media screen and (min-height: 850px) {
         bottom: 65px;
