@@ -1390,10 +1390,10 @@ body.edge {
       position: relative;
       @media screen and (min-width: $screen-md-min) {
         border-left: 1px solid $gray;
-        //margin-right: -50px;
+        margin-right: -50px;
       }
       @media screen and (min-width: $screen-lg-min) {
-        //margin-right: -80px;
+        margin-right: -80px;
       }
       &__message {
         position: absolute;
@@ -1515,7 +1515,7 @@ body.edge {
         width: 100%;
         @media screen and (min-width: $screen-md-min) {
           width: 42%;
-          border-top: 1px solid #DCDCDC;
+          //border-top: 1px solid #DCDCDC;
         }
         @media screen and (min-width: $screen-lg-min) {
           width: 50%;

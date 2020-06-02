@@ -46,10 +46,13 @@ export const fullpage_init = function () {
     showActiveTooltip: false,
     slidesNavigation: true,
     loopHorizontal: false,
-    dragAndMove: true,
+    css3: true,
+    // dragAndMove: true,
     fadingEffect: 'slides',
-    normalScrollElements: '.section__bottom',
-    lazyLoading: false,
+    normalScrollElements: '.section__wrapper',
+    fitToSection: true,
+    fitToSectionDelay: 2000,
+    // lazyLoading: false,
     slidesNavPosition: 'left',
     afterLoad: function (origin, destination) {
       // смена больших слайдов
@@ -79,6 +82,9 @@ export const fullpage_init = function () {
         }, wait_after_move.time)
         video_play(0, 'parent');
       }
+      if (destination.index == 1 && origin.index == 2) {
+        video_play(1, 2);
+      }
       if (destination.index > 0) {
         $('#model').addClass('active')
 
@@ -107,7 +113,7 @@ export const fullpage_init = function () {
             perspective: '1000',
             easing: 'linear'
           });
-        }, 1000);
+        }, 100);
       }
 
       if (origin.index == 3) {
@@ -261,7 +267,6 @@ export const fullpage_init = function () {
     }
   }
 
-
   $('.moveTo').click(function(){
     fullpage_api.moveTo('four');
     fullpage_api.moveTo('three');
@@ -286,13 +291,14 @@ export const fullpage_init = function () {
     }
   }
 
-  $('.section__bottom').scroll(function () {
-    if ($(this).scrollTop() == 0) {
-      setTimeout(function () {
-        main_fullpage.moveSectionUp();
-      }, 100)
-    }
-  })
+  // $('.section__bottom').scroll(function () {
+    // if ($(this).scrollTop() == 0) {
+    //   setTimeout(function () {
+    //     main_fullpage.moveSectionUp();
+    //   }, 100)
+    // }
+  // })
+
   function event_scroll() {
     function addHandler(object, event, handler) {
       if (object.addEventListener) {
@@ -346,8 +352,18 @@ export const fullpage_init = function () {
       } else {
         way.lenght += Math.abs(event.detail ? event.detail*(-120) : event.wheelDelta);
       }
-      slide_change(delta)
+      slide_change(delta);
+
+
+      if ($('.section__bottom').scrollTop() === 0) {
+        fullpage_api.setMouseWheelScrolling(true);
+        fullpage_api.setAllowScrolling(true);
+      } else {
+        fullpage_api.setMouseWheelScrolling(false);
+        fullpage_api.setAllowScrolling(false);
+      }
     }
   }
+
   event_scroll();
 }
