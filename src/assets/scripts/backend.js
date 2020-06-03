@@ -738,202 +738,377 @@ const basket = function () {
 };
 
 const order = function () {
-    $(document).on(
-        "change",
-        "[data-type=js-checkout] select[name=city]",
-        function () {
-            console.log("city");
-            orderRefresh();
-        }
-    );
+    $(document).on('change', '[data-type=js-checkout] select[name=city]', function () {
+        console.log('city');
+        orderRefresh();
+    });
 
-    $(document).on(
-        "change",
-        "[data-type=js-checkout] input[name=delivery]",
-        function () {
-            console.log("delivery");
-            orderRefresh();
-        }
-    );
+    $(document).on('click', '[data-type=js-checkout-type]', function (e) {
+        e.preventDefault();
+        console.log('type');
+        $('[data-type=js-checkout-type]').removeClass('active');
+        $(this).addClass('active');
+        orderRefresh();
+    });
+
+    $(document).on('change', '[data-type=js-checkout] input[name=delivery]', function () {
+        console.log('delivery');
+        orderRefresh();
+    });
 
     function orderRefresh() {
-        console.log("refresh");
+        console.log('refresh');
         let url = window.location.pathname,
-            checkout = $("[data-type=js-checkout]"),
-            name = checkout.find("input[name=name]"),
-            phone = checkout.find("input[name=phone]"),
-            email = checkout.find("input[name=email]"),
-            city = checkout.find("select[name=city]"),
-            index = checkout.find("input[name=index]"),
-            address = checkout.find("input[name=address]"),
-            message = checkout.find("textarea[name=message]"),
-            delivery = checkout.find("input[name=delivery]"),
+            checkout = $('[data-type=js-checkout]'),
+            type = checkout.find('[data-type=js-checkout-type]'),
+            typeValue = 'fz',
+            name = checkout.find('input[name=name]'),
+            phone = checkout.find('input[name=phone]'),
+            email = checkout.find('input[name=email]'),
+            city = checkout.find('select[name=city]'),
+            address = checkout.find('input[name=address]'),
+            message = checkout.find('textarea[name=message]'),
+            delivery = checkout.find('input[name=delivery]'),
             deliveryValue = 0,
-            payment = checkout.find("input[name=payment]"),
+            payment = checkout.find('input[name=payment]'),
             paymentValue = 0;
 
+        type.each(function () {
+            if ($(this).hasClass('active')) {
+                typeValue = $(this).attr('data-value');
+            }
+        });
+
         delivery.each(function () {
-            if ($(this).prop("checked")) {
+            if ($(this).prop('checked')) {
                 deliveryValue = $(this).val();
             }
         });
 
         payment.each(function () {
-            if ($(this).prop("checked")) {
+            if ($(this).prop('checked')) {
                 paymentValue = $(this).val();
             }
         });
 
         $.ajax({
-            type: "POST",
+            type: 'POST',
             url: url,
-            data: {
-                ajax_checkout: true,
-                name: name.val(),
-                phone: phone.val(),
-                email: email.val(),
-                city: city.val(),
-                index: index.val(),
-                address: address.val(),
-                message: message.val(),
-                delivery: deliveryValue,
-                payment: paymentValue,
-            },
+            data: ({
+                'ajax_checkout': true,
+                'type': typeValue,
+                'name': name.val(),
+                'phone': phone.val(),
+                'email': email.val(),
+                'city': city.val(),
+                'address': address.val(),
+                'message': message.val(),
+                'delivery': deliveryValue,
+                'payment': paymentValue,
+            }),
             success: function (a) {
-                $("[data-type=js-checkout]").html(a);
+                $('[data-type=js-checkout]').html(a);
 
                 function formatState(state) {
                     if (!state.id) {
                         return state.text;
                     }
-                    const tip = $(state.element).data("tip");
+                    const tip = $(state.element).data('tip');
                     const $state = $(
-                        "<span>" +
-                        state.text +
-                        '</span> <span class="desc">' +
-                        tip +
-                        "</span>"
+                        '<span>' + state.text + '</span> <span class="desc">' + tip + '</span>'
                     );
                     return $state;
-                }
+                };
 
-                $("[data-type=js-checkout] .select").select2({
-                    templateResult: formatState,
+
+                $('[data-type=js-checkout] .select').select2({
+                    templateResult: formatState
                 });
-                $("[data-type=js-checkout] .select").on("select2:open", function () {
-                    $("input.select2-search__field").prop(
-                        "placeholder",
-                        "Начните вводить город"
-                    );
-                    $(".select2-dropdown").hide();
+                $('[data-type=js-checkout] .select').on('select2:open', function () {
+                    $('input.select2-search__field').prop('placeholder', 'Начните вводить город');
+                    $('.select2-dropdown').hide();
                     setTimeout(function () {
-                        $(".select2-dropdown").slideDown("slow");
+                        $('.select2-dropdown').slideDown("slow");
                     }, 200);
                 });
 
-                $("[data-type=js-checkout] [name=phone]").mask("+7 (999) 999-9999");
-            },
+                $('[data-type=js-checkout] [name=phone]').mask('+7 (999) 999-9999');
+
+                const $sticky = $('.sticky');
+                const $stickyrStopper = $('.sticky-stopper');
+                const screen_width = Math.max(
+                    document.documentElement.clientWidth,
+                    window.innerWidth || 0
+                );
+                if (screen_width > 767) {
+                    if (!!$sticky.offset()) {
+
+                        const generalSidebarHeight = $sticky.innerHeight();
+                        const stickyTop = $sticky.offset().top;
+                        const stickOffset = 0;
+                        const stickyStopperPosition = $stickyrStopper.offset().top;
+                        const stopPoint = stickyStopperPosition - generalSidebarHeight - stickOffset;
+                        const diff = stopPoint + stickOffset - 200;
+
+                        $(window).scroll(function () { // scroll event
+                            const windowTop = $(window).scrollTop(); // returns number
+
+                            if (stopPoint < windowTop) {
+                                $sticky.css({
+                                    position: 'absolute',
+                                    top: diff
+                                });
+                            } else if (stickyTop < windowTop + stickOffset) {
+                                $sticky.css({
+                                    position: 'fixed',
+                                    top: stickOffset
+                                });
+                            } else {
+                                $sticky.css({
+                                    position: 'absolute',
+                                    top: 'initial'
+                                });
+                            }
+                        });
+
+                    }
+                }
+            }
         });
     }
 
-    $(document).on("click", "[data-type=js-checkout-submit]", function (e) {
+    $(document).on('click', '[data-type=js-checkout-submit]', function (e) {
         e.preventDefault();
         orderSubmit();
     });
 
+
     function orderSubmit() {
-        console.log("submit");
+        console.log('submit');
         let mist = 0,
-            checkout = $("[data-type=js-checkout]"),
-            name = checkout.find("input[name=name]"),
-            phone = checkout.find("input[name=phone]"),
-            email = checkout.find("input[name=email]"),
-            city = checkout.find("select[name=city]"),
-            index = checkout.find("input[name=index]"),
-            address = checkout.find("input[name=address]"),
-            message = checkout.find("textarea[name=message]"),
-            deliveryPrice = checkout.find("input[name=delivery_price]"),
-            delivery = checkout.find("input[name=delivery]"),
+            checkout = $('[data-type=js-checkout]'),
+            type = checkout.find('[data-type=js-checkout-type]'),
+            typeValue = 'fz',
+            name = checkout.find('input[name=name]'),
+            phone = checkout.find('input[name=phone]'),
+            email = checkout.find('input[name=email]'),
+            city = checkout.find('select[name=city]'),
+            address = checkout.find('input[name=address]'),
+            message = checkout.find('textarea[name=message]'),
+            deliveryPrice = checkout.find('input[name=delivery_price]'),
+            delivery = checkout.find('input[name=delivery]'),
             deliveryValue = 0,
-            payment = checkout.find("input[name=payment]"),
+            payment = checkout.find('input[name=payment]'),
             paymentValue = 0,
-            agreement = checkout.find("input[name=agreement]");
+            agreement = checkout.find('input[name=agreement]');
+
+        type.each(function () {
+            if ($(this).hasClass('active')) {
+                typeValue = $(this).attr('data-value');
+            }
+        });
 
         delivery.each(function () {
-            if ($(this).prop("checked")) {
+            if ($(this).prop('checked')) {
                 deliveryValue = $(this).val();
             }
         });
 
         payment.each(function () {
-            if ($(this).prop("checked")) {
+            if ($(this).prop('checked')) {
                 paymentValue = $(this).val();
             }
         });
 
         if (!name.val()) {
-            name.parents("label").addClass("error");
+            name.parents('label').addClass('error');
             mist++;
         } else {
-            name.parents("label").removeClass("error");
+            name.parents('label').removeClass('error');
         }
 
         if (!phone.val() || phone.val().length != 17) {
-            phone.parents("label").addClass("error");
+            phone.parents('label').addClass('error');
             mist++;
             console.log(phone.val().length);
         } else {
-            phone.parents("label").removeClass("error");
+            phone.parents('label').removeClass('error');
         }
 
         if (!city.val()) {
-            city.parents(".form__group").addClass("error");
+            city.parents('.form__group').addClass('error');
             mist++;
         } else {
-            city.parents(".form__group").removeClass("error");
+            city.parents('.form__group').removeClass('error');
         }
 
         if (!deliveryValue) {
-            delivery.parents(".radio").addClass("error");
+            delivery.parents('.radio').addClass('error');
             mist++;
         } else {
-            delivery.parents(".radio").removeClass("error");
+            delivery.parents('.radio').removeClass('error');
         }
 
         if (!paymentValue) {
-            payment.parents(".radio").addClass("error");
+            payment.parents('.radio').addClass('error');
             mist++;
         } else {
-            payment.parents(".radio").removeClass("error");
+            payment.parents('.radio').removeClass('error');
         }
 
-        if (!agreement.prop("checked")) {
+        if (!agreement.prop('checked')) {
             mist++;
-            agreement.parents(".checkbox").addClass("error");
+            agreement.parents('.checkbox').addClass('error');
         } else {
-            agreement.parents(".checkbox").removeClass("error");
+            agreement.parents('.checkbox').removeClass('error');
         }
 
-        if (mist == 0) {
-            $.ajax({
-                type: "POST",
-                url: "/local/templates/main/include/ajax/checkout/add.php",
-                data: {
-                    name: name.val(),
-                    phone: phone.val(),
-                    email: email.val(),
-                    city: city.val(),
-                    index: index.val(),
-                    address: address.val(),
-                    message: message.val(),
-                    delivery: deliveryValue,
-                    deliveryPrice: deliveryPrice.val(),
-                    payment: paymentValue,
-                },
-                success: function (a) {
-                    $("[data-type=js-checkout]").html(a);
-                },
-            });
+        if (typeValue == 'fz') {
+            if (mist == 0) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/local/templates/main/include/ajax/checkout/add.php',
+                    data: ({
+                        'type': typeValue,
+                        'name': name.val(),
+                        'phone': phone.val(),
+                        'email': email.val(),
+                        'city': city.val(),
+                        'address': address.val(),
+                        'message': message.val(),
+                        'delivery': deliveryValue,
+                        'deliveryPrice': deliveryPrice.val(),
+                        'payment': paymentValue,
+                    }),
+                    success: function (a) {
+                        $('[data-type=js-checkout]').html(a);
+                    }
+                });
+            }
+        }
+
+        if (typeValue == 'ur') {
+            let company = checkout.find('input[name=company]'),
+                inn = checkout.find('input[name=inn]'),
+                kpp = checkout.find('input[name=kpp]'),
+                bic = checkout.find('input[name=bic]'),
+                korrBill = checkout.find('input[name=korrBill]'),
+                bill = checkout.find('input[name=bill]'),
+                legalAdr = checkout.find('input[name=legalAdr]'),
+                postAdr = checkout.find('input[name=postAdr]'),
+                director = checkout.find('input[name=director]'),
+                act = checkout.find('input[name=act]'),
+                state = checkout.find('input[name=state]');
+
+            if (!company.val()) {
+                company.parents('label').addClass('error');
+                mist++;
+            } else {
+                company.parents('label').removeClass('error');
+            }
+
+            if (!inn.val()) {
+                inn.parents('label').addClass('error');
+                mist++;
+            } else {
+                inn.parents('label').removeClass('error');
+            }
+
+            if (!kpp.val()) {
+                kpp.parents('label').addClass('error');
+                mist++;
+            } else {
+                kpp.parents('label').removeClass('error');
+            }
+
+            if (!bic.val()) {
+                bic.parents('label').addClass('error');
+                mist++;
+            } else {
+                bic.parents('label').removeClass('error');
+            }
+
+            if (!korrBill.val()) {
+                korrBill.parents('label').addClass('error');
+                mist++;
+            } else {
+                korrBill.parents('label').removeClass('error');
+            }
+
+            if (!bill.val()) {
+                bill.parents('label').addClass('error');
+                mist++;
+            } else {
+                bill.parents('label').removeClass('error');
+            }
+
+            if (!legalAdr.val()) {
+                legalAdr.parents('label').addClass('error');
+                mist++;
+            } else {
+                legalAdr.parents('label').removeClass('error');
+            }
+
+            if (!postAdr.val()) {
+                postAdr.parents('label').addClass('error');
+                mist++;
+            } else {
+                postAdr.parents('label').removeClass('error');
+            }
+
+            if (!director.val()) {
+                director.parents('label').addClass('error');
+                mist++;
+            } else {
+                director.parents('label').removeClass('error');
+            }
+
+            if (!act.val()) {
+                act.parents('label').addClass('error');
+                mist++;
+            } else {
+                act.parents('label').removeClass('error');
+            }
+
+            if (!state.val()) {
+                state.parents('label').addClass('error');
+                mist++;
+            } else {
+                state.parents('label').removeClass('error');
+            }
+
+            if (mist == 0) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/local/templates/main/include/ajax/checkout/add.php',
+                    data: ({
+                        'type': typeValue,
+                        'name': name.val(),
+                        'phone': phone.val(),
+                        'email': email.val(),
+                        'city': city.val(),
+                        'address': address.val(),
+                        'message': message.val(),
+                        'delivery': deliveryValue,
+                        'deliveryPrice': deliveryPrice.val(),
+                        'payment': paymentValue,
+                        'company': company.val(),
+                        'inn': inn.val(),
+                        'kpp': kpp.val(),
+                        'bic': bic.val(),
+                        'korrBill': korrBill.val(),
+                        'bill': bill.val(),
+                        'legalAdr': legalAdr.val(),
+                        'postAdr': postAdr.val(),
+                        'director': director.val(),
+                        'act': act.val(),
+                        'state': state.val(),
+                    }),
+                    success: function (a) {
+                        $('[data-type=js-checkout]').html(a);
+                    }
+                });
+            }
         }
     }
 };
