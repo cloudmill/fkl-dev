@@ -1,12 +1,19 @@
 .shipping {
   .logoList {
     margin-right: 0;
+    border-top: none;
     &__item {
-      &:last-child,
-      &:nth-last-child(2) {
-        @media screen and (min-width: $screen-lg-min) {
-          border-bottom: none;
-        }
+      border-top: 1px solid $gray;
+      border-bottom: none;
+      position: relative;
+      &:after {
+        content: '';
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        background: $gray;
       }
     }
   }

@@ -424,8 +424,8 @@ function initMap() {
   const locations = [];
 
   var items = $('.map_list').html();
-  items = items.split(';');
-  for (let i = 0; i < items.length; i++) {
+  items = items && items.split(';');
+  for (let i = 0; i < items && items.length; i++) {
     var coord = items[i];
     coord = coord.split(',');
     coord['0'] = parseFloat(coord['0']);
@@ -470,8 +470,8 @@ function initMap1() {
   const locations = [];
 
   var items = $('.map_list').html();
-  items = items.split(';');
-  for (let i = 0; i < items.length; i++) {
+  items = items && items.split(';');
+  for (let i = 0; i < items && items.length; i++) {
     var coord = items[i];
     coord = coord.split(',');
     coord['0'] = parseFloat(coord['0']);

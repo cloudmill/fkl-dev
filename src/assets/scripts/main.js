@@ -448,20 +448,14 @@ const slidersAboutRtl = function() {
     ],
   });
 };
-const nav = [
-  "2018",
-  "2017",
-  "2015",
-  "2009",
-  "1990",
-  "1987-1988",
-  "1986",
-  "1980-1990",
-  "1975",
-  "1965",
-  "1961",
-];
+
+const navArray = [];
+
 const slidersForNav = function() {
+  for (let x=0; x < $(".slider-for--item").length; x++) {
+    const item = $(".slider-for--item").eq(x).data("nav");
+    navArray.push(item);
+  }
   $(".slider-for").slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -473,7 +467,7 @@ const slidersForNav = function() {
     nextArrow: $(".nextSec"),
     prevArrow: $(".prevSec"),
     customPaging: function(slick, index) {
-      return nav[index];
+      return navArray[index];
     },
     responsive: [
       {
