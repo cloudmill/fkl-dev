@@ -446,7 +446,6 @@ function initMap() {
 
   $(document).on('change', 'input[name=map_center]', function(){
     var value = $(this).val();
-   
     if (value) {
       value = value.split(', ');
       value['0'] = parseFloat(value['0']);
