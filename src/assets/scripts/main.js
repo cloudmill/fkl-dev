@@ -11,6 +11,13 @@ $(document).on("click", ".about__video--ico", function() {
 
   $video.attr("src", src + "&autoplay=1");
 });
+
+
+const screen_width = Math.max(
+  document.documentElement.clientWidth,
+  window.innerWidth || 0
+);
+
 $(document).ready(function() {
   slidersMain();
   slidersMain2();
@@ -74,7 +81,9 @@ $(document).ready(function() {
     $(this).addClass("active");
     $(href).addClass("show");
 
-    $('.section__bottom__slider').slick('reinit');
+    if(screen_width > 767) {
+      $('.section__bottom__slider').slick('reinit');
+    }
 
     AOS.init({
       offset: 50,
@@ -479,11 +488,6 @@ const slidersForNav = function() {
     ],
   });
 };
-
-const screen_width = Math.max(
-  document.documentElement.clientWidth,
-  window.innerWidth || 0
-);
 
 $(".slider-for").on("beforeChange", function(
   event,

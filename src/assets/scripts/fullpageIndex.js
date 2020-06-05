@@ -15,6 +15,11 @@ const way = {
 const browserDetect = browser();
 
 
+const screen_width = Math.max(
+  document.documentElement.clientWidth,
+  window.innerWidth || 0
+);
+
 export const fullpage_init = function() {
   const video_model = document.getElementById('video');
   let go_top = false;
@@ -62,7 +67,7 @@ export const fullpage_init = function() {
     slidesNavPosition: 'left',
     afterLoad: function(origin, destination) {
       // смена больших слайдов
-
+      go_top = false;
       if (
         origin.index === 0 && destination.index === 0
         || origin.index === 1 && destination.index === 0
@@ -103,7 +108,13 @@ export const fullpage_init = function() {
         $('.section__' + a_table[i] + '.active .aos-init').addClass('aos-animate');
       }
       if (origin.index == 2 && destination.index == 3) {
-        $(".section__bottom").animate({ scrollTop: 0 }, 0);
+        setTimeout(() => go_top = true, 500);
+      }
+
+      if (!browserDetect.mobile && screen_width > 1366) {
+        if (origin.index == 2 && destination.index == 3) {
+          $(".section__bottom").animate({scrollTop: 0}, 0);
+        }
       }
 
     },
@@ -184,7 +195,6 @@ export const fullpage_init = function() {
       way.lenght = 0;
       //
       if (wait_after_move.slide || wait_after_move.slide_play_video) {
-        console.log('ass');
         return false;
       }
       // //////////////////////////////
@@ -347,6 +357,20 @@ export const fullpage_init = function() {
       }
 
       slide_change(deltaY);
+
+      if($('#fullpage').hasClass('fullpage-wrapper') && $('body').hasClass('fp-viewing-four')) {
+        if ($('.section__bottom').scrollTop() === 0) {
+          fullpage_api.setMouseWheelScrolling(true);
+          fullpage_api.setAllowScrolling(true);
+
+          if (go_top && deltaY > 0 && (browserDetect.mobile || screen_width < 1365 && browserDetect.name === 'safari')) {
+            fullpage_api.moveSectionUp();
+          }
+        } else {
+          fullpage_api.setMouseWheelScrolling(false);
+          fullpage_api.setAllowScrolling(false);
+        }
+      }
     }, false);
 
 
