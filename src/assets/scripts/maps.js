@@ -421,28 +421,29 @@ function initMap() {
   };
   map = new google.maps.Map(document.getElementById("googleMaps"), mapOptions);
 
-  const locations = [];
+  let locations = [];
 
   var items = $('.map_list').html();
-  items = items && items.split(';');
-  for (let i = 0; i < items && items.length; i++) {
-    var coord = items[i];
+  items = items.split(';');
+
+  items.forEach(function(item, i, arr) {
+    console.log(i);
+    var coord = item;
     coord = coord.split(',');
     coord['0'] = parseFloat(coord['0']);
     coord['1'] = parseFloat(coord['1']);
+
     locations[locations.length] = coord;
-  }
+  });
 
-  console.log(locations);
-
-  for (let i = 0; i < locations.length; i++) {
+  locations.forEach(function(item, i, arr) {
     markers[i] = new google.maps.Marker({
-      position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+      position: new google.maps.LatLng(item[0], item[1]),
       icon: "/local/templates/main/assets/images/icons/bubble.svg",
       map: map,
       id: i
     });
-  }
+  });
 
   markerCluster = new MarkerClusterer(map, markers, mcOptions);
 
@@ -469,26 +470,29 @@ function initMap1() {
   };
   map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
 
-  const locations = [];
+  let locations = [];
 
   var items = $('.map_list').html();
-  items = items && items.split(';');
-  for (let i = 0; i < items && items.length; i++) {
-    var coord = items[i];
+  items = items.split(';');
+
+  items.forEach(function(item, i, arr) {
+    console.log(i);
+    var coord = item;
     coord = coord.split(',');
     coord['0'] = parseFloat(coord['0']);
     coord['1'] = parseFloat(coord['1']);
-    locations[locations.length] = coord;
-  }
 
-  for (let i = 0; i < locations.length; i++) {
+    locations[locations.length] = coord;
+  });
+
+  locations.forEach(function(item, i, arr) {
     markers[i] = new google.maps.Marker({
-      position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+      position: new google.maps.LatLng(item[0], item[1]),
       icon: "/local/templates/main/assets/images/icons/bubble.svg",
       map: map,
       id: i
     });
-  }
+  });
 
   markerCluster = new MarkerClusterer(map, markers, mcOptions);
 
