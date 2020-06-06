@@ -3390,7 +3390,6 @@
             });
 
             //scrolling the page to the top with no animation
-            console.log('detect');
             window.scrollTo(0, 0);
 
             //removing selectors
