@@ -4,14 +4,7 @@ include ../partials/_menu
 header.header.fixed(data-aos="fade-down", data-aos-delay="900", data-aos-duration="1000")
   .header-inner
     a.header__logo(href=''): +img('logo.svg')
-    nav.navbar
-      .main-nav__toggle
-        a(href='')
-          +img('cartMobile.svg')
-        .main-nav__toggle--ico.main-nav__toggle--js
-      .header__right__counter 12
-      .main-nav__collapse
-        +menu(menu)
+    include ../components/_navbar
     .header__right
       a.header__right__phone.franciscoItem(href='tel:84732110550')
         span.franciscoHelper 8 473 211-05-50
