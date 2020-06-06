@@ -37,6 +37,12 @@
       &:nth-child(2) {
         animation: rotatingOut 4s linear infinite;
       }
+      &:last-child {
+        margin-top: 45%;
+        @media screen and (min-width: $screen-md-min) {
+          margin: 0 40px;
+        }
+      }
     }
   }
   &-outer {

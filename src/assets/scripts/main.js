@@ -82,7 +82,7 @@ $(document).ready(function() {
     $(href).addClass("show");
 
     if(screen_width > 767) {
-      $('.section__bottom__slider').slick('reinit');
+      $('.section__bottom__slider').slick("setPosition", 0);
     }
 
     AOS.init({
@@ -249,18 +249,21 @@ const slidersCard = function() {
         breakpoint: 1500,
         settings: {
           slidesToShow: 3,
+          slidesToScroll: 3,
         },
       },
       {
         breakpoint: 1100,
         settings: {
           slidesToShow: 2,
+          slidesToScroll: 2,
         },
       },
       {
         breakpoint: 767,
         settings: {
           slidesToShow: 1,
+          slidesToScroll: 1,
           arrows: false,
         },
       },

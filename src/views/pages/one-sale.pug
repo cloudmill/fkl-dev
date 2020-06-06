@@ -37,8 +37,8 @@ block content
       .news-one-subTitle
         h2(data-aos="fade-up") Другие акции
       .section__bottom__sliders(data-aos="fade-up")
-        +slickPrev()
-        .section__bottom__slider.active
+        +slickPrev(1)
+        .section__bottom__slider.section__bottom__slider1.active
           a.section__bottom__slider__item(href='#')
             div
               h5 Скидка на остатки продукции 50%
@@ -57,7 +57,7 @@ block content
               p.text__sm.margbot30 В магазинах подшипник.ру снижены цены! Успейте купить карданнные валы "FKL RUS" с выгодой!
               p.text__sm.text--grey Срок проведения:
               p.text__sm.text--primary 18 ноября 2018 — 31 декабря 2019
-        +slickNext()
+        +slickNext(1)
       +nextBlock('Доставка')
       include ../components/_signForm
 

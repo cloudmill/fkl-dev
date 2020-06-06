@@ -207,6 +207,24 @@
     &__buts {
       display: flex;
     }
+    &__counter {
+      display: flex;
+      width: 35px;
+      height: 35px;
+      border: 2px solid #001AA5;
+      border-radius: 50%;
+      justify-content: center;
+      align-items: center;
+      font-size: 13px;
+      line-height: 1;
+      color: white;
+      @media screen and (min-width: $screen-md-min) {
+        display: none;
+      }
+      .black & {
+        color: $base-color-darken;
+      }
+    }
     &__but {
       margin-left: 10px;
       width: 60px;
@@ -230,13 +248,16 @@
         bottom: 0;
         width: 19px;
         height: 19px;
-        display: flex;
+        display: none;
         font-size: 10px;
         line-height: 12px;
         justify-content: center;
         align-items: center;
         background: $base-color-dark;
         border-radius: 50%;
+        @media screen and (min-width: $screen-md-min) {
+          display: flex;
+        }
       }
       &:hover {
         background-color: $base-color-dark;
