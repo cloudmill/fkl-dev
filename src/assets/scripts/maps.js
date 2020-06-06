@@ -452,8 +452,7 @@ function initMap() {
       value = value.split(', ');
       value['0'] = parseFloat(value['0']);
       value['1'] = parseFloat(value['1']);
-      console.log(value);
-      map.setCenter(new google.maps.LatLng(value['0'], value['1']));
+      map.setCenter({lat:value['0'], lng:value['1']});
       map.setZoom(10);
     }
   });

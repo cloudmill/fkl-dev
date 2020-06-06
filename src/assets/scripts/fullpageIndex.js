@@ -64,6 +64,7 @@ export const fullpage_init = function() {
     fitToSection: true,
     fitToSectionDelay: 2000,
     // lazyLoading: false,
+    responsiveWidth: 767,
     slidesNavPosition: 'left',
     afterLoad: function(origin, destination) {
       // смена больших слайдов
@@ -102,10 +103,11 @@ export const fullpage_init = function() {
       } else {
         $('#model').removeClass('active');
       }
-
-      const a_table = ['main', 'slider', 'prod', 'wrapper'];
-      for (let i = 0; i < a_table.length; i++) {
-        $('.section__' + a_table[i] + '.active .aos-init').addClass('aos-animate');
+      if(!browserDetect.mobile) {
+        const a_table = ['main', 'slider', 'prod', 'wrapper'];
+        for (let i = 0; i < a_table.length; i++) {
+          $('.section__' + a_table[i] + '.active .aos-init').addClass('aos-animate');
+        }
       }
       if (origin.index == 2 && destination.index == 3) {
         setTimeout(() => go_top = true, 500);
@@ -144,8 +146,9 @@ export const fullpage_init = function() {
         $('.header').addClass('black');
         $('.header__logo img').attr('src', getLogoSrc);
       }
-
-      $('#fullpage .aos-init').removeClass('aos-animate');
+      if(!browserDetect.mobile) {
+        $('#fullpage .aos-init').removeClass('aos-animate');
+      }
     },
     afterSlideLoad: function(section, origin, destination, direction) {
       // смена внутренних слайдов
@@ -358,12 +361,12 @@ export const fullpage_init = function() {
 
       slide_change(deltaY);
 
-      if($('#fullpage').hasClass('fullpage-wrapper') && $('body').hasClass('fp-viewing-four')) {
+      if(!browserDetect.mobile && $('#fullpage').hasClass('fullpage-wrapper') && $('body').hasClass('fp-viewing-four')) {
         if ($('.section__bottom').scrollTop() === 0) {
           fullpage_api.setMouseWheelScrolling(true);
           fullpage_api.setAllowScrolling(true);
 
-          if (go_top && deltaY > 0 && (browserDetect.mobile || screen_width < 1365 && browserDetect.name === 'safari')) {
+          if (go_top && deltaY > 0 && (screen_width > 767 || screen_width < 1365 && browserDetect.name === 'safari')) {
             fullpage_api.moveSectionUp();
           }
         } else {
