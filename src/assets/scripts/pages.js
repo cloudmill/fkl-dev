@@ -243,11 +243,15 @@ $(".cabinet-delete--js").click(function() {
 // header__menu-el--parent
 $(".header__menu-el--parent").mouseleave(function() {
   $(this).parents().find('.header').removeClass('hover');
+  if(!$(this).parents().find('.header').hasClass('black')) {
+    $(this).parents().find('.header__logo img').attr('src', 'assets/images/logo.svg');
+  }
 });
 $(".header__menu-el--parent").mouseover(function() {
   const navbar = $('.navbar').width();
   $('.sub-nav__inner').css('width', navbar);
   $(this).parents().find('.header').addClass('hover');
+  $(this).parents().find('.header__logo img').attr('src', 'assets/images/logo_blue.svg');
 });
 
 // registerPart

@@ -155,6 +155,15 @@
     @media screen and (min-width: $screen-lg-min) {
       padding: 50px 50px 90px;
     }
+    &-item {
+      margin-bottom: 40px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid $gray;
+      &:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+      }
+    }
     &-left {
       width: 100%;
       @media screen and (min-width: $screen-md-min) {

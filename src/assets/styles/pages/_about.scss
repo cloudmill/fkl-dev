@@ -525,12 +525,15 @@
       .slider-for {
         height: auto;
         padding-top: 40px;
-        @media screen and (min-width: $screen-lg-min) {
+        @media screen and (min-width: $screen-md-min) {
           padding-left: 100px;
           padding-top: 0;
         }
-        @media screen and (min-width: $screen-xl-min) {
+        @media screen and (min-width: $screen-lg-min) {
           padding-left: 200px;
+          padding-top: 0;
+        }
+        @media screen and (min-width: $screen-xl-min) {
           height: 400px;
         }
         .slick-active {
@@ -649,11 +652,13 @@
             margin: 0;
             width: 60px;
             white-space: pre-wrap;
+            text-align: center;
           }
           @media screen and (min-width: $screen-xl-min) {
             height: 95px;
             min-width: 95px;
             width: auto;
+            text-align: left;
           }
           &.slick-active {
             border-color: $base-color-main;

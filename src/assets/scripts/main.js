@@ -11,6 +11,13 @@ $(document).on("click", ".about__video--ico", function() {
 
   $video.attr("src", src + "&autoplay=1");
 });
+
+
+const screen_width = Math.max(
+  document.documentElement.clientWidth,
+  window.innerWidth || 0
+);
+
 $(document).ready(function() {
   slidersMain();
   slidersMain2();
@@ -74,7 +81,9 @@ $(document).ready(function() {
     $(this).addClass("active");
     $(href).addClass("show");
 
-    $('.section__bottom__slider').slick('reinit');
+    if(screen_width > 767) {
+      $('.section__bottom__slider').slick('reinit');
+    }
 
     AOS.init({
       offset: 50,
@@ -448,20 +457,14 @@ const slidersAboutRtl = function() {
     ],
   });
 };
-const nav = [
-  "2018",
-  "2017",
-  "2015",
-  "2009",
-  "1990",
-  "1987-1988",
-  "1986",
-  "1980-1990",
-  "1975",
-  "1965",
-  "1961",
-];
+
+const navArray = [];
+
 const slidersForNav = function() {
+  for (let x=0; x < $(".slider-for--item").length; x++) {
+    const item = $(".slider-for--item").eq(x).data("nav");
+    navArray.push(item);
+  }
   $(".slider-for").slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -473,7 +476,7 @@ const slidersForNav = function() {
     nextArrow: $(".nextSec"),
     prevArrow: $(".prevSec"),
     customPaging: function(slick, index) {
-      return nav[index];
+      return navArray[index];
     },
     responsive: [
       {
@@ -485,11 +488,6 @@ const slidersForNav = function() {
     ],
   });
 };
-
-const screen_width = Math.max(
-  document.documentElement.clientWidth,
-  window.innerWidth || 0
-);
 
 $(".slider-for").on("beforeChange", function(
   event,

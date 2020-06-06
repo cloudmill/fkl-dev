@@ -15,6 +15,11 @@ const way = {
 const browserDetect = browser();
 
 
+const screen_width = Math.max(
+  document.documentElement.clientWidth,
+  window.innerWidth || 0
+);
+
 export const fullpage_init = function() {
   const video_model = document.getElementById('video');
   let go_top = false;
@@ -35,6 +40,14 @@ export const fullpage_init = function() {
     $('.section__' + a_table[i] + '.active .aos-init').addClass('aos-animate');
   }
 
+
+  const getLogoSrc = process.env.NODE_ENV === 'development'
+    ? 'assets/images/logo_blue.svg'
+    : '/local/templates/main/assets/images/logo_blue.svg'
+  const getLogoSrcWhite = process.env.NODE_ENV === 'development'
+    ? 'assets/images/logo.svg'
+    : '/local/templates/main/assets/images/logo.svg'
+
   const main_fullpage = new fullpage('#fullpage', {
     // responsiveWidth: 1000,
     anchors: ['one', 'two', 'three', 'four'],
@@ -54,7 +67,7 @@ export const fullpage_init = function() {
     slidesNavPosition: 'left',
     afterLoad: function(origin, destination) {
       // смена больших слайдов
-
+      go_top = false;
       if (
         origin.index === 0 && destination.index === 0
         || origin.index === 1 && destination.index === 0
@@ -94,6 +107,16 @@ export const fullpage_init = function() {
       for (let i = 0; i < a_table.length; i++) {
         $('.section__' + a_table[i] + '.active .aos-init').addClass('aos-animate');
       }
+      if (origin.index == 2 && destination.index == 3) {
+        setTimeout(() => go_top = true, 500);
+      }
+
+      if (!browserDetect.mobile && screen_width > 1366) {
+        if (origin.index == 2 && destination.index == 3) {
+          $(".section__bottom").animate({scrollTop: 0}, 0);
+        }
+      }
+
     },
     onLeave: function(origin, destination) {
       // выход из больших слайдов
@@ -115,9 +138,11 @@ export const fullpage_init = function() {
 
       if (origin.index == 3) {
         $('.header').removeClass('black');
+        $('.header__logo img').attr('src', getLogoSrcWhite);
       }
       if (destination.index == 3) {
         $('.header').addClass('black');
+        $('.header__logo img').attr('src', getLogoSrc);
       }
 
       $('#fullpage .aos-init').removeClass('aos-animate');
@@ -170,7 +195,6 @@ export const fullpage_init = function() {
       way.lenght = 0;
       //
       if (wait_after_move.slide || wait_after_move.slide_play_video) {
-        console.log('ass');
         return false;
       }
       // //////////////////////////////
@@ -300,13 +324,6 @@ export const fullpage_init = function() {
     }
   }
 
-  // $('.section__bottom').scroll(function () {
-  // if ($(this).scrollTop() == 0) {
-  //   setTimeout(function () {
-  //     main_fullpage.moveSectionUp();
-  //   }, 100)
-  // }
-  // })
 
   function event_scroll() {
     function addHandler(object, event, handler) {
@@ -340,6 +357,20 @@ export const fullpage_init = function() {
       }
 
       slide_change(deltaY);
+
+      if($('#fullpage').hasClass('fullpage-wrapper') && $('body').hasClass('fp-viewing-four')) {
+        if ($('.section__bottom').scrollTop() === 0) {
+          fullpage_api.setMouseWheelScrolling(true);
+          fullpage_api.setAllowScrolling(true);
+
+          if (go_top && deltaY > 0 && (browserDetect.mobile || screen_width < 1365 && browserDetect.name === 'safari')) {
+            fullpage_api.moveSectionUp();
+          }
+        } else {
+          fullpage_api.setMouseWheelScrolling(false);
+          fullpage_api.setAllowScrolling(false);
+        }
+      }
     }, false);
 
 
@@ -362,16 +393,27 @@ export const fullpage_init = function() {
       }
       slide_change(delta);
 
-
-      if ($('.section__bottom').scrollTop() === 0) {
-        fullpage_api.setMouseWheelScrolling(true);
-        fullpage_api.setAllowScrolling(true);
-      } else {
-        fullpage_api.setMouseWheelScrolling(false);
-        fullpage_api.setAllowScrolling(false);
+      if($('#fullpage').hasClass('fullpage-wrapper') && $('body').hasClass('fp-viewing-four')) {
+        if ($('.section__bottom').scrollTop() === 0) {
+          fullpage_api.setMouseWheelScrolling(true);
+          fullpage_api.setAllowScrolling(true);
+        } else {
+          fullpage_api.setMouseWheelScrolling(false);
+          fullpage_api.setAllowScrolling(false);
+        }
       }
     }
   }
+  const hash = window.location.hash;
+  const steps = { 'two': {next: '#two/1', prev: '#one'}, 'two/1': {next: '#two/2',prev: '#two/1'}};
+  window.addEventListener('popstate', () => {
+    /* here check if adress change - do nothing */
+    if (hash !== window.location.hash){
+      if(steps[hash]){
+        /* here check in what direction was scrolled. Get from steps and apply to hash. and update hsh var*/
+      }
+    }
+  });
 
   event_scroll();
 };

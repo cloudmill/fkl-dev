@@ -49,7 +49,7 @@ window.addEventListener("resize", function() {
   AOS.init({
     offset: 50,
   });
-  // window.scrollTo(0, 0); // TODO: do not forget to UNcomment it
+  window.scrollTo(0, 0); // TODO: do not forget to UNcomment it
 }, false);
 
 require("../src/assets/scripts/main");
@@ -89,7 +89,7 @@ $(window).on("load", function() {
 
     }, 500);
 
-    // window.scrollTo(0, 0); // goTo the top after reload
+    window.scrollTo(0, 0); // goTo the top after reload
   }, 1100);
 });
 
