@@ -427,7 +427,6 @@ function initMap() {
   items = items.split(';');
 
   items.forEach(function(item, i, arr) {
-    console.log(i);
     var coord = item;
     coord = coord.split(',');
     coord['0'] = parseFloat(coord['0']);
@@ -476,7 +475,6 @@ function initMap1() {
   items = items.split(';');
 
   items.forEach(function(item, i, arr) {
-    console.log(i);
     var coord = item;
     coord = coord.split(',');
     coord['0'] = parseFloat(coord['0']);
