@@ -636,9 +636,9 @@ const basket = function () {
     e.preventDefault();
     let value = $(this).attr("data-value"),
       qty = $(this)
-        .parents("[data-type=js-item]")
-        .find("[data-type=js-item-qty]")
-        .val();
+      .parents("[data-type=js-item]")
+      .find("[data-type=js-item-qty]")
+      .val();
 
     if (value) {
       $(".addElement").fadeIn("500");
@@ -665,8 +665,8 @@ const basket = function () {
     e.preventDefault();
     console.log("basket change");
     let value = $(this)
-        .parents("[data-type=js-basket-item]")
-        .attr("data-value"),
+      .parents("[data-type=js-basket-item]")
+      .attr("data-value"),
       qty = $(this).val();
 
     if (value) {
@@ -693,8 +693,8 @@ const basket = function () {
     e.preventDefault();
     console.log("basket change minus");
     let input = $(this)
-        .parents("[data-type=js-basket-item]")
-        .find("[data-type=js-basket-qty]"),
+      .parents("[data-type=js-basket-item]")
+      .find("[data-type=js-basket-qty]"),
       qty = parseFloat(input.val());
 
     qty--;
@@ -710,8 +710,8 @@ const basket = function () {
     e.preventDefault();
     console.log("basket change plus");
     let input = $(this)
-        .parents("[data-type=js-basket-item]")
-        .find("[data-type=js-basket-qty]"),
+      .parents("[data-type=js-basket-item]")
+      .find("[data-type=js-basket-qty]"),
       qty = parseFloat(input.val());
 
     qty++;
@@ -727,8 +727,8 @@ const basket = function () {
     e.preventDefault();
     console.log("basket delete");
     let input = $(this)
-        .parents("[data-type=js-basket-item]")
-        .find("[data-type=js-basket-qty]"),
+      .parents("[data-type=js-basket-item]")
+      .find("[data-type=js-basket-qty]"),
       qty = parseFloat(input.val());
 
     qty = 0;
@@ -1206,96 +1206,41 @@ const formSubmer = function () {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
   }
-  $('form').submit(function (e) {
-    if ($(this).find(".simpleForm-btn").length > 0) {
-      e.preventDefault();
-    }
-  })
-  $(document).on("click", ".simpleForm-btn", function (e) {
-    var form = $(this).closest("form");
-    var url = form.attr('action') || "/local/templates/main/include/ajax/unknown.php";
-    var formname = form.attr('data-form');
-    console.log("submit");
+
+  $('[data-type=js-subscribe-form]').on('submit', function (e) {
     e.preventDefault();
-    var fields = form.find("input,textarea");
-    var error = 0;
-    var data = [];
-    form
-      .find(".control-body")
-      .addClass("success")
-      .removeClass("error");
-    form.find(".error-text").text("");
-    fields.each(function () {
-      if ($(this).attr("required")) {
-        var val = $(this).val();
+    let
+      mist = 0,
+      form = $(this),
+      email = form.find('input[name=email]'),
+      sessid = $('input[name=sessid]'),
+      types = [];
 
-        //проверка на заполненность
-        if (val == "") {
-          error++;
-          $(this)
-            .parent()
-            .addClass("error");
-        }
-
-        //проверка валидности почты
-        var name = $(this).attr("name");
-        var type = $(this).attr("type");
-        var id = $(this).attr("id");
-        if (
-          (name && name.indexOf("mail") > -1) ||
-          (type && type.indexOf("mail") > -1) ||
-          (id && id.indexOf("mail") > -1)
-        ) {
-          if (!validateEmail(val)) {
-            $(this)
-              .parent()
-              .find(".error-text")
-              .text("Неверно заполненное поле");
-            $(this)
-              .parent()
-              .addClass("error");
-            error++;
-          }
-        }
-
-        //проверка установки чекбокса
-        if ($(this).attr("type") == "checkbox") {
-          if (!this.checked) error++;
-        }
-      }
-      if ($(this).attr("type") == "checkbox") {
-        data.push({
-          name: $(this).attr("name") || $(this).attr("id") || $(this).attr("type"),
-          val: this.checked,
-        });
-      } else {
-        data.push({
-          name: $(this).attr("name") || $(this).attr("id") || $(this).attr("type"),
-          val: val,
-        });
+    form.find('input[name=types]').each(function(){
+      if ($(this).prop('checked')) {
+        types[types.length] = $(this).val();
       }
     });
-    var formData = {
-      name: formname,
-      fields: data,
+
+    if (validateEmail(email.val())) {
+      email.parents('label').removeClass('error');
+    } else {
+      email.parents('label').addClass('error');
+      mist++;
     }
-    console.log(formData);
-    if (error == 0) {
+
+    if (mist == 0) {
       $.ajax({
         type: "POST",
-        url: url,
-        data: formData,
-        success: function (e) {
-          if (e) {
-            console.error("Ошибка отправки формы ", e);
-          } else {
-            form.submit();
-            $('.section__bottom__form__message').slideDown(500);
-          }
-        },
-        error: function (e) {
-          console.error("Ошибка отправки формы ", e);
-        },
+        url: "/local/templates/main/include/ajax/form/subscribe.php",
+        data: ({
+          "sessid": sessid.val(),
+          "types": types,
+          "email": email.val()
+        }),
+        success: function (a) {
+          console.log(a);
+        }
       });
     }
   });

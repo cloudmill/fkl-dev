@@ -433,6 +433,8 @@ function initMap() {
     locations[locations.length] = coord;
   }
 
+  console.log(locations);
+
   for (let i = 0; i < locations.length; i++) {
     markers[i] = new google.maps.Marker({
       position: new google.maps.LatLng(locations[i][0], locations[i][1]),
