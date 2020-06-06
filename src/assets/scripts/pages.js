@@ -228,18 +228,6 @@ $(".filter-clicker").click(function() {
   });
 });
 
-// basket
-$(".cabinet-delete--js").click(function() {
-  const row = $(this).closest('tr');
-  row.remove();
-  if($('tr').length === 1) {
-    $('table').remove();
-  }
-  AOS.init({
-    offset: 50,
-  });
-});
-
 // header__menu-el--parent
 $(".header__menu-el--parent").mouseleave(function() {
   $(this).parents().find('.header').removeClass('hover');
