@@ -1311,9 +1311,139 @@ const formSubmer = function () {
 
   $('[data-type=js-feedback-form] .return--js').on('click', function (e) {
     e.preventDefault();
-    $('[data-type=js-feedback-form] .inner').hide();
-    $('[data-type=js-feedback-form] .outer').slideDown();
-    $('[data-type=js-feedback-form]').find('input,textarea').val('');
+    $(this).parents('[data-type=js-feedback-form]').find('.inner').hide();
+    $(this).parents('[data-type=js-feedback-form]').find('.outer').slideDown();
+    $(this).parents('[data-type=js-feedback-form]').find('input,textarea').val('');
+  });
+
+  $('[data-type=js-vacancy-form]').on('submit', function (e) {
+    e.preventDefault();
+    let
+      mist = 0,
+      form = $(this),
+      name = form.find('input[name=name]'),
+      phone = form.find('input[name=phone]'),
+      email = form.find('input[name=email]'),
+      message = form.find('textarea[name=message]'),
+      sessid = $('input[name=sessid]');
+
+    if (name.val()) {
+      name.parents('label').removeClass('error');
+    } else {
+      name.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (phone.val()) {
+      phone.parents('label').removeClass('error');
+    } else {
+      phone.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (validateEmail(email.val())) {
+      email.parents('label').removeClass('error');
+    } else {
+      email.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (message.val()) {
+      message.parents('label').removeClass('error');
+    } else {
+      message.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (mist == 0) {
+      $.ajax({
+        type: "POST",
+        url: "/local/templates/main/include/ajax/form/vacancy.php",
+        data: ({
+          "sessid": sessid.val(),
+          "name": name.val(),
+          "phone": phone.val(),
+          "email": email.val(),
+          "message": message.val()
+        }),
+        success: function (a) {
+          console.log(a);
+          $('.inner').slideDown();
+          $('.outer').hide();
+        }
+      });
+    }
+  });
+
+  $('[data-type=js-vacancy-form] .simpleForm-btn').on('click', function (e) {
+    e.preventDefault();
+    $('[data-type=js-vacancy-form]').submit();
+  });
+
+  $('[data-type=js-vacancy-form] .return--js').on('click', function (e) {
+    e.preventDefault();
+    $(this).parents('[data-type=js-vacancy-form]').find('.inner').hide();
+    $(this).parents('[data-type=js-vacancy-form]').find('.outer').slideDown();
+    $(this).parents('[data-type=js-vacancy-form]').find('input,textarea').val('');
+  });
+
+  $('[data-type=js-vacancy-detail-form]').on('submit', function (e) {
+    e.preventDefault();
+    let
+      mist = 0,
+      form = $(this),
+      types = form.find('input[name=vacancy]'),
+      name = form.find('input[name=name]'),
+      phone = form.find('input[name=phone]'),
+      email = form.find('input[name=email]'),
+      message = form.find('textarea[name=message]'),
+      sessid = $('input[name=sessid]');
+
+    if (name.val()) {
+      name.parents('label').removeClass('error');
+    } else {
+      name.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (phone.val()) {
+      phone.parents('label').removeClass('error');
+    } else {
+      phone.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (validateEmail(email.val())) {
+      email.parents('label').removeClass('error');
+    } else {
+      email.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (message.val()) {
+      message.parents('label').removeClass('error');
+    } else {
+      message.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (mist == 0) {
+      $.ajax({
+        type: "POST",
+        url: "/local/templates/main/include/ajax/form/vacancy.php",
+        data: ({
+          "sessid": sessid.val(),
+          "types": types.val(),
+          "name": name.val(),
+          "phone": phone.val(),
+          "email": email.val(),
+          "message": message.val()
+        }),
+        success: function (a) {
+          console.log(a);
+        }
+      });
+    }
   });
 };
 
