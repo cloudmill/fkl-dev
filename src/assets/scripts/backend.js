@@ -1216,7 +1216,7 @@ const formSubmer = function () {
       sessid = $('input[name=sessid]'),
       types = [];
 
-    form.find('input[name=types]').each(function(){
+    form.find('input[name=types]').each(function () {
       if ($(this).prop('checked')) {
         types[types.length] = $(this).val();
       }
@@ -1243,6 +1243,77 @@ const formSubmer = function () {
         }
       });
     }
+  });
+
+  $('[data-type=js-feedback-form]').on('submit', function (e) {
+    e.preventDefault();
+    let
+      mist = 0,
+      form = $(this),
+      name = form.find('input[name=name]'),
+      phone = form.find('input[name=phone]'),
+      email = form.find('input[name=email]'),
+      message = form.find('textarea[name=message]'),
+      sessid = $('input[name=sessid]');
+
+    if (name.val()) {
+      name.parents('label').removeClass('error');
+    } else {
+      name.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (phone.val()) {
+      phone.parents('label').removeClass('error');
+    } else {
+      phone.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (validateEmail(email.val())) {
+      email.parents('label').removeClass('error');
+    } else {
+      email.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (message.val()) {
+      message.parents('label').removeClass('error');
+    } else {
+      message.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (mist == 0) {
+      $.ajax({
+        type: "POST",
+        url: "/local/templates/main/include/ajax/form/feedback.php",
+        data: ({
+          "sessid": sessid.val(),
+          "name": name.val(),
+          "phone": phone.val(),
+          "email": email.val(),
+          "message": message.val()
+        }),
+        success: function (a) {
+          console.log(a);
+          $('.inner').slideDown();
+          $('.outer').hide();
+        }
+      });
+    }
+  });
+
+  $('[data-type=js-feedback-form] .simpleForm-btn').on('click', function (e) {
+    e.preventDefault();
+    $('[data-type=js-feedback-form]').submit();
+  });
+
+  $('[data-type=js-feedback-form] .return--js').on('click', function (e) {
+    e.preventDefault();
+    $('[data-type=js-feedback-form] .inner').hide();
+    $('[data-type=js-feedback-form] .outer').slideDown();
+    $('[data-type=js-feedback-form]').find('input,textarea').val('');
   });
 };
 

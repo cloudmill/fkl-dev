@@ -322,18 +322,6 @@ $("#restoreForms2").click(function() {
 });
 // testing actions
 
-$(".faq-form__right").submit(function() {
-  $('.inner').slideDown();
-  $('.outer').hide();
-  return false;
-});
-$(".faq-form__right .return--js").click(function() {
-  $('.inner').hide();
-  $('.outer').slideDown();
-  $(this).closest('form').find('input,textarea').val('');
-  return false;
-});
-
 // mask phone {maskedinput}
 $("[name=phone]").mask("+7 (999) 999-9999");
 $("[name=phone_f]").mask("+7 (999) 999-9999");
