@@ -1440,10 +1440,155 @@ const formSubmer = function () {
           "message": message.val()
         }),
         success: function (a) {
-          console.log(a);
+          form.parents('.accordion-content').find('.main-content--list').show();
+          form.parents('.accordion-content').find('.showForm--js').show();
+          form.find('input,textarea').val('');
+          form.hide();
         }
       });
     }
+  });
+
+  $('[data-type=js-dealer-form]').on('submit', function (e) {
+    e.preventDefault();
+    let
+      mist = 0,
+      form = $(this),
+      name = form.find('input[name=name]'),
+      phone = form.find('input[name=phone]'),
+      email = form.find('input[name=email]'),
+      message = form.find('textarea[name=message]'),
+      sessid = $('input[name=sessid]');
+
+    if (name.val()) {
+      name.parents('label').removeClass('error');
+    } else {
+      name.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (phone.val()) {
+      phone.parents('label').removeClass('error');
+    } else {
+      phone.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (validateEmail(email.val())) {
+      email.parents('label').removeClass('error');
+    } else {
+      email.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (message.val()) {
+      message.parents('label').removeClass('error');
+    } else {
+      message.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (mist == 0) {
+      $.ajax({
+        type: "POST",
+        url: "/local/templates/main/include/ajax/form/dealer.php",
+        data: ({
+          "sessid": sessid.val(),
+          "name": name.val(),
+          "phone": phone.val(),
+          "email": email.val(),
+          "message": message.val()
+        }),
+        success: function (a) {
+          console.log(a);
+          $('.inner').slideDown();
+          $('.outer').hide();
+        }
+      });
+    }
+  });
+
+  $('[data-type=js-dealer-form] .simpleForm-btn').on('click', function (e) {
+    e.preventDefault();
+    $('[data-type=js-dealer-form]').submit();
+  });
+
+  $('[data-type=js-dealer-form] .return--js').on('click', function (e) {
+    e.preventDefault();
+    $(this).parents('[data-type=js-dealer-form]').find('.inner').hide();
+    $(this).parents('[data-type=js-dealer-form]').find('.outer').slideDown();
+    $(this).parents('[data-type=js-dealer-form]').find('input,textarea').val('');
+  });
+
+  $('[data-type=js-supplier-form]').on('submit', function (e) {
+    e.preventDefault();
+    let
+      mist = 0,
+      form = $(this),
+      name = form.find('input[name=name]'),
+      phone = form.find('input[name=phone]'),
+      email = form.find('input[name=email]'),
+      message = form.find('textarea[name=message]'),
+      sessid = $('input[name=sessid]');
+
+    if (name.val()) {
+      name.parents('label').removeClass('error');
+    } else {
+      name.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (phone.val()) {
+      phone.parents('label').removeClass('error');
+    } else {
+      phone.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (validateEmail(email.val())) {
+      email.parents('label').removeClass('error');
+    } else {
+      email.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (message.val()) {
+      message.parents('label').removeClass('error');
+    } else {
+      message.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (mist == 0) {
+      $.ajax({
+        type: "POST",
+        url: "/local/templates/main/include/ajax/form/supplier.php",
+        data: ({
+          "sessid": sessid.val(),
+          "name": name.val(),
+          "phone": phone.val(),
+          "email": email.val(),
+          "message": message.val()
+        }),
+        success: function (a) {
+          console.log(a);
+          $('.inner').slideDown();
+          $('.outer').hide();
+        }
+      });
+    }
+  });
+
+  $('[data-type=js-supplier-form] .simpleForm-btn').on('click', function (e) {
+    e.preventDefault();
+    $('[data-type=js-supplier-form]').submit();
+  });
+
+  $('[data-type=js-supplier-form] .return--js').on('click', function (e) {
+    e.preventDefault();
+    $(this).parents('[data-type=js-supplier-form]').find('.inner').hide();
+    $(this).parents('[data-type=js-supplier-form]').find('.outer').slideDown();
+    $(this).parents('[data-type=js-supplier-form]').find('input,textarea').val('');
   });
 };
 
