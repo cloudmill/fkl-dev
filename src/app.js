@@ -49,7 +49,7 @@ window.addEventListener("resize", function() {
   AOS.init({
     offset: 50,
   });
-  window.scrollTo(0, 0); // TODO: do not forget to UNcomment it
+
 }, false);
 
 require("../src/assets/scripts/main");
