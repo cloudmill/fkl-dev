@@ -21,6 +21,8 @@ $(document).keyup(function(e) {
     if (e.key === "Escape") {
       $(".searchBar, .menuBar").removeClass("active");
       fullpage_init();
+      $("body").css("overflow", 'visible');
+      $(".menuBar-item").removeClass("visible slideInUp");
     }
   }
 });

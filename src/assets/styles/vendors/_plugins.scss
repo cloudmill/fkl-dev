@@ -640,3 +640,26 @@ $items: facebook, twitter, percent_icon;
 
 
 /* purgecss end ignore */
+
+.gm-style-iw {
+  border-radius: 0;
+  box-shadow: 0px 14px 24px rgba(0, 0, 0, 0.15);
+  max-width: 306px !important;
+  padding: 20px 0 0 15px !important;
+  p {
+    font-family: 'Roboto Mono';
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 160%;
+    color: #242424;
+  }
+  h6 {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #0029FF;
+    margin-top: 0;
+    line-height: 20px;
+    font-family: 'Roboto Mono';
+  }
+}

@@ -396,10 +396,14 @@ const mapStyleBlue = [
     ]
   }
 ];
+const setMarker =
+  process.env.NODE_ENV === 'development' ? "assets/images/icons/marker.svg" : "/local/templates/main/assets/images/icons/marker.svg" ;
+const setBubble =
+  process.env.NODE_ENV === 'development' ? "assets/images/icons/bubble.svg" : "/local/templates/main/assets/images/icons/bubble.svg" ;
 const mcOptions = {
   styles: [
     {
-      url: "/local/templates/main/assets/images/icons/marker.svg",
+      url: setMarker,
       width: 72,
       height: 72,
       fontFamily: "Roboto Mono",
@@ -408,6 +412,7 @@ const mcOptions = {
     }
   ]
 };
+const infoWindow = new google.maps.InfoWindow();
 
 function initMap() {
   const mapOptions = {
@@ -421,13 +426,14 @@ function initMap() {
   };
   map = new google.maps.Map(document.getElementById("googleMaps"), mapOptions);
 
-  let locations = [];
 
-  var items = $('.map_list').html();
-  items = items.split(';');
+  const locations = [];
 
-  items.forEach(function(item, i, arr) {
-    var coord = item;
+  let items = $('.map_list').html();
+  items = items && items.split(';');
+
+  items && items.forEach(function(item, i, arr) {
+    let coord = item;
     coord = coord.split(',');
     coord['0'] = parseFloat(coord['0']);
     coord['1'] = parseFloat(coord['1']);
@@ -438,13 +444,39 @@ function initMap() {
   locations.forEach(function(item, i, arr) {
     markers[i] = new google.maps.Marker({
       position: new google.maps.LatLng(item[0], item[1]),
-      icon: "/local/templates/main/assets/images/icons/bubble.svg",
+      icon: setBubble,
       map: map,
       id: i
     });
   });
 
+  const getDataElem = $(".cityList__block-item");
+  const content = [];
+
+  for (let x=0; x < getDataElem.length; x++) {
+    const title = getDataElem.eq(x).data("title");
+    const name = getDataElem.eq(x).data("name");
+    const phone = getDataElem.eq(x).data("phone");
+    const mail = getDataElem.eq(x).data("mail");
+    const adr = getDataElem.eq(x).data("adr");
+    const time = getDataElem.eq(x).data("time");
+
+    content.push(`<h6>${title}</h6> <p>${name} <br /> ${phone}  <br /> ${mail}  <br /> ${adr}  <br /> ${time}</p>`);
+  }
+
   markerCluster = new MarkerClusterer(map, markers, mcOptions);
+
+  for (let i = 0; i < markers.length; i++) {
+    const marker = markers[i];
+
+    google.maps.event.addListener(marker, 'click', (function() {
+      return function() {
+        infoWindow.setContent(content[i]);
+        infoWindow.open(map, this);
+      }
+    })(marker));
+  }
+
 
   $(document).on('change', 'input[name=map_center]', function(){
     var value = $(this).val();
@@ -472,9 +504,9 @@ function initMap1() {
   let locations = [];
 
   var items = $('.map_list').html();
-  items = items.split(';');
+  items = items && items.split(';');
 
-  items.forEach(function(item, i, arr) {
+  items && items.forEach(function(item, i, arr) {
     var coord = item;
     coord = coord.split(',');
     coord['0'] = parseFloat(coord['0']);
@@ -486,7 +518,7 @@ function initMap1() {
   locations.forEach(function(item, i, arr) {
     markers[i] = new google.maps.Marker({
       position: new google.maps.LatLng(item[0], item[1]),
-      icon: "/local/templates/main/assets/images/icons/bubble.svg",
+      icon: setBubble,
       map: map,
       id: i
     });
@@ -520,7 +552,7 @@ function initMapBlue() {
   for (let i = 0; i < locations.length; i++) {
     markers[i] = new google.maps.Marker({
       position: new google.maps.LatLng(locations[i][0], locations[i][1]),
-      icon: "/local/templates/main/assets/images/icons/bubble.svg",
+      icon: setBubble,
       map: map2,
       id: i
     });

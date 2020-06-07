@@ -315,6 +315,9 @@ input[type="search"] {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  .control {
+    min-width: 0;
+  }
   span {
     margin: 0 15px;
     display: block;
