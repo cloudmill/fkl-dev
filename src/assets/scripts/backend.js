@@ -1239,6 +1239,7 @@ const formSubmer = function () {
           "email": email.val()
         }),
         success: function (a) {
+          form.find('.section__bottom__form__message').show();
           console.log(a);
         }
       });
