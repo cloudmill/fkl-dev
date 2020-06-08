@@ -353,7 +353,7 @@ const slidersTechCard = function() {
     touchThreshold: 100,
     nextArrow: $(".nextTech"),
     prevArrow: $(".prevTech"),
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 5000,
     customPaging: function() {
       return '<div class="circle-loader-wrap"><div class="left-wrap"><div class="circle"></div></div><div class="right-wrap"><div class="circle"></div> </div></div>';

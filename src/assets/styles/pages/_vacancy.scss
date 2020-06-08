@@ -35,10 +35,33 @@
   .main-content {
     padding-bottom: 70px;
     @media screen and (min-width: $screen-md-min) {
-      padding-bottom: 200px;
+      padding-bottom: 120px;
     }
 
     &--form {
+      .col__md-6 {
+        @media screen and (min-width: $screen-md-min) {
+          border-right: 1px solid $gray;
+        }
+      }
+      .inner {
+        border-top: 1px solid $gray;
+        padding: 20px;
+        @media screen and (min-width: $screen-md-min) {
+          padding: 50px 30px;
+        }
+        @media screen and (min-width: $screen-lg-min) {
+          padding: 60px 100px;
+        }
+        @media screen and (min-width: $screen-xl-min) {
+          padding: 120px 130px;
+        }
+        h5 {
+          font-size: 22px;
+          margin: 0;
+          padding: 0;
+        }
+      }
       .checkbox {
         padding: 20px;
         @media screen and (min-width: $screen-md-min) {
@@ -62,7 +85,7 @@
         margin-bottom: 0;
         margin-top: 0;
       }
-      .row {
+      > * {
         margin: -20px;
         @media screen and (min-width: $screen-md-min) {
           margin: 0 -65px -50px -30px;
@@ -73,6 +96,8 @@
         @media screen and (min-width: $screen-xl-min) {
           margin: 0 -320px -60px -129px;
         }
+      }
+      .row {
         .control {
           border-top: 1px solid $gray;
         }

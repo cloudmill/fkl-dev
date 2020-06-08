@@ -71,12 +71,13 @@ $(".aside__header").click(function() {
 
 $(".showForm--js").click(function() {
   $(this).hide();
-  $(this).parent().find('.main-content--list').hide();
-  $(this).parent().find('.main-content--form').show();
+  $(this).parent().find('.main-content--form').show(500);
 
-  $('html, body').animate({
-    scrollTop: $($(this).parent()).offset().top,
-  }, 500);
+  return false;
+});
+$(".main-content--form button").click(function() {
+  $(this).closest('.row-null').hide();
+  $('.main-content--form .inner').show(500);
 
   return false;
 });
