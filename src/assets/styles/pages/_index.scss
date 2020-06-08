@@ -1430,10 +1430,6 @@ body.edge {
       position: relative;
       @media screen and (min-width: $screen-md-min) {
         border-left: 1px solid $gray;
-        margin-right: -50px;
-      }
-      @media screen and (min-width: $screen-lg-min) {
-        margin-right: -80px;
       }
       &__message {
         position: absolute;
@@ -1633,7 +1629,16 @@ body.edge {
     }
   }
 }
-
+#fullpage {
+  section__bottom__form {
+    @media screen and (min-width: $screen-md-min) {
+      margin-right: -50px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      margin-right: -80px;
+    }
+  }
+}
 body.Windows {
   .section__slider:before {
     background: #031344;
