@@ -29,6 +29,7 @@ $(document).ready(() => {
   }), 1600);
 
   $('body').addClass(browserDetect.name);
+  $('body').addClass(browserDetect.os);
 
 
   // iPad scripts

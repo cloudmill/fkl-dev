@@ -25,13 +25,20 @@
       }
     }
 
+
+
     .arrowInfo {
       //left: calc(48vw - 200px);
       @media screen and (min-width: $screen-md-min) and (max-width: $screen-xmd-max) {
         width: calc(100% - 12vw);
       }
+      @media screen and (min-width: $screen-md-min) {
+        right: auto;
+        left: 0;
+      }
       @media screen and (min-width: $screen-lg-min) {
         left: calc(48vw - 200px);
+        right: auto;
       }
     }
 
@@ -40,15 +47,27 @@
       @media screen and (max-width: $screen-sm-max) {
         left: 0;
       }
+      @media screen and (max-width: $screen-md-max) {
+        left: 73vw;
+      }
     }
     .pagingInfo {
       right: 80px;
       left: auto;
     }
-    .slick-slide {
-      width: 48vw;
+
+    .slick-slide { width: 48vw;
       @media screen and (min-width: $screen-md-min) {
         margin-right: 14vw;
+      }
+      .sliderAbout__item-img {
+        margin-right: auto;
+      }
+      &.slick-active.slick-current {
+        .sliderAbout__item-img {
+          margin-left: auto;
+          margin-right: 0;
+        }
       }
     }
   }
@@ -77,9 +96,9 @@
       padding: 100px 110px 120px 0;
     }
     .arrowInfo {
-      @media screen and (max-width: $screen-md-max) {
+      left: 0;
+      @media screen and (max-width: $screen-sm-max) {
         position: relative;
-        left: 0;
         width: 100%;
         > * {
           width: 50%;
@@ -87,6 +106,15 @@
       }
       @media screen and (min-width: $screen-md-min) and (max-width: $screen-xmd-max) {
         width: calc(100% - 12vw);
+      }
+      @media screen and (min-width: $screen-md-min) {
+        left: auto;
+        right: 0;
+      }
+      @media screen and (min-width: $screen-lg-min) {
+        left: auto;
+        right: calc(48vw - 200px);
+        margin-left: 12vw;
       }
     }
     h2 {
@@ -106,14 +134,6 @@
     }
     .about__slider {
       margin-bottom: 0;
-    }
-    .arrowInfo {
-      left: 0;
-      @media screen and (min-width: $screen-md-min) {
-        left: auto;
-        right: calc(48vw - 200px);
-        margin-left: 12vw;
-      }
     }
     .pagingInfo-rtl {
       top: 0;
@@ -141,9 +161,24 @@
         position: absolute;
       }
       @media screen and (min-width: $screen-md-min) {
-        right: 55vw;
+        right: 73vw;
         left: auto;
-        display: block;
+        display: block !important;
+      }
+      @media screen and (min-width: $screen-lg-min) {
+        right: 55vw;
+      }
+    }
+
+    .slick-slide {
+      .sliderAbout__item-img {
+        margin-left: auto;
+      }
+      &.slick-active.slick-current {
+        .sliderAbout__item-img {
+          margin-right: auto;
+          margin-left: 0;
+        }
       }
     }
   }
