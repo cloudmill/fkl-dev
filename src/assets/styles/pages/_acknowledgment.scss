@@ -30,7 +30,7 @@
       @media screen and (min-width: $screen-md-min) {
         margin-bottom: 30px;
       }
-      @media screen and (min-width: $screen-xmd-min) {
+      @media screen and (min-width: $screen-lg-min) {
         margin-bottom: 80px;
         max-width: 75%;
         padding: 0;
@@ -41,13 +41,15 @@
     }
     .arrowInfo {
       left: calc(61vw - 200px);
-      @media screen and (max-width: $screen-md-max) {
+      @media screen and (max-width: $screen-sm-max) {
         position: relative;
-        left: 0;
         width: 100%;
         > * {
           width: 50%;
         }
+      }
+      @media screen and (max-width: $screen-md-max) {
+        left: 0;
       }
     }
 
@@ -66,7 +68,7 @@
       }
     }
     .slick-dots {
-      @media screen and (max-width: $screen-md-max) {
+      @media screen and (max-width: $screen-sm-max) {
         display: flex !important;
         justify-content: center;
         position: absolute;

@@ -1634,6 +1634,23 @@ body.edge {
   }
 }
 
+body.Windows {
+  .section__slider:before {
+    background: #031344;
+  }
+  .section__slider:after {
+    background: #031980;
+  }
+}
+body.OS {
+  .section__slider:before {
+    background: #02124f;
+  }
+  .section__slider:after {
+    background: #041b8d;
+  }
+}
+
 .fp-viewing-01-0 {
   .fp-slidesNav ul li:first-child.active a::before {
     background-color: $base-color-main;

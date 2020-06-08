@@ -4,6 +4,7 @@ import {fullpage_init} from './fullpageIndex';
 // search
 $(".sitebar_search").click(function() {
   $(".searchBar").addClass("active");
+  $(".searchBar").find('input').focus();
 });
 $(".searchBar__close").click(function() {
   $(".searchBar").removeClass("active");
