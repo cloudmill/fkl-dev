@@ -427,7 +427,7 @@ function initMap() {
   map = new google.maps.Map(document.getElementById("googleMaps"), mapOptions);
 
 
-  const locations = [];
+  let locations = [];
 
   let items = $('.map_list').html();
   items = items && items.split(';');
@@ -481,11 +481,14 @@ function initMap() {
   $(document).on('change', 'input[name=map_center]', function(){
     var value = $(this).val();
     if (value) {
-      value = value.split(', ');
+      value = value.split(',');
       value['0'] = parseFloat(value['0']);
       value['1'] = parseFloat(value['1']);
       map.setCenter({lat:value['0'], lng:value['1']});
       map.setZoom(10);
+      console.log(map);
+      console.log(value['0']);
+      console.log(value['1']);
     }
   });
 }
@@ -529,11 +532,14 @@ function initMap1() {
   $(document).on('change', 'input[name=map_center2]', function(){
     var value = $(this).val();
     if (value) {
-      value = value.split(', ');
+      value = value.split(',');
       value['0'] = parseFloat(value['0']);
       value['1'] = parseFloat(value['1']);
       map.setCenter({lat:value['0'], lng:value['1']});
       map.setZoom(10);
+      console.log(map);
+      console.log(value['0']);
+      console.log(value['1']);
     }
   });
 }
@@ -578,7 +584,7 @@ $(document).ready(function() {
     mainClass: 'my-mfp-zoom-in',
     callbacks: {
       open: function() {
-        if($("#googleMapsBlue").length) initMapBlue();
+        //if($("#googleMapsBlue").length) initMapBlue();
         $('body').css('overflow', 'hidden');
       },
       close: function() {

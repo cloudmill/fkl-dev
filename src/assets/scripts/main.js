@@ -114,7 +114,7 @@ $(document).ready(function() {
   $(".select").on("select2:open", function() {
     $("input.select2-search__field").prop(
       "placeholder",
-      "Начните вводить город"
+      "Начните вводить"
     );
     $(".select2-dropdown").hide();
     setTimeout(function() {
@@ -490,45 +490,45 @@ const slidersForNav = function() {
       },
     ],
   });
+
+  $(".slider-for").on("beforeChange", function(
+    event,
+    slick,
+    currentSlide,
+    nextSlide
+  ) {
+    const num = nextSlide + 1;
+    const li = $(`.appendDots .slick-dots li:nth-child(${num})`);
+    const getPosition = li.position().left;
+    const getWidth = li.width();
+    const getHeight = li.height();
+    if (screen_width <= 1239) {
+      $(".appendDots span").css({
+        left: getWidth > 80 ? getPosition - 5 : getPosition,
+        width: getWidth > 80 ? getWidth + 10 : getWidth,
+        height: getHeight,
+      });
+    } else {
+      $(".appendDots span").css({
+        left: getPosition,
+      });
+    }
+  });
+  
+  $(".submit--js").click(function(e) {
+    e.preventDefault();
+    const inputMail = $(this)
+      .closest(".regForm")
+      .find('input[type="email"]');
+    const inputPass = $(this)
+      .closest(".regForm")
+      .find('input[type="password"]');
+    $(".regForm-error").text("Неправильно введена электронная почта или пароль");
+    inputMail.parent().addClass("error");
+    inputPass.parent().addClass("error");
+  });
+  
+  $(document).on("click", ".section__bottom__close--js", function(e) {
+    $('.section__bottom__form__message').slideUp(500);
+  });
 };
-
-$(".slider-for").on("beforeChange", function(
-  event,
-  slick,
-  currentSlide,
-  nextSlide
-) {
-  const num = nextSlide + 1;
-  const li = $(`.appendDots .slick-dots li:nth-child(${num})`);
-  const getPosition = li.position().left;
-  const getWidth = li.width();
-  const getHeight = li.height();
-  if (screen_width <= 1239) {
-    $(".appendDots span").css({
-      left: getWidth > 80 ? getPosition - 5 : getPosition,
-      width: getWidth > 80 ? getWidth + 10 : getWidth,
-      height: getHeight,
-    });
-  } else {
-    $(".appendDots span").css({
-      left: getPosition,
-    });
-  }
-});
-
-$(".submit--js").click(function(e) {
-  e.preventDefault();
-  const inputMail = $(this)
-    .closest(".regForm")
-    .find('input[type="email"]');
-  const inputPass = $(this)
-    .closest(".regForm")
-    .find('input[type="password"]');
-  $(".regForm-error").text("Неправильно введена электронная почта или пароль");
-  inputMail.parent().addClass("error");
-  inputPass.parent().addClass("error");
-});
-
-$(document).on("click", ".section__bottom__close--js", function(e) {
-  $('.section__bottom__form__message').slideUp(500);
-});

@@ -1255,6 +1255,7 @@ const formSubmer = function () {
       phone = form.find('input[name=phone]'),
       email = form.find('input[name=email]'),
       message = form.find('textarea[name=message]'),
+      agree = form.find('input[name=agree]'),
       sessid = $('input[name=sessid]');
 
     if (name.val()) {
@@ -1282,6 +1283,13 @@ const formSubmer = function () {
       message.parents('label').removeClass('error');
     } else {
       message.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (agree.prop('checked')) {
+      agree.parents('.checkbox').removeClass('error');
+    } else {
+      agree.parents('.checkbox').addClass('error');
       mist++;
     }
 
@@ -1326,6 +1334,7 @@ const formSubmer = function () {
       phone = form.find('input[name=phone]'),
       email = form.find('input[name=email]'),
       message = form.find('textarea[name=message]'),
+      agree = form.find('input[name=agree]'),
       sessid = $('input[name=sessid]');
 
     if (name.val()) {
@@ -1353,6 +1362,13 @@ const formSubmer = function () {
       message.parents('label').removeClass('error');
     } else {
       message.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (agree.prop('checked')) {
+      agree.parents('.checkbox').removeClass('error');
+    } else {
+      agree.parents('.checkbox').addClass('error');
       mist++;
     }
 
@@ -1397,6 +1413,7 @@ const formSubmer = function () {
       name = form.find('input[name=name]'),
       phone = form.find('input[name=phone]'),
       email = form.find('input[name=email]'),
+      agree = form.find('input[name=agree]'),
       message = form.find('textarea[name=message]'),
       sessid = $('input[name=sessid]');
 
@@ -1425,6 +1442,13 @@ const formSubmer = function () {
       message.parents('label').removeClass('error');
     } else {
       message.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (agree.prop('checked')) {
+      agree.parents('.checkbox').removeClass('error');
+    } else {
+      agree.parents('.checkbox').addClass('error');
       mist++;
     }
 
@@ -1590,6 +1614,155 @@ const formSubmer = function () {
     $(this).parents('[data-type=js-supplier-form]').find('.inner').hide();
     $(this).parents('[data-type=js-supplier-form]').find('.outer').slideDown();
     $(this).parents('[data-type=js-supplier-form]').find('input,textarea').val('');
+  });
+
+  $('[data-type=js-call-form]').on('submit', function (e) {
+    e.preventDefault();
+    let
+      mist = 0,
+      form = $(this),
+      name = form.find('input[name=name]'),
+      phone = form.find('input[name=phone]'),
+      message = form.find('textarea[name=message]'),
+      agree = form.find('input[name=agree]'),
+      sessid = $('input[name=sessid]');
+
+    if (name.val()) {
+      name.parents('label').removeClass('error');
+    } else {
+      name.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (phone.val()) {
+      phone.parents('label').removeClass('error');
+    } else {
+      phone.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (message.val()) {
+      message.parents('label').removeClass('error');
+    } else {
+      message.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (agree.prop('checked')) {
+      agree.parents('.checkbox').removeClass('error');
+    } else {
+      agree.parents('.checkbox').addClass('error');
+      mist++;
+    }
+
+    if (mist == 0) {
+      $.ajax({
+        type: "POST",
+        url: "/local/templates/main/include/ajax/form/call.php",
+        data: ({
+          "sessid": sessid.val(),
+          "name": name.val(),
+          "phone": phone.val(),
+          "message": message.val()
+        }),
+        success: function (a) {
+          console.log(a);
+          form.find('.inner').slideDown();
+          form.find('.outer').hide();
+        }
+      });
+    }
+  });
+
+  $('[data-type=js-call-form] .simpleForm-btn').on('click', function (e) {
+    e.preventDefault();
+    $('[data-type=js-call-form]').submit();
+  });
+
+  $('[data-type=js-call-form] .return--js').on('click', function (e) {
+    e.preventDefault();
+    $(this).parents('[data-type=js-call-form]').find('.inner').hide();
+    $(this).parents('[data-type=js-call-form]').find('.outer').slideDown();
+    $(this).parents('[data-type=js-call-form]').find('input,textarea').val('');
+  });
+
+  $('[data-type=js-work-form]').on('submit', function (e) {
+    e.preventDefault();
+    let
+      mist = 0,
+      form = $(this),
+      name = form.find('input[name=name]'),
+      phone = form.find('input[name=phone]'),
+      email = form.find('input[name=email]'),
+      message = form.find('textarea[name=message]'),
+      agree = form.find('input[name=agree]'),
+      sessid = $('input[name=sessid]');
+
+    if (name.val()) {
+      name.parents('label').removeClass('error');
+    } else {
+      name.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (phone.val()) {
+      phone.parents('label').removeClass('error');
+    } else {
+      phone.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (validateEmail(email.val())) {
+      email.parents('label').removeClass('error');
+    } else {
+      email.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (message.val()) {
+      message.parents('label').removeClass('error');
+    } else {
+      message.parents('label').addClass('error');
+      mist++;
+    }
+
+    if (agree.prop('checked')) {
+      agree.parents('.checkbox').removeClass('error');
+    } else {
+      agree.parents('.checkbox').addClass('error');
+      mist++;
+    }
+
+    if (mist == 0) {
+      $.ajax({
+        type: "POST",
+        url: "/local/templates/main/include/ajax/form/work.php",
+        data: ({
+          "sessid": sessid.val(),
+          "name": name.val(),
+          "phone": phone.val(),
+          "email": email.val(),
+          "message": message.val()
+        }),
+        success: function (a) {
+          console.log(a);
+          $('.inner').slideDown();
+          $('.outer').hide();
+        }
+      });
+    }
+  });
+
+  $('[data-type=js-work-form] .simpleForm-btn').on('click', function (e) {
+    e.preventDefault();
+    $('[data-type=js-work-form]').submit();
+  });
+
+  $('[data-type=js-work-form] .return--js').on('click', function (e) {
+    e.preventDefault();
+    $(this).parents('[data-type=js-work-form]').find('.inner').hide();
+    $(this).parents('[data-type=js-work-form]').find('.outer').slideDown();
+    $(this).parents('[data-type=js-work-form]').find('input,textarea').val('');
   });
 };
 
