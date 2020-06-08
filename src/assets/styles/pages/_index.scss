@@ -1627,10 +1627,18 @@ body.edge {
         }
       }
     }
+    &__wrapper {
+      @media screen and (max-width: $screen-sm-max) {
+        height: auto !important;
+        > * {
+          height: auto !important;
+        }
+      }
+    }
   }
 }
 #fullpage {
-  section__bottom__form {
+  .section__bottom__form {
     @media screen and (min-width: $screen-md-min) {
       margin-right: -50px;
     }

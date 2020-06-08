@@ -165,6 +165,9 @@
       cursor: pointer;
       > * {
         margin-left: 10px;
+        &:last-child {
+          margin-left: 20px;
+        }
       }
 
       &:focus {

@@ -49,7 +49,6 @@ export const fullpage_init = function() {
     : '/local/templates/main/assets/images/logo.svg'
 
   const main_fullpage = new fullpage('#fullpage', {
-    // responsiveWidth: 1000,
     anchors: ['one', 'two', 'three', 'four'],
     parallax: true,
     navigation: false,

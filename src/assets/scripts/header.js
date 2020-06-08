@@ -50,6 +50,7 @@ $(".open--js").click(function() {
   $(this).toggleClass('active');
   $(this).next().toggleClass('active');
 });
+
 const screen_width = Math.max(
   document.documentElement.clientWidth,
   window.innerWidth || 0
