@@ -420,7 +420,7 @@ const slidersAbout = function() {
       {
         breakpoint: 900,
         settings: {
-          slidesToScroll: 1,
+          slidesToScroll: 2,
           slidesToShow: 1,
           variableWidth: false,
         },
@@ -482,7 +482,7 @@ const slidersAboutRtl = function() {
       {
         breakpoint: 767,
         settings: {
-          slidesToScroll: 1,
+          slidesToScroll: 2,
           slidesToShow: 1,
           variableWidth: false,
         },
