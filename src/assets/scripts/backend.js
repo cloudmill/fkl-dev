@@ -329,7 +329,8 @@ const auth = function () {
     let mist = 0,
       form = $("[data-type=js-recovery]"),
       error = $("[data-type=js-recovery-error]"),
-      email = form.find("input[name=email]");
+      email = form.find("input[name=email]"),
+      sessid = $('input[name=sessid]');
 
     if (!email.val()) {
       email.parents("label").addClass("error");
@@ -345,14 +346,15 @@ const auth = function () {
         type: "POST",
         url: "/local/templates/main/include/ajax/main/recovery.php",
         data: {
-          email: email.val(),
+          "sessid": sessid.val(),
+          "email": email.val(),
         },
+        dataType: 'json',
         success: function (a) {
-          console.log(a);
-          if (a) {
-            error.html(a);
+          if (a.error) {
+            location.href = '/password-recovery/fail/';
           } else {
-            
+            location.href = '/password-recovery/success/';
           }
         },
       });
