@@ -79,21 +79,25 @@
     opacity: 1;
     font-family: 'Roboto Mono';
     font-weight: 400;
+    transition: color .5s;
   } // Firefox
   &:-ms-input-placeholder {
     color: $color;
     font-family: 'Roboto Mono';
     font-weight: 400;
+    transition: color .5s;
   } // Internet Explorer 10+
   &::-webkit-input-placeholder {
     color: $color;
     font-family: 'Roboto Mono';
     font-weight: 400;
+    transition: color .5s;
   } // Safari and Chrome
   &::placeholder {
     color: $color;
     font-family: 'Roboto Mono';
     font-weight: 400;
+    transition: color .5s;
   }
 }
 @mixin tab-focus() {
