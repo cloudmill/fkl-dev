@@ -275,41 +275,6 @@ $("#passwords--js").click(function() {
   return false;
 });
 
-// testing actions
-// TODO: add backend part and update this functions
-$(".testAction").click(function() {
-  $('#editPassword').hide();
-  $('#restorePassword').hide();
-  $('.longLink').hide();
-  $('.infoNotice').show();
-  $('.mainTitle h2').text('Спасибо!');
-  AOS.init({
-    offset: 50,
-  });
-  return false;
-});
-$("#restoreForms").click(function() {
-  $('#editPassword').show();
-  $('.longLink').show();
-  $('.infoNotice').hide();
-  $('.mainTitle h2').text('Изменить пароль');
-  AOS.init({
-    offset: 50,
-  });
-  return false;
-});
-$("#restoreForms2").click(function() {
-  $('#restorePassword').show();
-  $('.longLink').show();
-  $('.infoNotice').hide();
-  $('.mainTitle h2').text('Восстановить пароль');
-  AOS.init({
-    offset: 50,
-  });
-  return false;
-});
-// testing actions
-
 // mask phone {maskedinput}
 $("[name=phone]").mask("+7 (999) 999-9999");
 $("[name=phone_f]").mask("+7 (999) 999-9999");

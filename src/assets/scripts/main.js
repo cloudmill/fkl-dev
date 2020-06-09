@@ -186,19 +186,6 @@ $(document).ready(function() {
     }
   });
 
-  $(".submit--js").click(function(e) {
-    e.preventDefault();
-    const inputMail = $(this)
-      .closest(".regForm")
-      .find('input[type="email"]');
-    const inputPass = $(this)
-      .closest(".regForm")
-      .find('input[type="password"]');
-    $(".regForm-error").text("Неправильно введена электронная почта или пароль");
-    inputMail.parent().addClass("error");
-    inputPass.parent().addClass("error");
-  });
-
 });
 
 // sliders

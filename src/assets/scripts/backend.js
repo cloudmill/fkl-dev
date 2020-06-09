@@ -15,11 +15,11 @@ $(function () {
 const auth = function () {
   console.log("auth");
 
-  $("[data-type=js-auth-submit]").on("click", function (e) {
+  $("[data-type=js-auth]").on("submit", function (e) {
     e.preventDefault();
     let mist = 0,
       auth = $("[data-type=js-auth]"),
-      error = auth.find("#error"),
+      error = $("[data-type=js-auth-error]"),
       email = auth.find("input[name=email]"),
       password = auth.find("input[name=password]");
 
@@ -36,6 +36,8 @@ const auth = function () {
     } else {
       password.parents("label").removeClass("error");
     }
+
+    error.html('');
 
     if (mist == 0) {
       $.ajax({
@@ -56,7 +58,12 @@ const auth = function () {
     }
   });
 
-  $("[data-type=js-register-submit]").on("click", function (e) {
+  $("[data-type=js-auth-submit]").on("click", function (e) {
+    e.preventDefault();
+    $("[data-type=js-auth]").submit();
+  });
+
+  $("[data-type=js-register]").on("submit", function (e) {
     e.preventDefault();
     let mist = 0,
       register = $("[data-type=js-register]"),
@@ -309,6 +316,46 @@ const auth = function () {
           },
         });
       }
+    }
+  });
+
+  $("[data-type=js-register-submit]").on("click", function (e) {
+    e.preventDefault();
+    $("[data-type=js-register]").submit();
+  });
+
+  $("[data-type=js-recovery]").on("submit", function (e) {
+    e.preventDefault();
+    let mist = 0,
+      form = $("[data-type=js-recovery]"),
+      error = $("[data-type=js-recovery-error]"),
+      email = form.find("input[name=email]");
+
+    if (!email.val()) {
+      email.parents("label").addClass("error");
+      mist++;
+    } else {
+      email.parents("label").removeClass("error");
+    }
+
+    error.html('');
+
+    if (mist == 0) {
+      $.ajax({
+        type: "POST",
+        url: "/local/templates/main/include/ajax/main/recovery.php",
+        data: {
+          email: email.val(),
+        },
+        success: function (a) {
+          console.log(a);
+          if (a) {
+            error.html(a);
+          } else {
+            
+          }
+        },
+      });
     }
   });
 };
