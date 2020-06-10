@@ -677,6 +677,115 @@ const account = function () {
       }
     }
   });
+
+  $("[data-type=js-profile]").on("submit", function (e) {
+    e.preventDefault();
+    let mist = 0,
+      form = $("[data-type=js-profile]"),
+      error = form.find("#error"),
+      name = form.find("input[name=name]"),
+      phone = form.find("input[name=phone]"),
+      city = form.find("select[name=city]"),
+      address = form.find("input[name=address]"),
+      sessid = $('input[name=sessid]');
+
+    if (!name.val()) {
+      name.parents(".form__group").addClass("error");
+      mist++;
+    } else {
+      name.parents(".form__group").removeClass("error");
+    }
+
+    if (!phone.val()) {
+      phone.parents(".form__group").addClass("error");
+      mist++;
+    } else {
+      phone.parents(".form__group").removeClass("error");
+    }
+
+    error.html("");
+
+    if (mist == 0) {
+      $.ajax({
+        type: "POST",
+        url: "/local/templates/main/include/ajax/account/profile.php",
+        data: {
+          "name": name.val(),
+          "phone": phone.val(),
+          "city": city.val(),
+          "address": address.val(),
+          "sessid": sessid.val()
+        },
+        dataType: 'json',
+        success: function (a) {
+          if (a.error) {
+            error.html(a);
+          } else {
+            form.hide();
+            $(".mainTitle h2").text("Профиль изменен!");
+            AOS.init({
+              offset: 50,
+            });
+          }
+        },
+      });
+    }
+  });
+
+  $("[data-type=js-requisites]").on("submit", function (e) {
+    e.preventDefault();
+    let mist = 0,
+      form = $("[data-type=js-requisites]"),
+      error = form.find("#error"),
+      company = form.find("input[name=company]"),
+      inn = form.find("input[name=inn]"),
+      kpp = form.find("input[name=kpp]"),
+      bic = form.find("input[name=bic]"),
+      kor_bill = form.find("input[name=kor_bill]"),
+      bill = form.find("input[name=bill]"),
+      legal_adr = form.find("input[name=legal_adr]"),
+      post_adr = form.find("input[name=post_adr]"),
+      director = form.find("input[name=director]"),
+      act = form.find("input[name=act]"),
+      state = form.find("input[name=state]"),
+      sessid = $('input[name=sessid]');
+
+    error.html("");
+
+    if (mist == 0) {
+      $.ajax({
+        type: "POST",
+        url: "/local/templates/main/include/ajax/account/requisites.php",
+        data: {
+          "company": company.val(),
+          "inn": inn.val(),
+          "kpp": kpp.val(),
+          "bic": bic.val(),
+          "kor_bill": kor_bill.val(),
+          "bill": bill.val(),
+          "legal_adr": legal_adr.val(),
+          "post_adr": post_adr.val(),
+          "director": director.val(),
+          "act": act.val(),
+          "state": state.val(),
+          "sessid": sessid.val()
+        },
+        dataType: 'json',
+        success: function (a) {
+          console.log(a);
+          if (a.error) {
+            error.html(a);
+          } else {
+            form.hide();
+            $(".mainTitle h2").text("Реквизиты изменены!");
+            AOS.init({
+              offset: 50,
+            });
+          }
+        },
+      });
+    }
+  });
 };
 
 const basket = function () {
@@ -1038,6 +1147,12 @@ const order = function () {
             $('[data-type=js-checkout]').html(a);
           }
         });
+      } else {
+        if (checkout.find('.error').eq(0).length) {
+          $('html,body').animate({
+            scrollTop: checkout.find('.error').eq(0).offset().top
+          }, 'slow');
+        }
       }
     }
 
@@ -1162,6 +1277,12 @@ const order = function () {
             $('[data-type=js-checkout]').html(a);
           }
         });
+      } else {
+        if (checkout.find('.error').eq(0).length) {
+          $('html,body').animate({
+            scrollTop: checkout.find('.error').eq(0).offset().top
+          }, 'slow');
+        }
       }
     }
   }
@@ -1360,8 +1481,16 @@ const formSubmer = function () {
         }),
         success: function (a) {
           console.log(a);
-          $('.inner').slideDown();
-          $('.outer').hide();
+          if (form.hasClass('basicControl')) {
+            form.hide();
+            $(".mainTitle h2").text("Запрос отправлен!");
+            AOS.init({
+              offset: 50,
+            });
+          } else {
+            form.find('.inner').slideDown();
+            form.find('.outer').hide();
+          }
         }
       });
     }
