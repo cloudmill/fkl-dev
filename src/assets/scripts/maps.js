@@ -486,9 +486,6 @@ function initMap() {
       value['1'] = parseFloat(value['1']);
       map.setCenter({lat:value['0'], lng:value['1']});
       map.setZoom(10);
-      console.log(map);
-      console.log(value['0']);
-      console.log(value['1']);
     }
   });
 }
@@ -502,7 +499,7 @@ function initMap1() {
     scrollwheel: false,
     styles: mapStyle
   };
-  map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+  map2 = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
 
   let locations = [];
 
@@ -522,12 +519,12 @@ function initMap1() {
     markers[i] = new google.maps.Marker({
       position: new google.maps.LatLng(item[0], item[1]),
       icon: setBubble,
-      map: map,
+      map: map2,
       id: i
     });
   });
 
-  markerCluster = new MarkerClusterer(map, markers, mcOptions);
+  markerCluster = new MarkerClusterer(map2, markers, mcOptions);
 
   $(document).on('change', 'input[name=map_center2]', function(){
     var value = $(this).val();
@@ -535,11 +532,8 @@ function initMap1() {
       value = value.split(',');
       value['0'] = parseFloat(value['0']);
       value['1'] = parseFloat(value['1']);
-      map.setCenter({lat:value['0'], lng:value['1']});
-      map.setZoom(10);
-      console.log(map);
-      console.log(value['0']);
-      console.log(value['1']);
+      map2.setCenter({lat:value['0'], lng:value['1']});
+      map2.setZoom(10);
     }
   });
 }
@@ -567,7 +561,7 @@ function initMapBlue() {
   markerCluster = new MarkerClusterer(map2, markers, mcOptions);
 }
 
-$(document).ready(function() {
+$(function(){
   if ($("#googleMaps").length) {
     initMap();
   }

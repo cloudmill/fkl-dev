@@ -705,6 +705,9 @@ const basket = function () {
           $("[data-type=js-basket-header]").load(
             "/local/templates/main/include/ajax/basket/header.php"
           );
+          $("[data-type=js-basket-header2]").load(
+            "/local/templates/main/include/ajax/basket/header2.php"
+          );
         },
       });
     }
@@ -732,6 +735,9 @@ const basket = function () {
           );
           $("[data-type=js-basket-header]").load(
             "/local/templates/main/include/ajax/basket/header.php"
+          );
+          $("[data-type=js-basket-header2]").load(
+            "/local/templates/main/include/ajax/basket/header2.php"
           );
         },
       });
@@ -788,7 +794,6 @@ const basket = function () {
 
 const order = function () {
   $(document).on('change', '[data-type=js-checkout] select[name=city]', function () {
-    console.log('city');
     orderRefresh();
   });
 
