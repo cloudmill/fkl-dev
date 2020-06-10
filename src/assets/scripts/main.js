@@ -8,7 +8,7 @@ $(document).on("click", ".about__video--ico", function() {
   $(this).hide();
   const $video = $("#video"),
     src = $video.attr("src");
-    console.log(src);
+  console.log(src);
 
   $video.attr("src", src + "&autoplay=1");
 });

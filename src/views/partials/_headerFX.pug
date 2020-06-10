@@ -1,8 +1,8 @@
 include ../partials/_sidebar
 include ../partials/_menu
 
-header.header.fixed(data-aos="fade-down", data-aos-delay="900", data-aos-duration="1000")
-  .header-inner
+header.header.fixed
+  .header-inner(data-aos="fade-down", data-aos-delay="900", data-aos-duration="1000")
     a.header__logo(href=''): +img('logo.svg')
     include ../components/_navbar
     .header__right
