@@ -169,6 +169,13 @@
           margin-left: 20px;
         }
       }
+      a {
+        display: flex;
+        align-items: center;
+        .header__right__counter {
+          margin-left: 10px;
+        }
+      }
 
       &:focus {
         outline: 0;
