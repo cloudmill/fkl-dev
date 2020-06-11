@@ -45,6 +45,7 @@
   &.hover {
     background-color: #F9F9F9 !important;
     transition: background-color .5s !important;
+    .header__right__phone,
     .header__menu__item {
       color: $black;
     }
