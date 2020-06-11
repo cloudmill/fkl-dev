@@ -8,7 +8,7 @@ export default class WebGLView {
 	constructor(app) {
 		this.app = app;
 
-		this.samples = 'assets/images/particle_photo/sample-03.png';
+		this.samples = '/local/templates/main/assets/images/particle_photo/sample-03.png';
 
 		this.initThree();
 		this.initParticles();
