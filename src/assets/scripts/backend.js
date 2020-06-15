@@ -1145,6 +1145,9 @@ const order = function () {
           }),
           success: function (a) {
             $('[data-type=js-checkout]').html(a);
+            $('html,body').animate({
+              scrollTop: checkout.offset().top
+            }, 'slow');
           }
         });
       } else {
