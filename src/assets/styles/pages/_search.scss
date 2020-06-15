@@ -311,11 +311,11 @@
           background: url("../images/check-white.svg") no-repeat right 25px top 20px, $base-color-main;
         }
         .params__inner-item-icon {
-          display: none;
+          display: block;
         }
         .params__inner-item-img {
           img {
-            opacity: 1;
+            opacity: 0;
           }
         }
         .params__inner-item-count {
@@ -365,7 +365,7 @@
       }
       &:hover {
         img {
-          @media screen and (min-width: $screen-lg-min) {
+          @media screen and (min-width: $screen-xmd-min) {
             opacity: 1;
           }
         }
