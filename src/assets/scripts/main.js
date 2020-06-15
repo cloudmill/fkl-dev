@@ -466,7 +466,6 @@ const slidersAboutRtl = function() {
     nextArrow: $(".next-rtl"),
     prevArrow: $(".prev-rtl"),
     rtl: true,
-    // autoplay: true,
     autoplaySpeed: 5000,
     customPaging: function() {
       return '<div class="circle-loader-wrap"><div class="left-wrap"><div class="circle"></div></div><div class="right-wrap"><div class="circle"></div> </div></div>';
