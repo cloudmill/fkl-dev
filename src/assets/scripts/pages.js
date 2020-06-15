@@ -214,6 +214,11 @@ forceNumericOnly(".input__number-js");
 // search
 $(".params__inner-item").click(function() {
   $(this).toggleClass("active");
+  if ($(this).hasClass('active')) {
+    $(this).find('input[type=checkbox]').prop('checked', true);
+  } else {
+    $(this).find('input[type=checkbox]').prop('checked', false);
+  }
 });
 $(".filter-clicker").click(function() {
   $(this).toggleClass("active");

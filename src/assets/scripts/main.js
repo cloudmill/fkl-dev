@@ -115,7 +115,7 @@ $(document).ready(function() {
   $(".select").on("select2:open", function() {
     $("input.select2-search__field").prop(
       "placeholder",
-      "Начните вводить город"
+      "Начните вводить"
     );
     $(".select2-dropdown").hide();
     setTimeout(function() {
