@@ -1,4 +1,7 @@
 .progress {
+  .subNav {
+    max-width: 900px;
+  }
   .subNav__item {
     @media screen and (min-width: $screen-md-min) {
       width: auto;

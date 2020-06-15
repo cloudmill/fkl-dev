@@ -1,10 +1,11 @@
 .about {
   .subNav {
+    max-width: 900px;
+  }
+  .subNav__item {
     @media screen and (min-width: $screen-md-min) {
-      margin-bottom: 20px;
-    }
-    @media screen and (min-width: $screen-xl-min) {
-      margin-top: 50px;
+      width: auto;
+      margin-right: 50px;
     }
   }
   &__body {

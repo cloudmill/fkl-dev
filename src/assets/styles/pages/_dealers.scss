@@ -1,4 +1,13 @@
 .dealers {
+  .subNav {
+    max-width: 900px;
+  }
+  .subNav__item {
+    @media screen and (min-width: $screen-md-min) {
+      width: auto;
+      margin-right: 50px;
+    }
+  }
   &-info {
     padding: 20px;
     @media screen and (min-width: $screen-md-min) {
