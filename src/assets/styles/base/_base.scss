@@ -66,6 +66,9 @@ body {
   font-size: $base-font-size;
   font-family: $base-font-family;
   line-height: 140%;
+  &:not(.bodyindex) {
+    opacity: 0;
+  }
 }
 
 section {

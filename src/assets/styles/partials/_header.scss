@@ -12,7 +12,7 @@
   padding: 20px;
   background-color: white;
   position: relative;
-  transition: background-color .5s;
+  transition: background-color 1s;
   @media screen and (min-width: $screen-md-min) {
     padding: 30px 40px 30px 140px;
   }
@@ -42,9 +42,24 @@
     position: absolute;
     background-color: transparent;
   }
+  &:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    transition: background-color .1s;
+  }
   &.hover {
-    background-color: #F9F9F9 !important;
-    transition: background-color .5s !important;
+    //background-color: #F9F9F9 !important;
+    //transition: background-color .3s !important;
+    &:after {
+      transition: background-color .3s;
+      background-color: #F9F9F9;
+    }
     .header__right__phone,
     .header__menu__item {
       color: $black;
@@ -95,36 +110,6 @@
     display: block;
     position: relative;
     height: 35px;
-    //&:before {
-    //  content: "";
-    //  display: block;
-    //  width: 100%;
-    //  position: absolute;
-    //  left: 0;
-    //  top: 0;
-    //  height: 100%;
-    //  background-image: url(../images/logo.svg);
-    //  background-repeat: no-repeat;
-    //  background-size: contain;
-    //  //transition: all 0.3s;
-    //}
-    //&:after {
-    //  content: "";
-    //  position: absolute;
-    //  left: 0;
-    //  top: 0;
-    //  opacity: 0;
-    //  display: block;
-    //  width: 100%;
-    //  height: 100%;
-    //  background-image: url(../images/logo_dblue.svg);
-    //  background-repeat: no-repeat;
-    //  background-size: contain;
-    //  //transition: all 0.3s;
-    //  @media screen and (min-width: $screen-md-min) {
-    //    background-image: url(../images/logo_blue.svg);
-    //  }
-    //}
   }
   &__menu {
     display: flex;

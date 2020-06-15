@@ -3,12 +3,17 @@ import 'three';
 import InteractiveControls from './controls/InteractiveControls';
 import Particles from './particles/Particles';
 
+const setModel = process.env.NODE_ENV === 'development'
+  ? "assets/images/particle_photo/sample-03.png"
+  : "/local/templates/main/assets/images/particle_photo/sample-03.png";
+
+
 export default class WebGLView {
 
 	constructor(app) {
 		this.app = app;
 
-		this.samples = '/local/templates/main/assets/images/particle_photo/sample-03.png';
+		this.samples = setModel;
 
 		this.initThree();
 		this.initParticles();

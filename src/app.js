@@ -24,10 +24,6 @@ $(document).ready(() => {
   // backend
   require("../src/assets/scripts/backend");
 
-  setTimeout(() => AOS.init({
-    offset: 50,
-  }), 1600);
-
   $('body').addClass(browserDetect.name);
   $('body').addClass(browserDetect.os);
 
@@ -40,6 +36,7 @@ $(document).ready(() => {
   }
   // iPad scripts
 });
+
 
 // const screen_width = Math.max(
 //   document.documentElement.clientWidth,
@@ -60,10 +57,7 @@ if(document.getElementsByClassName("page404").length) {
 }
 
 
-
 $(window).on("load", function() {
-  $('.loader-outer').addClass('active');
-  $('body').css('overflow', 'hidden');
   const url = window.location.origin;
   const href = window.location.href;
   const getSecondSlide = url + '/#two';
@@ -73,25 +67,42 @@ $(window).on("load", function() {
   if(getSecondSlide === href || getThirdSlide === href || getFourthSlide === href) {
     window.location.hash = '#one';
   }
-  setTimeout(function() {
-    $('body').css('overflow', 'visible');
-    $('.loader').addClass('hidden');
+
+  if($(".loader").length) {
+    setTimeout(() => AOS.init({
+      offset: 50,
+    }), 1600);
+
+    $('.loader-outer').addClass('active');
+    $('body').css('overflow', 'hidden');
+    $('body').css('opacity', '1');
+
     setTimeout(function() {
-      $('.loader').css('z-index', '-999');
+      $('body').css('overflow', 'visible');
+      $('.loader').addClass('hidden');
+      setTimeout(function() {
+        $('.loader').css('z-index', '-999');
 
-      $('.sitebar-inner').addClass('aos-animate'); // The hack for some browsers that don't show block
+        $('.sitebar-inner').addClass('aos-animate'); // The hack for some browsers that don't show block
 
-      if($('#particle_photo').length) {
-        ready(() => {
-          window.app = new App();
-          window.app.init();
-        });
-      }
+        if ($('#particle_photo').length) {
+          ready(() => {
+            window.app = new App();
+            window.app.init();
+          });
+        }
 
-    }, 500);
+      }, 500);
 
-    window.scrollTo(0, 0); // goTo the top after reload
-  }, 1100);
+      window.scrollTo(0, 0); // goTo the top after reload
+    }, 1100);
+  } else {
+    AOS.init({
+      offset: 50,
+    });
+    $('body').css('overflow', 'visible');
+    $('body').css('opacity', '1');
+  }
 });
 
 require("../src/assets/scripts/maps");
