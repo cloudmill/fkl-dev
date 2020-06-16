@@ -359,21 +359,28 @@ function initMap() {
   map = new google.maps.Map(document.getElementById("googleMaps"), mapOptions);
 
 
-  let locations = [];
+  let locations = [],
+      content = [];
 
   let
     list = $('.map_list'),
-    items = list.html();
+    items = list.find('span');
 
-  items = items && items.split(';');
-
-  items && items.forEach(function (item, i, arr) {
-    let coord = item;
+  items.each(function(){
+    let item = $(this),
+        name = item.attr('data-name'),
+        phone = item.attr('data-phone'),
+        email = item.attr('data-email'),
+        adr = item.attr('data-adr'),
+        time = item.attr('data-time'),
+        coord = item.attr('data-map'); 
+    
     coord = coord.split(',');
     coord['0'] = parseFloat(coord['0']);
     coord['1'] = parseFloat(coord['1']);
 
     locations[locations.length] = coord;
+    content.push('<h6>'+name+'</h6> <p>'+phone+'  <br /> '+email+'  <br /> '+adr+'  <br /> '+time+'</p>');
   });
 
   locations.forEach(function (item, i, arr) {
@@ -384,20 +391,6 @@ function initMap() {
       id: i
     });
   });
-
-  const getDataElem = $(".cityList__block-item");
-  const content = [];
-
-  for (let x = 0; x < getDataElem.length; x++) {
-    const title = getDataElem.eq(x).data("title");
-    const name = getDataElem.eq(x).data("name");
-    const phone = getDataElem.eq(x).data("phone");
-    const mail = getDataElem.eq(x).data("mail");
-    const adr = getDataElem.eq(x).data("adr");
-    const time = getDataElem.eq(x).data("time");
-
-    content.push(`<h6>${title}</h6> <p>${name} <br /> ${phone}  <br /> ${mail}  <br /> ${adr}  <br /> ${time}</p>`);
-  }
 
   markerCluster = new MarkerClusterer(map, markers, mcOptions);
 
