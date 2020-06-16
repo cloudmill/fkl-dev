@@ -121,6 +121,9 @@ $(document).ready(function() {
     setTimeout(function() {
       $(".select2-dropdown").slideDown("slow");
     }, 200);
+    setTimeout(function() {
+      $("input.select2-search__field").focus();
+    }, 500);
   });
 
   $(".showMore--js").click(function() {

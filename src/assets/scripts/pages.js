@@ -224,9 +224,9 @@ $(".filter-clicker").click(function() {
   $(this).toggleClass("active");
   $(this).next().toggleClass('active');
   if($(this).hasClass('active')) {
-    $(this).find('img:last-child').attr('src', 'assets/images/icons/minus.svg');
+    $(this).find('img:last-child').attr('src', '/local/templates/main/assets/images/icons/minus.svg');
   } else {
-    $(this).find('img:last-child').attr('src', 'assets/images/icons/plus.svg');
+    $(this).find('img:last-child').attr('src', '/local/templates/main/assets/images/icons/plus.svg');
   }
   AOS.init({
     offset: 50,

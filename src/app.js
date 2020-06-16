@@ -37,6 +37,13 @@ $(document).ready(() => {
   // iPad scripts
 });
 
+$(function() {
+  $("#search").focus();
+  $(".editPassword-form input#email").focus();
+  $(".registr-info input#name").focus();
+  $(".login-info input#email").focus();
+  $(".step-info input#names").focus();
+});
 
 // const screen_width = Math.max(
 //   document.documentElement.clientWidth,
