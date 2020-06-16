@@ -45,11 +45,6 @@ $(function() {
   $(".step-info input#names").focus();
 });
 
-// const screen_width = Math.max(
-//   document.documentElement.clientWidth,
-//   window.innerWidth || 0
-// );
-
 window.addEventListener("resize", function() {
   AOS.init({
     offset: 50,

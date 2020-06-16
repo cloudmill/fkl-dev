@@ -321,11 +321,35 @@ const mcOptions = {
   }]
 };
 const infoWindow = new google.maps.InfoWindow();
+let setZoomValue;
+const screen_width = Math.max(
+  document.documentElement.clientWidth,
+  window.innerWidth || 0
+);
+
+function setZoom() {
+  let value;
+  if(screen_width >= 1500) {
+    value = 6;
+  }
+  if(screen_width >= 1240 && screen_width < 1500) {
+    value = 4;
+  }
+  if(screen_width >= 768 && screen_width < 1240) {
+    value = 3;
+  }
+  if(screen_width < 768) {
+    value = 2;
+  }
+  return value;
+}
+
+setZoomValue = setZoom();
 
 function initMap() {
   const mapOptions = {
     center: new google.maps.LatLng(51.666120, 39.190655),
-    zoom: 6,
+    zoom: setZoomValue,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     mapTypeControl: false,
     zoomControl: true,
@@ -421,7 +445,7 @@ function initMap() {
 function initMap1() {
   const mapOptions = {
     center: new google.maps.LatLng(51.666120, 39.190655),
-    zoom: 6,
+    zoom: setZoomValue,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     mapTypeControl: false,
     zoomControl: true,
@@ -456,7 +480,7 @@ function initMap1() {
     });
   });
 
-  
+
 
   if (locations.length == 1) {
     map2.setCenter({
@@ -465,7 +489,7 @@ function initMap1() {
     });
   }
 
-  
+
 
   if (parseFloat(list.attr('data-zoom')) > 0) {
     map2.setZoom(parseFloat(list.attr('data-zoom')));
