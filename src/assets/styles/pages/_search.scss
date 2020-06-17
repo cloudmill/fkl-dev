@@ -356,7 +356,6 @@
           bottom: 0;
           margin: auto;
           opacity: 0;
-          transition: opacity 0.5s;
           max-width: 80%;
           @media screen and (min-width: $screen-xl-min) {
             max-width: inherit;
