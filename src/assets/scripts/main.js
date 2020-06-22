@@ -25,7 +25,7 @@ $(document).ready(function() {
   slidersMain3();
   slidersCard();
   slidersForNav();
-  slidersAbout();
+  slidersAbout($(".sliderAbout"));
   slidersAboutRtl();
   slidersTechCard();
   slidersAboutPeople();
@@ -84,6 +84,7 @@ $(document).ready(function() {
 
     if(screen_width > 767) {
       $('.section__bottom__slider').slick("setPosition", 0);
+      $('.sliderAbout').slick("setPosition", 0);
     }
 
     AOS.init({
@@ -326,6 +327,7 @@ const slidersAboutPeople = function() {
     arrows: true,
     nextArrow: $(".nextPeople"),
     prevArrow: $(".prevPeople"),
+    asNavFor: '.slider-for',
   });
 };
 
@@ -368,14 +370,13 @@ const slidersTechCard = function() {
   });
 };
 
-const slidersAbout = function() {
+const slidersAbout = function(item) {
   const $status = $(".pagingInfo .counter");
   const $statusF = $(".pagingInfo .counter span:first-child");
   const $statusL = $(".pagingInfo .counter span:last-child");
   const $length = $(".pagingInfo .length");
-  const $slickElement = $(".sliderAbout");
 
-  $slickElement.on("init reInit afterChange", function(
+  item.on("init reInit afterChange", function(
     event,
     slick,
     currentSlide
@@ -390,24 +391,20 @@ const slidersAbout = function() {
     $statusL.html(t);
     $length.html(` / ${Math.ceil(slick.slideCount / 2)}`);
   });
-  $slickElement.on("beforeChange", function() {
+  item.on("beforeChange", function() {
     $status.removeClass("active");
   });
 
-  $slickElement.slick({
+  item.slick({
     slidesToScroll: 2,
     slidesToShow: 2,
     dots: true,
     speed: 1000,
-    arrows: true,
-    // fade: true,
+    arrows: false,
     infinite: true,
     cssEase: "ease-in-out",
     touchThreshold: 100,
     variableWidth: true,
-    nextArrow: $(".next"),
-    prevArrow: $(".prev"),
-    // autoplay: true,
     autoplaySpeed: 5000,
     customPaging: function() {
       return '<div class="circle-loader-wrap"><div class="left-wrap"><div class="circle"></div></div><div class="right-wrap"><div class="circle"></div> </div></div>';
@@ -430,6 +427,15 @@ const slidersAbout = function() {
         },
       },
     ],
+  });
+
+  $(".next").click(function() {
+    const sl = $(this).closest('.about__slider').find('.sliderAbout');
+    sl.slick('slickNext');
+  });
+  $(".prev").click(function() {
+    const sl = $(this).closest('.about__slider').find('.sliderAbout');
+    sl.slick('slickPrev');
   });
 };
 
@@ -511,6 +517,7 @@ const slidersForNav = function() {
     appendDots: $(".appendDots"),
     nextArrow: $(".nextSec"),
     prevArrow: $(".prevSec"),
+    asNavFor: '.sliderAboutPeople',
     customPaging: function(slick, index) {
       return navArray[index];
     },
