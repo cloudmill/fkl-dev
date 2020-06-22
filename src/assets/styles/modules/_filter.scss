@@ -86,6 +86,13 @@
           margin-right: 0;
         }
       }
+      &--chk {
+        @media screen and (max-width: $screen-sm-max) {
+          column-count: 3;
+          column-gap: 40px;
+          column-fill: balance;
+        }
+      }
     }
   }
 
