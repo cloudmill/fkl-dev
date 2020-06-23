@@ -26,6 +26,11 @@
     @media screen and (min-width: $screen-lg-min) {
       padding: 0 200px 120px 90px;
     }
+    h2 + & {
+      @media screen and (min-width: $screen-lg-min) {
+        padding: 0 200px 0 90px;
+      }
+    }
     .blueLine {
       @media screen and (min-width: $screen-lg-min) {
         margin-left: -90px;
