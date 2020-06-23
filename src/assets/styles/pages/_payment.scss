@@ -21,6 +21,9 @@
       border-right: 1px solid $gray;
       border-bottom: 1px solid $gray;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
       @media screen and (min-width: $screen-md-min) {
         width: 50%;
         padding: 40px;
@@ -58,6 +61,10 @@
           top: 40px;
           left: 50px;
         }
+      }
+
+      *:last-child {
+        margin-top: auto;
       }
     }
   }

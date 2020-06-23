@@ -81,6 +81,17 @@ block content
                     li Твердость (по Роквеллу, Бринелло, Виккерсу)
                     li Микроструктура/Макроструктура (карбидная сетка, следы карбида, мартенситная структура, обезуглероженные слои)
                     li Спектральный анализ (химический состав материала)
+              .about__slider
+                .pagingInfo
+                .sliderAbout
+                  - for (let x = 1; x < 7; x++)
+                    .sliderAbout__item
+                      .sliderAbout__item-img.o-block__img.js-visible.e-visible--1
+                        figure
+                          img(src='assets/images/manufacturing/manufacturing-slide-1.jpg', alt='')
+                .arrowInfo
+                  .arrowInfo-item.prev: img(src='assets/images/slickPrev.svg', alt='')
+                  .arrowInfo-item.next: img(src='assets/images/slickNext.svg', alt='')
       .manufacturing-attr
         h2(data-aos="fade-up") Качество и испытательные лаборатории
         .manufacturing-attr--inner
