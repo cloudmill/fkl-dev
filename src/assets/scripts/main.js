@@ -30,6 +30,7 @@ $(document).ready(function() {
   slidersTechCard();
   slidersAboutPeople();
   progressList();
+  sliderInside();
 
   $(".scrollContent").mCustomScrollbar();
 
@@ -328,6 +329,15 @@ const slidersAboutPeople = function() {
     nextArrow: $(".nextPeople"),
     prevArrow: $(".prevPeople"),
     asNavFor: '.slider-for',
+  });
+};
+
+
+const sliderInside = function() {
+  $('.sliderInside').slick({
+    slidesToScroll: 1,
+    slidesToShow: 1,
+    arrows: true,
   });
 };
 

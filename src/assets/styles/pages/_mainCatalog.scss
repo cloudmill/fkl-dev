@@ -48,7 +48,6 @@
 .catalogMenu {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   padding: 20px 20px 0;
   @media screen and (min-width: $screen-md-min) {
     padding: 50px 50px 0;
@@ -59,8 +58,9 @@
   &__item {
     width: 100%;
     padding-bottom: 20px;
-    border-bottom: 1px solid $gray;
     margin-bottom: 20px;
+    position: relative;
+    border-bottom: 1px solid $gray;
     @media screen and (min-width: $screen-md-min) {
       padding-right: 20px;
       padding-bottom: 40px;
@@ -70,6 +70,13 @@
     @media screen and (min-width: $screen-lg-min) {
       width: 26%;
       margin-bottom: 100px;
+      &:nth-child(3n) {
+        margin-left: auto;
+      }
+      &:nth-child(3n+2) {
+        margin-left: 11%;
+        margin-right: auto;
+      }
     }
     &-title {
       font-family: 'massMedium';
@@ -107,10 +114,11 @@
       line-height: 2.12;
 
     }
-    &:last-child,
-    &:nth-last-child(2),
-    &:nth-last-child(3) {
-      @media screen and (min-width: $screen-lg-min) {
+    &:last-child {
+      border-bottom: none;
+    }
+    &:nth-last-child(2) {
+      @media screen and (min-width: $screen-md-min) {
         border-bottom: none;
       }
     }

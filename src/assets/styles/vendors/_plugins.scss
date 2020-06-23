@@ -38,6 +38,54 @@ $items: facebook, twitter, percent_icon;
   display: none;
 }
 
+.sliderInside {
+  .slick-next {
+    right: 0;
+    background: url("../images/slickNext.svg") no-repeat center;
+  }
+  .slick-prev {
+    right: 100px;
+    background: url("../images/slickPrev.svg") no-repeat center;
+    position: relative;
+    &:before {
+      content: '';
+      width: 1px;
+      height: 25px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      background-color: $base-color-dark;
+      @media screen and (min-width: $screen-md-min) {
+        height: 52px;
+      }
+    }
+  }
+  .slick-arrow {
+    position: absolute;
+    bottom: 5px;
+    width: 50%;
+    height: 80px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $base-color-main;
+    border: none;
+    font-size: 0;
+    outline: none;
+    z-index: 9;
+    transition: background-color 0.5s;
+    @media screen and (min-width: $screen-md-min) {
+      width: 100px;
+      height: 100px;
+    }
+    &:hover {
+      background-color: $base-color-dark;
+    }
+  }
+}
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */

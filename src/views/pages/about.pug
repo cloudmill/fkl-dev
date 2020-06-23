@@ -183,12 +183,11 @@ block content
         .about__people(data-aos="fade-up")
           .sliderAboutPeople
             - for (let x = 1; x < 12; x++)
-              .o-block__img.js-visible.e-visible--1
-                figure
-                  +img('people.jpg')
-          .arrowInfo
-            .arrowInfo-item.prevPeople: img(src='assets/images/slickPrev.svg', alt='')
-            .arrowInfo-item.nextPeople: img(src='assets/images/slickNext.svg', alt='')
+              .sliderInside
+                - for (let y = 1; y < 3; y++)
+                  .o-block__img.js-visible.e-visible--1
+                    figure
+                      +img('people.jpg')
       +nextBlock('Наша команда')
       include ../components/_signForm
 
