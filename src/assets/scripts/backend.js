@@ -89,7 +89,9 @@ const auth = function () {
       phone_f = register.find("input[name=phone_f]"),
       email_f = register.find("input[name=email_f]"),
       password_f = register.find("input[name=password_f]"),
-      repassword_f = register.find("input[name=repassword_f]");
+      repassword_f = register.find("input[name=repassword_f]"),
+      agree = register.find('input[name=agree]'),
+      sessid = $('input[name=sessid]');
 
     error.html("");
 
@@ -218,6 +220,13 @@ const auth = function () {
         state.parents("label").removeClass("error");
       }
 
+      if (agree.prop('checked')) {
+        agree.parents('.checkbox').removeClass('error');
+      } else {
+        agree.parents('.checkbox').addClass('error');
+        mist++;
+      }
+
       if (mist == 0) {
         $.ajax({
           type: "POST",
@@ -294,6 +303,13 @@ const auth = function () {
           repassword_f.parents("label").removeClass("error");
           password_f.parents("label").removeClass("error");
         }
+      }
+
+      if (agree.prop('checked')) {
+        agree.parents('.checkbox').removeClass('error');
+      } else {
+        agree.parents('.checkbox').addClass('error');
+        mist++;
       }
 
       if (mist == 0) {
@@ -786,6 +802,15 @@ const account = function () {
       });
     }
   });
+
+  $("[data-type=js-url]").on("click", function(e){
+    e.preventDefault();
+    let url = $(this).attr('href');
+    console.log(url);
+    if (url) {
+      location.href = url;
+    }
+  });
 };
 
 const basket = function () {
@@ -988,7 +1013,7 @@ const order = function () {
           templateResult: formatState
         });
         $('[data-type=js-checkout] .select').on('select2:open', function () {
-          $('input.select2-search__field').prop('placeholder', 'Начните вводить город');
+          $('input.select2-search__field').prop('placeholder', 'Начните вводить');
           $('.select2-dropdown').hide();
           setTimeout(function () {
             $('.select2-dropdown').slideDown("slow");
