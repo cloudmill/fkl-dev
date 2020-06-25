@@ -302,19 +302,6 @@
       bottom: -5px;
       transition: width 0.5s;
     }
-    //span {
-    //  &:after {
-    //    opacity: 0;
-    //    content: "";
-    //    position: absolute;
-    //    top: -8px;
-    //    right: -18px;
-    //    width: 15px;
-    //    height: 15px;
-    //    background: url("../images/arrow_rt.svg") no-repeat top right;
-    //    transition: opacity .5s;
-    //  }
-    //}
     &.active {
       &:after {
         width: 100%;

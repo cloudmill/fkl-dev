@@ -344,7 +344,7 @@ body.edge {
     height: 100vh;
     width: 100%;
     overflow: hidden;
-    @media screen and (max-width: $screen-sm-max) {
+    @media screen and (max-width: $screen-lg-max) {
       height: auto !important;
       padding: 50px 20px 20px;
     }
@@ -424,7 +424,7 @@ body.edge {
       box-sizing: border-box;
       margin-right: 94% !important;
       top: 70%;
-      @media screen and (max-width: $screen-sm-max) {
+      @media screen and (max-width: $screen-xmd-max) {
         display: none !important;
       }
       @media screen and (min-width: $screen-md-min) {
@@ -439,7 +439,10 @@ body.edge {
         flex-direction: column;
         justify-content: space-between;
         height: 70%;
-        @media screen and (min-width: $screen-md-min) {
+        @media screen and (min-width: $screen-lg-min) {
+          height: 88%;
+        }
+        @media screen and (min-width: $screen-xl-min) {
           height: 100%;
         }
         li {
@@ -618,8 +621,10 @@ body.edge {
       }
     }
     @media screen and (max-width: $screen-sm-max) {
-      float: none !important;
       padding: 0 !important;
+    }
+    @media screen and (max-width: $screen-lg-max) {
+      float: none !important;
       margin-bottom: 0;
       height: auto !important;
       .vertical-reveal-inner {
@@ -633,7 +638,7 @@ body.edge {
       padding-bottom: 80px;
       height: 100vh !important;
       position: relative;
-      @media screen and (max-width: $screen-sm-max) {
+      @media screen and (max-width: $screen-lg-max) {
         display: block;
         padding-bottom: 0;
         padding-top: 0;
@@ -645,12 +650,15 @@ body.edge {
     }
     &__row {
       @media screen and (min-width: $screen-md-min) {
-        margin-bottom: 60px;
+        margin-bottom: 10px;
         display: flex;
         justify-content: space-between;
         max-width: 550px;
-        margin-top: 100px;
         flex-wrap: nowrap;
+      }
+      @media screen and (min-width: $screen-lg-min) {
+        margin-bottom: 60px;
+        margin-top: 100px;
       }
     }
     &__col {
@@ -738,7 +746,7 @@ body.edge {
         left: 0px;
       }
 
-      @media screen and (max-width: $screen-sm-max) {
+      @media screen and (max-width: $screen-lg-max) {
         display: none;
       }
       @media screen and (min-width: $screen-md-min) and (max-height: 600px) {
@@ -777,8 +785,10 @@ body.edge {
     width: 100%;
     height: 100vw;
     @media screen and (max-width: $screen-sm-max) {
-      height: auto !important;
       padding: 50px 20px;
+    }
+    @media screen and (max-width: $screen-lg-max) {
+      height: auto !important;
       .fp-tableCell {
         height: auto !important;
       }
@@ -956,12 +966,12 @@ body.edge {
     background: white;
     padding: 30px 0 0;
     @media screen and (min-width: $screen-md-min) {
+      padding: 50px 50px 0;
+    }
+    @media screen and (min-width: $screen-lg-min) {
       height: 100vh;
       overflow-y: scroll;
       overflow-x: hidden;
-      padding: 150px 50px 0;
-    }
-    @media screen and (min-width: $screen-xmd-min) {
       padding: 100px 80px 0;
     }
     .section__bottom__sliders {
@@ -1811,21 +1821,25 @@ body.OS {
 .section__main a {
   position: relative;
   cursor: pointer;
-  &:before {
-    content: '';
-    background-color: white;
-    height: 1px;
-    width: 0;
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    transition: width .5s;
+  @media screen and (min-width: $screen-md-min) {
+    &:before {
+      content: '';
+      background-color: white;
+      height: 1px;
+      width: 0;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      transition: width .5s;
+    }
+    &:hover {
+      &:before {
+        width: 100%;
+      }
+    }
   }
   &:hover {
     color: white;
-    &:before {
-      width: 100%;
-    }
   }
 }
 .menuBar__list a {

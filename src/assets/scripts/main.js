@@ -4,14 +4,14 @@ import "select2";
 import "malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min";
 import AOS from "aos";
 
-$(document).on("click", ".about__video--ico", function() {
-  $(this).hide();
-  const $video = $("#videoNew"),
-    src = $video.attr("src");
-  console.log(src);
-
-  $video.attr("src", src + "&autoplay=1");
-});
+// $(document).on("click", ".about__video--ico", function() {
+//   $(this).hide();
+//   const $video = $("#videoNew"),
+//     src = $video.attr("src");
+//   console.log(src);
+//
+//   $video.attr("src", src + "&autoplay=1");
+// });
 
 
 const screen_width = Math.max(

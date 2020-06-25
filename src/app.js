@@ -35,6 +35,8 @@ $(document).ready(() => {
     })
   }
   // iPad scripts
+
+  require("../src/assets/scripts/video");
 });
 
 $(function() {
@@ -57,6 +59,7 @@ require("../src/assets/scripts/main");
 if(document.getElementsByClassName("page404").length) {
   require("../src/assets/scripts/page404");
 }
+
 
 
 $(window).on("load", function() {

@@ -34,12 +34,10 @@ export const fullpage_init = function() {
     time: 600,
   };
 
-
   const a_table = ['main', 'slider', 'prod', 'wrapper'];
   for (let i = 0; i < a_table.length; i++) {
     $('.section__' + a_table[i] + '.active .aos-init').addClass('aos-animate');
   }
-
 
   const getLogoSrc = process.env.NODE_ENV === 'development'
     ? 'assets/images/logo_blue.svg'
@@ -63,7 +61,7 @@ export const fullpage_init = function() {
     fitToSection: true,
     fitToSectionDelay: 2000,
     // lazyLoading: false,
-    responsiveWidth: 767,
+    responsiveWidth: 1240,
     slidesNavPosition: 'left',
     afterLoad: function(origin, destination) {
       // смена больших слайдов
@@ -86,15 +84,17 @@ export const fullpage_init = function() {
 
       way.lenght = 0;
 
-      if (destination.index == 1 && origin.index == 0) {
-        wait_after_move.slide = false;
-        wait_after_move.slide_timer = setTimeout(function() {
+      if(screen_width >= 1240) {
+        if (destination.index == 1 && origin.index == 0) {
           wait_after_move.slide = false;
-        }, wait_after_move.time);
-        video_play(0, 'parent');
-      }
-      if (destination.index == 1 && origin.index == 2) {
-        video_play(1, 2);
+          wait_after_move.slide_timer = setTimeout(function() {
+            wait_after_move.slide = false;
+          }, wait_after_move.time);
+          video_play(0, 'parent');
+        }
+        if (destination.index == 1 && origin.index == 2) {
+          video_play(1, 2);
+        }
       }
       if (destination.index > 0) {
         $('#model').addClass('active');
@@ -174,24 +174,25 @@ export const fullpage_init = function() {
     onSlideLeave: function(section, origin, destination, direction) {
       //////////////////////////////
 
-
-      if (destination.index === 0 && direction === 'right') {
-        video_play(0, 'parent');
-      }
-      if (destination.index === 0 && direction === 'left') {
-        video_play('parent', 0);
-      }
-      if (destination.index === 1 && direction === 'right') {
-        video_play(1, 0);
-      }
-      if (destination.index === 1 && direction === 'left') {
-        video_play(0, 1);
-      }
-      if (destination.index === 2 && direction === 'right') {
-        video_play(2, 1);
-      }
-      if (destination.index === 2 && direction === 'left') {
-        video_play(1, 2);
+      if(screen_width >= 1240) {
+        if (destination.index === 0 && direction === 'right') {
+          video_play(0, 'parent');
+        }
+        if (destination.index === 0 && direction === 'left') {
+          video_play('parent', 0);
+        }
+        if (destination.index === 1 && direction === 'right') {
+          video_play(1, 0);
+        }
+        if (destination.index === 1 && direction === 'left') {
+          video_play(0, 1);
+        }
+        if (destination.index === 2 && direction === 'right') {
+          video_play(2, 1);
+        }
+        if (destination.index === 2 && direction === 'left') {
+          video_play(1, 2);
+        }
       }
 
       way.lenght = 0;
@@ -210,6 +211,11 @@ export const fullpage_init = function() {
 
   if(video_model) {
     onloadVideo(video_model, getSrc);
+    if(screen_width < 1240) {
+      video_model.autoplay = true;
+      video_model.load();
+      video_model.play();
+    }
   }
 
   const play_video_path = function(start, stop, text, callback, first_f) {
