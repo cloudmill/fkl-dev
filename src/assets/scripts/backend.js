@@ -819,9 +819,9 @@ const basket = function () {
     e.preventDefault();
     let value = $(this).attr("data-value"),
       qty = $(this)
-      .parents("[data-type=js-item]")
-      .find("[data-type=js-item-qty]")
-      .val();
+        .parents("[data-type=js-item]")
+        .find("[data-type=js-item-qty]")
+        .val();
 
     if (value) {
       $(".addElement").fadeIn("500");
@@ -851,8 +851,8 @@ const basket = function () {
     e.preventDefault();
     console.log("basket change");
     let value = $(this)
-      .parents("[data-type=js-basket-item]")
-      .attr("data-value"),
+        .parents("[data-type=js-basket-item]")
+        .attr("data-value"),
       qty = $(this).val();
 
     if (value) {
@@ -882,8 +882,8 @@ const basket = function () {
     e.preventDefault();
     console.log("basket change minus");
     let input = $(this)
-      .parents("[data-type=js-basket-item]")
-      .find("[data-type=js-basket-qty]"),
+        .parents("[data-type=js-basket-item]")
+        .find("[data-type=js-basket-qty]"),
       qty = parseFloat(input.val());
 
     qty--;
@@ -899,8 +899,8 @@ const basket = function () {
     e.preventDefault();
     console.log("basket change plus");
     let input = $(this)
-      .parents("[data-type=js-basket-item]")
-      .find("[data-type=js-basket-qty]"),
+        .parents("[data-type=js-basket-item]")
+        .find("[data-type=js-basket-qty]"),
       qty = parseFloat(input.val());
 
     qty++;
@@ -916,8 +916,8 @@ const basket = function () {
     e.preventDefault();
     console.log("basket delete");
     let input = $(this)
-      .parents("[data-type=js-basket-item]")
-      .find("[data-type=js-basket-qty]"),
+        .parents("[data-type=js-basket-item]")
+        .find("[data-type=js-basket-qty]"),
       qty = parseFloat(input.val());
 
     qty = 0;

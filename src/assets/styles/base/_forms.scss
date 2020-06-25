@@ -94,9 +94,9 @@ input[type="checkbox"]:focus {
     position: relative;
     .error-text {
       position: absolute;
-      top: -21px;
+      top: -30px;
       left: 20px;
-      color: $gray-darken-1;
+      color: #EB5757;
       font-size: 14px;
     }
     &[for='signForm'] {
