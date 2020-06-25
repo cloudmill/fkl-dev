@@ -275,7 +275,9 @@
     }
     .slick-track {
       display: flex;
-      align-items: flex-end;
+      @media screen and (min-width: $screen-md-min) {
+        align-items: flex-end;
+      }
     }
     .slick-slide {
       @media screen and (min-width: $screen-lg-min) {
