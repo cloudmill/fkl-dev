@@ -86,6 +86,10 @@ $(document).ready(function() {
     if(screen_width > 767) {
       $('.section__bottom__slider').slick("setPosition", 0);
       $('.sliderAbout').slick("setPosition", 0);
+    } else {
+      $('html, body').animate({
+        scrollTop: $(href).offset().top
+      }, 500);
     }
 
     AOS.init({
