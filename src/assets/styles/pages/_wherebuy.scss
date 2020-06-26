@@ -40,8 +40,13 @@
     border-left: 1px solid $gray;
     .tabs {
       .tabs {
-        padding: 20px 0 20px 20px;
+        padding: 20px 0 0 20px;
         overflow: auto;
+        border-bottom: 1px solid #dcdcdc;
+        @media screen and (min-width: $screen-md-min) {
+          border-bottom: none;
+          padding: 20px 0 20px 20px;
+        }
         @media screen and (min-width: $screen-lg-min) {
           padding: 60px 50px 0;
         }
@@ -93,7 +98,9 @@
 
 .cityList--block {
   display: flex;
-  border-bottom: 1px solid $gray;
+  @media screen and (min-width: $screen-md-min) {
+    border-bottom: 1px solid $gray;
+  }
   > * {
     width: 100%;
     @media screen and (min-width: $screen-md-min) {

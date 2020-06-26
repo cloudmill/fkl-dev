@@ -3,6 +3,12 @@ import wNumb from "wnumb";
 import AOS from "aos";
 
 
+const screen_width = Math.max(
+  document.documentElement.clientWidth,
+  window.innerWidth || 0
+);
+
+
 $(document).on('click', '.reset--js', function () {
   $('form[name=myForm]').trigger('reset');
   stepsSlider.noUiSlider.reset();
@@ -225,13 +231,19 @@ $(".filter-clicker").click(function() {
   $(this).next().toggleClass('active');
   if($(this).hasClass('active')) {
     $(this).find('img:last-child').attr('src', '/local/templates/main/assets/images/icons/minus.svg');
+    $(this).find('span').text('Скрыть фильтры');
   } else {
     $(this).find('img:last-child').attr('src', '/local/templates/main/assets/images/icons/plus.svg');
+    $(this).find('span').text('Показать фильтры');
   }
   AOS.init({
     offset: 50,
   });
 });
+
+if (screen_width <= 767) {
+  $('.filter-clicker').trigger('click');
+}
 
 // header__menu-el--parent
 $(".header__menu-el--parent").mouseleave(function() {
@@ -287,10 +299,7 @@ $("[name=phone_f]").mask("+7 (999) 999-9999");
 
 const $sticky = $('.sticky');
 const $stickyrStopper = $('.sticky-stopper');
-const screen_width = Math.max(
-  document.documentElement.clientWidth,
-  window.innerWidth || 0
-);
+
 if (screen_width > 767) {
   if (!!$sticky.offset()) {
 

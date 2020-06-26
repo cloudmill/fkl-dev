@@ -180,7 +180,7 @@
     .footer__mail {
       padding-bottom: 30px;
       margin-bottom: 0;
-      border-bottom: 1px solid rgba(white, 0.18);
+      //border-bottom: 1px solid rgba(white, 0.18);
     }
     .footer__row {
       padding-top: 30px;
@@ -204,7 +204,7 @@
     }
   }
 
-  @media screen and (max-width: 1399px) {
+  @media screen and (min-width: $screen-sm-min) and (max-width: 1399px) {
     .footer__mail,
     .footer__text {
       margin-bottom: 20px;

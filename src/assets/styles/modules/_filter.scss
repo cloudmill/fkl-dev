@@ -88,9 +88,13 @@
       }
       &--chk {
         @media screen and (max-width: $screen-sm-max) {
-          column-count: 3;
-          column-gap: 40px;
-          column-fill: balance;
+          //column-count: 3;
+          //column-gap: 40px;
+          //column-fill: balance;
+          .checkbox {
+            display: inline-block;
+            width: calc(30% - 30px);
+          }
         }
       }
     }
