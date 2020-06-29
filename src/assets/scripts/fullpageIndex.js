@@ -300,7 +300,7 @@ export const fullpage_init = function() {
     }
     /////
     if (number == 2 && leave == 1) {
-      play_video_path(6.35, 9, 'play 3');
+      play_video_path(6.6, 9, 'play 3');
     }
     /////
     if (number == 1 && leave == 2) {
