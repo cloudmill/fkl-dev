@@ -329,16 +329,16 @@ const screen_width = Math.max(
 
 function setZoom() {
   let value;
-  if(screen_width >= 1500) {
+  if (screen_width >= 1500) {
     value = 6;
   }
-  if(screen_width >= 1240 && screen_width < 1500) {
+  if (screen_width >= 1240 && screen_width < 1500) {
     value = 4;
   }
-  if(screen_width >= 768 && screen_width < 1240) {
+  if (screen_width >= 768 && screen_width < 1240) {
     value = 3;
   }
-  if(screen_width < 768) {
+  if (screen_width < 768) {
     value = 2;
   }
   return value;
@@ -360,27 +360,27 @@ function initMap() {
 
 
   let locations = [],
-      content = [];
+    content = [];
 
   let
     list = $('.map_list'),
     items = list.find('span');
 
-  items.each(function(){
+  items.each(function () {
     let item = $(this),
-        name = item.attr('data-name'),
-        phone = item.attr('data-phone'),
-        email = item.attr('data-email'),
-        adr = item.attr('data-adr'),
-        time = item.attr('data-time'),
-        coord = item.attr('data-map'); 
-    
+      name = item.attr('data-name'),
+      phone = item.attr('data-phone'),
+      email = item.attr('data-email'),
+      adr = item.attr('data-adr'),
+      time = item.attr('data-time'),
+      coord = item.attr('data-map');
+
     coord = coord.split(',');
     coord['0'] = parseFloat(coord['0']);
     coord['1'] = parseFloat(coord['1']);
 
     locations[locations.length] = coord;
-    content.push('<h6>'+name+'</h6> <p>'+phone+'  <br /> '+email+'  <br /> '+adr+'  <br /> '+time+'</p>');
+    content.push('<h6>' + name + '</h6> <p>' + phone + '  <br /> ' + email + '  <br /> ' + adr + '  <br /> ' + time + '</p>');
   });
 
   locations.forEach(function (item, i, arr) {
@@ -404,6 +404,8 @@ function initMap() {
       }
     })(marker));
   }
+
+  console.log(locations);
 
   if (locations.length == 1) {
     map.setCenter({
@@ -447,21 +449,28 @@ function initMap1() {
   };
   map2 = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
 
-  let locations = [];
+  let locations = [],
+    content = [];
 
   let
     list = $('.map_list'),
-    items = list.html();
+    items = list.find('span');
 
-  items = items && items.split(';');
+  items.each(function () {
+    let item = $(this),
+      name = item.attr('data-name'),
+      phone = item.attr('data-phone'),
+      email = item.attr('data-email'),
+      adr = item.attr('data-adr'),
+      time = item.attr('data-time'),
+      coord = item.attr('data-map');
 
-  items && items.forEach(function (item, i, arr) {
-    var coord = item;
     coord = coord.split(',');
     coord['0'] = parseFloat(coord['0']);
     coord['1'] = parseFloat(coord['1']);
 
     locations[locations.length] = coord;
+    content.push('<h6>' + name + '</h6> <p>' + phone + '  <br /> ' + email + '  <br /> ' + adr + '  <br /> ' + time + '</p>');
   });
 
   locations.forEach(function (item, i, arr) {
@@ -473,7 +482,7 @@ function initMap1() {
     });
   });
 
-
+  console.log(locations);
 
   if (locations.length == 1) {
     map2.setCenter({
@@ -489,6 +498,17 @@ function initMap1() {
   }
 
   markerCluster = new MarkerClusterer(map2, markers, mcOptions);
+
+  for (let i = 0; i < markers.length; i++) {
+    const marker = markers[i];
+
+    google.maps.event.addListener(marker, 'click', (function () {
+      return function () {
+        infoWindow.setContent(content[i]);
+        infoWindow.open(map, this);
+      }
+    })(marker));
+  }
 
   $(document).on('change', 'input[name=map_center2]', function () {
     var value = $(this).val();
