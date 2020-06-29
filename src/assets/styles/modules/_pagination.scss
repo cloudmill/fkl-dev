@@ -55,11 +55,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 30px;
       height: 30px;
       @media screen and (min-width: $screen-lg-min) {
-        width: 50px;
         height: 50px;
+      }
+      &:not(.franciscoLink) {
+        width: 30px;
+        @media screen and (min-width: $screen-lg-min) {
+          width: 50px;
+        }
       }
       &:hover,
       &:focus {
