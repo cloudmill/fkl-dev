@@ -427,17 +427,17 @@ const slidersAbout = function(item) {
       {
         breakpoint: 1025,
         settings: {
-          slidesToScroll: 1,
-          slidesToShow: 1,
-          variableWidth: false,
+          slidesToScroll: 2,
+          slidesToShow: 2,
+          variableWidth: true,
         },
       },
       {
         breakpoint: 900,
         settings: {
           slidesToScroll: 2,
-          slidesToShow: 1,
-          variableWidth: false,
+          slidesToShow: 2,
+          variableWidth: true,
         },
       },
     ],
@@ -497,17 +497,17 @@ const slidersAboutRtl = function() {
       {
         breakpoint: 1025,
         settings: {
-          slidesToScroll: 1,
-          slidesToShow: 1,
-          variableWidth: false,
+          slidesToScroll: 2,
+          slidesToShow: 2,
+          variableWidth: true,
         },
       },
       {
         breakpoint: 767,
         settings: {
           slidesToScroll: 2,
-          slidesToShow: 1,
-          variableWidth: false,
+          slidesToShow: 2,
+          variableWidth: true,
         },
       },
     ],
