@@ -47,14 +47,19 @@
     &__link {
       position: relative;
       font-size: 18px;
-      padding: 4px 10px;
       line-height: $base-line-height;
       text-decoration: none;
       color: $pagination-color;
       background-color: $pagination-bg;
       @include border-radius(50px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
       @media screen and (min-width: $screen-lg-min) {
-        padding: 13px 20px;
+        width: 50px;
+        height: 50px;
       }
       &:hover,
       &:focus {
