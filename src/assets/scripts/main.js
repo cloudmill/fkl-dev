@@ -430,6 +430,7 @@ const slidersAbout = function(item) {
           slidesToScroll: 2,
           slidesToShow: 2,
           variableWidth: true,
+          adaptiveHeight: true,
         },
       },
       {
@@ -438,6 +439,7 @@ const slidersAbout = function(item) {
           slidesToScroll: 2,
           slidesToShow: 2,
           variableWidth: true,
+          adaptiveHeight: true,
         },
       },
     ],
@@ -500,6 +502,7 @@ const slidersAboutRtl = function() {
           slidesToScroll: 2,
           slidesToShow: 2,
           variableWidth: true,
+          adaptiveHeight: true,
         },
       },
       {
@@ -508,6 +511,7 @@ const slidersAboutRtl = function() {
           slidesToScroll: 2,
           slidesToShow: 2,
           variableWidth: true,
+          adaptiveHeight: true,
         },
       },
     ],
