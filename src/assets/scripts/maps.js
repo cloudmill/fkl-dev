@@ -432,7 +432,7 @@ function initMap() {
         lat: value['0'],
         lng: value['1']
       });
-      map.setZoom(10);
+      map.setZoom(13);
     }
   });
 }
@@ -520,7 +520,7 @@ function initMap1() {
         lat: value['0'],
         lng: value['1']
       });
-      map2.setZoom(10);
+      map2.setZoom(13);
     }
   });
 }
