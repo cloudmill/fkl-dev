@@ -344,7 +344,7 @@ body.edge {
     height: 100vh;
     width: 100%;
     overflow: hidden;
-    @media screen and (max-width: $screen-lg-max) {
+    @media screen and (max-width: $screen-xmd-max) {
       height: auto !important;
       padding: 50px 20px 20px;
     }
@@ -623,7 +623,7 @@ body.edge {
     @media screen and (max-width: $screen-sm-max) {
       padding: 0 !important;
     }
-    @media screen and (max-width: $screen-lg-max) {
+    @media screen and (max-width: $screen-xmd-max) {
       float: none !important;
       margin-bottom: 0;
       height: auto !important;
@@ -638,7 +638,7 @@ body.edge {
       padding-bottom: 80px;
       height: 100vh !important;
       position: relative;
-      @media screen and (max-width: $screen-lg-max) {
+      @media screen and (max-width: $screen-xmd-max) {
         display: block;
         padding-bottom: 0;
         padding-top: 0;
@@ -746,7 +746,7 @@ body.edge {
         left: 0px;
       }
 
-      @media screen and (max-width: $screen-lg-max) {
+      @media screen and (max-width: $screen-xmd-max) {
         display: none;
       }
       @media screen and (min-width: $screen-md-min) and (max-height: 600px) {
@@ -787,7 +787,7 @@ body.edge {
     @media screen and (max-width: $screen-sm-max) {
       padding: 50px 20px;
     }
-    @media screen and (max-width: $screen-lg-max) {
+    @media screen and (max-width: $screen-xmd-max) {
       height: auto !important;
       .fp-tableCell {
         height: auto !important;
