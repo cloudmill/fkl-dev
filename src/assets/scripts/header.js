@@ -33,15 +33,19 @@ $(".sitebar__sect_menu, .main-nav__toggle--js").click(function() {
   $("body").css("overflow", 'hidden');
   $(".menuBar").addClass("active");
 
-  setTimeout(() => {
-    $(".menuBar-item").addClass("visible slideInUp");
-    fullpage_api.destroy('all');
-  }, 500);
+  if(($(this).attr('class') !== 'main-nav__toggle--js')) {
+    setTimeout(() => {
+      $(".menuBar-item").addClass("visible slideInUp");
+      fullpage_api.destroy('all');
+    }, 500);
+  }
 });
 $(".menuBar__close, .menuBar__closeMob").click(function() {
   $("body").css("overflow", 'visible');
   $(".menuBar").removeClass("active");
-  fullpage_init();
+  if(($(this).attr('class') !== 'menuBar__closeMob')) {
+    fullpage_init();
+  }
   $(".menuBar-item").removeClass("visible slideInUp");
 });
 // sidemenu
