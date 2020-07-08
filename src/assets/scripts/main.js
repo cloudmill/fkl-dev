@@ -538,7 +538,7 @@ const slidersForNav = function() {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
-    // autoplay: true,
+    autoplay: true,
     fade: true,
     dots: true,
     appendDots: $(".appendDots"),
