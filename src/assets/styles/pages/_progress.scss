@@ -30,7 +30,7 @@
   &-listSlider {
     display: flex;
     position: relative;
-    @media screen and (min-width: $screen-lg-min) {
+    @media screen and (min-width: $screen-md-min) {
       flex-wrap: wrap;
     }
     //@media screen and (min-width: $screen-xl-min) {

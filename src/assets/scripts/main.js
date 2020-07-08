@@ -198,6 +198,15 @@ $(document).ready(function() {
 
 });
 
+$( window ).on( "orientationchange", function() {
+  setTimeout(() => {
+    const getPosition = $(".appendDots li.slick-active").position().left;
+    $(".appendDots span").css({
+      left: getPosition,
+    });
+  }, 500)
+});
+
 // sliders
 const slidersMain = function() {
   $(".section__bottom__slider1").slick({
@@ -529,7 +538,7 @@ const slidersForNav = function() {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
-    autoplay: true,
+    // autoplay: true,
     fade: true,
     dots: true,
     appendDots: $(".appendDots"),

@@ -606,11 +606,15 @@
         position: relative;
         width: 100%;
         z-index: 10;
+        @media screen and (min-width: $screen-md-min) {
+          margin-top: 20px;
+        }
         @media screen and (min-width: $screen-lg-min) {
           left: 0;
           right: 0;
           bottom: -50px;
           position: absolute;
+          margin-top: 0;
         }
         @media screen and (min-width: $screen-xl-min) {
           bottom: 0;
@@ -643,7 +647,7 @@
         flex-wrap: nowrap;
         align-items: center;
         overflow-x: auto;
-        @media screen and (min-width: $screen-lg-min) {
+        @media screen and (min-width: $screen-md-min) {
           justify-content: space-between;
         }
         li {
