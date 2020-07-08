@@ -1066,6 +1066,13 @@ const filter = function () {
     e.preventDefault();
     $("[data-type=js-filter]").submit();
   });
+
+  if ($('input[name=scroll]').val()) {
+    let scroll = $($('input[name=scroll]').val());
+    $('html,body').animate({
+      scrollTop: scroll.offset().top - 200
+    }, 'slow');
+  }
 };
 
 const wherebuy = function () {
