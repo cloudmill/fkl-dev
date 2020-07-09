@@ -51,7 +51,12 @@
       margin: 0 -10px;
     }
     .slick-slide {
-      width: 70vw;
+      @media screen and (min-width: $screen-md-min) {
+        width: calc(100vw - 190px);
+      }
+      @media screen and (min-width: $screen-xmd-min) {
+        width: 70vw;
+      }
       margin-right: 0;
     }
     @media screen and (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {

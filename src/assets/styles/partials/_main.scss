@@ -65,6 +65,9 @@ a {
   &.index {
     padding-top: 0;
   }
+  &.certificates {
+    overflow: hidden;
+  }
 }
 
 .searchAdr {
