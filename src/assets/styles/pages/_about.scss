@@ -573,6 +573,9 @@
           font-weight: 800;
           font-size: 30px;
           line-height: 1.3333;
+          span {
+            display: inline-block;
+          }
           @media screen and (min-width: $screen-md-min) {
             font-size: 40px;
           }

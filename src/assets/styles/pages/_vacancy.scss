@@ -21,6 +21,12 @@
     }
   }
   .accordion-content {
+    a {
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
     .showBtn {
       position: absolute;
       bottom: 0;
