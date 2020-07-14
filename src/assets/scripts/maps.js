@@ -344,11 +344,29 @@ function setZoom() {
   return value;
 }
 
+function setCenterZoom() {
+  let value;
+  if (screen_width >= 1500) {
+    value = new google.maps.LatLng(51.666120, 39.190655);
+  }
+  if (screen_width >= 1240 && screen_width < 1500) {
+    value = new google.maps.LatLng(51.666120, 39.190655);
+  }
+  if (screen_width >= 768 && screen_width < 1240) {
+    value = new google.maps.LatLng(60.350682, 57.790622);
+  }
+  if (screen_width < 768) {
+    value = new google.maps.LatLng(60.350682, 57.790622);
+  }
+  return value;
+}
+
+setCenterZoomValue = setCenterZoom();
 setZoomValue = setZoom();
 
 function initMap() {
   const mapOptions = {
-    center: new google.maps.LatLng(51.666120, 39.190655),
+    center: setCenterZoomValue,
     zoom: setZoomValue,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     mapTypeControl: false,
