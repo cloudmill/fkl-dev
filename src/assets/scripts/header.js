@@ -1,6 +1,11 @@
 import AOS from "aos";
 import {fullpage_init} from './fullpageIndex';
 
+const screen_width = Math.max(
+  document.documentElement.clientWidth,
+  window.innerWidth || 0
+);
+
 // search
 $(".sitebar_search").click(function() {
   $(".searchBar").addClass("active");
@@ -21,7 +26,9 @@ $(document).keyup(function(e) {
   if($('.searchBar, .menuBar').hasClass('active')) {
     if (e.key === "Escape") {
       $(".searchBar, .menuBar").removeClass("active");
-      fullpage_init();
+      if(screen_width >= 1240) {
+        fullpage_init();
+      }
       $("body").css("overflow", 'visible');
       $(".menuBar-item").removeClass("visible slideInUp");
     }
@@ -36,15 +43,19 @@ $(".sitebar__sect_menu, .main-nav__toggle--js").click(function() {
   if(($(this).attr('class') !== 'main-nav__toggle--js')) {
     setTimeout(() => {
       $(".menuBar-item").addClass("visible slideInUp");
-      fullpage_api.destroy('all');
-    }, 500);
+      if(screen_width >= 1240) {
+        fullpage_api.destroy('all');
+      }
+    }, 1000);
   }
 });
 $(".menuBar__close, .menuBar__closeMob").click(function() {
   $("body").css("overflow", 'visible');
   $(".menuBar").removeClass("active");
   if(($(this).attr('class') !== 'menuBar__closeMob')) {
-    fullpage_init();
+    if(screen_width >= 1240) {
+      fullpage_init();
+    }
   }
   $(".menuBar-item").removeClass("visible slideInUp");
 });
@@ -55,10 +66,6 @@ $(".open--js").click(function() {
   $(this).next().toggleClass('active');
 });
 
-const screen_width = Math.max(
-  document.documentElement.clientWidth,
-  window.innerWidth || 0
-);
 if (screen_width <= 767) {
   $(".mainTitle--subNav h1").click(function() {
     $(this).toggleClass('active');

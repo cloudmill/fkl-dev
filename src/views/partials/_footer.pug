@@ -2,7 +2,7 @@ footer.footer(data-aos="fade-up")
   .footer__row
     .footer__col
       a.footer__logo(href='/')
-      .hidden__xs.hidden__sm: .footer__copy © 2019 «FKL»
+      .hidden__xs.hidden__sm.hidden__md: .footer__copy © 2019 «FKL»
     .footer__col
       div
         .footer__title.open--js Центральный офис
@@ -73,11 +73,12 @@ footer.footer(data-aos="fade-up")
             i.icon.icon_inst
       a.footer__download(href='') Скачать презентацию
         span PDF
-      .hidden__md.hidden__lg.hidden__xl.mobile-ver
+      .hidden__lg.hidden__xl.mobile-ver
         .footer__copy © 2019 «FKL»
-        a.footer__copy.franciscoItem(href='assets/files/user.pdf', target='_blank'): span.franciscoHelper Условия пользовательского соглашения
-        a.footer__copy.franciscoItem(href='assets/files/offer.pdf', target='_blank'): span.franciscoHelper Публичная оферта
-        a.footer__copy.franciscoItem(href='assets/files/conf.pdf', target='_blank'): span.franciscoHelper Политика конфицендиальности
+        .hidden__md
+          a.footer__copy.franciscoItem(href='assets/files/user.pdf', target='_blank'): span.franciscoHelper Условия пользовательского соглашения
+          a.footer__copy.franciscoItem(href='assets/files/offer.pdf', target='_blank'): span.franciscoHelper Публичная оферта
+          a.footer__copy.franciscoItem(href='assets/files/conf.pdf', target='_blank'): span.franciscoHelper Политика конфицендиальности
       .footer__copy
         a(href='')
           img(src='assets/images/cloudmillF.svg', alt='')

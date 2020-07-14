@@ -88,7 +88,7 @@ $(window).on("load", function() {
       setTimeout(function() {
         $('.loader').css('z-index', '-999');
 
-        $('.sitebar-inner').addClass('aos-animate'); // The hack for some browsers that don't show block
+        $('.sitebar-inner').addClass('animateMe'); // The hack for safari browser that doesn't show the block
 
         if ($('#particle_photo').length) {
           ready(() => {
@@ -107,6 +107,7 @@ $(window).on("load", function() {
     });
     $('body').css('overflow', 'visible');
     $('body').css('opacity', '1');
+    $('.sitebar-inner').addClass('animateMe'); // The hack for safari browser that doesn't show the block
   }
 });
 

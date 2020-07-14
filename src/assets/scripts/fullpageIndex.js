@@ -2,9 +2,18 @@ import fullpage from './fullpage';
 import 'tilt.js';
 import browser from 'browser-detect';
 
-$(document).ready(function() {
-  fullpage_init();
-});
+const video_model = document.getElementById('video');
+const screen_width = Math.max(
+  document.documentElement.clientWidth,
+  window.innerWidth || 0
+);
+const getSrc = process.env.NODE_ENV === 'development'
+  ? 'assets/images/video/video.mp4'
+  : '/local/templates/main/assets/images/video/video.mp4'
+
+const getAdaptiveWidth = screen_width >= 1240;
+let video_play;
+let playing = false;
 
 const way = {
   begin: null,
@@ -14,17 +23,47 @@ const way = {
 
 const browserDetect = browser();
 
+$(document).ready(function() {
+  if(getAdaptiveWidth) {
+    if(video_model) {
+      onloadVideo(video_model, getSrc);
+    }
+    fullpage_init();
+  } else {
+    if(video_model) {
+      onloadVideo(video_model, getSrc);
+      video_model.autoplay = true;
+      video_model.load();
+      video_model.play();
+    }
+  }
+});
+$(window).on("orientationchange", function() {
+  setTimeout(() => {
+    const getWidth = $(window).width();
+    const isLandscape = window.orientation === 90 || window.orientation === -90;
+    if (getWidth >= 1240 && isLandscape) {
+      video_model.autoplay = false;
+      video_model.pause();
+      video_model.currentTime = 0;
+      fullpage_init();
+      setTimeout(() => {
+        window.location.hash = '#one';
+      }, 1000);
+    } else {
+      fullpage_api.destroy('all');
+      video_play = () => {};
+      video_model.autoplay = true;
+      video_model.load();
+      video_model.play();
+    }
+  }, 500);
+});
 
-const screen_width = Math.max(
-  document.documentElement.clientWidth,
-  window.innerWidth || 0
-);
+
 
 export const fullpage_init = function() {
-  const video_model = document.getElementById('video');
   let go_top = false;
-  const delay = 2000;
-  let timeoutId;
   const wait_after_move = {
     section: false,
     section_timer: false,
@@ -55,12 +94,10 @@ export const fullpage_init = function() {
     slidesNavigation: true,
     loopHorizontal: false,
     css3: true,
-    // dragAndMove: true,
     fadingEffect: 'slides',
     normalScrollElements: '.section__wrapper',
     fitToSection: true,
     fitToSectionDelay: 2000,
-    // lazyLoading: false,
     responsiveWidth: 1240,
     slidesNavPosition: 'left',
     afterLoad: function(origin, destination) {
@@ -84,7 +121,6 @@ export const fullpage_init = function() {
 
       way.lenght = 0;
 
-      if(screen_width >= 1240) {
         if (destination.index == 1 && origin.index == 0) {
           wait_after_move.slide = false;
           wait_after_move.slide_timer = setTimeout(function() {
@@ -95,24 +131,21 @@ export const fullpage_init = function() {
         if (destination.index == 1 && origin.index == 2) {
           video_play(1, 2);
         }
-      }
       if (destination.index > 0) {
         $('#model').addClass('active');
 
       } else {
         $('#model').removeClass('active');
       }
-      if(!browserDetect.mobile) {
         const a_table = ['main', 'slider', 'prod', 'wrapper'];
         for (let i = 0; i < a_table.length; i++) {
           $('.section__' + a_table[i] + '.active .aos-init').addClass('aos-animate');
         }
-      }
       if (origin.index == 2 && destination.index == 3) {
         setTimeout(() => go_top = true, 500);
       }
 
-      if (!browserDetect.mobile && screen_width > 1366) {
+      if (screen_width >= 1366) {
         if (origin.index == 2 && destination.index == 3) {
           $(".section__bottom").animate({scrollTop: 0}, 0);
         }
@@ -145,9 +178,7 @@ export const fullpage_init = function() {
         $('.header').addClass('black');
         $('.header__logo img').attr('src', getLogoSrc);
       }
-      if(!browserDetect.mobile) {
-        $('#fullpage .aos-init').removeClass('aos-animate');
-      }
+      $('#fullpage .aos-init').removeClass('aos-animate');
     },
     afterSlideLoad: function(section, origin, destination, direction) {
       // смена внутренних слайдов
@@ -174,25 +205,23 @@ export const fullpage_init = function() {
     onSlideLeave: function(section, origin, destination, direction) {
       //////////////////////////////
 
-      if(screen_width >= 1240) {
-        if (destination.index === 0 && direction === 'right') {
-          video_play(0, 'parent');
-        }
-        if (destination.index === 0 && direction === 'left') {
-          video_play('parent', 0);
-        }
-        if (destination.index === 1 && direction === 'right') {
-          video_play(1, 0);
-        }
-        if (destination.index === 1 && direction === 'left') {
-          video_play(0, 1);
-        }
-        if (destination.index === 2 && direction === 'right') {
-          video_play(2, 1);
-        }
-        if (destination.index === 2 && direction === 'left') {
-          video_play(1, 2);
-        }
+      if (destination.index === 0 && direction === 'right') {
+        video_play(0, 'parent');
+      }
+      if (destination.index === 0 && direction === 'left') {
+        video_play('parent', 0);
+      }
+      if (destination.index === 1 && direction === 'right') {
+        video_play(1, 0);
+      }
+      if (destination.index === 1 && direction === 'left') {
+        video_play(0, 1);
+      }
+      if (destination.index === 2 && direction === 'right') {
+        video_play(2, 1);
+      }
+      if (destination.index === 2 && direction === 'left') {
+        video_play(1, 2);
       }
 
       way.lenght = 0;
@@ -203,23 +232,8 @@ export const fullpage_init = function() {
       // //////////////////////////////
     }
   });
-  let video_play;
-  let playing = false;
-  const getSrc = process.env.NODE_ENV === 'development'
-    ? 'assets/images/video/video.mp4'
-    : '/local/templates/main/assets/images/video/video.mp4'
-
-  if(video_model) {
-    onloadVideo(video_model, getSrc);
-    if(screen_width < 1240) {
-      video_model.autoplay = true;
-      video_model.load();
-      video_model.play();
-    }
-  }
 
   const play_video_path = function(start, stop, text, callback, first_f) {
-    // console.log(text)
     try {
       video_model.pause();
       clearInterval(playing);
@@ -269,40 +283,23 @@ export const fullpage_init = function() {
   };
 
   video_play = function(number, leave) {
-    /////
     if (number == 0 && leave == 'parent') {
       play_video_path(0, 4.05, 'play 1',
-        // function () {
-        //   go_top = false;
-        // }
       );
     }
-    //////
     if (number == 'parent' && leave == 0) {
       play_video_path(14.8, 18.8, 'play 1 reverse',
-        // function () {
-        //   wait_after_move.section = false;
-        //   main_fullpage.moveSectionUp();
-        // },
-        // function () {
-        //   wait_after_move.section = false;
-        //   go_top = true;
-        // }
       );
     }
-    /////
     if (number == 1 && leave == 0) {
       play_video_path(4.05, 6.35, 'play 2');
     }
-    /////
     if (number == 0 && leave == 1) {
       play_video_path(12.8, 14.8, 'play 2 reverse');
     }
-    /////
     if (number == 2 && leave == 1) {
       play_video_path(6.6, 9, 'play 3');
     }
-    /////
     if (number == 1 && leave == 2) {
       play_video_path(9.8, 12.3, 'play 3 reverse');
     }
@@ -331,7 +328,6 @@ export const fullpage_init = function() {
 
     }
   }
-
 
   function event_scroll() {
     function addHandler(object, event, handler) {
@@ -371,7 +367,7 @@ export const fullpage_init = function() {
           fullpage_api.setMouseWheelScrolling(true);
           fullpage_api.setAllowScrolling(true);
 
-          if (go_top && deltaY > 0 && (screen_width > 767 || screen_width < 1365 && browserDetect.name === 'safari')) {
+          if (go_top && deltaY > 0 && (screen_width > 767 || screen_width < 1366 && browserDetect.name === 'safari')) {
             fullpage_api.moveSectionUp();
           }
         } else {
@@ -391,39 +387,33 @@ export const fullpage_init = function() {
       } else if (event.detail) { // Для Gecko
         delta = -event.detail / 3;
       }
+      if(getAdaptiveWidth) {
 
-      if (way.begin == null || way.direction != (delta > 0 ? 1 : -1)) {
-        way.begin = event.detail ? event.detail * (-120) : event.wheelDelta;
-        way.direction = delta > 0 ? 1 : -1;
-        way.lenght = 0;
-      } else {
-        way.lenght += Math.abs(event.detail ? event.detail * (-120) : event.wheelDelta);
-      }
-      slide_change(delta);
-
-      if($('#fullpage').hasClass('fullpage-wrapper') && $('body').hasClass('fp-viewing-four')) {
-        if ($('.section__bottom').scrollTop() === 0) {
-          fullpage_api.setMouseWheelScrolling(true);
-          fullpage_api.setAllowScrolling(true);
+        if (way.begin == null || way.direction != (delta > 0 ? 1 : -1)) {
+          way.begin = event.detail ? event.detail * (-120) : event.wheelDelta;
+          way.direction = delta > 0 ? 1 : -1;
+          way.lenght = 0;
         } else {
-          fullpage_api.setMouseWheelScrolling(false);
-          fullpage_api.setAllowScrolling(false);
+          way.lenght += Math.abs(event.detail ? event.detail * (-120) : event.wheelDelta);
+        }
+        slide_change(delta);
+
+        if ($('#fullpage').hasClass('fullpage-wrapper') && $('body').hasClass('fp-viewing-four')) {
+          if ($('.section__bottom').scrollTop() === 0) {
+            fullpage_api.setMouseWheelScrolling(true);
+            fullpage_api.setAllowScrolling(true);
+          } else {
+            fullpage_api.setMouseWheelScrolling(false);
+            fullpage_api.setAllowScrolling(false);
+          }
         }
       }
     }
   }
-  const hash = window.location.hash;
-  const steps = { 'two': {next: '#two/1', prev: '#one'}, 'two/1': {next: '#two/2',prev: '#two/1'}};
-  window.addEventListener('popstate', () => {
-    /* here check if adress change - do nothing */
-    if (hash !== window.location.hash){
-      if(steps[hash]){
-        /* here check in what direction was scrolled. Get from steps and apply to hash. and update hsh var*/
-      }
-    }
-  });
 
-  event_scroll();
+  if(getAdaptiveWidth) {
+    event_scroll();
+  }
 };
 
 function onloadVideo(videoTag, src) {

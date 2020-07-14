@@ -3,6 +3,7 @@
     .card__item
       .card__item__inner
         .catalog__item-inf Категория: &nbsp;
+          br
           a(href='#') Подшипники
         .card__item__inner-img
           img.section__bottom__slider__item__img(src='assets/images/prod_1.png', alt='')
@@ -15,14 +16,16 @@
         .section__bottom__slider__item__price
           | 529,86 ₽
           span с НДС
-        .section__bottom__slider__item__state.state_have
-          | Есть в наличии
-        .section__bottom__slider__item__bot-inf
-          | Артикул: 6206-2Z
+        .section__bottom__fix
+          .section__bottom__slider__item__state.state_have
+            | Есть в наличии
+          .section__bottom__slider__item__bot-inf
+            | Артикул: 6206-2Z
       a.btn.btn--full.btn--default.franciscoItem(href='#'): .franciscoHelper Добавить в заказ
     .card__item
       .card__item__inner
         .catalog__item-inf Категория: &nbsp;
+          br
           a(href='#') Подшипники
         .card__item__inner-img
           img.section__bottom__slider__item__img(src='assets/images/prod_2.png', alt='')
@@ -34,8 +37,9 @@
         .section__bottom__slider__item__price
           | 529,86 ₽
           span с НДС
-        .section__bottom__slider__item__state.state_delivery
-          | Под заказ
-        .section__bottom__slider__item__bot-inf
-          | Артикул: 6206-2Z
+        .section__bottom__fix
+          .section__bottom__slider__item__state.state_delivery
+            | Под заказ
+          .section__bottom__slider__item__bot-inf
+            | Артикул: 6206-2Z
       a.btn.btn--full.btn--default.franciscoItem(href='#'): .franciscoHelper Добавить в заказ

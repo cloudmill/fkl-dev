@@ -200,7 +200,7 @@ $(document).ready(function() {
 
 $( window ).on( "orientationchange", function() {
   setTimeout(() => {
-    const getPosition = $(".appendDots li.slick-active").position().left;
+    const getPosition = $(".appendDots li.slick-active").position() && $(".appendDots li.slick-active").position().left;
     $(".appendDots span").css({
       left: getPosition,
     });

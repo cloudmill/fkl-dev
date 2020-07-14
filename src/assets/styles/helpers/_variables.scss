@@ -67,6 +67,7 @@ $screen-xmd-max: ($screen-lg-min - 1) !default;
 $screen-lg-max: ($screen-xl-min - 1) !default;
 
 $screen-adaptive-nav: $screen-md-min;
+$screen-adaptive-all: $screen-xmd-max;
 
 //- Number of columns in the grid system
 $grid-columns: 12;

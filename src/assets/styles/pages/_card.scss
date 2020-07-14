@@ -55,8 +55,10 @@
     }
     &__inner {
       padding: 20px;
-      display: block;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
       @media screen and (min-width: $screen-xmd-min) {
         padding: 30px;
       }

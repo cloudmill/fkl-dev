@@ -20,6 +20,16 @@
     @media screen and (min-width: $screen-md-min) {
       display: flex;
     }
+
+    opacity: 0;
+    transform: translate3d(0, -100px, 0);
+
+    // animation
+    &.animateMe {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+      transition: all 1s 0.5s;
+    }
   }
   &__link {
     color: white;
