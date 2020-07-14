@@ -356,7 +356,7 @@ function setCenterZoom() {
     value = new google.maps.LatLng(60.350682, 57.790622);
   }
   if (screen_width < 768) {
-    value = new google.maps.LatLng(60.350682, 57.790622);
+    value = new google.maps.LatLng(61.582365, 98.215744);
   }
   return value;
 }
