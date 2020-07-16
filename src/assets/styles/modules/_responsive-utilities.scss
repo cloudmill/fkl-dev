@@ -6,6 +6,7 @@
   @include responsive-invisibility(".visible__xs");
   @include responsive-invisibility(".visible__sm");
   @include responsive-invisibility(".visible__md");
+  @include responsive-invisibility(".visible__xmd");
   @include responsive-invisibility(".visible__lg");
   @include responsive-invisibility(".visible__xl");
 
@@ -19,6 +20,10 @@
 
   @media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
     @include responsive-visibility(".visible__md");
+  }
+
+  @media screen and (min-width: $screen-xmd-min) and (max-width: $screen-xmd-max) {
+    @include responsive-visibility(".visible__xmd");
   }
 
   @media screen and (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
@@ -39,6 +44,10 @@
 
   @media screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
     @include responsive-invisibility(".hidden__md");
+  }
+
+  @media screen and (min-width: $screen-xmd-min) and (max-width: $screen-xmd-max) {
+    @include responsive-invisibility(".hidden__xmd");
   }
 
   @media screen and (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {

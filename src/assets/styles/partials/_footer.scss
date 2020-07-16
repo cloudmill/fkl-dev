@@ -124,6 +124,10 @@
     @media screen and (min-width: $screen-md-min) {
       padding: 0;
       display: block;
+      margin-bottom: 20px;
+    }
+    @media screen and (min-width: $screen-xmd-min) {
+      margin-bottom: 0;
     }
   }
   &__logo {
@@ -180,8 +184,11 @@
     padding: 20px;
     @media screen and (min-width: $screen-md-min) {
       border-top: none;
-      margin-bottom: 20px;
+      margin-bottom: 5px;
       padding: 0;
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      margin-bottom: 20px;
     }
     &.open--js {
       background: url("../images/icons/arrow-downWh.svg") no-repeat right 20px center;
@@ -198,6 +205,12 @@
     font-size: 14px;
     color: $gray-darken;
     margin-bottom: 10px;
+    span + span {
+      display: block;
+      @media screen and (min-width: $screen-xmd-min) {
+        margin-top: 30px;
+      }
+    }
     @media screen and (min-width: $screen-xmd-min) {
       margin-bottom: 50px;
     }
@@ -310,7 +323,7 @@
   .mobile-ver {
     .footer__copy {
       padding: 0 20px;
-      margin-top: 5px;
+      margin-bottom: 10px;
     }
   }
   .footer__copy img {

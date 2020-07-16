@@ -374,6 +374,9 @@ body.edge {
       top: 0;
       background: #041b8d;
       z-index: -3;
+      @media screen and (max-width: $screen-xmd-max) {
+        width: 156px;
+      }
       @media screen and (max-width: $screen-sm-max) {
         width: 0;
       }
@@ -413,6 +416,13 @@ body.edge {
         @media screen and (min-width: $screen-md-min) {
           top: 50%;
           width: auto;
+          left: -45%;
+        }
+        @media screen and (min-width: $screen-xmd-min) {
+          left: -5%;
+        }
+        @media screen and (min-width: $screen-lg-min) {
+          left: auto;
         }
         &.active {
           opacity: 1;
@@ -801,6 +811,7 @@ body.edge {
       padding: 50px 20px;
     }
     @media screen and (max-width: $screen-xmd-max) {
+      padding: 50px 20px;
       height: auto !important;
       .fp-tableCell {
         height: auto !important;
