@@ -2,6 +2,23 @@
   .section__bottom__body {
     border-left: none;
   }
+  .slick-prev {
+    @media screen and (max-width: $screen-xmd-max) {
+      left: -39px;
+      width: 40px;
+      img {
+        margin-right: 4px;
+      }
+    }
+  }
+  .slick-next {
+    @media screen and (max-width: $screen-xmd-max) {
+      width: 40px;
+      img {
+        margin-left: 4px;
+      }
+    }
+  }
   .section__bottom__sliders .slick-arrow {
     @media screen and (min-width: $screen-lg-min) {
       left: -79px;
@@ -71,6 +88,9 @@
   .section__bottom__sliders {
     margin-top: 0;
     @media screen and (min-width: $screen-md-min) {
+      padding-right: 40px;
+    }
+    @media screen and (min-width: $screen-lg-min) {
       padding-right: 80px;
     }
   }

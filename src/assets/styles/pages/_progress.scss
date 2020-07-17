@@ -3,7 +3,7 @@
     max-width: 900px;
   }
   .subNav__item {
-    @media screen and (min-width: $screen-md-min) {
+    @media screen and (min-width: $screen-xmd-min) {
       width: auto;
       margin-right: 50px;
     }

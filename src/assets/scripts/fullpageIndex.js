@@ -33,7 +33,7 @@ $(document).ready(function() {
     if(video_model) {
       onloadVideo(video_model, getSrc);
       video_model.autoplay = true;
-      video_model.load();
+      video_model.loop = true;
       video_model.play();
     }
   }
@@ -44,6 +44,7 @@ $(window).on("orientationchange", function() {
     const isLandscape = window.orientation === 90 || window.orientation === -90;
     if (getWidth >= 1240 && isLandscape) {
       video_model.autoplay = false;
+      video_model.loop = false;
       video_model.pause();
       video_model.currentTime = 0;
       fullpage_init();
@@ -54,7 +55,7 @@ $(window).on("orientationchange", function() {
       fullpage_api.destroy('all');
       video_play = () => {};
       video_model.autoplay = true;
-      video_model.load();
+      video_model.loop = true;
       video_model.play();
     }
   }, 500);
