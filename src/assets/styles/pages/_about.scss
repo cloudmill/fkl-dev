@@ -576,11 +576,15 @@
           font-weight: 800;
           font-size: 30px;
           line-height: 1.3333;
+          display: block;
           span {
             display: inline-block;
           }
           @media screen and (min-width: $screen-md-min) {
             font-size: 40px;
+          }
+          @media screen and (min-width: $screen-xmd-min) {
+            display: inline-block;
           }
           @media screen and (min-width: $screen-lg-min) {
             font-size: 66px;
@@ -644,6 +648,10 @@
             transition: left .2s, width .2s;
             height: 60px;
             width: 60px;
+            @media screen and (min-width: $screen-lg-min) {
+              width: 70px;
+              height: 70px;
+            }
             @media screen and (min-width: $screen-xl-min) {
               height: 95px;
               width: 95px;
