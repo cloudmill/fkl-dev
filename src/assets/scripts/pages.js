@@ -245,18 +245,26 @@ if (screen_width <= 767) {
   $('.filter-clicker').trigger('click');
 }
 
+const getLogoSrc = process.env.NODE_ENV === 'development'
+  ? 'assets/images/logo_blue.svg'
+  : '/local/templates/main/assets/images/logo_blue.svg';
+
+const getLogoSrcWhite = process.env.NODE_ENV === 'development'
+  ? 'assets/images/logo.svg'
+  : '/local/templates/main/assets/images/logo.svg';
+
 // header__menu-el--parent
 $(".header__menu-el--parent").mouseleave(function() {
   $(this).parents().find('.header').removeClass('hover');
   if(!$(this).parents().find('.header').hasClass('black')) {
-    $(this).parents().find('.header__logo img').attr('src', '/local/templates/main/assets/images/logo.svg');
+    $(this).parents().find('.header__logo img').attr('src', getLogoSrcWhite);
   }
 });
 $(".header__menu-el--parent").mouseover(function() {
   const navbar = $('.navbar').width();
   $('.sub-nav__inner').css('width', navbar);
   $(this).parents().find('.header').addClass('hover');
-  $(this).parents().find('.header__logo img').attr('src', '/local/templates/main/assets/images/logo_blue.svg');
+  $(this).parents().find('.header__logo img').attr('src', getLogoSrc);
 });
 
 // registerPart

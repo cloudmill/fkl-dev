@@ -351,6 +351,9 @@ body.edge {
     position: relative;
     @media screen and (max-width: $screen-xmd-max) {
       height: auto !important;
+      padding: 50px 20px;
+    }
+    @media screen and (max-width: $screen-md-max) {
       padding: 50px 20px 20px;
     }
     &:before {
@@ -418,8 +421,20 @@ body.edge {
           width: auto;
           left: -45%;
         }
+        @media screen and (min-width: 800px) {
+          left: -38.5%;
+        }
+        @media screen and (min-width: 830px) {
+          left: -32.2%;
+        }
         @media screen and (min-width: $screen-xmd-min) {
           left: -5%;
+        }
+        @media screen and (min-width: 1110px) {
+          left: 42px;
+        }
+        @media screen and (min-width: 1120px) {
+          left: 124px;
         }
         @media screen and (min-width: $screen-lg-min) {
           left: auto;
