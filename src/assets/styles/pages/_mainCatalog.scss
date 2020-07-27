@@ -117,10 +117,5 @@
     &:last-child {
       border-bottom: none;
     }
-    &:nth-last-child(2) {
-      @media screen and (min-width: $screen-md-min) {
-        border-bottom: none;
-      }
-    }
   }
 }
