@@ -31,9 +31,7 @@ const wait_after_move = {
   time: 600,
 };
 
-console.log(browserDetect.name);
 if (browserDetect.name !== 'ie' || browserDetect.name !== 'edge') {
-  console.log(browserDetect.name);
   require("./tilt.jquery");
 }
 
