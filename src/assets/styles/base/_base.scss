@@ -16,6 +16,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+section, article, aside, footer, header, nav, hgroup, main {
+  display:block;
+}
+
 //
 // Delete focus border
 //

@@ -1,23 +1,41 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto+Mono:100,100i,300,300i,400,400i,500,500i,700,700i&display=swap&subset=cyrillic");
 
 @font-face {
-  font-family: "mass";
-  src: url("../fonts/mass.otf");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "massMedium";
-  src: url("../fonts/mass-heave.otf");
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: "ALS";
-  src: url("../fonts/ALSSchlangesans-Bold.otf");
+  font-family: 'ALS';
+  src: url('../fonts/ALSSchlangesans-Bold.eot');
+  src: url('../fonts/ALSSchlangesans-Bold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/ALSSchlangesans-Bold.woff2') format('woff2'),
+  url('../fonts/ALSSchlangesans-Bold.woff') format('woff'),
+  url('../fonts/ALSSchlangesans-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
+
+@font-face {
+  font-family: 'mass';
+  src: url('../fonts/2MASSJ1808-Normal.eot');
+  src: url('../fonts/2MASSJ1808-Normal.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/2MASSJ1808-Normal.woff2') format('woff2'),
+  url('../fonts/2MASSJ1808-Normal.woff') format('woff'),
+  url('../fonts/2MASSJ1808-Normal.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'massMedium';
+  src: url('../fonts/2MASSJ1808-Heavy.eot');
+  src: url('../fonts/2MASSJ1808-Heavy.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/2MASSJ1808-Heavy.woff2') format('woff2'),
+  url('../fonts/2MASSJ1808-Heavy.woff') format('woff'),
+  url('../fonts/2MASSJ1808-Heavy.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 @font-face {
   font-family: 'icomoon';

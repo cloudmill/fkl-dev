@@ -17,6 +17,20 @@ body.edge {
 }
 
 
+body.chrome,
+body.ie,
+body.edge {
+  .section__main .particle_photo {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
 .mainTitle {
   display: flex;
   flex-wrap: wrap;

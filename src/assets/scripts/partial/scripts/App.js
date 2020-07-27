@@ -1,4 +1,12 @@
 import WebGLView from './webgl/WebGLView';
+import browser from 'browser-detect';
+
+const browserDetect = browser();
+
+
+const setModel = process.env.NODE_ENV === 'development'
+  ? "assets/images/particle_photo/podshipnik.png"
+  : "/local/templates/main/assets/images/particle_photo/podshipnik.png";
 
 export default class App {
 
@@ -15,7 +23,13 @@ export default class App {
 
 	initWebGL() {
 		this.webgl = new WebGLView(this);
-		document.querySelector('#particle_photo').appendChild(this.webgl.renderer.domElement);
+    if (browserDetect.name === 'ie') {
+      const DOM_img = document.createElement("img");
+      DOM_img.src = setModel;
+      document.querySelector('#particle_photo').appendChild(DOM_img);
+    } else {
+      document.querySelector('#particle_photo').appendChild(this.webgl.renderer.domElement);
+    }
 	}
 
 	addListeners() {

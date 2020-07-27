@@ -1,6 +1,7 @@
 import fullpage from './fullpage';
-import 'tilt.js';
 import browser from 'browser-detect';
+
+const browserDetect = browser();
 
 const video_model = document.getElementById('video');
 const screen_width = Math.max(
@@ -30,8 +31,11 @@ const wait_after_move = {
   time: 600,
 };
 
-
-const browserDetect = browser();
+console.log(browserDetect.name);
+if (browserDetect.name !== 'ie' || browserDetect.name !== 'edge') {
+  console.log(browserDetect.name);
+  require("./tilt.jquery");
+}
 
 $(document).ready(function() {
   if(getAdaptiveWidth) {
@@ -163,12 +167,14 @@ export const fullpage_init = function() {
       }
 
       if (destination.index == 2) {
-        setTimeout(() => {
-          $('.js-tilt').tilt({
-            perspective: '1000',
-            easing: 'linear'
-          });
-        }, 100);
+        if (browserDetect.name !== 'ie' || browserDetect.name !== 'edge') {
+          setTimeout(() => {
+            $('.js-tilt').tilt({
+              perspective: '1000',
+              easing: 'linear'
+            });
+          }, 100);
+        }
       }
 
       if (origin.index == 3) {
