@@ -551,9 +551,11 @@
         @media screen and (min-width: $screen-lg-min) {
           padding-left: 200px;
           padding-top: 0;
+          padding-bottom: 50px;
         }
         @media screen and (min-width: $screen-xl-min) {
           height: 400px;
+          padding-bottom: 0;
         }
         .slick-active {
           .vertical-reveal-inner {
@@ -635,6 +637,10 @@
         @media screen and (min-width: $screen-xl-min) {
           bottom: 0;
         }
+        b {
+          font-weight: 400;
+          display: inline-block;
+        }
         @media screen and (min-width: $screen-lg-min) {
           span {
             border-radius: 50px;
@@ -677,6 +683,7 @@
           list-style: none;
           border-radius: 95px;
           display: flex;
+          flex-wrap: wrap;
           justify-content: center;
           align-items: center;
           cursor: pointer;
