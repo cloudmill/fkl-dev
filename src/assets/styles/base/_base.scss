@@ -130,3 +130,10 @@ img {
   clip: rect(0, 0, 0, 0);
   overflow: hidden;
 }
+
+custom-link a {
+  text-decoration: underline;
+}
+.custom-link a:hover {
+  text-decoration: none;
+}
