@@ -543,28 +543,98 @@ function initMap1() {
   });
 }
 
-function initMapBlue() {
+function initMapCdek() {
   const mapOptions = {
-    center: new google.maps.LatLng(59.91916157, 30.3251195),
-    zoom: 15,
+    center: new google.maps.LatLng(51.666120, 39.190655),
+    zoom: setZoomValue,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     mapTypeControl: false,
     zoomControl: true,
     scrollwheel: false,
     styles: mapStyle
   };
-  map2 = new google.maps.Map(document.getElementById("googleMapsBlue"), mapOptions);
+  map2 = new google.maps.Map(document.getElementById("pvz_cdek_map"), mapOptions);
 
-  for (let i = 0; i < locations.length; i++) {
+  let locations = [],
+    content = [];
+
+  let
+    list = $('.pvz_list'),
+    items = list.find('span'),
+    pvz_price = $('input[name=pvz_price]').val(),
+    pvz_time = $('input[name=pvz_time]').val(),
+    item_radio = [];
+
+  items.each(function () {
+    let item = $(this),
+      id = item.attr('data-id'),
+      name = item.attr('data-name'),
+      phone = item.attr('data-phone'),
+      email = item.attr('data-email'),
+      adr = item.attr('data-adr'),
+      time = item.attr('data-time'),
+      coord = item.attr('data-map');
+
+    coord = coord.split(',');
+    coord['0'] = parseFloat(coord['0']);
+    coord['1'] = parseFloat(coord['1']);
+
+    locations[locations.length] = coord;
+    content.push('<h6>' + name + '</h6> <p>' + phone + '  <br /> ' + adr + '  <br /> ' + time + '</p>');
+
+    item_radio.push('<div class="radio"><input class="city" type="radio" id="point'+item_radio.length+'" name="pvz_radio" value="'+id+'"><label class="label" for="point'+item_radio.length+'"><b>'+name+'</b><br/>'+adr+'</label></div>');
+  });
+
+  $('[data-type=js-pvz-list]').html('');
+
+  item_radio.forEach(function (item, i, arr) {
+    $('#pvz_cdek [data-type=js-pvz-list]').append(item);
+  });
+
+  locations.forEach(function (item, i, arr) {
     markers[i] = new google.maps.Marker({
-      position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+      position: new google.maps.LatLng(item[0], item[1]),
       icon: setBubble,
       map: map2,
       id: i
     });
+  });
+
+  if (locations.length) {
+    map2.setCenter({
+      lat: locations['0']['0'],
+      lng: locations['0']['1']
+    });
+  }
+
+
+
+  if (parseFloat(list.attr('data-zoom')) > 0) {
+    map2.setZoom(parseFloat(list.attr('data-zoom')));
   }
 
   markerCluster = new MarkerClusterer(map2, markers, mcOptions);
+
+  for (let i = 0; i < markers.length; i++) {
+    const marker = markers[i];
+
+    google.maps.event.addListener(marker, 'click', (function () {
+      return function () {
+        infoWindow.setContent(content[i]);
+        infoWindow.open(map, this);
+      }
+    })(marker));
+  }
+
+  $(document).on('click', '[data-type=js-pvz-select]', function(e){
+    e.preventDefault();
+    let pvz = $('input[name=pvz_radio]:checked').val();
+    if (pvz) {
+      $('select[name=pvz]').val(pvz).trigger('change');
+    }
+    console.log(pvz);
+    $.magnificPopup.close();
+  });
 }
 
 $(function () {
@@ -574,8 +644,10 @@ $(function () {
   if ($("#googleMap").length) {
     initMap1();
   }
+  $(document).on('change', 'input[name=pvz_map]', function () {
+    initMapCdek();
+  });
 });
-// $(document).ready($("#googleMapsBlue").length && initMapBlue);
 
 $(document).ready(function () {
   $('.popup-modal').magnificPopup({
@@ -584,7 +656,6 @@ $(document).ready(function () {
     mainClass: 'my-mfp-zoom-in',
     callbacks: {
       open: function () {
-        //if($("#googleMapsBlue").length) initMapBlue();
         $('body').css('overflow', 'hidden');
       },
       close: function () {

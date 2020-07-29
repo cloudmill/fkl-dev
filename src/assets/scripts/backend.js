@@ -806,6 +806,21 @@ const order = function () {
 
           }
         }
+
+        $('[data-type=js-checkout]').find('.popup-modal').magnificPopup({
+          type: 'inline',
+          removalDelay: 300,
+          mainClass: 'my-mfp-zoom-in',
+          callbacks: {
+            open: function () {
+              $('input[name=pvz_map]').trigger('change');
+              $('body').css('overflow', 'hidden');
+            },
+            close: function () {
+              $('body').css('overflow', 'visible');
+            }
+          }
+        });
       }
     });
   }
