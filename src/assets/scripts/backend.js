@@ -833,7 +833,8 @@ const order = function () {
       deliveryValue = 0,
       payment = checkout.find('input[name=payment]'),
       paymentValue = 0,
-      agreement = checkout.find('input[name=agreement]');
+      agreement = checkout.find('input[name=agreement]'),
+      coupon = checkout.find('input[name=coupon]');
 
     type.each(function () {
       if ($(this).hasClass('active')) {
@@ -912,6 +913,7 @@ const order = function () {
             'delivery': deliveryValue,
             'deliveryPrice': deliveryPrice.val(),
             'payment': paymentValue,
+            'coupon': coupon.val()
           }),
           success: function (a) {
             $('[data-type=js-checkout]').html(a);
@@ -1045,6 +1047,7 @@ const order = function () {
             'director': director.val(),
             'act': act.val(),
             'state': state.val(),
+            'coupon': coupon.val()
           }),
           success: function (a) {
             $('[data-type=js-checkout]').html(a);

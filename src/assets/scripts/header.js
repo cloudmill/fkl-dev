@@ -87,12 +87,6 @@ $(".showForm--js").click(function() {
 
   return false;
 });
-$(".main-content--form button").click(function() {
-  $(this).closest('.row-null').hide();
-  $('.main-content--form .inner').show(500);
-
-  return false;
-});
 
 // Hide Header on on scroll down
 $(function(){
