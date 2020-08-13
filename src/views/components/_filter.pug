@@ -12,30 +12,79 @@ aside.aside(data-aos="fade-right", data-aos-delay="500")
           .checkbox
             input(type="checkbox", id='type1')
             label.label(for='type1') C
+              .img: +img('filters/ico-1.svg')
           .checkbox
             input(type="checkbox", id='type2')
             label.label(for='type2') D
+              .img: +img('filters/ico-2.svg')
           .checkbox
             input(type="checkbox", id='type3')
             label.label(for='type3') F
+              .img: +img('filters/ico-3.svg')
+          .checkbox
+            input(type="checkbox", id='type10')
+            label.label(for='type10') FG
+              .img: +img('filters/ico-3.svg')
+          .checkbox
+            input(type="checkbox", id='type11')
+            label.label(for='type11') FN
+              .img: +img('filters/ico-3.svg')
           .checkbox
             input(type="checkbox", id='type4')
             label.label(for='type4') G
+              .img: +img('filters/ico-11.svg')
+          .checkbox
+            input(type="checkbox", id='type12')
+            label.label(for='type12') GR
+              .img: +img('filters/ico-11.svg')
           .checkbox
             input(type="checkbox", id='type5')
-            label.label(for='type5') H
+            label.label(for='type5') HG
+              .img: +img('filters/ico-10.svg')
+          .checkbox
+            input(type="checkbox", id='type13')
+            label.label(for='type13') HGR
+              .img: +img('filters/ico-10.svg')
+          .checkbox
+            input(type="checkbox", id='type14')
+            label.label(for='type14') N
+              .img: +img('filters/ico-4.svg')
+          .checkbox
+            input(type="checkbox", id='type15')
+            label.label(for='type15') NR
+              .img: +img('filters/ico-12.svg')
+          .checkbox
+            input(type="checkbox", id='type16')
+            label.label(for='type16') R
+              .img: +img('filters/ico-5.svg')
+          .checkbox
+            input(type="checkbox", id='type17')
+            label.label(for='type17') S
+              .img: +img('filters/ico-6.svg')
+          .checkbox
+            input(type="checkbox", id='type18')
+            label.label(for='type18') ST
+              .img: +img('filters/ico-13.svg')
+          .checkbox
+            input(type="checkbox", id='type19')
+            label.label(for='type19') T
+              .img: +img('filters/ico-8.svg')
+          .checkbox
+            input(type="checkbox", id='type7')
+            label.label(for='type7') TJ
+              .img: +img('filters/ico-8.svg')
           .checkbox
             input(type="checkbox", id='type6')
             label.label(for='type6') P
-          .checkbox
-            input(type="checkbox", id='type7')
-            label.label(for='type7') S
+              .img: +img('filters/ico-7.svg')
           .checkbox
             input(type="checkbox", id='type8')
             label.label(for='type8') U
+              .img: +img('filters/ico-9.svg')
           .checkbox
             input(type="checkbox", id='type9')
             label.label(for='type9') V
+              .img: +img('filters/ico-14.svg')
       .filter-list-body.active
         .filter-list__item
           label Определите цену
@@ -69,3 +118,4 @@ aside.aside(data-aos="fade-right", data-aos-delay="500")
           +img('whiteRightAr.svg')
       a.btn.btn--default.btn--full.franciscoItem.reset--js(href='#')
         .franciscoHelper Сбросить
+    .showFilter: a.showFilterLink(href='#') Показать

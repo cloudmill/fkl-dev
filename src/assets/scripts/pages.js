@@ -40,6 +40,9 @@ if(stepsSlider) {
       decimals: 0
     })
   });
+  stepsSlider.noUiSlider.on('end', function () {
+    $('.showFilter').addClass('active').show(500);
+  });
   stepsSlider.noUiSlider.on('update', function (values, handle) {
     inputs[handle].value = values[handle];
   });
@@ -81,6 +84,11 @@ if(stepsSlider) {
   });
 }
 //range slider
+
+
+$('.filter input').change(function () {
+  $('.showFilter').addClass('active').show(500);
+});
 
 
 export function validateEmail(email) {
@@ -195,6 +203,7 @@ $('.input__quantity-js .dec').click(function () {
   calcilateSumm($(this), count);
   return false;
 });
+
 
 // input type ONLY number
 function forceNumericOnly (item) {

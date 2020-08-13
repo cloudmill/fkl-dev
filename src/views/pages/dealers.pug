@@ -17,7 +17,17 @@ block content
           .vertical-reveal-inner(data-aos="") Любая компания, занимающаяся торговлей, #[br] снабжением промышленных предприятий #[br] подшипниками, карданами, может стать торговым #[br] партнером или региональным Дилером.
         .blueLine(data-aos="fade-up", data-aos-delay="700")
           h5.vertical-reveal-outer
-            .vertical-reveal-inner(data-aos="") ООО «ФКЛ РУС» различает несколько стадий взаимоотношений #[br] с торговыми компаниями в отношении развития выше #[br] упомянутой торговой марки:
+            .vertical-reveal-inner(data-aos='')
+              ul.list--bullet.anchor
+                li: a(href='#chainCommon') Общая информация о торговой марке FKL
+                li: a(href='#chainCreate') Создание сбалансированной структуры продаж на базе Партнера
+                li: a(href='#chainPolitics') Региональная политика и её нарушение
+                li: a(href='#chainPartner') Готовность ООО «ФКЛ» к открытым и доверительным взаимоотношениям с Партнером, направленных на развитие бизнеса Партнера по продукции FKL
+                li: a(href='#chainPDF') Приложения
+              br
+              br
+              p
+                | ООО «ФКЛ» различает несколько стадий взаимоотношений с торговыми компаниями в отношении развития выше упомянутой торговой марки:
         .dealers-counter(data-aos="fade-up")
           .dealers-counter-item
             .dealers-counter__num 01
@@ -29,8 +39,8 @@ block content
             .dealers-counter__num 03
             .dealers-counter__text Покупатель
       .dealers-accordion.accordion(data-aos="fade-up")
-        .accordion-item(data-aos="fade-up")
-          .accordion-header: .title Получение статуса «Дилер» происходит на основании
+        .accordion-item#chainCommon(data-aos="fade-up")
+          .accordion-header: .title Общая информация о торговой марке FKL
           .accordion-content
             ul.list--bullet
               li Письменно оформленного желания Партнера стать Дилером
@@ -38,8 +48,26 @@ block content
                 p Фактического достижения согласованных показателей объемов продаж продукции за период #[small (как правило, 6 месяцев)].
                 p Согласование объемов продаж происходит с менеджерами ООО «ФКЛ РУС»;
               li Сформированного на базе Партнера склада по продукции Компании #[small (согласно общим условиям)].
-        .accordion-item(data-aos="fade-up")
-          .accordion-header: .title Обязательства Дилера
+        .accordion-item#chainCreate(data-aos="fade-up")
+          .accordion-header: .title Создание сбалансированной структуры продаж на базе Партнера
+          .accordion-content
+            ul.list--bullet
+              li Письменно оформленного желания Партнера стать Дилером
+              li
+                p Фактического достижения согласованных показателей объемов продаж продукции за период #[small (как правило, 6 месяцев)].
+                p Согласование объемов продаж происходит с менеджерами ООО «ФКЛ РУС»;
+              li Сформированного на базе Партнера склада по продукции Компании #[small (согласно общим условиям)].
+        .accordion-item#chainPolitics(data-aos="fade-up")
+          .accordion-header: .title Региональная политика и её нарушение
+          .accordion-content
+            ul.list--bullet
+              li Письменно оформленного желания Партнера стать Дилером
+              li
+                p Фактического достижения согласованных показателей объемов продаж продукции за период #[small (как правило, 6 месяцев)].
+                p Согласование объемов продаж происходит с менеджерами ООО «ФКЛ РУС»;
+              li Сформированного на базе Партнера склада по продукции Компании #[small (согласно общим условиям)].
+        .accordion-item#chainPartner(data-aos="fade-up")
+          .accordion-header: .title Готовность ООО «ФКЛ» к открытым и доверительным взаимоотношениям с Партнером, направленных на развитие бизнеса Партнера по продукции FKL
           .accordion-content
             ul.list--bullet
               li Письменно оформленного желания Партнера стать Дилером
@@ -190,7 +218,7 @@ block content
                 br
                 | Согласование объемов продаж происходит с менеджерами ООО «ФКЛ РУС»;
               li Сформированного на базе Партнера склада по продукции Компании #[small (согласно общим условиям)].
-      div(data-aos="fade-up")
+      div#chainPDF(data-aos="fade-up")
         a.about__card__bottom.franciscoItem(href='#')
           .franciscoHelper
             img(src='assets/images/download.svg', alt='')

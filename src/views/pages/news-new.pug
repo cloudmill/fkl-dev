@@ -1,0 +1,83 @@
+extends ../layouts/master.pug
+
+block pageName
+  - var pageName = "news"
+
+block header
+  include ../partials/_header
+
+block content
+  .section
+    .container
+      +mainTitle('Новости', 'О компании', true)
+      +menuSub(menuAbout, pageName)
+    .section__left(data-aos="")
+      .news-info
+        .section__bottom__body
+          .section__bottom__new.section__bottom__new--full(data-aos="fade-up", data-aos-delay="800")
+            div
+              .popup-gallery.section__bottom__new__img
+                a(href='assets/images/news.jpg'): +img('news.jpg')
+                a(href='assets/images/news.jpg')
+                a(href='assets/images/news.jpg')
+                a(href='assets/images/news.jpg')
+              .section__bottom__new__desc
+                .section__bottom__new__titleDate
+                  .section__bottom__new__date 24 октября 2019
+                  a.section__bottom__new__title(href='#') РУС ФКЛ отгрузила более 150 тысяч изделий для ТЕХНИКА-СЕРВИС
+                .section__bottom__new__text Компоненты для производства - шарики, трубы, отливки, уплотнения, пластик, смазка, антикоррозийная защита, премиального качества от европейских поставщиков...
+          .section__bottom__new.section__bottom__new--full(data-aos="fade-up", data-aos-delay="800")
+            div
+              .section__bottom__new__desc
+                .section__bottom__new__titleDate
+                  .section__bottom__new__date 24 октября 2019
+                  a.section__bottom__new__title(href='#') РУС ФКЛ отгрузила более 150 тысяч изделий для ТЕХНИКА-СЕРВИС
+                .section__bottom__new__text Компоненты для производства - шарики, трубы, отливки, уплотнения, пластик, смазка, антикоррозийная защита, премиального качества от европейских поставщиков...
+          .section__bottom__new.section__bottom__new--full(data-aos="fade-up", data-aos-delay="800")
+            div
+              .popup-gallery.section__bottom__new__img
+                a(href='assets/images/news.jpg'): +img('news.jpg')
+              .section__bottom__new__desc
+                .section__bottom__new__titleDate
+                  .section__bottom__new__date 24 октября 2019
+                  a.section__bottom__new__title(href='#') РУС ФКЛ отгрузила более 150 тысяч изделий для ТЕХНИКА-СЕРВИС
+                .section__bottom__new__text Компоненты для производства - шарики, трубы, отливки, уплотнения, пластик, смазка, антикоррозийная защита, премиального качества от европейских поставщиков...
+          .section__bottom__new.section__bottom__new--full.hidden-content(data-aos="fade-up", data-aos-delay="800")
+            div
+              .popup-gallery.section__bottom__new__img
+                a(href='assets/images/news.jpg'): +img('news.jpg')
+                a(href='assets/images/news.jpg')
+                a(href='assets/images/news.jpg')
+                a(href='assets/images/news.jpg')
+              .section__bottom__new__desc
+                .section__bottom__new__titleDate
+                  .section__bottom__new__date 24 октября 2019
+                  a.section__bottom__new__title(href='#') РУС ФКЛ отгрузила более 150 тысяч изделий для ТЕХНИКА-СЕРВИС
+                .section__bottom__new__text Компоненты для производства - шарики, трубы, отливки, уплотнения, пластик, смазка, антикоррозийная защита, премиального качества от европейских поставщиков...
+          .section__bottom__new.section__bottom__new--full.hidden-content(data-aos="fade-up", data-aos-delay="800")
+            div
+              .section__bottom__new__desc
+                .section__bottom__new__titleDate
+                  .section__bottom__new__date 24 октября 2019
+                  a.section__bottom__new__title(href='#') РУС ФКЛ отгрузила более 150 тысяч изделий для ТЕХНИКА-СЕРВИС
+                .section__bottom__new__text Компоненты для производства - шарики, трубы, отливки, уплотнения, пластик, смазка, антикоррозийная защита, премиального качества от европейских поставщиков...
+          .section__bottom__new.section__bottom__new--full.hidden-content(data-aos="fade-up", data-aos-delay="800")
+            div
+              .popup-gallery.section__bottom__new__img
+                a(href='assets/images/news.jpg'): +img('news.jpg')
+              .section__bottom__new__desc
+                .section__bottom__new__titleDate
+                  .section__bottom__new__date 24 октября 2019
+                  a.section__bottom__new__title(href='#') РУС ФКЛ отгрузила более 150 тысяч изделий для ТЕХНИКА-СЕРВИС
+                .section__bottom__new__text Компоненты для производства - шарики, трубы, отливки, уплотнения, пластик, смазка, антикоррозийная защита, премиального качества от европейских поставщиков...
+        .showMore--js(data-aos="fade-up")
+          a.about__card__bottom.franciscoItem(href='#')
+            .franciscoHelper
+              img(src='assets/images/icons/showMore.svg', alt='')
+              p Показать еще
+      +nextBlock('Философия')
+      include ../components/_signForm
+
+block footer
+  .section__footer
+    include ../partials/_footer

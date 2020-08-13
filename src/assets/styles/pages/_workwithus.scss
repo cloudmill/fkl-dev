@@ -93,7 +93,6 @@
     }
     .logoList {
       &__item {
-        width: calc(100% / 2);
         @media screen and (min-width: $screen-md-min) {
           width: calc(100% / 3);
         }
@@ -120,6 +119,8 @@
     width: calc(100% / 2);
     cursor: pointer;
     padding: 16px;
+    position: relative;
+    transition: all .5s;
     border-right: 1px solid $gray;
     border-bottom: 1px solid $gray;
     @media screen and (min-width: $screen-md-min) {
@@ -128,8 +129,28 @@
     @media screen and (min-width: $screen-lg-min) {
       width: calc(100% / 6);
     }
+    .textInner {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 15px;
+      font-size: 14px;
+      text-align: center;
+      color: #001AA5;
+      opacity: 0;
+      transition: opacity .5s;
+    }
+    img {
+      transition: transform .5s;
+    }
     &:hover {
       box-shadow: inset 0px 0px 0px 1px $base-color-main;
+      img {
+        transform: scale(1.3);
+      }
+      .textInner {
+        opacity: 1;
+      }
     }
   }
   .ratio-inner {

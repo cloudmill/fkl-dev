@@ -35,21 +35,23 @@ $(document).ready(function() {
   $(".scrollContent").mCustomScrollbar();
 
   // popup
-  $(".popup-gallery").magnificPopup({
-    delegate: "a",
-    type: "image",
-    mainClass: "mfp-img-mobile",
-    gallery: {
-      enabled: true,
-      navigateByImgClick: true,
-    },
-    zoom: {
-      enabled: true,
-      duration: 300, // don't foget to change the duration also in CSS
-      opener: function(element) {
-        return element.find("img");
+  $('.popup-gallery').each(function() {
+    $(this).magnificPopup({
+      delegate: "a",
+      type: "image",
+      mainClass: "mfp-img-mobile",
+      gallery: {
+        enabled: true,
+        navigateByImgClick: true,
       },
-    },
+      zoom: {
+        enabled: true,
+        duration: 300,
+        opener: function(element) {
+          return element.find("img");
+        },
+      },
+    });
   });
   $(document).on("click", ".popup-modal-dismiss", function(e) {
     e.preventDefault();

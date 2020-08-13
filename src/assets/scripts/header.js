@@ -1,6 +1,25 @@
 import AOS from "aos";
 import {fullpage_init} from './fullpageIndex';
 
+
+// anchor
+$('.anchor').on('click', 'a', function(event) {
+  event.preventDefault();
+  $('.anchor a').removeClass('active');
+  const id = $(this).attr('href');
+  const top = $(id).offset().top;
+  $(this).addClass('active');
+  $('body,html').animate({scrollTop: top - 180}, 1000);
+
+  setTimeout(() => {
+    $(id).find('.accordion-header')
+      .toggleClass("active")
+      .next()
+      .slideToggle();
+  }, 1000);
+});
+// anchor
+
 const screen_width = Math.max(
   document.documentElement.clientWidth,
   window.innerWidth || 0
