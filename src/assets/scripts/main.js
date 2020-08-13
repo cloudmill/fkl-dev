@@ -4,16 +4,6 @@ import "select2";
 import "malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min";
 import AOS from "aos";
 
-// $(document).on("click", ".about__video--ico", function() {
-//   $(this).hide();
-//   const $video = $("#videoNew"),
-//     src = $video.attr("src");
-//   console.log(src);
-//
-//   $video.attr("src", src + "&autoplay=1");
-// });
-
-
 const screen_width = Math.max(
   document.documentElement.clientWidth,
   window.innerWidth || 0
@@ -31,14 +21,16 @@ $(document).ready(function() {
   slidersAboutPeople();
   progressList();
   sliderInside();
+  slidersNews();
 
   $(".scrollContent").mCustomScrollbar();
 
   // popup
-  $('.popup-gallery').each(function() {
+  $(".popup-gallery").each(function() {
     $(this).magnificPopup({
       delegate: "a",
       type: "image",
+      enableEscapeKey: true,
       mainClass: "mfp-img-mobile",
       gallery: {
         enabled: true,
@@ -466,6 +458,64 @@ const slidersAbout = function(item) {
   });
 };
 
+const slidersNews = function() {
+  const $status = $(".pagingInfo .counter");
+  const $statusF = $(".pagingInfo .counter span:first-child");
+  const $statusL = $(".pagingInfo .counter span:last-child");
+  const $length = $(".pagingInfo .length");
+  const $slickElement = $(".sliderNews");
+
+  $slickElement.on("init reInit afterChange", function(
+    event,
+    slick,
+    currentSlide
+  ) {
+    const i = (currentSlide ? currentSlide : 0) + 1;
+    const t =
+      Math.ceil(slick.slideCount) === Math.ceil(i)
+        ? 1
+        : Math.ceil(i) + 1;
+    $status.addClass("active");
+    $statusF.html(Math.ceil(i));
+    $statusL.html(t);
+    $length.html(` / ${slick.slideCount}`);
+  });
+  $slickElement.on("beforeChange", function() {
+    $status.removeClass("active");
+  });
+
+  $slickElement.slick({
+    slidesToScroll: 1,
+    slidesToShow: 1,
+    dots: false,
+    speed: 1000,
+    arrows: false,
+    infinite: false,
+    cssEase: "ease-in-out",
+    touchThreshold: 100,
+    variableWidth: true,
+    autoplaySpeed: 5000,
+    responsive: [
+      {
+        breakpoint: 1025,
+        settings: {
+          adaptiveHeight: true,
+          variableWidth: false,
+        },
+      },
+    ],
+  });
+
+  $(".next").click(function() {
+    const sl = $(this).closest('.about__slider').find('.sliderNews');
+    sl.slick('slickNext');
+  });
+  $(".prev").click(function() {
+    const sl = $(this).closest('.about__slider').find('.sliderNews');
+    sl.slick('slickPrev');
+  });
+};
+
 const slidersAboutRtl = function() {
   const $status = $(".pagingInfo-rtl .counter");
   const $statusF = $(".pagingInfo-rtl .counter span:first-child");
@@ -564,4 +614,17 @@ const slidersForNav = function() {
 
 $(document).on("click", ".section__bottom__close--js", function(e) {
   $('.section__bottom__form__message').slideUp(500);
+});
+
+
+$(document).keydown(function(e){
+  if($('.sliderNews').length) {
+    const sl = $('.sliderNews');
+    if (e.which == 37) {
+      sl.slick('slickPrev');
+    }
+    if (e.which == 39) {
+      sl.slick('slickNext');
+    }
+  }
 });

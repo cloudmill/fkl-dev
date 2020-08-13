@@ -1446,6 +1446,7 @@ body.edge {
       }
       &--full {
         width: 100%;
+        padding: 0;
         > div {
           padding: 20px;
           @media screen and (min-width: $screen-md-min) {
@@ -1469,7 +1470,10 @@ body.edge {
             width: 330px;
           }
           @media screen and (min-width: $screen-xl-min) {
-            margin-right: 140px;
+            margin-right: 80px;
+          }
+          @media screen and (min-width: 1600px) {
+            margin-left: 140px;
           }
         }
         .section__bottom__new__text {
@@ -1491,8 +1495,11 @@ body.edge {
         @media screen and (min-width: $screen-lg-min) {
           width: 26%;
           text-align: right;
-          margin-left: 140px;
+          margin-left: 40px;
           order: 1;
+        }
+        @media screen and (min-width: $screen-xl-min) {
+          margin-left: 140px;
         }
       }
 

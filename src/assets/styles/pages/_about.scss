@@ -315,6 +315,58 @@
         }
       }
     }
+
+    &--pure {
+      &.about__slider .slick-slide:not(.slick-current) {
+        @media screen and (min-width: $screen-xmd-min) {
+          transform: scale(0.6);
+          bottom: -100px;
+          position: relative;
+        }
+      }
+      .slick-track {
+        display: block;
+      }
+      .slick-slide {
+        width: auto;
+        padding-left: 80px;
+        margin-right: 0;
+        max-height: 500px !important;
+        @media screen and (min-width: $screen-xmd-min) {
+          height: 500px !important;
+        }
+        transform: scale(1);
+        transition: all 0.3s;
+        > * {
+          height: 100%;
+        }
+        .sliderAbout__item-img {
+          max-height: 500px;
+          @media screen and (min-width: $screen-xmd-min) {
+            height: 500px;
+          }
+        }
+        .sliderAbout__item {
+          height: 100%;
+          align-items: flex-end;
+          img {
+            max-height: 100%;
+          }
+        }
+      }
+      .pagingInfo {
+        left: auto;
+        right: 80px;
+        top: 0;
+        bottom: auto;
+        .counter > span {
+          top: -22px;
+        }
+      }
+      .arrowInfo {
+        left: 80px;
+      }
+    }
   }
 
   &__advantages {

@@ -150,6 +150,9 @@
         &:hover {
           border-color: transparent;
         }
+        &.non-border {
+          border-bottom: none;
+        }
       }
     }
 
