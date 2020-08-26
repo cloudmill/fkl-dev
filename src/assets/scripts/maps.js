@@ -1,3 +1,4 @@
+import "malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min";
 let markers = [];
 let map;
 let map1;
@@ -322,10 +323,13 @@ const mcOptions = {
 };
 const infoWindow = new google.maps.InfoWindow();
 let setZoomValue;
+let setCenterZoomValue;
 const screen_width = Math.max(
   document.documentElement.clientWidth,
   window.innerWidth || 0
 );
+
+
 
 function setZoom() {
   let value;
@@ -363,6 +367,8 @@ function setCenterZoom() {
 
 setCenterZoomValue = setCenterZoom();
 setZoomValue = setZoom();
+
+
 
 function initMap() {
   const mapOptions = {
@@ -438,7 +444,6 @@ function initMap() {
   }
 
   markerCluster = new MarkerClusterer(map, markers, mcOptions);
-
 
   $(document).on('change', 'input[name=map_center]', function () {
     var value = $(this).val();
@@ -582,14 +587,19 @@ function initMapCdek() {
     locations[locations.length] = coord;
     content.push('<h6>' + name + '</h6> <p>' + phone + '  <br /> ' + adr + '  <br /> ' + time + '</p>');
 
-    item_radio.push('<div class="radio"><input class="city" type="radio" id="point'+item_radio.length+'" name="pvz_radio" value="'+id+'"><label class="label" for="point'+item_radio.length+'"><b>'+name+'</b><br/>'+adr+'</label></div>');
+    item_radio.push('<div class="radio"><input class="city" type="radio" id="point' + item_radio.length + '" name="pvz_radio" value="' + id + '"><label class="label" for="point' + item_radio.length + '"><b>' + name + '</b><br/>' + adr + '</label></div>');
   });
+
+  $('[data-type=js-pvz-list]').mCustomScrollbar('destroy');
 
   $('[data-type=js-pvz-list]').html('');
 
   item_radio.forEach(function (item, i, arr) {
     $('#pvz_cdek [data-type=js-pvz-list]').append(item);
   });
+
+  setTimeout(() => $('#pvz_cdek [data-type=js-pvz-list]').mCustomScrollbar(), 10);
+
 
   locations.forEach(function (item, i, arr) {
     markers[i] = new google.maps.Marker({
@@ -626,7 +636,7 @@ function initMapCdek() {
     })(marker));
   }
 
-  $(document).on('click', '[data-type=js-pvz-select]', function(e){
+  $(document).on('click', '[data-type=js-pvz-select]', function (e) {
     e.preventDefault();
     let pvz = $('input[name=pvz_radio]:checked').val();
     if (pvz) {
