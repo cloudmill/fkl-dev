@@ -5,6 +5,7 @@ import "../src/assets/styles/_app.scss";
 
 
 import ready from 'domready';
+import 'magnify';
 import browser from 'browser-detect';
 import AOS from 'aos';
 import App from '../src/assets/scripts/partial/scripts/App';
@@ -18,6 +19,8 @@ const MobileDetect = require('mobile-detect');
 const md = new MobileDetect(window.navigator.userAgent);
 
 $(document).ready(() => {
+  $('.zoom').magnify();
+
   require("../src/assets/scripts/header");
   require("../src/assets/scripts/pages");
 
