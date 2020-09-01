@@ -260,6 +260,11 @@
     .list--dots {
 
     }
+    .section__card__slider {
+      .slick-track {
+        border-left: 1px solid $gray;
+      }
+    }
     @media screen and (min-width: $screen-md-min) {
       .section__card__slider {
         margin-right: 40px;
