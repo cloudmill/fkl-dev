@@ -41,7 +41,9 @@ if(stepsSlider) {
     })
   });
   stepsSlider.noUiSlider.on('end', function () {
+    const getTop = $(this)[0].target.offsetTop;
     $('.showFilter').addClass('active').show(500);
+    $('.showFilter .showFilterLink').css({top: getTop});
   });
   stepsSlider.noUiSlider.on('update', function (values, handle) {
     inputs[handle].value = values[handle];
@@ -87,7 +89,9 @@ if(stepsSlider) {
 
 
 $('.filter input').change(function () {
+  const getTop = $(this).parent().position().top;
   $('.showFilter').addClass('active').show(500);
+  $('.showFilter .showFilterLink').css({top: getTop});
 });
 
 
