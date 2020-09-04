@@ -142,11 +142,12 @@
     }
     img {
       transition: transform .5s;
+      transform: scale(0.7);
     }
     &:hover {
       box-shadow: inset 0px 0px 0px 1px $base-color-main;
       img {
-        transform: scale(1.3);
+        transform: scale(1);
       }
       .textInner {
         opacity: 1;
