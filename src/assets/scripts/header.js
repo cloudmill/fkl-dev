@@ -13,9 +13,9 @@ $('.anchor').on('click', 'a', function(event) {
 
   setTimeout(() => {
     $(id).find('.accordion-header')
-      .toggleClass("active")
+      .addClass("active")
       .next()
-      .slideToggle();
+      .slideDown();
   }, 1000);
 });
 // anchor
