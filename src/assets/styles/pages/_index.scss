@@ -6,7 +6,9 @@
     overflow: hidden;
   }
   .section__main {
-    overflow: visible;
+    @media screen and (min-width: $screen-md-min) {
+      overflow: visible;
+    }
   }
 }
 
@@ -20,14 +22,16 @@ body.edge {
 body.chrome,
 body.ie,
 body.edge {
-  .section__main .particle_photo {
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    left: 50px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  @media screen and (min-width: $screen-md-min) {
+    .section__main .particle_photo {
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      left: 50px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
   }
 }
 
