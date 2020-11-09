@@ -247,13 +247,19 @@
         margin-bottom: 30px;
       }
       .list--dots {
-        column-count: 2;
-        column-fill: balance;
+        display: flex;
+        flex-wrap: wrap;
+        //column-count: 2;
+        //column-fill: balance;
         @media screen and (min-width: $screen-md-min) {
-          column-count: 4;
+          //column-count: 4;
         }
         li {
           margin-bottom: 23px;
+          width: 50%;
+          @media screen and (min-width: $screen-md-min) {
+            width: 25%;
+          }
         }
       }
     }
